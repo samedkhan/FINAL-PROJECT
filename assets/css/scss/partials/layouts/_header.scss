@@ -1,0 +1,145 @@
+#header {
+    min-height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0px;
+    z-index: 100;
+    transition: all 0.5s ease-in;
+
+    .navigation-bar {
+        padding: 15px 0px;
+        font-family: $primary-font;
+
+        .left-side {
+            float: left;
+        }
+
+        .right-side {
+            padding: 6px;
+            display: flex;
+            justify-content: space-between;
+
+            .nav-menu {
+                margin: 0 auto;
+            }
+
+            .main-menu {
+                display: inline-block;
+                margin: 0px 15px;
+                position: relative;
+
+                &[data-dropdown]::after {
+                    font-family: "Flaticon";
+                    font-size: 12px;
+                    padding-left: 5px;
+                    font-weight: 900;
+                    content: "\f10f";
+                }
+
+                &[data-checked] {
+                    background-color: $hoverBack;
+                    transition: $t-regular;
+
+                    a {
+                        transition: $t-regular;
+                    }
+
+                    &:hover {
+                        background-color: $yellow;
+                        transition: $t-regular;
+
+                        a {
+                            color: $lightgrey;
+                            transition: $t-regular;
+                        }
+                    }
+                }
+
+                &[data-button] {
+
+                    border: 1px solid $hoverBack;
+                    padding: 10px 20px;
+                    border-radius: $br-regular;
+                    transition: $t-regular;
+
+                    &:hover {
+                        background-color: $yellow;
+                        transition: $t-regular;
+
+                        a {
+                            color: $lightgrey;
+                            transition: $t-regular;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .submenu {
+                        visibility: visible;
+                        opacity: 1;
+                        z-index: 1;
+                        transform: translateY(0%);
+                        transition-delay: 0s, 0s, 0.3s;
+                    }
+                }
+
+                a {
+                    font-weight: 900;
+                    color: $blue;
+                    font-size: $hyperlink-text-size;
+                    letter-spacing: $ls-regular;
+                }
+
+                .submenu {
+                    position: absolute;
+                    margin-left: 0px;
+                    width: 200px;
+                    box-shadow: $bs-regular;
+                    background-color: $lightgrey;
+                    border-radius: $br-regular;
+                    padding: 0px;
+                    top: 20px;
+                    opacity: 0;
+                    overflow: hidden;
+                    transform: translateY(-2em);
+                    visibility: hidden;
+                    z-index: -1;
+                    transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+
+                    li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                        padding-right: 0px;
+
+                        a {
+                            display: block;
+                            background: #fff;
+                            color: #3B566E;
+                            padding-left: 20px;
+                            height: 40px;
+                            line-height: 40px;
+                            transition: $t-regular;
+                            position: relative;
+                            font-size: 13px;
+                            border-bottom: 1px solid #f5f5f5;
+
+                            &:hover {
+                                background: $hoverBack;
+                                padding-left: 25px;
+                                border-left: 4px solid $yellow;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .registration {
+                .main-menu {
+                    margin: 0px;
+                }
+            }
+        }
+
+    }
+}

@@ -1,8 +1,10 @@
 //COLORS
 $yellow: #FDA94F;
+$hoverBack: #FFEEE2;
 $blue: #061B40;
 $lightgrey: #F6F6F6;
 $grey: #666666;
+
 
 //FONT-SIZE
 $page-title-size: 55px;
@@ -25,6 +27,18 @@ $add-price-size:16px;
 $add-last-price-size:14px;
 $add-features-size:12px;
 
+//LETTER SPACING
+$ls-regular: 1.1px;
+
+//BORDER RADIUS
+$br-regular: 8px;
+
 //FONTS
 $primary-font: "Arch";
 $additional-font: "OpenSans";
+
+ // BOX-SHADOW
+ $bs-regular: 0 2px 28px 0 $hoverBack;
+
+ //TRANSITION
+ $t-regular: all 0.4s ease 0s;
