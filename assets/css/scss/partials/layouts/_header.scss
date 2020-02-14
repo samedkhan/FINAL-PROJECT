@@ -5,7 +5,7 @@
     left: 0;
     right: 0px;
     z-index: 100;
-    transition: all 0.5s ease-in;
+    transition: $t-regular;
 
     .navigation-bar {
         padding: 15px 0px;
@@ -42,6 +42,7 @@
                     transition: $t-regular;
 
                     a {
+                        color: $yellow;
                         transition: $t-regular;
                     }
 
@@ -62,7 +63,11 @@
                     padding: 10px 20px;
                     border-radius: $br-regular;
                     transition: $t-regular;
-
+                    a{
+                        i{
+                            margin-right:10px;
+                        }
+                    }
                     &:hover {
                         background-color: $yellow;
                         transition: $t-regular;
@@ -91,7 +96,7 @@
                     letter-spacing: $ls-regular;
                 }
 
-                .submenu {
+                .submenu, .zero-submenu {
                     position: absolute;
                     margin-left: 0px;
                     width: 200px;
@@ -101,7 +106,6 @@
                     padding: 0px;
                     top: 20px;
                     opacity: 0;
-                    overflow: hidden;
                     transform: translateY(-2em);
                     visibility: hidden;
                     z-index: -1;
@@ -111,7 +115,7 @@
                         margin-left: 0px;
                         padding-left: 0px;
                         padding-right: 0px;
-
+                        position: relative;
                         a {
                             display: block;
                             background: #fff;
@@ -130,7 +134,30 @@
                                 border-left: 4px solid $yellow;
                             }
                         }
+                        &[data-dropright]::after{
+                            font-family: "Flaticon";
+                            font-size: 12px;
+                            font-weight: 900;
+                            content: "\f111";
+                            position: absolute;
+                            top: 14px;
+                            right: 10px;
+                        }
+                        &:hover{
+                            .zero-submenu {
+                                visibility: visible;
+                                opacity: 1;
+                                z-index: 1;
+                                transform: translateY(0%);
+                                transition-delay: 0s, 0s, 0.3s;
+                            }
+                        }
                     }
+                }
+                .zero-submenu{
+                    overflow: overlay;
+                    left: 205px;
+                    top: 0px;
                 }
             }
 

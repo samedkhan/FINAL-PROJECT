@@ -3,7 +3,7 @@ $yellow: #FDA94F;
 $hoverBack: #FFEEE2;
 $blue: #061B40;
 $lightgrey: #F6F6F6;
-$grey: #666666;
+$grey: #e0d7d7;
 
 
 //FONT-SIZE
@@ -27,8 +27,23 @@ $add-price-size:16px;
 $add-last-price-size:14px;
 $add-features-size:12px;
 
+$footer-list-head: 18px;
+
 //LETTER SPACING
 $ls-regular: 1.1px;
+
+ //MARGIN
+ $mb-10: 0px 0px 10px;
+ $mb-12: 0px 0px 12px;
+ $mb-15: 0px 0px 15px;
+ $mb-20: 0px 0px 20px;
+ $mb-30: 0px 0px 30px;
+ $mb-40: 0px 0px 40px;
+
+ $mt-10: 10px 0px 0px;
+ $mt-20: 20px 0px 0px;
+ $mt-30: 30px 0px 0px;
+ $mt-40: 40px 0px 0px;
 
 //BORDER RADIUS
 $br-regular: 8px;
