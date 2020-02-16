@@ -1,4 +1,43 @@
 @charset "UTF-8";
+.button, #header .navigation-bar .right-side .main-menu[data-button], #intro .contain .nav-tabs .nav-item {
+  border: 1px solid #FFEEE2;
+  border-radius: 8px;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s; }
+
+.button-hover, #header .navigation-bar .right-side .main-menu[data-button]:hover, #intro .contain .tab-content .search-button button {
+  background-color: #FDA94F;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s; }
+  .button-hover a, #header .navigation-bar .right-side .main-menu[data-button]:hover a, #intro .contain .tab-content .search-button button a {
+    color: #F6F6F6;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s; }
+
+.submenu-hover, #header .navigation-bar .right-side .main-menu:hover .submenu, #header .navigation-bar .right-side .main-menu .submenu li:hover .zero-submenu, #header .navigation-bar .right-side .main-menu .zero-submenu li:hover .zero-submenu {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition-delay: 0s, 0s, 0.3s;
+          transition-delay: 0s, 0s, 0.3s; }
+
+.search-tab-content, #intro .contain .tab-content .search-input input, #intro .contain .tab-content .search-select select, #intro .contain .tab-content .search-button button {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 18px;
+  font-family: "OpenSans";
+  border-radius: 8px;
+  border: 2px solid #e0d7d7;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s; }
+
+.search-tab-content-focus, #intro .contain .tab-content .search-input input:focus, #intro .contain .tab-content .search-select select:focus {
+  border: 2px solid #FDA94F;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s; }
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
@@ -87,29 +126,9 @@ a {
               -webkit-transition: all 0.4s ease 0s;
               transition: all 0.4s ease 0s; }
         #header .navigation-bar .right-side .main-menu[data-button] {
-          border: 1px solid #FFEEE2;
-          padding: 10px 20px;
-          border-radius: 8px;
-          -webkit-transition: all 0.4s ease 0s;
-          transition: all 0.4s ease 0s; }
+          padding: 10px 20px; }
           #header .navigation-bar .right-side .main-menu[data-button] a i {
             margin-right: 10px; }
-          #header .navigation-bar .right-side .main-menu[data-button]:hover {
-            background-color: #FDA94F;
-            -webkit-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s; }
-            #header .navigation-bar .right-side .main-menu[data-button]:hover a {
-              color: #F6F6F6;
-              -webkit-transition: all 0.4s ease 0s;
-              transition: all 0.4s ease 0s; }
-        #header .navigation-bar .right-side .main-menu:hover .submenu {
-          visibility: visible;
-          opacity: 1;
-          z-index: 1;
-          -webkit-transform: translateY(0%);
-                  transform: translateY(0%);
-          -webkit-transition-delay: 0s, 0s, 0.3s;
-                  transition-delay: 0s, 0s, 0.3s; }
         #header .navigation-bar .right-side .main-menu a {
           font-weight: 900;
           color: #061B40;
@@ -119,8 +138,8 @@ a {
           position: absolute;
           margin-left: 0px;
           width: 200px;
-          -webkit-box-shadow: 0 2px 28px 0 #FFEEE2;
-                  box-shadow: 0 2px 28px 0 #FFEEE2;
+          -webkit-box-shadow: 6px 8px 19px -1px rgba(0, 0, 0, 0.48);
+                  box-shadow: 6px 8px 19px -1px rgba(0, 0, 0, 0.48);
           background-color: #F6F6F6;
           border-radius: 8px;
           padding: 0px;
@@ -161,16 +180,7 @@ a {
               position: absolute;
               top: 14px;
               right: 10px; }
-            #header .navigation-bar .right-side .main-menu .submenu li:hover .zero-submenu, #header .navigation-bar .right-side .main-menu .zero-submenu li:hover .zero-submenu {
-              visibility: visible;
-              opacity: 1;
-              z-index: 1;
-              -webkit-transform: translateY(0%);
-                      transform: translateY(0%);
-              -webkit-transition-delay: 0s, 0s, 0.3s;
-                      transition-delay: 0s, 0s, 0.3s; }
         #header .navigation-bar .right-side .main-menu .zero-submenu {
-          overflow: overlay;
           left: 205px;
           top: 0px; }
       #header .navigation-bar .right-side .registration .main-menu {
@@ -353,5 +363,45 @@ Creation date: 24/08/2019 12:54
 
 .flaticon-layer:before {
   content: "\f114"; }
+
+#intro {
+  background: url("../img/banner/1.jpg");
+  background-size: cover;
+  padding: 150px 0px 100px;
+  font-family: "Arch"; }
+  #intro .title h1 {
+    font-size: 55px;
+    letter-spacing: 4px;
+    line-height: 70px;
+    font-weight: bold; }
+  #intro .contain {
+    font-family: "OpenSans"; }
+    #intro .contain .nav-tabs .nav-item {
+      display: inline-block;
+      padding: 15px 25px;
+      border-bottom-right-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+      background-color: white; }
+      #intro .contain .nav-tabs .nav-item a {
+        color: #061B40;
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 1.1px; }
+    #intro .contain .nav-tabs .active {
+      background-color: #FDA94F;
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s; }
+      #intro .contain .nav-tabs .active a {
+        color: #F6F6F6;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s; }
+    #intro .contain .tab-content .tab-panel {
+      padding: 40px 20px;
+      background-color: white;
+      border-radius: 8px;
+      border-top-left-radius: 0px; }
+    #intro .contain .tab-content .search-button button {
+      color: white;
+      letter-spacing: 1.1px; }
 
 /*# sourceMappingURL=main.css.map */

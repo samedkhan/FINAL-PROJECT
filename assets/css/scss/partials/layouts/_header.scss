@@ -56,36 +56,21 @@
                         }
                     }
                 }
-
                 &[data-button] {
-
-                    border: 1px solid $hoverBack;
+                    @extend .button;
                     padding: 10px 20px;
-                    border-radius: $br-regular;
-                    transition: $t-regular;
                     a{
                         i{
                             margin-right:10px;
                         }
                     }
                     &:hover {
-                        background-color: $yellow;
-                        transition: $t-regular;
-
-                        a {
-                            color: $lightgrey;
-                            transition: $t-regular;
-                        }
+                       @extend .button-hover;
                     }
                 }
-
                 &:hover {
                     .submenu {
-                        visibility: visible;
-                        opacity: 1;
-                        z-index: 1;
-                        transform: translateY(0%);
-                        transition-delay: 0s, 0s, 0.3s;
+                        @extend .submenu-hover;
                     }
                 }
 
@@ -110,7 +95,7 @@
                     visibility: hidden;
                     z-index: -1;
                     transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
-
+                    
                     li {
                         margin-left: 0px;
                         padding-left: 0px;
@@ -145,17 +130,12 @@
                         }
                         &:hover{
                             .zero-submenu {
-                                visibility: visible;
-                                opacity: 1;
-                                z-index: 1;
-                                transform: translateY(0%);
-                                transition-delay: 0s, 0s, 0.3s;
+                                @extend .submenu-hover;
                             }
                         }
                     }
                 }
                 .zero-submenu{
-                    overflow: overlay;
                     left: 205px;
                     top: 0px;
                 }

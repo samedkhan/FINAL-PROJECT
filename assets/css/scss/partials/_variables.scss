@@ -4,6 +4,7 @@ $hoverBack: #FFEEE2;
 $blue: #061B40;
 $lightgrey: #F6F6F6;
 $grey: #e0d7d7;
+$white: white;
 
 
 //FONT-SIZE
@@ -31,6 +32,7 @@ $footer-list-head: 18px;
 
 //LETTER SPACING
 $ls-regular: 1.1px;
+$ls-page-title: 4px;
 
  //MARGIN
  $mb-10: 0px 0px 10px;
@@ -53,7 +55,7 @@ $primary-font: "Arch";
 $additional-font: "OpenSans";
 
  // BOX-SHADOW
- $bs-regular: 0 2px 28px 0 $hoverBack;
+ $bs-regular: 6px 8px 19px -1px rgba(0,0,0,0.48);
 
  //TRANSITION
  $t-regular: all 0.4s ease 0s;

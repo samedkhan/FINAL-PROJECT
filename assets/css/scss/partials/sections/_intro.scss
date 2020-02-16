@@ -1,0 +1,74 @@
+#intro{
+    background: url('../img/banner/1.jpg');
+    background-size: cover;
+    padding:150px 0px 100px;
+    font-family: $primary-font;
+    .title{
+        h1{
+            font-size: $page-title-size;
+            letter-spacing: $ls-page-title;
+            line-height: 70px;
+            font-weight: bold;
+        }
+    }
+    .contain{
+        font-family: $additional-font;
+        .nav-tabs{
+            .nav-item{
+                display: inline-block;
+                @extend .button;
+                padding: 15px 25px;
+                border-bottom-right-radius: 0px !important;
+                border-bottom-left-radius: 0px !important;
+                background-color: $white;
+                a{
+                    color:$blue;
+                    font-size:18px;
+                    font-weight: 900;
+                    letter-spacing: $ls-regular;
+                }
+            }
+            .active{
+                background-color: $yellow;
+                transition: $t-regular;
+
+                a {
+                    color: $lightgrey;
+                    transition: $t-regular;
+                }
+            }
+        }
+        .tab-content{
+            .tab-panel{
+                padding: 40px 20px;
+                background-color: $white;
+                border-radius: $br-regular;
+                border-top-left-radius: 0px;
+            }
+            .search-input{
+                input{
+                    @extend .search-tab-content;
+                    &:focus{
+                        @extend .search-tab-content-focus;
+                    }
+                }
+            }
+            .search-select{
+                select{
+                    @extend .search-tab-content;
+                    &:focus{
+                        @extend .search-tab-content-focus;
+                    }
+                }
+            }
+            .search-button{
+                button{
+                    @extend .search-tab-content;
+                    @extend .button-hover;
+                    color:$white;
+                    letter-spacing: $ls-regular;
+                }
+            }
+        }
+    }
+}

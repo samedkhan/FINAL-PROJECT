@@ -1,0 +1,39 @@
+@import './variables';
+
+.button{
+    border: 1px solid $hoverBack;
+    border-radius: $br-regular;
+    transition: $t-regular;
+}
+
+.button-hover{
+    background-color: $yellow;
+    transition: $t-regular;
+    a {
+        color: $lightgrey;
+        transition: $t-regular;
+    }
+}
+
+.submenu-hover{
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    transition-delay: 0s, 0s, 0.3s;
+}
+
+.search-tab-content{
+    width: 100%;
+    padding: 10px 5px;
+    font-size: $footer-list-head;
+    font-family: $additional-font;
+    border-radius: $br-regular;
+    border: 2px solid $grey;
+    transition: $t-regular;
+}
+
+.search-tab-content-focus{
+    border: 2px solid $yellow;
+    transition: $t-regular;
+}
