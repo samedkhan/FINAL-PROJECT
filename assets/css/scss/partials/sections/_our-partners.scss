@@ -1,0 +1,10 @@
+#partners{
+    @extend .section-title;
+    .title{
+        justify-content: center;
+    }
+    .partner-logo{
+        display:flex;
+        justify-content: center;
+    }
+}

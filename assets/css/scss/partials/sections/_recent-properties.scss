@@ -1,0 +1,145 @@
+#recent-properties{
+    @extend .section-title;
+    .contain-item{
+        border-radius: $br-regular;
+    background-color: $lightgrey;
+    position: relative;
+    overflow: hidden;
+    &:hover{
+        .item-image{
+            img{
+                transform: scale(1.1);
+                transition: $t-regular;
+            }
+        }
+        .hover-overlay{
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
+            transform: translateY(-100%);
+            transition-delay: 0s, 0s, 0.3s;
+            transition: $t-regular;
+        }
+    }
+    .item-image{
+        overflow: hidden;
+        img{
+            border-top-left-radius: $br-regular;
+            border-top-right-radius: $br-regular;
+            width: 100%;
+            transition: $t-regular;
+        }
+    }
+    .item-property{
+        padding: 10px 15px;
+        font-family: $additional-font;
+        i{
+            font-size: $add-author-text-size;
+            margin-right: 3px;
+            color:$yellow;
+        }
+        .author{
+            font-size: $add-author-text-size;
+            padding: 10px 0px;
+        }
+        .property-name{
+            font-family: $primary-font;
+            font-size: $add-title-size;
+            letter-spacing: $ls-section-title;
+            padding: 15px 0px;
+
+            a{
+                text-decoration: none;
+                color:$blue;
+                transition: $t-regular;
+                &:hover{
+                    color:$yellow;
+                    transition: $t-regular;
+                }
+            }
+        }
+        .property-price{
+            font-family: $primary-font;
+            font-size: $add-price-size;
+            padding: 20px 0px;
+            .previous-price{
+                font-size: $add-last-price-size;
+                    color: $grey;
+                    text-decoration: line-through;
+            }
+        }
+        .additional-properties{
+            border-top: 1px solid $grey;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0px 10px;
+            .add-prop-item{
+              
+                .num{
+                    color: $blue;
+                    font-size: $add-features-size;
+                }
+                span{
+                    font-size:  $add-author-text-size;
+                }
+
+            }
+
+        }
+        .add-sort{
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            border-radius: 8px;
+            padding: 5px 10px;
+            background-color: white;
+            .name{
+                font-family: $additional-font;
+                color: $yellow;
+                letter-spacing: $ls-section-title;
+                font-weight: bold;
+            }
+        }
+
+    }
+    .hover-overlay{
+        width:100%;
+        position: absolute;
+        bottom:-30px;
+        left:0;
+        background-color: $lightgrey;
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1;
+        transition: $t-regular;
+        transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+        ul{
+            width:100%;
+            display: flex;
+            justify-content: flex-end;
+            li{
+                margin-right: 10px;
+                padding: 10px;
+                background-color: $hoverBack;
+                border-radius: $br-regular;
+                a{
+                    color: $yellow;
+                }
+                &:hover{
+                    background-color: $yellow;
+                    transition: $t-regular;
+                    i{
+                        color:$white;
+                        transition: $t-regular;
+                    }
+                    a{
+                        color:$white;
+                        transition: $t-regular;
+                    }
+                }
+               
+            }
+        }
+    }
+    }
+}

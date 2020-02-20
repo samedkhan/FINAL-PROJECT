@@ -37,3 +37,28 @@
     border: 2px solid $yellow;
     transition: $t-regular;
 }
+
+.section-title{
+    padding: 50px 0px;
+    .title{
+        display:flex;
+        justify-content: space-between;
+        a{
+            color: $yellow;
+            font-family: $additional-font;
+            font-size: $hyperlink-text-size;
+            font-weight: bold;
+            transition: $t-regular;
+            &:hover{
+                color: $blue;
+                transition: $t-regular;
+            }
+        }
+        h1{
+            font-size:$section-title-size;
+            font-family: $primary-font;
+            letter-spacing: $ls-section-title;
+            font-weight: bold;
+        }
+    }
+}
