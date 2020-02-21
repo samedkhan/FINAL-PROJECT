@@ -1,5 +1,5 @@
 #header {
-    min-height: 70px;
+    
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@
     transition: $t-regular;
 
     .navigation-bar {
-        padding: 15px 0px;
+        padding: 5px 0px;
         font-family: $primary-font;
 
         .left-side {

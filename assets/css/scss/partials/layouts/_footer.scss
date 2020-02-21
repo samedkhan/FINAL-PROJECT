@@ -60,8 +60,9 @@
                         position: relative;
                         color: $blue;
                         &:hover {
-                            padding-left: 25px;
+                            padding-left: 10px;
                             border-left: 4px solid $yellow;
+                            transition: $t-regular;
                         }
                     }
                 }

@@ -103,16 +103,19 @@
 
     }
     .hover-overlay{
+        padding: 10px 0px;
+        border-top: 1px solid $grey;
         width:100%;
         position: absolute;
-        bottom:-30px;
+        bottom:-61px;
         left:0;
+        right:0;
         background-color: $lightgrey;
         opacity: 0;
         visibility: hidden;
         z-index: -1;
-        transition: $t-regular;
-        transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+        transition-delay: 0s, 0s, 0.4s;
+        transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s;
         ul{
             width:100%;
             display: flex;
