@@ -23,7 +23,7 @@
   -webkit-transition-delay: 0s, 0s, 0.3s;
           transition-delay: 0s, 0s, 0.3s; }
 
-.search-tab-content, #intro .contain-stack .tab-content .search-input input, #intro .contain-stack .tab-content .search-select select, #intro .contain-stack .tab-content .search-button button {
+.search-tab-content, #intro .contain-stack .tab-content .search-select select, #intro .contain-stack .tab-content .search-button button {
   width: 100%;
   padding: 10px 5px;
   font-size: 18px;
@@ -33,36 +33,46 @@
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
 
-.search-tab-content-focus, #intro .contain-stack .tab-content .search-input input:focus, #intro .contain-stack .tab-content .search-select select:focus {
+.search-tab-content-focus, #intro .contain-stack .tab-content .search-select select:focus {
   border: 2px solid #FDA94F;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
 
-.section-title, #partners, #recent-properties {
-  padding: 50px 0px; }
-  .section-title .title, #partners .title, #recent-properties .title {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
-    .section-title .title a, #partners .title a, #recent-properties .title a {
-      color: #FDA94F;
-      font-family: "OpenSans";
-      font-size: 15px;
-      font-weight: bold;
+.intro-section, #intro, #propdetails-intro {
+  padding: 150px 0px 100px;
+  font-family: "Arch"; }
+  .intro-section .title h1, #intro .title h1, #propdetails-intro .title h1 {
+    font-size: 55px;
+    letter-spacing: 4px;
+    line-height: 70px;
+    font-weight: bold; }
+
+.section-title .title, #partners .title, #recent-properties .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .section-title .title a, #partners .title a, #recent-properties .title a {
+    color: #FDA94F;
+    font-family: "OpenSans";
+    font-size: 15px;
+    font-weight: bold;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s; }
+    .section-title .title a:hover, #partners .title a:hover, #recent-properties .title a:hover {
+      color: #061B40;
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-      .section-title .title a:hover, #partners .title a:hover, #recent-properties .title a:hover {
-        color: #061B40;
-        -webkit-transition: all 0.4s ease 0s;
-        transition: all 0.4s ease 0s; }
-    .section-title .title h1, #partners .title h1, #recent-properties .title h1 {
-      font-size: 30px;
-      font-family: "Arch";
-      letter-spacing: 0.5px;
-      font-weight: bold; }
+  .section-title .title h1, #partners .title h1, #recent-properties .title h1 {
+    font-size: 30px;
+    font-family: "Arch";
+    letter-spacing: 0.5px;
+    font-weight: bold; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -213,7 +223,7 @@ a {
 
 #footer {
   background-color: #e0d7d7;
-  padding: 10px 0px; }
+  padding: 30px 0px; }
   #footer .footer-top {
     padding-bottom: 10px;
     border-bottom: 1px solid #F6F6F6;
@@ -392,14 +402,7 @@ Creation date: 24/08/2019 12:54
 
 #intro {
   background: url("../img/banner/1.jpg");
-  background-size: cover;
-  padding: 150px 0px 100px;
-  font-family: "Arch"; }
-  #intro .title h1 {
-    font-size: 55px;
-    letter-spacing: 4px;
-    line-height: 70px;
-    font-weight: bold; }
+  background-size: cover; }
   #intro .contain-stack {
     font-family: "OpenSans"; }
     #intro .contain-stack .nav-tabs .nav-item {
@@ -426,150 +429,319 @@ Creation date: 24/08/2019 12:54
       background-color: white;
       border-radius: 8px;
       border-top-left-radius: 0px; }
+    #intro .contain-stack .tab-content .search-input input {
+      width: 100%;
+      padding: 10px 5px;
+      font-size: 18px;
+      font-family: "OpenSans";
+      border-radius: 8px;
+      border: 2px solid #e0d7d7;
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s; }
+      #intro .contain-stack .tab-content .search-input input:focus {
+        border: 2px solid #FDA94F;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s; }
     #intro .contain-stack .tab-content .search-button button {
       color: white;
       letter-spacing: 1.1px; }
 
-#partners .title {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-#partners .partner-logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+#partners {
+  padding: 30px 0px; }
+  #partners .title {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  #partners .contain-stack .partners-logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    #partners .contain-stack .partners-logo .item {
+      padding: 0px 100px; }
+      #partners .contain-stack .partners-logo .item img {
+        width: 100%; }
+    #partners .contain-stack .partners-logo .owl-nav span {
+      font-size: 35px;
+      padding: 0px 20px;
+      color: #FDA94F;
+      font-weight: bold; }
 
-#recent-properties .contain-item {
-  border-radius: 8px;
-  background-color: #F6F6F6;
-  position: relative;
-  overflow: hidden; }
-  #recent-properties .contain-item:hover .item-image img {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-    -webkit-transition: all 0.4s ease 0s;
-    transition: all 0.4s ease 0s; }
-  #recent-properties .contain-item:hover .hover-overlay {
-    visibility: visible;
-    opacity: 1;
-    z-index: 1;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-    -webkit-transition-delay: 0s, 0s, 0.3s;
-            transition-delay: 0s, 0s, 0.3s;
-    -webkit-transition: all 0.4s ease 0s;
-    transition: all 0.4s ease 0s; }
-  #recent-properties .contain-item .item-image {
+#recent-properties {
+  padding: 30px 0px; }
+  #recent-properties .contain-item {
+    border-radius: 8px;
+    background-color: #F6F6F6;
+    position: relative;
     overflow: hidden; }
-    #recent-properties .contain-item .item-image img {
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      width: 100%;
+    #recent-properties .contain-item:hover .item-image img {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-  #recent-properties .contain-item .item-property {
-    padding: 10px 15px;
-    font-family: "OpenSans"; }
-    #recent-properties .contain-item .item-property i {
-      font-size: 12px;
-      margin-right: 3px;
-      color: #FDA94F; }
-    #recent-properties .contain-item .item-property .author {
-      font-size: 12px;
-      padding: 10px 0px; }
-    #recent-properties .contain-item .item-property .property-name {
-      font-family: "Arch";
-      font-size: 20px;
-      letter-spacing: 0.5px;
-      padding: 15px 0px; }
-      #recent-properties .contain-item .item-property .property-name a {
-        text-decoration: none;
-        color: #061B40;
+    #recent-properties .contain-item:hover .hover-overlay {
+      visibility: visible;
+      opacity: 1;
+      z-index: 1;
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+      -webkit-transition-delay: 0s, 0s, 0.3s;
+              transition-delay: 0s, 0s, 0.3s;
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s; }
+    #recent-properties .contain-item .item-image {
+      overflow: hidden; }
+      #recent-properties .contain-item .item-image img {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        width: 100%;
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s; }
-        #recent-properties .contain-item .item-property .property-name a:hover {
+    #recent-properties .contain-item .item-property {
+      padding: 10px 15px;
+      font-family: "OpenSans"; }
+      #recent-properties .contain-item .item-property i {
+        font-size: 14px;
+        margin-right: 3px;
+        color: #FDA94F; }
+      #recent-properties .contain-item .item-property .author {
+        font-size: 12px;
+        padding: 10px 0px; }
+      #recent-properties .contain-item .item-property .property-name {
+        font-family: "Arch";
+        font-size: 20px;
+        letter-spacing: 0.5px;
+        padding: 15px 0px; }
+        #recent-properties .contain-item .item-property .property-name a {
+          text-decoration: none;
+          color: #061B40;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s; }
+          #recent-properties .contain-item .item-property .property-name a:hover {
+            color: #FDA94F;
+            -webkit-transition: all 0.4s ease 0s;
+            transition: all 0.4s ease 0s; }
+      #recent-properties .contain-item .item-property .property-price {
+        font-family: "Arch";
+        font-size: 16px;
+        padding: 20px 0px; }
+        #recent-properties .contain-item .item-property .property-price .previous-price {
+          font-size: 12px;
+          color: #e0d7d7;
+          text-decoration: line-through; }
+      #recent-properties .contain-item .item-property .additional-properties {
+        border-top: 1px solid #e0d7d7;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        padding: 15px 0px 10px; }
+        #recent-properties .contain-item .item-property .additional-properties .add-prop-item .num {
+          color: #061B40;
+          font-size: 14px; }
+        #recent-properties .contain-item .item-property .additional-properties .add-prop-item span {
+          font-size: 12px; }
+      #recent-properties .contain-item .item-property .add-sort {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        border-radius: 8px;
+        padding: 5px 10px;
+        background-color: white; }
+        #recent-properties .contain-item .item-property .add-sort .name {
+          font-family: "OpenSans";
+          color: #FDA94F;
+          letter-spacing: 0.5px;
+          font-weight: bold; }
+    #recent-properties .contain-item .hover-overlay {
+      padding: 10px 0px;
+      border-top: 1px solid #e0d7d7;
+      width: 100%;
+      position: absolute;
+      bottom: -61px;
+      left: 0;
+      right: 0;
+      background-color: #F6F6F6;
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1;
+      -webkit-transition-delay: 0s, 0s, 0.4s;
+              transition-delay: 0s, 0s, 0.4s;
+      -webkit-transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s;
+      transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s; }
+      #recent-properties .contain-item .hover-overlay ul {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end; }
+        #recent-properties .contain-item .hover-overlay ul li {
+          margin-right: 10px;
+          padding: 10px;
+          background-color: #FFEEE2;
+          border-radius: 8px; }
+          #recent-properties .contain-item .hover-overlay ul li a {
+            color: #FDA94F; }
+          #recent-properties .contain-item .hover-overlay ul li:hover {
+            background-color: #FDA94F;
+            -webkit-transition: all 0.4s ease 0s;
+            transition: all 0.4s ease 0s; }
+            #recent-properties .contain-item .hover-overlay ul li:hover i {
+              color: white;
+              -webkit-transition: all 0.4s ease 0s;
+              transition: all 0.4s ease 0s; }
+            #recent-properties .contain-item .hover-overlay ul li:hover a {
+              color: white;
+              -webkit-transition: all 0.4s ease 0s;
+              transition: all 0.4s ease 0s; }
+
+#propdetails-intro {
+  background: url("../img/banner/4.png");
+  background-size: cover; }
+  #propdetails-intro .breadcumb-text h3 {
+    color: white;
+    font-family: "OpenSans";
+    letter-spacing: 1.1px; }
+
+#property-detail {
+  padding: 30px 0px; }
+  #property-detail .property-photo {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden; }
+    #property-detail .property-photo img {
+      width: 100%; }
+    #property-detail .property-photo .owl-nav {
+      position: absolute;
+      bottom: 0;
+      right: 0; }
+      #property-detail .property-photo .owl-nav button span {
+        font-size: 60px;
+        font-weight: bold;
+        display: inline-block;
+        color: white;
+        -webkit-box-shadow: 14px 12px 20px -10px rgba(0, 0, 0, 0.75);
+                box-shadow: 14px 12px 20px -10px rgba(0, 0, 0, 0.75);
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        margin: 20px 25px; }
+        #property-detail .property-photo .owl-nav button span:hover {
           color: #FDA94F;
           -webkit-transition: all 0.4s ease 0s;
           transition: all 0.4s ease 0s; }
-    #recent-properties .contain-item .item-property .property-price {
-      font-family: "Arch";
-      font-size: 16px;
-      padding: 20px 0px; }
-      #recent-properties .contain-item .item-property .property-price .previous-price {
-        font-size: 12px;
+  #property-detail .property-information {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 60px; }
+    #property-detail .property-information .property-price {
+      font-family: "OpenSans"; }
+      #property-detail .property-information .property-price .present-price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #FDA94F;
+        margin-bottom: 20px; }
+      #property-detail .property-information .property-price .previous-price {
         color: #e0d7d7;
         text-decoration: line-through; }
-    #recent-properties .contain-item .item-property .additional-properties {
-      border-top: 1px solid #e0d7d7;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
-      padding: 15px 0px 10px; }
-      #recent-properties .contain-item .item-property .additional-properties .add-prop-item .num {
-        color: #061B40;
-        font-size: 14px; }
-      #recent-properties .contain-item .item-property .additional-properties .add-prop-item span {
-        font-size: 12px; }
-    #recent-properties .contain-item .item-property .add-sort {
-      position: absolute;
-      top: 2px;
-      right: 2px;
-      border-radius: 8px;
-      padding: 5px 10px;
-      background-color: white; }
-      #recent-properties .contain-item .item-property .add-sort .name {
-        font-family: "OpenSans";
-        color: #FDA94F;
-        letter-spacing: 0.5px;
-        font-weight: bold; }
-  #recent-properties .contain-item .hover-overlay {
-    padding: 10px 0px;
-    border-top: 1px solid #e0d7d7;
-    width: 100%;
-    position: absolute;
-    bottom: -61px;
-    left: 0;
-    right: 0;
-    background-color: #F6F6F6;
-    opacity: 0;
-    visibility: hidden;
-    z-index: -1;
-    -webkit-transition-delay: 0s, 0s, 0.4s;
-            transition-delay: 0s, 0s, 0.4s;
-    -webkit-transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s;
-    transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s; }
-    #recent-properties .contain-item .hover-overlay ul {
-      width: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: end;
-          -ms-flex-pack: end;
-              justify-content: flex-end; }
-      #recent-properties .contain-item .hover-overlay ul li {
-        margin-right: 10px;
+      #property-detail .property-information .property-price span {
+        display: block; }
+    #property-detail .property-information .property-name h1 {
+      font-family: "Arch";
+      font-size: 35px;
+      letter-spacing: 1.1px;
+      font-weight: bold; }
+  #property-detail .property-owner {
+    border: 1px solid #e0d7d7;
+    border-radius: 8px; }
+    #property-detail .property-owner .owner-information {
+      padding: 30px;
+      text-align: center;
+      border-bottom: 1px solid #e0d7d7; }
+      #property-detail .property-owner .owner-information .owner-photo {
+        display: inline-block;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1px solid #e0d7d7;
         padding: 10px;
-        background-color: #FFEEE2;
-        border-radius: 8px; }
-        #recent-properties .contain-item .hover-overlay ul li a {
-          color: #FDA94F; }
-        #recent-properties .contain-item .hover-overlay ul li:hover {
-          background-color: #FDA94F;
-          -webkit-transition: all 0.4s ease 0s;
-          transition: all 0.4s ease 0s; }
-          #recent-properties .contain-item .hover-overlay ul li:hover i {
-            color: white;
-            -webkit-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s; }
-          #recent-properties .contain-item .hover-overlay ul li:hover a {
-            color: white;
-            -webkit-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s; }
+        overflow: hidden; }
+        #property-detail .property-owner .owner-information .owner-photo img {
+          border-radius: 8px;
+          overflow: hidden; }
+      #property-detail .property-owner .owner-information .owner-name .name {
+        font-family: "Arch";
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #FDA94F;
+        letter-spacing: 1.1px;
+        font-weight: bold; }
+      #property-detail .property-owner .owner-information .owner-name .position {
+        font-family: "OpenSans";
+        font-size: 12px;
+        color: gray; }
+    #property-detail .property-owner .owner-contact {
+      padding: 30px; }
+      #property-detail .property-owner .owner-contact .title {
+        font-family: "Arch";
+        margin-bottom: 10px;
+        font-weight: bold;
+        letter-spacing: 1.1px;
+        font-size: 22px; }
+      #property-detail .property-owner .owner-contact .contain li {
+        padding: 10px 0px;
+        font-family: "Arch";
+        font-size: 18px; }
+        #property-detail .property-owner .owner-contact .contain li i {
+          color: #FDA94F;
+          font-size: 16px; }
+        #property-detail .property-owner .owner-contact .contain li .info-text {
+          color: gray;
+          margin-top: 5px; }
+          #property-detail .property-owner .owner-contact .contain li .info-text span {
+            font-family: "OpenSans";
+            font-size: 12px; }
+  #property-detail .info-item {
+    border-bottom: 1px solid #FDA94F;
+    width: 100%; }
+    #property-detail .info-item .title {
+      font-family: "Arch"; }
+      #property-detail .info-item .title h3 {
+        font-size: 20px;
+        letter-spacing: all 0.4s ease 0s;
+        margin-bottom: 10px;
+        font-weight: bold; }
+    #property-detail .info-item .contain {
+      font-family: "OpenSans";
+      font-size: 14px;
+      padding: 10px 0px 20px; }
+      #property-detail .info-item .contain i {
+        color: #FDA94F;
+        font-size: 20px; }
+      #property-detail .info-item .contain span {
+        font-size: 16px;
+        color: gray; }
+      #property-detail .info-item .contain p {
+        text-align: justify;
+        color: gray;
+        line-height: 25px; }
+      #property-detail .info-item .contain a {
+        color: #FDA94F; }
+      #property-detail .info-item .contain img {
+        width: 100%; }
+      #property-detail .info-item .contain ul li {
+        padding: 20px 0px; }
+        #property-detail .info-item .contain ul li span {
+          margin-left: 20px; }
 
 /*# sourceMappingURL=main.css.map */

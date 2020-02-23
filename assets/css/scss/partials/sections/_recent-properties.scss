@@ -1,5 +1,6 @@
 #recent-properties{
     @extend .section-title;
+    @include section-prop;
     .contain-item{
         border-radius: $br-regular;
     background-color: $lightgrey;
@@ -34,7 +35,7 @@
         padding: 10px 15px;
         font-family: $additional-font;
         i{
-            font-size: $add-author-text-size;
+            font-size: $add-features-size;
             margin-right: 3px;
             color:$yellow;
         }

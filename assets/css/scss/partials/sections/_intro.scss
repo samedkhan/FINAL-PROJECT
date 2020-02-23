@@ -1,16 +1,8 @@
 #intro{
     background: url('../img/banner/1.jpg');
     background-size: cover;
-    padding:150px 0px 100px;
-    font-family: $primary-font;
-    .title{
-        h1{
-            font-size: $page-title-size;
-            letter-spacing: $ls-page-title;
-            line-height: 70px;
-            font-weight: bold;
-        }
-    }
+    @extend .intro-section;
+    
     .contain-stack{
         font-family: $additional-font;
         .nav-tabs{
@@ -47,9 +39,16 @@
             }
             .search-input{
                 input{
-                    @extend .search-tab-content;
+                    width: 100%;
+                    padding: 10px 5px;
+                    font-size: $footer-list-head;
+                    font-family: $additional-font;
+                    border-radius: $br-regular;
+                    border: 2px solid $grey;
+                    transition: $t-regular;
                     &:focus{
-                        @extend .search-tab-content-focus;
+                        border: 2px solid $yellow;
+                        transition: $t-regular;
                     }
                 }
             }
