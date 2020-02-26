@@ -1,15 +1,21 @@
 
 
-#propdetails-intro{
+#propdetails-intro, #prop-search-intro{
     @extend .intro-section;
     background: url('../img/banner/4.png');
     background-size: cover;
     .breadcumb-text{
         // margin-top: 100px;
-        h3{
+        a, span{
             color: $white;
             font-family: $additional-font;
             letter-spacing: $ls-regular;
+        }
+        a{
+            &:hover{
+                color: $yellow;
+                transition: $t-regular;
+            }
         }
 
     }
@@ -73,6 +79,16 @@
                 font-size: 35px;
                 letter-spacing: $ls-regular;
                 font-weight: bold;
+            }
+            .property-address{
+                padding: 10px 0px;
+                float: right;
+                h3{
+                    margin-left: 10px;
+                    color:$yellow;
+                    font-family: $additional-font;
+                    font-weight: bold;
+                }
             }
         }
     }
@@ -185,6 +201,11 @@
                     margin-left: 20px;
                 }
             }
+        }
+        #map{
+            width: 100%; 
+        height: 400px; 
+        background-color: grey; 
         }
        }
     }

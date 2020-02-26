@@ -29,7 +29,6 @@ $(document).ready(function(){
         $(".property-photo").owlCarousel({
             loop:true,
             items: 1,
-            loop: true,
             nav:true,
             smartSpeed: 500,
             dots: false
@@ -41,10 +40,14 @@ $(document).ready(function(){
             loop: true,
             nav:true,
             smartSpeed: 500,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
             dots: false
         });
         // END of Carousels
 
+        
         // //#PARALLAX DIGIT counterup 
         // if($('.content-parallax strong').length>0){
         //     let digits = $('.content-parallax strong');

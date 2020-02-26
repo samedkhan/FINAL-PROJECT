@@ -1,4 +1,4 @@
-#recent-properties{
+#recent-properties, #owner-properties, #finded-properties{
     @extend .section-title;
     @include section-prop;
     .contain-item{
