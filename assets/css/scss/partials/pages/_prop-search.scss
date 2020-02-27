@@ -1,0 +1,46 @@
+//All Properties of  #prop-search-intro section were writed on page - _prop-details.scss
+
+// Some properties of #finded-properties section were write on section _recent-properties.scss
+#finded-properties{
+    .title{
+        padding: 20px 0px;
+        font-family: $additional-font;
+        .sum-found-property{
+            font-size: 18px;
+            .sum{
+                color: $yellow;
+                font-weight: bold;
+            }
+        }
+        select{
+            font-family: $additional-font;
+            @extend .search-tab-content;
+            padding: 5px 20px;
+            &:focus{
+                @extend .search-tab-content-focus;
+            }
+        }
+    }
+    .filter-panel{
+        .title{
+            justify-content: flex-start;
+            align-items: center;
+            span{
+                font-size: 18px;
+                margin-left: 5px;
+            }
+        }
+        .filter-contain{
+            padding: 20px 10px;
+            border: 1px solid $grey;
+            border-radius: $br-regular;
+            .rent-sale-buttons{
+                a{
+                    @extend .button;
+                }
+            }
+
+        }
+    }
+
+}

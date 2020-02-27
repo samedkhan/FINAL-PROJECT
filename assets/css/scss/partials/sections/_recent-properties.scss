@@ -2,6 +2,8 @@
     @extend .section-title;
     @include section-prop;
     .contain-item{
+        box-shadow:  $bs-regular;
+        border:1px solid $grey;
         border-radius: $br-regular;
     background-color: $lightgrey;
     position: relative;
@@ -39,8 +41,11 @@
             margin-right: 3px;
             color:$yellow;
         }
-        .author{
+        .author, .date{
             font-size: $add-author-text-size;
+            
+        }
+        .author{
             padding: 10px 0px;
         }
         .property-name{
