@@ -22,6 +22,7 @@
         }
     }
     .filter-panel{
+        font-family: $additional-font;
         .title{
             justify-content: flex-start;
             align-items: center;
@@ -31,12 +32,66 @@
             }
         }
         .filter-contain{
-            padding: 20px 10px;
+
+            padding: 20px;
             border: 1px solid $grey;
             border-radius: $br-regular;
+            div{
+                margin-bottom: 30px;
+            }
             .rent-sale-buttons{
+                display: flex;
+                justify-content: space-between;
                 a{
                     @extend .button;
+                    background-color: $hoverBack;
+                    transition: $t-regular;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 18px;
+                    color:$yellow;
+                    &:hover{
+                        background-color: $yellow;
+                        transition: $t-regular;
+                        color:$white;
+                    }
+                }
+            }
+            .search-select{
+
+               select{
+                @extend .search-tab-content;
+
+                padding: 5px;
+                    &:focus{
+                        @extend .search-tab-content-focus;
+                    }
+               }
+            }
+            .search-range{
+                text-align: center;
+                h3{
+                    font-weight: bold;
+                }
+            }
+
+            button{
+                font-family: $additional-font;
+                font-weight: bold;
+                @extend .button;
+                display: block;
+                margin-top:50px;
+                width:100%;
+                background-color: $hoverBack;
+                transition: $t-regular;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 18px;
+                color:$yellow;
+                &:hover{
+                    background-color: $yellow;
+                    transition: $t-regular;
+                    color:$white;
                 }
             }
 
