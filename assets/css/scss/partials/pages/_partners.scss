@@ -1,0 +1,46 @@
+//All Properties of  #partners-intro section were writed on page - _prop-details.scss
+
+// Some properties of #partners section were write on section _recent-properties.scss
+#partners{
+    .contain-item{
+        
+        .item-image{
+            padding:10px;
+            img{
+                border-radius: $br-regular !important;
+                width: 100% !important;
+            }
+        }
+        .item-property{
+            padding:0px 10px !important;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .property-name{
+                font-size: $footer-list-head;
+                padding: 5px 0px !important;
+                font-weight: bold;
+            }
+        }
+        .adds-count{
+            font-family: $additional-font;
+                font-size:12px;
+                font-weight: bold;
+                margin: 5px 0px;
+                span{
+                    color:$yellow;
+                    padding: 5px 15px;
+                    @extend .button;
+                    display: block;
+                    border-radius: 5px;
+                    transition: $t-regular;
+                    background-color: $hoverBack;
+                    &:hover{
+                       @extend .button-hover;
+                       color: $white;
+                       transition: $t-regular;
+                    }
+                }
+        }
+    }
+}
