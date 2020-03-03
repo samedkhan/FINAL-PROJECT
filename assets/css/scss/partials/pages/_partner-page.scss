@@ -2,7 +2,7 @@
 
 // Some properties of #partner-page section were write on sections _prop-search.scss and _recent-properties.scss
 
-#partner-page {
+#partner-page, #property-detail {
     .title {
         display: flex;
         align-items: center;
@@ -41,12 +41,32 @@
                     margin: 10px 0px;
                 }
             }
-
+            .partner-adds{
+                font-family: $additional-font;
+                font-size:14px;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                span{
+                    color:$yellow;
+                    padding: 10px 20px;
+                    @extend .button;
+                    display: inline-block;
+                    border-radius: 8px;
+                    transition: $t-regular;
+                    background-color: $hoverBack;
+                    &:hover{
+                       @extend .button-hover;
+                       color: $white;
+                       transition: $t-regular;
+                    }
+                }
+            }
             .about {
                 text-align: justify;
                 line-height: 20px;
                 font-family: $additional-font;
-                margin-bottom: 20px;
+                margin: 20px 0px;
 
                 p {
                     font-size: $add-features-size;
