@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.button, #header .navigation-bar .right-side .main-menu[data-button], #intro .contain-stack .nav-tabs .nav-item, #property-detail .property-owner .owner-information .owner-adds span, #finded-properties .filter-panel .filter-contain .rent-sale-buttons a, #finded-properties .filter-panel .filter-contain button, #partners .contain-item .adds-count span {
+.button, #header .navigation-bar .right-side .main-menu[data-button], #intro .contain-stack .nav-tabs .nav-item, #property-detail .property-owner .owner-information .owner-adds span, #finded-properties .filter-panel .filter-contain .rent-sale-buttons a, #partner-page .filter-panel .filter-contain .rent-sale-buttons a, #finded-properties .filter-panel .filter-contain button, #partner-page .filter-panel .filter-contain button, #partners .contain-item .adds-count span, #partner-page .adds-panel .title .rent-sale-buttons a {
   border: 1px solid #FFEEE2;
   border-radius: 8px;
   -webkit-transition: all 0.4s ease 0s;
@@ -23,7 +23,7 @@
   -webkit-transition-delay: 0s, 0s, 0.3s;
           transition-delay: 0s, 0s, 0.3s; }
 
-.search-tab-content, #intro .contain-stack .tab-content .search-select select, #intro .contain-stack .tab-content .search-button button, #finded-properties .title select, #finded-properties .filter-panel .filter-contain .search-select select {
+.search-tab-content, #intro .contain-stack .tab-content .search-select select, #intro .contain-stack .tab-content .search-button button, #finded-properties .title select, #partner-page .title select, #finded-properties .filter-panel .filter-contain .search-select select, #partner-page .filter-panel .filter-contain .search-select select {
   width: 100%;
   padding: 10px 5px;
   font-size: 18px;
@@ -33,15 +33,15 @@
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
 
-.search-tab-content-focus, #intro .contain-stack .tab-content .search-select select:focus, #finded-properties .title select:focus, #finded-properties .filter-panel .filter-contain .search-select select:focus {
+.search-tab-content-focus, #intro .contain-stack .tab-content .search-select select:focus, #finded-properties .title select:focus, #partner-page .title select:focus, #finded-properties .filter-panel .filter-contain .search-select select:focus, #partner-page .filter-panel .filter-contain .search-select select:focus {
   border: 2px solid #FDA94F;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
 
-.intro-section, #intro, #propdetails-intro, #prop-search-intro, #partners-intro {
+.intro-section, #intro, #propdetails-intro, #prop-search-intro, #partners-intro, #partner-page-intro {
   padding: 150px 0px 100px;
   font-family: "Arch"; }
-  .intro-section .title h1, #intro .title h1, #propdetails-intro .title h1, #prop-search-intro .title h1, #partners-intro .title h1 {
+  .intro-section .title h1, #intro .title h1, #propdetails-intro .title h1, #prop-search-intro .title h1, #partners-intro .title h1, #partner-page-intro .title h1 {
     font-size: 55px;
     letter-spacing: 4px;
     line-height: 70px;
@@ -607,14 +607,14 @@ Creation date: 24/08/2019 12:54
               -webkit-transition: all 0.4s ease 0s;
               transition: all 0.4s ease 0s; }
 
-#propdetails-intro, #prop-search-intro, #partners-intro {
+#propdetails-intro, #prop-search-intro, #partners-intro, #partner-page-intro {
   background: url("../img/banner/4.png");
   background-size: cover; }
-  #propdetails-intro .breadcumb-text a, #propdetails-intro .breadcumb-text span, #prop-search-intro .breadcumb-text a, #prop-search-intro .breadcumb-text span, #partners-intro .breadcumb-text a, #partners-intro .breadcumb-text span {
+  #propdetails-intro .breadcumb-text a, #propdetails-intro .breadcumb-text span, #prop-search-intro .breadcumb-text a, #prop-search-intro .breadcumb-text span, #partners-intro .breadcumb-text a, #partners-intro .breadcumb-text span, #partner-page-intro .breadcumb-text a, #partner-page-intro .breadcumb-text span {
     color: white;
     font-family: "OpenSans";
     letter-spacing: 1.1px; }
-  #propdetails-intro .breadcumb-text a:hover, #prop-search-intro .breadcumb-text a:hover, #partners-intro .breadcumb-text a:hover {
+  #propdetails-intro .breadcumb-text a:hover, #prop-search-intro .breadcumb-text a:hover, #partners-intro .breadcumb-text a:hover, #partner-page-intro .breadcumb-text a:hover {
     color: #FDA94F;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
@@ -776,43 +776,43 @@ Creation date: 24/08/2019 12:54
         height: 400px;
         background-color: grey; }
 
-#finded-properties .title {
+#finded-properties .title, #partner-page .title {
   padding: 20px 0px;
   font-family: "OpenSans"; }
-  #finded-properties .title .sum-found-property {
+  #finded-properties .title .sum-found-property, #partner-page .title .sum-found-property {
     font-size: 18px; }
-    #finded-properties .title .sum-found-property .sum {
+    #finded-properties .title .sum-found-property .sum, #partner-page .title .sum-found-property .sum {
       color: #FDA94F;
       font-weight: bold; }
-  #finded-properties .title select {
+  #finded-properties .title select, #partner-page .title select {
     font-family: "OpenSans";
     padding: 5px 20px; }
-#finded-properties .filter-panel {
+#finded-properties .filter-panel, #partner-page .filter-panel {
   font-family: "OpenSans"; }
-  #finded-properties .filter-panel .title {
+  #finded-properties .filter-panel .title, #partner-page .filter-panel .title {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-    #finded-properties .filter-panel .title span {
+    #finded-properties .filter-panel .title span, #partner-page .filter-panel .title span {
       font-size: 18px;
       margin-left: 5px; }
-  #finded-properties .filter-panel .filter-contain {
+  #finded-properties .filter-panel .filter-contain, #partner-page .filter-panel .filter-contain {
     padding: 20px;
     border: 1px solid #e0d7d7;
     border-radius: 8px; }
-    #finded-properties .filter-panel .filter-contain div {
+    #finded-properties .filter-panel .filter-contain div, #partner-page .filter-panel .filter-contain div {
       margin-bottom: 30px; }
-    #finded-properties .filter-panel .filter-contain .rent-sale-buttons {
+    #finded-properties .filter-panel .filter-contain .rent-sale-buttons, #partner-page .filter-panel .filter-contain .rent-sale-buttons {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between; }
-      #finded-properties .filter-panel .filter-contain .rent-sale-buttons a {
+      #finded-properties .filter-panel .filter-contain .rent-sale-buttons a, #partner-page .filter-panel .filter-contain .rent-sale-buttons a {
         background-color: #FFEEE2;
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s;
@@ -820,18 +820,18 @@ Creation date: 24/08/2019 12:54
         line-height: 40px;
         padding: 0 18px;
         color: #FDA94F; }
-        #finded-properties .filter-panel .filter-contain .rent-sale-buttons a:hover {
+        #finded-properties .filter-panel .filter-contain .rent-sale-buttons a:hover, #partner-page .filter-panel .filter-contain .rent-sale-buttons a:hover {
           background-color: #FDA94F;
           -webkit-transition: all 0.4s ease 0s;
           transition: all 0.4s ease 0s;
           color: white; }
-    #finded-properties .filter-panel .filter-contain .search-select select {
+    #finded-properties .filter-panel .filter-contain .search-select select, #partner-page .filter-panel .filter-contain .search-select select {
       padding: 5px; }
-    #finded-properties .filter-panel .filter-contain .search-range {
+    #finded-properties .filter-panel .filter-contain .search-range, #partner-page .filter-panel .filter-contain .search-range {
       text-align: center; }
-      #finded-properties .filter-panel .filter-contain .search-range h3 {
+      #finded-properties .filter-panel .filter-contain .search-range h3, #partner-page .filter-panel .filter-contain .search-range h3 {
         font-weight: bold; }
-    #finded-properties .filter-panel .filter-contain button {
+    #finded-properties .filter-panel .filter-contain button, #partner-page .filter-panel .filter-contain button {
       font-family: "OpenSans";
       font-weight: bold;
       display: block;
@@ -844,7 +844,7 @@ Creation date: 24/08/2019 12:54
       line-height: 40px;
       padding: 0 18px;
       color: #FDA94F; }
-      #finded-properties .filter-panel .filter-contain button:hover {
+      #finded-properties .filter-panel .filter-contain button:hover, #partner-page .filter-panel .filter-contain button:hover {
         background-color: #FDA94F;
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s;
@@ -919,5 +919,63 @@ Creation date: 24/08/2019 12:54
         color: white;
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s; }
+
+#partner-page .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0px;
+  font-family: "OpenSans"; }
+  #partner-page .title i {
+    font-size: 30px;
+    color: #FDA94F; }
+  #partner-page .title span {
+    margin-left: 10px; }
+#partner-page .partner-panel .contain {
+  padding: 20px;
+  border: 1px solid #e0d7d7;
+  border-radius: 8px; }
+  #partner-page .partner-panel .contain h2 {
+    font-family: "Arch"; }
+  #partner-page .partner-panel .contain .general .photo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  #partner-page .partner-panel .contain .general .name {
+    text-align: center;
+    font-size: 14px; }
+#partner-page .adds-panel .title {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  #partner-page .adds-panel .title .rent-sale-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    #partner-page .adds-panel .title .rent-sale-buttons a {
+      background-color: #FFEEE2;
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 18px;
+      color: #FDA94F;
+      width: 100px;
+      text-align: center;
+      margin: 0 10px; }
+      #partner-page .adds-panel .title .rent-sale-buttons a:hover {
+        background-color: #FDA94F;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        color: white; }
 
 /*# sourceMappingURL=main.css.map */
