@@ -47,7 +47,7 @@
     line-height: 70px;
     font-weight: bold; }
 
-.section-title .title, #partners .title, #recent-properties .title, #owner-properties .title, #finded-properties .title {
+.section-title .title, #partners .title, #recent-properties .title, #owner-properties .title, #finded-properties .title, #partner-page .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,18 +57,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .section-title .title a, #partners .title a, #recent-properties .title a, #owner-properties .title a, #finded-properties .title a {
+  .section-title .title a, #partners .title a, #recent-properties .title a, #owner-properties .title a, #finded-properties .title a, #partner-page .title a {
     color: #FDA94F;
     font-family: "OpenSans";
     font-size: 15px;
     font-weight: bold;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
-    .section-title .title a:hover, #partners .title a:hover, #recent-properties .title a:hover, #owner-properties .title a:hover, #finded-properties .title a:hover {
+    .section-title .title a:hover, #partners .title a:hover, #recent-properties .title a:hover, #owner-properties .title a:hover, #finded-properties .title a:hover, #partner-page .title a:hover {
       color: #061B40;
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-  .section-title .title h1, #partners .title h1, #recent-properties .title h1, #owner-properties .title h1, #finded-properties .title h1 {
+  .section-title .title h1, #partners .title h1, #recent-properties .title h1, #owner-properties .title h1, #finded-properties .title h1, #partner-page .title h1 {
     font-size: 30px;
     font-family: "Arch";
     letter-spacing: 0.5px;
@@ -471,9 +471,9 @@ Creation date: 24/08/2019 12:54
       color: #FDA94F;
       font-weight: bold; }
 
-#recent-properties, #owner-properties, #finded-properties, #partners {
+#recent-properties, #owner-properties, #finded-properties, #partners, #partner-page {
   padding: 30px 0px; }
-  #recent-properties .contain-item, #owner-properties .contain-item, #finded-properties .contain-item, #partners .contain-item {
+  #recent-properties .contain-item, #owner-properties .contain-item, #finded-properties .contain-item, #partners .contain-item, #partner-page .contain-item {
     -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
             box-shadow: 7px 7px 11px -7px #6e6e6e;
     border: 1px solid #e0d7d7;
@@ -481,12 +481,12 @@ Creation date: 24/08/2019 12:54
     background-color: #F6F6F6;
     position: relative;
     overflow: hidden; }
-    #recent-properties .contain-item:hover .item-image img, #owner-properties .contain-item:hover .item-image img, #finded-properties .contain-item:hover .item-image img, #partners .contain-item:hover .item-image img {
+    #recent-properties .contain-item:hover .item-image img, #owner-properties .contain-item:hover .item-image img, #finded-properties .contain-item:hover .item-image img, #partners .contain-item:hover .item-image img, #partner-page .contain-item:hover .item-image img {
       -webkit-transform: scale(1.1);
               transform: scale(1.1);
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-    #recent-properties .contain-item:hover .hover-overlay, #owner-properties .contain-item:hover .hover-overlay, #finded-properties .contain-item:hover .hover-overlay, #partners .contain-item:hover .hover-overlay {
+    #recent-properties .contain-item:hover .hover-overlay, #owner-properties .contain-item:hover .hover-overlay, #finded-properties .contain-item:hover .hover-overlay, #partners .contain-item:hover .hover-overlay, #partner-page .contain-item:hover .hover-overlay {
       visibility: visible;
       opacity: 1;
       z-index: 1;
@@ -496,48 +496,48 @@ Creation date: 24/08/2019 12:54
               transition-delay: 0s, 0s, 0.3s;
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-    #recent-properties .contain-item .item-image, #owner-properties .contain-item .item-image, #finded-properties .contain-item .item-image, #partners .contain-item .item-image {
+    #recent-properties .contain-item .item-image, #owner-properties .contain-item .item-image, #finded-properties .contain-item .item-image, #partners .contain-item .item-image, #partner-page .contain-item .item-image {
       overflow: hidden; }
-      #recent-properties .contain-item .item-image img, #owner-properties .contain-item .item-image img, #finded-properties .contain-item .item-image img, #partners .contain-item .item-image img {
+      #recent-properties .contain-item .item-image img, #owner-properties .contain-item .item-image img, #finded-properties .contain-item .item-image img, #partners .contain-item .item-image img, #partner-page .contain-item .item-image img {
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         width: 100%;
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s; }
-    #recent-properties .contain-item .item-property, #owner-properties .contain-item .item-property, #finded-properties .contain-item .item-property, #partners .contain-item .item-property {
+    #recent-properties .contain-item .item-property, #owner-properties .contain-item .item-property, #finded-properties .contain-item .item-property, #partners .contain-item .item-property, #partner-page .contain-item .item-property {
       padding: 10px 15px;
       font-family: "OpenSans"; }
-      #recent-properties .contain-item .item-property i, #owner-properties .contain-item .item-property i, #finded-properties .contain-item .item-property i, #partners .contain-item .item-property i {
+      #recent-properties .contain-item .item-property i, #owner-properties .contain-item .item-property i, #finded-properties .contain-item .item-property i, #partners .contain-item .item-property i, #partner-page .contain-item .item-property i {
         font-size: 14px;
         margin-right: 3px;
         color: #FDA94F; }
-      #recent-properties .contain-item .item-property .author, #recent-properties .contain-item .item-property .date, #owner-properties .contain-item .item-property .author, #owner-properties .contain-item .item-property .date, #finded-properties .contain-item .item-property .author, #finded-properties .contain-item .item-property .date, #partners .contain-item .item-property .author, #partners .contain-item .item-property .date {
+      #recent-properties .contain-item .item-property .author, #recent-properties .contain-item .item-property .date, #owner-properties .contain-item .item-property .author, #owner-properties .contain-item .item-property .date, #finded-properties .contain-item .item-property .author, #finded-properties .contain-item .item-property .date, #partners .contain-item .item-property .author, #partners .contain-item .item-property .date, #partner-page .contain-item .item-property .author, #partner-page .contain-item .item-property .date {
         font-size: 12px; }
-      #recent-properties .contain-item .item-property .author, #owner-properties .contain-item .item-property .author, #finded-properties .contain-item .item-property .author, #partners .contain-item .item-property .author {
+      #recent-properties .contain-item .item-property .author, #owner-properties .contain-item .item-property .author, #finded-properties .contain-item .item-property .author, #partners .contain-item .item-property .author, #partner-page .contain-item .item-property .author {
         padding: 10px 0px; }
-      #recent-properties .contain-item .item-property .property-name, #owner-properties .contain-item .item-property .property-name, #finded-properties .contain-item .item-property .property-name, #partners .contain-item .item-property .property-name {
+      #recent-properties .contain-item .item-property .property-name, #owner-properties .contain-item .item-property .property-name, #finded-properties .contain-item .item-property .property-name, #partners .contain-item .item-property .property-name, #partner-page .contain-item .item-property .property-name {
         font-family: "Arch";
         font-size: 20px;
         letter-spacing: 0.5px;
         padding: 15px 0px; }
-        #recent-properties .contain-item .item-property .property-name a, #owner-properties .contain-item .item-property .property-name a, #finded-properties .contain-item .item-property .property-name a, #partners .contain-item .item-property .property-name a {
+        #recent-properties .contain-item .item-property .property-name a, #owner-properties .contain-item .item-property .property-name a, #finded-properties .contain-item .item-property .property-name a, #partners .contain-item .item-property .property-name a, #partner-page .contain-item .item-property .property-name a {
           text-decoration: none;
           color: #061B40;
           -webkit-transition: all 0.4s ease 0s;
           transition: all 0.4s ease 0s; }
-          #recent-properties .contain-item .item-property .property-name a:hover, #owner-properties .contain-item .item-property .property-name a:hover, #finded-properties .contain-item .item-property .property-name a:hover, #partners .contain-item .item-property .property-name a:hover {
+          #recent-properties .contain-item .item-property .property-name a:hover, #owner-properties .contain-item .item-property .property-name a:hover, #finded-properties .contain-item .item-property .property-name a:hover, #partners .contain-item .item-property .property-name a:hover, #partner-page .contain-item .item-property .property-name a:hover {
             color: #FDA94F;
             -webkit-transition: all 0.4s ease 0s;
             transition: all 0.4s ease 0s; }
-      #recent-properties .contain-item .item-property .property-price, #owner-properties .contain-item .item-property .property-price, #finded-properties .contain-item .item-property .property-price, #partners .contain-item .item-property .property-price {
+      #recent-properties .contain-item .item-property .property-price, #owner-properties .contain-item .item-property .property-price, #finded-properties .contain-item .item-property .property-price, #partners .contain-item .item-property .property-price, #partner-page .contain-item .item-property .property-price {
         font-family: "Arch";
         font-size: 16px;
         padding: 20px 0px; }
-        #recent-properties .contain-item .item-property .property-price .previous-price, #owner-properties .contain-item .item-property .property-price .previous-price, #finded-properties .contain-item .item-property .property-price .previous-price, #partners .contain-item .item-property .property-price .previous-price {
+        #recent-properties .contain-item .item-property .property-price .previous-price, #owner-properties .contain-item .item-property .property-price .previous-price, #finded-properties .contain-item .item-property .property-price .previous-price, #partners .contain-item .item-property .property-price .previous-price, #partner-page .contain-item .item-property .property-price .previous-price {
           font-size: 12px;
           color: #e0d7d7;
           text-decoration: line-through; }
-      #recent-properties .contain-item .item-property .additional-properties, #owner-properties .contain-item .item-property .additional-properties, #finded-properties .contain-item .item-property .additional-properties, #partners .contain-item .item-property .additional-properties {
+      #recent-properties .contain-item .item-property .additional-properties, #owner-properties .contain-item .item-property .additional-properties, #finded-properties .contain-item .item-property .additional-properties, #partners .contain-item .item-property .additional-properties, #partner-page .contain-item .item-property .additional-properties {
         border-top: 1px solid #e0d7d7;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -546,24 +546,24 @@ Creation date: 24/08/2019 12:54
             -ms-flex-pack: justify;
                 justify-content: space-between;
         padding: 15px 0px 10px; }
-        #recent-properties .contain-item .item-property .additional-properties .add-prop-item .num, #owner-properties .contain-item .item-property .additional-properties .add-prop-item .num, #finded-properties .contain-item .item-property .additional-properties .add-prop-item .num, #partners .contain-item .item-property .additional-properties .add-prop-item .num {
+        #recent-properties .contain-item .item-property .additional-properties .add-prop-item .num, #owner-properties .contain-item .item-property .additional-properties .add-prop-item .num, #finded-properties .contain-item .item-property .additional-properties .add-prop-item .num, #partners .contain-item .item-property .additional-properties .add-prop-item .num, #partner-page .contain-item .item-property .additional-properties .add-prop-item .num {
           color: #061B40;
           font-size: 14px; }
-        #recent-properties .contain-item .item-property .additional-properties .add-prop-item span, #owner-properties .contain-item .item-property .additional-properties .add-prop-item span, #finded-properties .contain-item .item-property .additional-properties .add-prop-item span, #partners .contain-item .item-property .additional-properties .add-prop-item span {
+        #recent-properties .contain-item .item-property .additional-properties .add-prop-item span, #owner-properties .contain-item .item-property .additional-properties .add-prop-item span, #finded-properties .contain-item .item-property .additional-properties .add-prop-item span, #partners .contain-item .item-property .additional-properties .add-prop-item span, #partner-page .contain-item .item-property .additional-properties .add-prop-item span {
           font-size: 12px; }
-      #recent-properties .contain-item .item-property .add-sort, #owner-properties .contain-item .item-property .add-sort, #finded-properties .contain-item .item-property .add-sort, #partners .contain-item .item-property .add-sort {
+      #recent-properties .contain-item .item-property .add-sort, #owner-properties .contain-item .item-property .add-sort, #finded-properties .contain-item .item-property .add-sort, #partners .contain-item .item-property .add-sort, #partner-page .contain-item .item-property .add-sort {
         position: absolute;
         top: 2px;
         right: 2px;
         border-radius: 8px;
         padding: 5px 10px;
         background-color: white; }
-        #recent-properties .contain-item .item-property .add-sort .name, #owner-properties .contain-item .item-property .add-sort .name, #finded-properties .contain-item .item-property .add-sort .name, #partners .contain-item .item-property .add-sort .name {
+        #recent-properties .contain-item .item-property .add-sort .name, #owner-properties .contain-item .item-property .add-sort .name, #finded-properties .contain-item .item-property .add-sort .name, #partners .contain-item .item-property .add-sort .name, #partner-page .contain-item .item-property .add-sort .name {
           font-family: "OpenSans";
           color: #FDA94F;
           letter-spacing: 0.5px;
           font-weight: bold; }
-    #recent-properties .contain-item .hover-overlay, #owner-properties .contain-item .hover-overlay, #finded-properties .contain-item .hover-overlay, #partners .contain-item .hover-overlay {
+    #recent-properties .contain-item .hover-overlay, #owner-properties .contain-item .hover-overlay, #finded-properties .contain-item .hover-overlay, #partners .contain-item .hover-overlay, #partner-page .contain-item .hover-overlay {
       padding: 10px 0px;
       border-top: 1px solid #e0d7d7;
       width: 100%;
@@ -579,7 +579,7 @@ Creation date: 24/08/2019 12:54
               transition-delay: 0s, 0s, 0.4s;
       -webkit-transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s;
       transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s; }
-      #recent-properties .contain-item .hover-overlay ul, #owner-properties .contain-item .hover-overlay ul, #finded-properties .contain-item .hover-overlay ul, #partners .contain-item .hover-overlay ul {
+      #recent-properties .contain-item .hover-overlay ul, #owner-properties .contain-item .hover-overlay ul, #finded-properties .contain-item .hover-overlay ul, #partners .contain-item .hover-overlay ul, #partner-page .contain-item .hover-overlay ul {
         width: 100%;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -587,22 +587,22 @@ Creation date: 24/08/2019 12:54
         -webkit-box-pack: end;
             -ms-flex-pack: end;
                 justify-content: flex-end; }
-        #recent-properties .contain-item .hover-overlay ul li, #owner-properties .contain-item .hover-overlay ul li, #finded-properties .contain-item .hover-overlay ul li, #partners .contain-item .hover-overlay ul li {
+        #recent-properties .contain-item .hover-overlay ul li, #owner-properties .contain-item .hover-overlay ul li, #finded-properties .contain-item .hover-overlay ul li, #partners .contain-item .hover-overlay ul li, #partner-page .contain-item .hover-overlay ul li {
           margin-right: 10px;
           padding: 10px;
           background-color: #FFEEE2;
           border-radius: 8px; }
-          #recent-properties .contain-item .hover-overlay ul li a, #owner-properties .contain-item .hover-overlay ul li a, #finded-properties .contain-item .hover-overlay ul li a, #partners .contain-item .hover-overlay ul li a {
+          #recent-properties .contain-item .hover-overlay ul li a, #owner-properties .contain-item .hover-overlay ul li a, #finded-properties .contain-item .hover-overlay ul li a, #partners .contain-item .hover-overlay ul li a, #partner-page .contain-item .hover-overlay ul li a {
             color: #FDA94F; }
-          #recent-properties .contain-item .hover-overlay ul li:hover, #owner-properties .contain-item .hover-overlay ul li:hover, #finded-properties .contain-item .hover-overlay ul li:hover, #partners .contain-item .hover-overlay ul li:hover {
+          #recent-properties .contain-item .hover-overlay ul li:hover, #owner-properties .contain-item .hover-overlay ul li:hover, #finded-properties .contain-item .hover-overlay ul li:hover, #partners .contain-item .hover-overlay ul li:hover, #partner-page .contain-item .hover-overlay ul li:hover {
             background-color: #FDA94F;
             -webkit-transition: all 0.4s ease 0s;
             transition: all 0.4s ease 0s; }
-            #recent-properties .contain-item .hover-overlay ul li:hover i, #owner-properties .contain-item .hover-overlay ul li:hover i, #finded-properties .contain-item .hover-overlay ul li:hover i, #partners .contain-item .hover-overlay ul li:hover i {
+            #recent-properties .contain-item .hover-overlay ul li:hover i, #owner-properties .contain-item .hover-overlay ul li:hover i, #finded-properties .contain-item .hover-overlay ul li:hover i, #partners .contain-item .hover-overlay ul li:hover i, #partner-page .contain-item .hover-overlay ul li:hover i {
               color: white;
               -webkit-transition: all 0.4s ease 0s;
               transition: all 0.4s ease 0s; }
-            #recent-properties .contain-item .hover-overlay ul li:hover a, #owner-properties .contain-item .hover-overlay ul li:hover a, #finded-properties .contain-item .hover-overlay ul li:hover a, #partners .contain-item .hover-overlay ul li:hover a {
+            #recent-properties .contain-item .hover-overlay ul li:hover a, #owner-properties .contain-item .hover-overlay ul li:hover a, #finded-properties .contain-item .hover-overlay ul li:hover a, #partners .contain-item .hover-overlay ul li:hover a, #partner-page .contain-item .hover-overlay ul li:hover a {
               color: white;
               -webkit-transition: all 0.4s ease 0s;
               transition: all 0.4s ease 0s; }
@@ -928,10 +928,10 @@ Creation date: 24/08/2019 12:54
       -ms-flex-align: center;
           align-items: center;
   padding: 20px 0px;
-  font-family: "OpenSans"; }
-  #partner-page .title i {
-    font-size: 30px;
-    color: #FDA94F; }
+  font-family: "OpenSans";
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
   #partner-page .title span {
     margin-left: 10px; }
 #partner-page .partner-panel .contain {
@@ -939,7 +939,11 @@ Creation date: 24/08/2019 12:54
   border: 1px solid #e0d7d7;
   border-radius: 8px; }
   #partner-page .partner-panel .contain h2 {
-    font-family: "Arch"; }
+    font-family: "Arch";
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1.1px; }
   #partner-page .partner-panel .contain .general .photo {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -949,7 +953,30 @@ Creation date: 24/08/2019 12:54
             justify-content: center; }
   #partner-page .partner-panel .contain .general .name {
     text-align: center;
-    font-size: 14px; }
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0px; }
+  #partner-page .partner-panel .contain .about {
+    text-align: justify;
+    line-height: 20px;
+    font-family: "OpenSans";
+    margin-bottom: 20px; }
+    #partner-page .partner-panel .contain .about p {
+      font-size: 14px;
+      color: gray; }
+  #partner-page .partner-panel .contain .contact ul li {
+    padding: 10px 0px;
+    font-family: "Arch";
+    font-size: 18px; }
+    #partner-page .partner-panel .contain .contact ul li i {
+      color: #FDA94F;
+      font-size: 16px; }
+    #partner-page .partner-panel .contain .contact ul li .info-text {
+      margin-top: 5px; }
+      #partner-page .partner-panel .contain .contact ul li .info-text span {
+        font-family: "OpenSans";
+        font-size: 14px;
+        color: gray; }
 #partner-page .adds-panel .title {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;

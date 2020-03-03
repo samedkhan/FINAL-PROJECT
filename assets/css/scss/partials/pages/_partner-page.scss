@@ -2,72 +2,119 @@
 
 // Some properties of #partner-page section were write on sections _prop-search.scss and _recent-properties.scss
 
-#partner-page{
-   
-        
-        
-        .title{
-            display: flex;
-            align-items: center;
-            padding: 20px 0px;
-            font-family: $additional-font;
-            i{
-                font-size:30px;
-                color:$yellow;
-            }
-            span{
-                margin-left: 10px;
-            }
+#partner-page {
+    .title {
+        display: flex;
+        align-items: center;
+        padding: 20px 0px;
+        font-family: $additional-font;
+        justify-content: flex-start;
+        span {
+            margin-left: 10px;
         }
-        .partner-panel{
-            .contain{
-                h2{
-                    font-family: $primary-font;
-                }
-                padding: 20px;
-                border: 1px solid $grey;
-                border-radius: $br-regular;
-                .general{
-                    .photo{
-                        display: flex;
-                        justify-content: center;
-                    }
-                    .name{
-                        text-align: center;
-                        font-size: $add-features-size;
-                    }
-                }
+    }
 
+    .partner-panel {
+        .contain {
+            h2 {
+                font-family: $primary-font;
+                margin-bottom: 10px;
+                font-weight: bold;
+                font-size: 18px;
+                letter-spacing: $ls-regular;
             }
-        }
-        .adds-panel{
-            .title{
-                justify-content: space-between;
-                .rent-sale-buttons{
+
+            padding: 20px;
+            border: 1px solid $grey;
+            border-radius: $br-regular;
+
+            .general {
+                .photo {
                     display: flex;
-                    justify-content: space-between;
-                    a{
-                        @extend .button;
-                        background-color: $hoverBack;
-                        transition: $t-regular;
-                        height: 40px;
-                        line-height: 40px;
-                        padding: 0 18px;
-                        color:$yellow;
-                        width: 100px;
-                        text-align: center;
-                        margin: 0 10px;
-                        &:hover{
-                            background-color: $yellow;
-                            transition: $t-regular;
-                            color:$white;
+                    justify-content: center;
+                }
+
+                .name {
+                    text-align: center;
+                    font-size: $add-title-size;
+                    font-weight: bold;
+                    margin: 10px 0px;
+                }
+            }
+
+            .about {
+                text-align: justify;
+                line-height: 20px;
+                font-family: $additional-font;
+                margin-bottom: 20px;
+
+                p {
+                    font-size: $add-features-size;
+                    color: $gray;
+                }
+            }
+
+            .contact {
+                ul {
+                    li {
+                        padding: 10px 0px;
+                        font-family: $primary-font;
+                        font-size: 18px;
+
+                        i {
+                            color: $yellow;
+                            font-size: 16px;
                         }
-                        
+
+                        .info-text {
+                            margin-top: 5px;
+
+                            span {
+                                font-family: $additional-font;
+                                font-size: $add-features-size;
+                                color: $gray;
+                            }
+                        }
+
                     }
-                    
 
                 }
             }
 
         }
+    }
+
+    .adds-panel {
+        .title {
+            justify-content: space-between;
+
+            .rent-sale-buttons {
+                display: flex;
+                justify-content: space-between;
+
+                a {
+                    @extend .button;
+                    background-color: $hoverBack;
+                    transition: $t-regular;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 18px;
+                    color: $yellow;
+                    width: 100px;
+                    text-align: center;
+                    margin: 0 10px;
+
+                    &:hover {
+                        background-color: $yellow;
+                        transition: $t-regular;
+                        color: $white;
+                    }
+
+                }
+
+
+            }
+        }
+
+    }
 }
