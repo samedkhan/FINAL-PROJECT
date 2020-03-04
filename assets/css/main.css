@@ -1,15 +1,15 @@
 @charset "UTF-8";
-.button, #header .navigation-bar .right-side .main-menu[data-button], #intro .contain-stack .nav-tabs .nav-item, #finded-properties .filter-panel .filter-contain .rent-sale-buttons a, #partner-page .filter-panel .filter-contain .rent-sale-buttons a, #finded-properties .filter-panel .filter-contain button, #partner-page .filter-panel .filter-contain button, #partners .contain-item .adds-count span, #partner-page .partner-panel .contain .partner-adds span, #property-detail .partner-panel .contain .partner-adds span, #partner-page .adds-panel .title .rent-sale-buttons a, #property-detail .adds-panel .title .rent-sale-buttons a {
+.button, .finded-adds-properties .filter-panel .filter-contain .rent-sale-buttons a, #finded-properties .filter-panel .filter-contain .rent-sale-buttons a, #partner-page .filter-panel .filter-contain .rent-sale-buttons a, #property-detail .filter-panel .filter-contain .rent-sale-buttons a, .finded-adds-properties .filter-panel .filter-contain button, #finded-properties .filter-panel .filter-contain button, #partner-page .filter-panel .filter-contain button, #property-detail .filter-panel .filter-contain button, .partner-page .partner-panel .contain .partner-adds span, #partner-page .partner-panel .contain .partner-adds span, #property-detail .partner-panel .contain .partner-adds span, #header .navigation-bar .right-side .main-menu[data-button], #home-intro .contain-stack .nav-tabs .nav-item, #partners .contain-item .adds-count span, #partner-page .adds-panel .title .rent-sale-buttons a, #property-detail .adds-panel .title .rent-sale-buttons a {
   border: 1px solid #FFEEE2;
   border-radius: 8px;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
 
-.button-hover, #header .navigation-bar .right-side .main-menu[data-button]:hover, #intro .contain-stack .tab-content .search-button button, #partners .contain-item .adds-count span:hover, #partner-page .partner-panel .contain .partner-adds span:hover, #property-detail .partner-panel .contain .partner-adds span:hover {
+.button-hover, .partner-page .partner-panel .contain .partner-adds span:hover, #partner-page .partner-panel .contain .partner-adds span:hover, #property-detail .partner-panel .contain .partner-adds span:hover, #header .navigation-bar .right-side .main-menu[data-button]:hover, #home-intro .contain-stack .tab-content .search-button button, #partners .contain-item .adds-count span:hover {
   background-color: #FDA94F;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
-  .button-hover a, #header .navigation-bar .right-side .main-menu[data-button]:hover a, #intro .contain-stack .tab-content .search-button button a, #partners .contain-item .adds-count span:hover a, #partner-page .partner-panel .contain .partner-adds span:hover a, #property-detail .partner-panel .contain .partner-adds span:hover a {
+  .button-hover a, .partner-page .partner-panel .contain .partner-adds span:hover a, #partner-page .partner-panel .contain .partner-adds span:hover a, #property-detail .partner-panel .contain .partner-adds span:hover a, #header .navigation-bar .right-side .main-menu[data-button]:hover a, #home-intro .contain-stack .tab-content .search-button button a, #partners .contain-item .adds-count span:hover a {
     color: #F6F6F6;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
@@ -23,7 +23,7 @@
   -webkit-transition-delay: 0s, 0s, 0.3s;
           transition-delay: 0s, 0s, 0.3s; }
 
-.search-tab-content, #intro .contain-stack .tab-content .search-select select, #intro .contain-stack .tab-content .search-button button, #finded-properties .title select, #partner-page .title select, #finded-properties .filter-panel .filter-contain .search-select select, #partner-page .filter-panel .filter-contain .search-select select {
+.search-tab-content, .finded-adds-properties .title select, #finded-properties .title select, #partner-page .title select, #property-detail .title select, .finded-adds-properties .filter-panel .filter-contain .search-select select, #finded-properties .filter-panel .filter-contain .search-select select, #partner-page .filter-panel .filter-contain .search-select select, #property-detail .filter-panel .filter-contain .search-select select, #home-intro .contain-stack .tab-content .search-select select, #home-intro .contain-stack .tab-content .search-button button {
   width: 100%;
   padding: 10px 5px;
   font-size: 18px;
@@ -33,21 +33,21 @@
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
 
-.search-tab-content-focus, #intro .contain-stack .tab-content .search-select select:focus, #finded-properties .title select:focus, #partner-page .title select:focus, #finded-properties .filter-panel .filter-contain .search-select select:focus, #partner-page .filter-panel .filter-contain .search-select select:focus {
+.search-tab-content-focus, .finded-adds-properties .title select:focus, #finded-properties .title select:focus, #partner-page .title select:focus, #property-detail .title select:focus, .finded-adds-properties .filter-panel .filter-contain .search-select select:focus, #finded-properties .filter-panel .filter-contain .search-select select:focus, #partner-page .filter-panel .filter-contain .search-select select:focus, #property-detail .filter-panel .filter-contain .search-select select:focus, #home-intro .contain-stack .tab-content .search-select select:focus {
   border: 2px solid #FDA94F;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
 
-.intro-section, #intro, #propdetails-intro, #prop-search-intro, #partners-intro, #partner-page-intro {
+.intro-section, #home-intro, #another-intro {
   padding: 150px 0px 100px;
   font-family: "Arch"; }
-  .intro-section .title h1, #intro .title h1, #propdetails-intro .title h1, #prop-search-intro .title h1, #partners-intro .title h1, #partner-page-intro .title h1 {
+  .intro-section .title h1, #home-intro .title h1, #another-intro .title h1 {
     font-size: 55px;
     letter-spacing: 4px;
     line-height: 70px;
     font-weight: bold; }
 
-.section-title .title, #partners .title, #recent-properties .title, #partner-properties .title, #finded-properties .title, #partner-page .title {
+.section-title .title, #partners .title, #recent-properties .title, #partner-properties .title, #finded-properties .title, #about-us .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,22 +57,318 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .section-title .title a, #partners .title a, #recent-properties .title a, #partner-properties .title a, #finded-properties .title a, #partner-page .title a {
+  .section-title .title a, #partners .title a, #recent-properties .title a, #partner-properties .title a, #finded-properties .title a, #about-us .title a {
     color: #FDA94F;
     font-family: "OpenSans";
     font-size: 15px;
     font-weight: bold;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
-    .section-title .title a:hover, #partners .title a:hover, #recent-properties .title a:hover, #partner-properties .title a:hover, #finded-properties .title a:hover, #partner-page .title a:hover {
+    .section-title .title a:hover, #partners .title a:hover, #recent-properties .title a:hover, #partner-properties .title a:hover, #finded-properties .title a:hover, #about-us .title a:hover {
       color: #061B40;
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-  .section-title .title h1, #partners .title h1, #recent-properties .title h1, #partner-properties .title h1, #finded-properties .title h1, #partner-page .title h1 {
+  .section-title .title h1, #partners .title h1, #recent-properties .title h1, #partner-properties .title h1, #finded-properties .title h1, #about-us .title h1 {
     font-size: 30px;
     font-family: "Arch";
     letter-spacing: 0.5px;
     font-weight: bold; }
+
+.recent-adds-properties .contain-item, #recent-properties .contain-item, #partner-properties .contain-item, #finded-properties .contain-item, #partners .contain-item, #partner-page .contain-item, #property-detail .contain-item, #about-us .contain-item {
+  -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
+          box-shadow: 7px 7px 11px -7px #6e6e6e;
+  border: 1px solid #e0d7d7;
+  border-radius: 8px;
+  background-color: #F6F6F6;
+  position: relative;
+  overflow: hidden; }
+  .recent-adds-properties .contain-item:hover .item-image img, #recent-properties .contain-item:hover .item-image img, #partner-properties .contain-item:hover .item-image img, #finded-properties .contain-item:hover .item-image img, #partners .contain-item:hover .item-image img, #partner-page .contain-item:hover .item-image img, #property-detail .contain-item:hover .item-image img, #about-us .contain-item:hover .item-image img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s; }
+  .recent-adds-properties .contain-item:hover .hover-overlay, #recent-properties .contain-item:hover .hover-overlay, #partner-properties .contain-item:hover .hover-overlay, #finded-properties .contain-item:hover .hover-overlay, #partners .contain-item:hover .hover-overlay, #partner-page .contain-item:hover .hover-overlay, #property-detail .contain-item:hover .hover-overlay, #about-us .contain-item:hover .hover-overlay {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    -webkit-transition-delay: 0s, 0s, 0.3s;
+            transition-delay: 0s, 0s, 0.3s;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s; }
+  .recent-adds-properties .contain-item .item-image, #recent-properties .contain-item .item-image, #partner-properties .contain-item .item-image, #finded-properties .contain-item .item-image, #partners .contain-item .item-image, #partner-page .contain-item .item-image, #property-detail .contain-item .item-image, #about-us .contain-item .item-image {
+    overflow: hidden; }
+    .recent-adds-properties .contain-item .item-image img, #recent-properties .contain-item .item-image img, #partner-properties .contain-item .item-image img, #finded-properties .contain-item .item-image img, #partners .contain-item .item-image img, #partner-page .contain-item .item-image img, #property-detail .contain-item .item-image img, #about-us .contain-item .item-image img {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      width: 100%;
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s; }
+  .recent-adds-properties .contain-item .item-property, #recent-properties .contain-item .item-property, #partner-properties .contain-item .item-property, #finded-properties .contain-item .item-property, #partners .contain-item .item-property, #partner-page .contain-item .item-property, #property-detail .contain-item .item-property, #about-us .contain-item .item-property {
+    padding: 10px 15px;
+    font-family: "OpenSans"; }
+    .recent-adds-properties .contain-item .item-property i, #recent-properties .contain-item .item-property i, #partner-properties .contain-item .item-property i, #finded-properties .contain-item .item-property i, #partners .contain-item .item-property i, #partner-page .contain-item .item-property i, #property-detail .contain-item .item-property i, #about-us .contain-item .item-property i {
+      font-size: 14px;
+      margin-right: 3px;
+      color: #FDA94F; }
+    .recent-adds-properties .contain-item .item-property .author, #recent-properties .contain-item .item-property .author, #partner-properties .contain-item .item-property .author, #finded-properties .contain-item .item-property .author, #partners .contain-item .item-property .author, #partner-page .contain-item .item-property .author, #property-detail .contain-item .item-property .author, #about-us .contain-item .item-property .author,
+    .recent-adds-properties .contain-item .item-property .date,
+    #recent-properties .contain-item .item-property .date,
+    #partner-properties .contain-item .item-property .date,
+    #finded-properties .contain-item .item-property .date,
+    #partners .contain-item .item-property .date,
+    #partner-page .contain-item .item-property .date,
+    #property-detail .contain-item .item-property .date,
+    #about-us .contain-item .item-property .date {
+      font-size: 12px; }
+    .recent-adds-properties .contain-item .item-property .author, #recent-properties .contain-item .item-property .author, #partner-properties .contain-item .item-property .author, #finded-properties .contain-item .item-property .author, #partners .contain-item .item-property .author, #partner-page .contain-item .item-property .author, #property-detail .contain-item .item-property .author, #about-us .contain-item .item-property .author {
+      padding: 10px 0px; }
+    .recent-adds-properties .contain-item .item-property .property-name, #recent-properties .contain-item .item-property .property-name, #partner-properties .contain-item .item-property .property-name, #finded-properties .contain-item .item-property .property-name, #partners .contain-item .item-property .property-name, #partner-page .contain-item .item-property .property-name, #property-detail .contain-item .item-property .property-name, #about-us .contain-item .item-property .property-name {
+      font-family: "Arch";
+      font-size: 20px;
+      letter-spacing: 0.5px;
+      padding: 15px 0px; }
+      .recent-adds-properties .contain-item .item-property .property-name a, #recent-properties .contain-item .item-property .property-name a, #partner-properties .contain-item .item-property .property-name a, #finded-properties .contain-item .item-property .property-name a, #partners .contain-item .item-property .property-name a, #partner-page .contain-item .item-property .property-name a, #property-detail .contain-item .item-property .property-name a, #about-us .contain-item .item-property .property-name a {
+        text-decoration: none;
+        color: #061B40;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s; }
+        .recent-adds-properties .contain-item .item-property .property-name a:hover, #recent-properties .contain-item .item-property .property-name a:hover, #partner-properties .contain-item .item-property .property-name a:hover, #finded-properties .contain-item .item-property .property-name a:hover, #partners .contain-item .item-property .property-name a:hover, #partner-page .contain-item .item-property .property-name a:hover, #property-detail .contain-item .item-property .property-name a:hover, #about-us .contain-item .item-property .property-name a:hover {
+          color: #FDA94F;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s; }
+    .recent-adds-properties .contain-item .item-property .property-price, #recent-properties .contain-item .item-property .property-price, #partner-properties .contain-item .item-property .property-price, #finded-properties .contain-item .item-property .property-price, #partners .contain-item .item-property .property-price, #partner-page .contain-item .item-property .property-price, #property-detail .contain-item .item-property .property-price, #about-us .contain-item .item-property .property-price {
+      font-family: "Arch";
+      font-size: 16px;
+      padding: 20px 0px; }
+      .recent-adds-properties .contain-item .item-property .property-price .previous-price, #recent-properties .contain-item .item-property .property-price .previous-price, #partner-properties .contain-item .item-property .property-price .previous-price, #finded-properties .contain-item .item-property .property-price .previous-price, #partners .contain-item .item-property .property-price .previous-price, #partner-page .contain-item .item-property .property-price .previous-price, #property-detail .contain-item .item-property .property-price .previous-price, #about-us .contain-item .item-property .property-price .previous-price {
+        font-size: 12px;
+        color: #e0d7d7;
+        text-decoration: line-through; }
+    .recent-adds-properties .contain-item .item-property .additional-properties, #recent-properties .contain-item .item-property .additional-properties, #partner-properties .contain-item .item-property .additional-properties, #finded-properties .contain-item .item-property .additional-properties, #partners .contain-item .item-property .additional-properties, #partner-page .contain-item .item-property .additional-properties, #property-detail .contain-item .item-property .additional-properties, #about-us .contain-item .item-property .additional-properties {
+      border-top: 1px solid #e0d7d7;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      padding: 15px 0px 10px; }
+      .recent-adds-properties .contain-item .item-property .additional-properties .add-prop-item .num, #recent-properties .contain-item .item-property .additional-properties .add-prop-item .num, #partner-properties .contain-item .item-property .additional-properties .add-prop-item .num, #finded-properties .contain-item .item-property .additional-properties .add-prop-item .num, #partners .contain-item .item-property .additional-properties .add-prop-item .num, #partner-page .contain-item .item-property .additional-properties .add-prop-item .num, #property-detail .contain-item .item-property .additional-properties .add-prop-item .num, #about-us .contain-item .item-property .additional-properties .add-prop-item .num {
+        color: #061B40;
+        font-size: 14px; }
+      .recent-adds-properties .contain-item .item-property .additional-properties .add-prop-item span, #recent-properties .contain-item .item-property .additional-properties .add-prop-item span, #partner-properties .contain-item .item-property .additional-properties .add-prop-item span, #finded-properties .contain-item .item-property .additional-properties .add-prop-item span, #partners .contain-item .item-property .additional-properties .add-prop-item span, #partner-page .contain-item .item-property .additional-properties .add-prop-item span, #property-detail .contain-item .item-property .additional-properties .add-prop-item span, #about-us .contain-item .item-property .additional-properties .add-prop-item span {
+        font-size: 12px; }
+    .recent-adds-properties .contain-item .item-property .add-sort, #recent-properties .contain-item .item-property .add-sort, #partner-properties .contain-item .item-property .add-sort, #finded-properties .contain-item .item-property .add-sort, #partners .contain-item .item-property .add-sort, #partner-page .contain-item .item-property .add-sort, #property-detail .contain-item .item-property .add-sort, #about-us .contain-item .item-property .add-sort {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      border-radius: 8px;
+      padding: 5px 10px;
+      background-color: white; }
+      .recent-adds-properties .contain-item .item-property .add-sort .name, #recent-properties .contain-item .item-property .add-sort .name, #partner-properties .contain-item .item-property .add-sort .name, #finded-properties .contain-item .item-property .add-sort .name, #partners .contain-item .item-property .add-sort .name, #partner-page .contain-item .item-property .add-sort .name, #property-detail .contain-item .item-property .add-sort .name, #about-us .contain-item .item-property .add-sort .name {
+        font-family: "OpenSans";
+        color: #FDA94F;
+        letter-spacing: 0.5px;
+        font-weight: bold; }
+  .recent-adds-properties .contain-item .hover-overlay, #recent-properties .contain-item .hover-overlay, #partner-properties .contain-item .hover-overlay, #finded-properties .contain-item .hover-overlay, #partners .contain-item .hover-overlay, #partner-page .contain-item .hover-overlay, #property-detail .contain-item .hover-overlay, #about-us .contain-item .hover-overlay {
+    padding: 10px 0px;
+    border-top: 1px solid #e0d7d7;
+    width: 100%;
+    position: absolute;
+    bottom: -61px;
+    left: 0;
+    right: 0;
+    background-color: #F6F6F6;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    -webkit-transition-delay: 0s, 0s, 0.4s;
+            transition-delay: 0s, 0s, 0.4s;
+    -webkit-transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s;
+    transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s; }
+    .recent-adds-properties .contain-item .hover-overlay ul, #recent-properties .contain-item .hover-overlay ul, #partner-properties .contain-item .hover-overlay ul, #finded-properties .contain-item .hover-overlay ul, #partners .contain-item .hover-overlay ul, #partner-page .contain-item .hover-overlay ul, #property-detail .contain-item .hover-overlay ul, #about-us .contain-item .hover-overlay ul {
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+      .recent-adds-properties .contain-item .hover-overlay ul li, #recent-properties .contain-item .hover-overlay ul li, #partner-properties .contain-item .hover-overlay ul li, #finded-properties .contain-item .hover-overlay ul li, #partners .contain-item .hover-overlay ul li, #partner-page .contain-item .hover-overlay ul li, #property-detail .contain-item .hover-overlay ul li, #about-us .contain-item .hover-overlay ul li {
+        margin-right: 10px;
+        padding: 10px;
+        background-color: #FFEEE2;
+        border-radius: 8px; }
+        .recent-adds-properties .contain-item .hover-overlay ul li a, #recent-properties .contain-item .hover-overlay ul li a, #partner-properties .contain-item .hover-overlay ul li a, #finded-properties .contain-item .hover-overlay ul li a, #partners .contain-item .hover-overlay ul li a, #partner-page .contain-item .hover-overlay ul li a, #property-detail .contain-item .hover-overlay ul li a, #about-us .contain-item .hover-overlay ul li a {
+          color: #FDA94F; }
+        .recent-adds-properties .contain-item .hover-overlay ul li:hover, #recent-properties .contain-item .hover-overlay ul li:hover, #partner-properties .contain-item .hover-overlay ul li:hover, #finded-properties .contain-item .hover-overlay ul li:hover, #partners .contain-item .hover-overlay ul li:hover, #partner-page .contain-item .hover-overlay ul li:hover, #property-detail .contain-item .hover-overlay ul li:hover, #about-us .contain-item .hover-overlay ul li:hover {
+          background-color: #FDA94F;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s; }
+          .recent-adds-properties .contain-item .hover-overlay ul li:hover i, #recent-properties .contain-item .hover-overlay ul li:hover i, #partner-properties .contain-item .hover-overlay ul li:hover i, #finded-properties .contain-item .hover-overlay ul li:hover i, #partners .contain-item .hover-overlay ul li:hover i, #partner-page .contain-item .hover-overlay ul li:hover i, #property-detail .contain-item .hover-overlay ul li:hover i, #about-us .contain-item .hover-overlay ul li:hover i {
+            color: white;
+            -webkit-transition: all 0.4s ease 0s;
+            transition: all 0.4s ease 0s; }
+          .recent-adds-properties .contain-item .hover-overlay ul li:hover a, #recent-properties .contain-item .hover-overlay ul li:hover a, #partner-properties .contain-item .hover-overlay ul li:hover a, #finded-properties .contain-item .hover-overlay ul li:hover a, #partners .contain-item .hover-overlay ul li:hover a, #partner-page .contain-item .hover-overlay ul li:hover a, #property-detail .contain-item .hover-overlay ul li:hover a, #about-us .contain-item .hover-overlay ul li:hover a {
+            color: white;
+            -webkit-transition: all 0.4s ease 0s;
+            transition: all 0.4s ease 0s; }
+
+.finded-adds-properties .title, #finded-properties .title, #partner-page .title, #property-detail .title {
+  padding: 20px 0px;
+  font-family: "OpenSans"; }
+  .finded-adds-properties .title .sum-found-property, #finded-properties .title .sum-found-property, #partner-page .title .sum-found-property, #property-detail .title .sum-found-property {
+    font-size: 18px; }
+    .finded-adds-properties .title .sum-found-property .sum, #finded-properties .title .sum-found-property .sum, #partner-page .title .sum-found-property .sum, #property-detail .title .sum-found-property .sum {
+      color: #FDA94F;
+      font-weight: bold; }
+  .finded-adds-properties .title select, #finded-properties .title select, #partner-page .title select, #property-detail .title select {
+    font-family: "OpenSans";
+    padding: 5px 20px; }
+.finded-adds-properties .filter-panel, #finded-properties .filter-panel, #partner-page .filter-panel, #property-detail .filter-panel {
+  font-family: "OpenSans"; }
+  .finded-adds-properties .filter-panel .title, #finded-properties .filter-panel .title, #partner-page .filter-panel .title, #property-detail .filter-panel .title {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .finded-adds-properties .filter-panel .title span, #finded-properties .filter-panel .title span, #partner-page .filter-panel .title span, #property-detail .filter-panel .title span {
+      font-size: 18px;
+      margin-left: 5px; }
+  .finded-adds-properties .filter-panel .filter-contain, #finded-properties .filter-panel .filter-contain, #partner-page .filter-panel .filter-contain, #property-detail .filter-panel .filter-contain {
+    padding: 20px;
+    border: 1px solid #e0d7d7;
+    border-radius: 8px; }
+    .finded-adds-properties .filter-panel .filter-contain div, #finded-properties .filter-panel .filter-contain div, #partner-page .filter-panel .filter-contain div, #property-detail .filter-panel .filter-contain div {
+      margin-bottom: 30px; }
+    .finded-adds-properties .filter-panel .filter-contain .rent-sale-buttons, #finded-properties .filter-panel .filter-contain .rent-sale-buttons, #partner-page .filter-panel .filter-contain .rent-sale-buttons, #property-detail .filter-panel .filter-contain .rent-sale-buttons {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      .finded-adds-properties .filter-panel .filter-contain .rent-sale-buttons a, #finded-properties .filter-panel .filter-contain .rent-sale-buttons a, #partner-page .filter-panel .filter-contain .rent-sale-buttons a, #property-detail .filter-panel .filter-contain .rent-sale-buttons a {
+        background-color: #FFEEE2;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 18px;
+        color: #FDA94F; }
+        .finded-adds-properties .filter-panel .filter-contain .rent-sale-buttons a:hover, #finded-properties .filter-panel .filter-contain .rent-sale-buttons a:hover, #partner-page .filter-panel .filter-contain .rent-sale-buttons a:hover, #property-detail .filter-panel .filter-contain .rent-sale-buttons a:hover {
+          background-color: #FDA94F;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s;
+          color: white; }
+    .finded-adds-properties .filter-panel .filter-contain .search-select select, #finded-properties .filter-panel .filter-contain .search-select select, #partner-page .filter-panel .filter-contain .search-select select, #property-detail .filter-panel .filter-contain .search-select select {
+      padding: 5px; }
+    .finded-adds-properties .filter-panel .filter-contain .search-range, #finded-properties .filter-panel .filter-contain .search-range, #partner-page .filter-panel .filter-contain .search-range, #property-detail .filter-panel .filter-contain .search-range {
+      text-align: center; }
+      .finded-adds-properties .filter-panel .filter-contain .search-range h3, #finded-properties .filter-panel .filter-contain .search-range h3, #partner-page .filter-panel .filter-contain .search-range h3, #property-detail .filter-panel .filter-contain .search-range h3 {
+        font-weight: bold; }
+    .finded-adds-properties .filter-panel .filter-contain button, #finded-properties .filter-panel .filter-contain button, #partner-page .filter-panel .filter-contain button, #property-detail .filter-panel .filter-contain button {
+      font-family: "OpenSans";
+      font-weight: bold;
+      display: block;
+      margin-top: 50px;
+      width: 100%;
+      background-color: #FFEEE2;
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 18px;
+      color: #FDA94F; }
+      .finded-adds-properties .filter-panel .filter-contain button:hover, #finded-properties .filter-panel .filter-contain button:hover, #partner-page .filter-panel .filter-contain button:hover, #property-detail .filter-panel .filter-contain button:hover {
+        background-color: #FDA94F;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        color: white; }
+
+.partner-page .title, #partner-page .title, #property-detail .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0px;
+  font-family: "OpenSans";
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+  .partner-page .title span, #partner-page .title span, #property-detail .title span {
+    margin-left: 10px; }
+.partner-page .partner-panel .contain, #partner-page .partner-panel .contain, #property-detail .partner-panel .contain {
+  padding: 20px;
+  border: 1px solid #e0d7d7;
+  border-radius: 8px; }
+  .partner-page .partner-panel .contain h2, #partner-page .partner-panel .contain h2, #property-detail .partner-panel .contain h2 {
+    font-family: "Arch";
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1.1px; }
+  .partner-page .partner-panel .contain .general .photo, #partner-page .partner-panel .contain .general .photo, #property-detail .partner-panel .contain .general .photo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .partner-page .partner-panel .contain .general .name, #partner-page .partner-panel .contain .general .name, #property-detail .partner-panel .contain .general .name {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0px; }
+  .partner-page .partner-panel .contain .partner-adds, #partner-page .partner-panel .contain .partner-adds, #property-detail .partner-panel .contain .partner-adds {
+    font-family: "OpenSans";
+    font-size: 14px;
+    font-weight: bold;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .partner-page .partner-panel .contain .partner-adds span, #partner-page .partner-panel .contain .partner-adds span, #property-detail .partner-panel .contain .partner-adds span {
+      color: #FDA94F;
+      padding: 10px 20px;
+      display: inline-block;
+      border-radius: 8px;
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s;
+      background-color: #FFEEE2; }
+      .partner-page .partner-panel .contain .partner-adds span:hover, #partner-page .partner-panel .contain .partner-adds span:hover, #property-detail .partner-panel .contain .partner-adds span:hover {
+        color: white;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s; }
+  .partner-page .partner-panel .contain .about, #partner-page .partner-panel .contain .about, #property-detail .partner-panel .contain .about {
+    text-align: justify;
+    line-height: 20px;
+    font-family: "OpenSans";
+    margin: 20px 0px; }
+    .partner-page .partner-panel .contain .about p, #partner-page .partner-panel .contain .about p, #property-detail .partner-panel .contain .about p {
+      font-size: 14px;
+      color: gray; }
+  .partner-page .partner-panel .contain .contact ul li, #partner-page .partner-panel .contain .contact ul li, #property-detail .partner-panel .contain .contact ul li {
+    padding: 10px 0px;
+    font-family: "Arch";
+    font-size: 18px; }
+    .partner-page .partner-panel .contain .contact ul li i, #partner-page .partner-panel .contain .contact ul li i, #property-detail .partner-panel .contain .contact ul li i {
+      color: #FDA94F;
+      font-size: 16px; }
+    .partner-page .partner-panel .contain .contact ul li .info-text, #partner-page .partner-panel .contain .contact ul li .info-text, #property-detail .partner-panel .contain .contact ul li .info-text {
+      margin-top: 5px; }
+      .partner-page .partner-panel .contain .contact ul li .info-text span, #partner-page .partner-panel .contain .contact ul li .info-text span, #property-detail .partner-panel .contain .contact ul li .info-text span {
+        font-family: "OpenSans";
+        font-size: 14px;
+        color: gray; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -400,36 +696,36 @@ Creation date: 24/08/2019 12:54
 .flaticon-layer:before {
   content: "\f114"; }
 
-#intro {
+#home-intro {
   background: url("../img/banner/1.jpg");
   background-size: cover; }
-  #intro .contain-stack {
+  #home-intro .contain-stack {
     font-family: "OpenSans"; }
-    #intro .contain-stack .nav-tabs .nav-item {
+    #home-intro .contain-stack .nav-tabs .nav-item {
       display: inline-block;
       padding: 15px 25px;
       border-bottom-right-radius: 0px !important;
       border-bottom-left-radius: 0px !important;
       background-color: white; }
-      #intro .contain-stack .nav-tabs .nav-item a {
+      #home-intro .contain-stack .nav-tabs .nav-item a {
         color: #061B40;
         font-size: 18px;
         font-weight: 900;
         letter-spacing: 1.1px; }
-    #intro .contain-stack .nav-tabs .active {
+    #home-intro .contain-stack .nav-tabs .active {
       background-color: #FDA94F;
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-      #intro .contain-stack .nav-tabs .active a {
+      #home-intro .contain-stack .nav-tabs .active a {
         color: #F6F6F6;
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s; }
-    #intro .contain-stack .tab-content .tab-panel {
+    #home-intro .contain-stack .tab-content .tab-panel {
       padding: 40px 20px;
       background-color: white;
       border-radius: 8px;
       border-top-left-radius: 0px; }
-    #intro .contain-stack .tab-content .search-input input {
+    #home-intro .contain-stack .tab-content .search-input input {
       width: 100%;
       padding: 10px 5px;
       font-size: 18px;
@@ -438,11 +734,11 @@ Creation date: 24/08/2019 12:54
       border: 2px solid #e0d7d7;
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-      #intro .contain-stack .tab-content .search-input input:focus {
+      #home-intro .contain-stack .tab-content .search-input input:focus {
         border: 2px solid #FDA94F;
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s; }
-    #intro .contain-stack .tab-content .search-button button {
+    #home-intro .contain-stack .tab-content .search-button button {
       color: white;
       letter-spacing: 1.1px; }
 
@@ -471,150 +767,14 @@ Creation date: 24/08/2019 12:54
       color: #FDA94F;
       font-weight: bold; }
 
-#recent-properties, #partner-properties, #finded-properties, #partners, #partner-page {
-  padding: 20px 0px; }
-  #recent-properties .contain-item, #partner-properties .contain-item, #finded-properties .contain-item, #partners .contain-item, #partner-page .contain-item {
-    -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
-            box-shadow: 7px 7px 11px -7px #6e6e6e;
-    border: 1px solid #e0d7d7;
-    border-radius: 8px;
-    background-color: #F6F6F6;
-    position: relative;
-    overflow: hidden; }
-    #recent-properties .contain-item:hover .item-image img, #partner-properties .contain-item:hover .item-image img, #finded-properties .contain-item:hover .item-image img, #partners .contain-item:hover .item-image img, #partner-page .contain-item:hover .item-image img {
-      -webkit-transform: scale(1.1);
-              transform: scale(1.1);
-      -webkit-transition: all 0.4s ease 0s;
-      transition: all 0.4s ease 0s; }
-    #recent-properties .contain-item:hover .hover-overlay, #partner-properties .contain-item:hover .hover-overlay, #finded-properties .contain-item:hover .hover-overlay, #partners .contain-item:hover .hover-overlay, #partner-page .contain-item:hover .hover-overlay {
-      visibility: visible;
-      opacity: 1;
-      z-index: 1;
-      -webkit-transform: translateY(-100%);
-              transform: translateY(-100%);
-      -webkit-transition-delay: 0s, 0s, 0.3s;
-              transition-delay: 0s, 0s, 0.3s;
-      -webkit-transition: all 0.4s ease 0s;
-      transition: all 0.4s ease 0s; }
-    #recent-properties .contain-item .item-image, #partner-properties .contain-item .item-image, #finded-properties .contain-item .item-image, #partners .contain-item .item-image, #partner-page .contain-item .item-image {
-      overflow: hidden; }
-      #recent-properties .contain-item .item-image img, #partner-properties .contain-item .item-image img, #finded-properties .contain-item .item-image img, #partners .contain-item .item-image img, #partner-page .contain-item .item-image img {
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        width: 100%;
-        -webkit-transition: all 0.4s ease 0s;
-        transition: all 0.4s ease 0s; }
-    #recent-properties .contain-item .item-property, #partner-properties .contain-item .item-property, #finded-properties .contain-item .item-property, #partners .contain-item .item-property, #partner-page .contain-item .item-property {
-      padding: 10px 15px;
-      font-family: "OpenSans"; }
-      #recent-properties .contain-item .item-property i, #partner-properties .contain-item .item-property i, #finded-properties .contain-item .item-property i, #partners .contain-item .item-property i, #partner-page .contain-item .item-property i {
-        font-size: 14px;
-        margin-right: 3px;
-        color: #FDA94F; }
-      #recent-properties .contain-item .item-property .author, #recent-properties .contain-item .item-property .date, #partner-properties .contain-item .item-property .author, #partner-properties .contain-item .item-property .date, #finded-properties .contain-item .item-property .author, #finded-properties .contain-item .item-property .date, #partners .contain-item .item-property .author, #partners .contain-item .item-property .date, #partner-page .contain-item .item-property .author, #partner-page .contain-item .item-property .date {
-        font-size: 12px; }
-      #recent-properties .contain-item .item-property .author, #partner-properties .contain-item .item-property .author, #finded-properties .contain-item .item-property .author, #partners .contain-item .item-property .author, #partner-page .contain-item .item-property .author {
-        padding: 10px 0px; }
-      #recent-properties .contain-item .item-property .property-name, #partner-properties .contain-item .item-property .property-name, #finded-properties .contain-item .item-property .property-name, #partners .contain-item .item-property .property-name, #partner-page .contain-item .item-property .property-name {
-        font-family: "Arch";
-        font-size: 20px;
-        letter-spacing: 0.5px;
-        padding: 15px 0px; }
-        #recent-properties .contain-item .item-property .property-name a, #partner-properties .contain-item .item-property .property-name a, #finded-properties .contain-item .item-property .property-name a, #partners .contain-item .item-property .property-name a, #partner-page .contain-item .item-property .property-name a {
-          text-decoration: none;
-          color: #061B40;
-          -webkit-transition: all 0.4s ease 0s;
-          transition: all 0.4s ease 0s; }
-          #recent-properties .contain-item .item-property .property-name a:hover, #partner-properties .contain-item .item-property .property-name a:hover, #finded-properties .contain-item .item-property .property-name a:hover, #partners .contain-item .item-property .property-name a:hover, #partner-page .contain-item .item-property .property-name a:hover {
-            color: #FDA94F;
-            -webkit-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s; }
-      #recent-properties .contain-item .item-property .property-price, #partner-properties .contain-item .item-property .property-price, #finded-properties .contain-item .item-property .property-price, #partners .contain-item .item-property .property-price, #partner-page .contain-item .item-property .property-price {
-        font-family: "Arch";
-        font-size: 16px;
-        padding: 20px 0px; }
-        #recent-properties .contain-item .item-property .property-price .previous-price, #partner-properties .contain-item .item-property .property-price .previous-price, #finded-properties .contain-item .item-property .property-price .previous-price, #partners .contain-item .item-property .property-price .previous-price, #partner-page .contain-item .item-property .property-price .previous-price {
-          font-size: 12px;
-          color: #e0d7d7;
-          text-decoration: line-through; }
-      #recent-properties .contain-item .item-property .additional-properties, #partner-properties .contain-item .item-property .additional-properties, #finded-properties .contain-item .item-property .additional-properties, #partners .contain-item .item-property .additional-properties, #partner-page .contain-item .item-property .additional-properties {
-        border-top: 1px solid #e0d7d7;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        padding: 15px 0px 10px; }
-        #recent-properties .contain-item .item-property .additional-properties .add-prop-item .num, #partner-properties .contain-item .item-property .additional-properties .add-prop-item .num, #finded-properties .contain-item .item-property .additional-properties .add-prop-item .num, #partners .contain-item .item-property .additional-properties .add-prop-item .num, #partner-page .contain-item .item-property .additional-properties .add-prop-item .num {
-          color: #061B40;
-          font-size: 14px; }
-        #recent-properties .contain-item .item-property .additional-properties .add-prop-item span, #partner-properties .contain-item .item-property .additional-properties .add-prop-item span, #finded-properties .contain-item .item-property .additional-properties .add-prop-item span, #partners .contain-item .item-property .additional-properties .add-prop-item span, #partner-page .contain-item .item-property .additional-properties .add-prop-item span {
-          font-size: 12px; }
-      #recent-properties .contain-item .item-property .add-sort, #partner-properties .contain-item .item-property .add-sort, #finded-properties .contain-item .item-property .add-sort, #partners .contain-item .item-property .add-sort, #partner-page .contain-item .item-property .add-sort {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        border-radius: 8px;
-        padding: 5px 10px;
-        background-color: white; }
-        #recent-properties .contain-item .item-property .add-sort .name, #partner-properties .contain-item .item-property .add-sort .name, #finded-properties .contain-item .item-property .add-sort .name, #partners .contain-item .item-property .add-sort .name, #partner-page .contain-item .item-property .add-sort .name {
-          font-family: "OpenSans";
-          color: #FDA94F;
-          letter-spacing: 0.5px;
-          font-weight: bold; }
-    #recent-properties .contain-item .hover-overlay, #partner-properties .contain-item .hover-overlay, #finded-properties .contain-item .hover-overlay, #partners .contain-item .hover-overlay, #partner-page .contain-item .hover-overlay {
-      padding: 10px 0px;
-      border-top: 1px solid #e0d7d7;
-      width: 100%;
-      position: absolute;
-      bottom: -61px;
-      left: 0;
-      right: 0;
-      background-color: #F6F6F6;
-      opacity: 0;
-      visibility: hidden;
-      z-index: -1;
-      -webkit-transition-delay: 0s, 0s, 0.4s;
-              transition-delay: 0s, 0s, 0.4s;
-      -webkit-transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s;
-      transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s; }
-      #recent-properties .contain-item .hover-overlay ul, #partner-properties .contain-item .hover-overlay ul, #finded-properties .contain-item .hover-overlay ul, #partners .contain-item .hover-overlay ul, #partner-page .contain-item .hover-overlay ul {
-        width: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: end;
-            -ms-flex-pack: end;
-                justify-content: flex-end; }
-        #recent-properties .contain-item .hover-overlay ul li, #partner-properties .contain-item .hover-overlay ul li, #finded-properties .contain-item .hover-overlay ul li, #partners .contain-item .hover-overlay ul li, #partner-page .contain-item .hover-overlay ul li {
-          margin-right: 10px;
-          padding: 10px;
-          background-color: #FFEEE2;
-          border-radius: 8px; }
-          #recent-properties .contain-item .hover-overlay ul li a, #partner-properties .contain-item .hover-overlay ul li a, #finded-properties .contain-item .hover-overlay ul li a, #partners .contain-item .hover-overlay ul li a, #partner-page .contain-item .hover-overlay ul li a {
-            color: #FDA94F; }
-          #recent-properties .contain-item .hover-overlay ul li:hover, #partner-properties .contain-item .hover-overlay ul li:hover, #finded-properties .contain-item .hover-overlay ul li:hover, #partners .contain-item .hover-overlay ul li:hover, #partner-page .contain-item .hover-overlay ul li:hover {
-            background-color: #FDA94F;
-            -webkit-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s; }
-            #recent-properties .contain-item .hover-overlay ul li:hover i, #partner-properties .contain-item .hover-overlay ul li:hover i, #finded-properties .contain-item .hover-overlay ul li:hover i, #partners .contain-item .hover-overlay ul li:hover i, #partner-page .contain-item .hover-overlay ul li:hover i {
-              color: white;
-              -webkit-transition: all 0.4s ease 0s;
-              transition: all 0.4s ease 0s; }
-            #recent-properties .contain-item .hover-overlay ul li:hover a, #partner-properties .contain-item .hover-overlay ul li:hover a, #finded-properties .contain-item .hover-overlay ul li:hover a, #partners .contain-item .hover-overlay ul li:hover a, #partner-page .contain-item .hover-overlay ul li:hover a {
-              color: white;
-              -webkit-transition: all 0.4s ease 0s;
-              transition: all 0.4s ease 0s; }
-
-#propdetails-intro, #prop-search-intro, #partners-intro, #partner-page-intro {
+#another-intro {
   background: url("../img/banner/4.png");
   background-size: cover; }
-  #propdetails-intro .breadcumb-text a, #propdetails-intro .breadcumb-text span, #prop-search-intro .breadcumb-text a, #prop-search-intro .breadcumb-text span, #partners-intro .breadcumb-text a, #partners-intro .breadcumb-text span, #partner-page-intro .breadcumb-text a, #partner-page-intro .breadcumb-text span {
+  #another-intro .breadcumb-text a, #another-intro .breadcumb-text span {
     color: white;
     font-family: "OpenSans";
     letter-spacing: 1.1px; }
-  #propdetails-intro .breadcumb-text a:hover, #prop-search-intro .breadcumb-text a:hover, #partners-intro .breadcumb-text a:hover, #partner-page-intro .breadcumb-text a:hover {
+  #another-intro .breadcumb-text a:hover {
     color: #FDA94F;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
@@ -720,79 +880,29 @@ Creation date: 24/08/2019 12:54
         height: 400px;
         background-color: grey; }
 
-#finded-properties .title, #partner-page .title {
-  padding: 20px 0px;
-  font-family: "OpenSans"; }
-  #finded-properties .title .sum-found-property, #partner-page .title .sum-found-property {
-    font-size: 18px; }
-    #finded-properties .title .sum-found-property .sum, #partner-page .title .sum-found-property .sum {
-      color: #FDA94F;
-      font-weight: bold; }
-  #finded-properties .title select, #partner-page .title select {
+#another-intro {
+  background: url("../img/banner/4.png");
+  background-size: cover; }
+  #another-intro .breadcumb-text a, #another-intro .breadcumb-text span {
+    color: white;
     font-family: "OpenSans";
-    padding: 5px 20px; }
-#finded-properties .filter-panel, #partner-page .filter-panel {
-  font-family: "OpenSans"; }
-  #finded-properties .filter-panel .title, #partner-page .filter-panel .title {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    #finded-properties .filter-panel .title span, #partner-page .filter-panel .title span {
-      font-size: 18px;
-      margin-left: 5px; }
-  #finded-properties .filter-panel .filter-contain, #partner-page .filter-panel .filter-contain {
-    padding: 20px;
-    border: 1px solid #e0d7d7;
-    border-radius: 8px; }
-    #finded-properties .filter-panel .filter-contain div, #partner-page .filter-panel .filter-contain div {
-      margin-bottom: 30px; }
-    #finded-properties .filter-panel .filter-contain .rent-sale-buttons, #partner-page .filter-panel .filter-contain .rent-sale-buttons {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between; }
-      #finded-properties .filter-panel .filter-contain .rent-sale-buttons a, #partner-page .filter-panel .filter-contain .rent-sale-buttons a {
-        background-color: #FFEEE2;
-        -webkit-transition: all 0.4s ease 0s;
-        transition: all 0.4s ease 0s;
-        height: 40px;
-        line-height: 40px;
-        padding: 0 18px;
-        color: #FDA94F; }
-        #finded-properties .filter-panel .filter-contain .rent-sale-buttons a:hover, #partner-page .filter-panel .filter-contain .rent-sale-buttons a:hover {
-          background-color: #FDA94F;
-          -webkit-transition: all 0.4s ease 0s;
-          transition: all 0.4s ease 0s;
-          color: white; }
-    #finded-properties .filter-panel .filter-contain .search-select select, #partner-page .filter-panel .filter-contain .search-select select {
-      padding: 5px; }
-    #finded-properties .filter-panel .filter-contain .search-range, #partner-page .filter-panel .filter-contain .search-range {
-      text-align: center; }
-      #finded-properties .filter-panel .filter-contain .search-range h3, #partner-page .filter-panel .filter-contain .search-range h3 {
-        font-weight: bold; }
-    #finded-properties .filter-panel .filter-contain button, #partner-page .filter-panel .filter-contain button {
-      font-family: "OpenSans";
-      font-weight: bold;
-      display: block;
-      margin-top: 50px;
-      width: 100%;
-      background-color: #FFEEE2;
-      -webkit-transition: all 0.4s ease 0s;
-      transition: all 0.4s ease 0s;
-      height: 40px;
-      line-height: 40px;
-      padding: 0 18px;
-      color: #FDA94F; }
-      #finded-properties .filter-panel .filter-contain button:hover, #partner-page .filter-panel .filter-contain button:hover {
-        background-color: #FDA94F;
-        -webkit-transition: all 0.4s ease 0s;
-        transition: all 0.4s ease 0s;
-        color: white; }
+    letter-spacing: 1.1px; }
+  #another-intro .breadcumb-text a:hover {
+    color: #FDA94F;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s; }
+
+#another-intro {
+  background: url("../img/banner/4.png");
+  background-size: cover; }
+  #another-intro .breadcumb-text a, #another-intro .breadcumb-text span {
+    color: white;
+    font-family: "OpenSans";
+    letter-spacing: 1.1px; }
+  #another-intro .breadcumb-text a:hover {
+    color: #FDA94F;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s; }
 
 #partners .add-partner {
   height: 229px;
@@ -864,85 +974,18 @@ Creation date: 24/08/2019 12:54
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s; }
 
-#partner-page .title, #property-detail .title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 20px 0px;
-  font-family: "OpenSans";
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start; }
-  #partner-page .title span, #property-detail .title span {
-    margin-left: 10px; }
-#partner-page .partner-panel .contain, #property-detail .partner-panel .contain {
-  padding: 20px;
-  border: 1px solid #e0d7d7;
-  border-radius: 8px; }
-  #partner-page .partner-panel .contain h2, #property-detail .partner-panel .contain h2 {
-    font-family: "Arch";
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 18px;
+#another-intro {
+  background: url("../img/banner/4.png");
+  background-size: cover; }
+  #another-intro .breadcumb-text a, #another-intro .breadcumb-text span {
+    color: white;
+    font-family: "OpenSans";
     letter-spacing: 1.1px; }
-  #partner-page .partner-panel .contain .general .photo, #property-detail .partner-panel .contain .general .photo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-  #partner-page .partner-panel .contain .general .name, #property-detail .partner-panel .contain .general .name {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0px; }
-  #partner-page .partner-panel .contain .partner-adds, #property-detail .partner-panel .contain .partner-adds {
-    font-family: "OpenSans";
-    font-size: 14px;
-    font-weight: bold;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-    #partner-page .partner-panel .contain .partner-adds span, #property-detail .partner-panel .contain .partner-adds span {
-      color: #FDA94F;
-      padding: 10px 20px;
-      display: inline-block;
-      border-radius: 8px;
-      -webkit-transition: all 0.4s ease 0s;
-      transition: all 0.4s ease 0s;
-      background-color: #FFEEE2; }
-      #partner-page .partner-panel .contain .partner-adds span:hover, #property-detail .partner-panel .contain .partner-adds span:hover {
-        color: white;
-        -webkit-transition: all 0.4s ease 0s;
-        transition: all 0.4s ease 0s; }
-  #partner-page .partner-panel .contain .about, #property-detail .partner-panel .contain .about {
-    text-align: justify;
-    line-height: 20px;
-    font-family: "OpenSans";
-    margin: 20px 0px; }
-    #partner-page .partner-panel .contain .about p, #property-detail .partner-panel .contain .about p {
-      font-size: 14px;
-      color: gray; }
-  #partner-page .partner-panel .contain .contact ul li, #property-detail .partner-panel .contain .contact ul li {
-    padding: 10px 0px;
-    font-family: "Arch";
-    font-size: 18px; }
-    #partner-page .partner-panel .contain .contact ul li i, #property-detail .partner-panel .contain .contact ul li i {
-      color: #FDA94F;
-      font-size: 16px; }
-    #partner-page .partner-panel .contain .contact ul li .info-text, #property-detail .partner-panel .contain .contact ul li .info-text {
-      margin-top: 5px; }
-      #partner-page .partner-panel .contain .contact ul li .info-text span, #property-detail .partner-panel .contain .contact ul li .info-text span {
-        font-family: "OpenSans";
-        font-size: 14px;
-        color: gray; }
+  #another-intro .breadcumb-text a:hover {
+    color: #FDA94F;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s; }
+
 #partner-page .adds-panel .title, #property-detail .adds-panel .title {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -970,5 +1013,27 @@ Creation date: 24/08/2019 12:54
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s;
         color: white; }
+
+#another-intro {
+  background: url("../img/banner/4.png");
+  background-size: cover; }
+  #another-intro .breadcumb-text a, #another-intro .breadcumb-text span {
+    color: white;
+    font-family: "OpenSans";
+    letter-spacing: 1.1px; }
+  #another-intro .breadcumb-text a:hover {
+    color: #FDA94F;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s; }
+
+#about-us .contain-item {
+  padding: 20px 25px;
+  text-align: justify;
+  font-family: "OpenSans";
+  font-size: 15px;
+  color: gray;
+  line-height: 20px; }
+  #about-us .contain-item strong {
+    color: #061B40; }
 
 /*# sourceMappingURL=main.css.map */

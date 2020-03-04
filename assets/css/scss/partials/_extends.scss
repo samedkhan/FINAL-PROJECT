@@ -1,21 +1,22 @@
 @import './variables';
 
-.button{
+.button {
     border: 1px solid $hoverBack;
     border-radius: $br-regular;
     transition: $t-regular;
 }
 
-.button-hover{
+.button-hover {
     background-color: $yellow;
     transition: $t-regular;
+
     a {
         color: $lightgrey;
         transition: $t-regular;
     }
 }
 
-.submenu-hover{
+.submenu-hover {
     visibility: visible;
     opacity: 1;
     z-index: 1;
@@ -23,7 +24,7 @@
     transition-delay: 0s, 0s, 0.3s;
 }
 
-.search-tab-content{
+.search-tab-content {
     width: 100%;
     padding: 10px 5px;
     font-size: $footer-list-head;
@@ -33,16 +34,17 @@
     transition: $t-regular;
 }
 
-.search-tab-content-focus{
+.search-tab-content-focus {
     border: 2px solid $yellow;
     transition: $t-regular;
 }
 
-.intro-section{
-    padding:150px 0px 100px;
+.intro-section {
+    padding: 150px 0px 100px;
     font-family: $primary-font;
-    .title{
-        h1{
+
+    .title {
+        h1 {
             font-size: $page-title-size;
             letter-spacing: $ls-page-title;
             line-height: 70px;
@@ -50,27 +52,428 @@
         }
     }
 }
-.section-title{
-    .title{
-        display:flex;
+
+.section-title {
+    .title {
+        display: flex;
         justify-content: space-between;
         align-items: center;
-        a{
+
+        a {
             color: $yellow;
             font-family: $additional-font;
             font-size: $hyperlink-text-size;
             font-weight: bold;
             transition: $t-regular;
-            &:hover{
+
+            &:hover {
                 color: $blue;
                 transition: $t-regular;
             }
         }
-        h1{
-            font-size:$section-title-size;
+
+        h1 {
+            font-size: $section-title-size;
             font-family: $primary-font;
             letter-spacing: $ls-section-title;
             font-weight: bold;
+        }
+    }
+}
+
+.recent-adds-properties{
+    .contain-item {
+        box-shadow: $bs-regular;
+        border: 1px solid $grey;
+        border-radius: $br-regular;
+        background-color: $lightgrey;
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+            .item-image {
+                img {
+                    transform: scale(1.1);
+                    transition: $t-regular;
+                }
+            }
+
+            .hover-overlay {
+                visibility: visible;
+                opacity: 1;
+                z-index: 1;
+                transform: translateY(-100%);
+                transition-delay: 0s, 0s, 0.3s;
+                transition: $t-regular;
+            }
+        }
+
+        .item-image {
+            overflow: hidden;
+
+            img {
+                border-top-left-radius: $br-regular;
+                border-top-right-radius: $br-regular;
+                width: 100%;
+                transition: $t-regular;
+            }
+        }
+
+        .item-property {
+            padding: 10px 15px;
+            font-family: $additional-font;
+
+            i {
+                font-size: $add-features-size;
+                margin-right: 3px;
+                color: $yellow;
+            }
+
+            .author,
+            .date {
+                font-size: $add-author-text-size;
+
+            }
+
+            .author {
+                padding: 10px 0px;
+            }
+
+            .property-name {
+                font-family: $primary-font;
+                font-size: $add-title-size;
+                letter-spacing: $ls-section-title;
+                padding: 15px 0px;
+
+                a {
+                    text-decoration: none;
+                    color: $blue;
+                    transition: $t-regular;
+
+                    &:hover {
+                        color: $yellow;
+                        transition: $t-regular;
+                    }
+                }
+            }
+            .property-price {
+                font-family: $primary-font;
+                font-size: $add-price-size;
+                padding: 20px 0px;
+
+                .previous-price {
+                    font-size: $add-last-price-size;
+                    color: $grey;
+                    text-decoration: line-through;
+                }
+            }
+            .additional-properties {
+                border-top: 1px solid $grey;
+                display: flex;
+                justify-content: space-between;
+                padding: 15px 0px 10px;
+                .add-prop-item {
+
+                    .num {
+                        color: $blue;
+                        font-size: $add-features-size;
+                    }
+
+                    span {
+                        font-size: $add-author-text-size;
+                    }
+                }
+
+            }
+
+            .add-sort {
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                border-radius: 8px;
+                padding: 5px 10px;
+                background-color: white;
+
+                .name {
+                    font-family: $additional-font;
+                    color: $yellow;
+                    letter-spacing: $ls-section-title;
+                    font-weight: bold;
+                }
+            }
+
+        }
+
+        .hover-overlay {
+            padding: 10px 0px;
+            border-top: 1px solid $grey;
+            width: 100%;
+            position: absolute;
+            bottom: -61px;
+            left: 0;
+            right: 0;
+            background-color: $lightgrey;
+            opacity: 0;
+            visibility: hidden;
+            z-index: -1;
+            transition-delay: 0s, 0s, 0.4s;
+            transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s;
+
+            ul {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+
+                li {
+                    margin-right: 10px;
+                    padding: 10px;
+                    background-color: $hoverBack;
+                    border-radius: $br-regular;
+
+                    a {
+                        color: $yellow;
+                    }
+
+                    &:hover {
+                        background-color: $yellow;
+                        transition: $t-regular;
+
+                        i {
+                            color: $white;
+                            transition: $t-regular;
+                        }
+
+                        a {
+                            color: $white;
+                            transition: $t-regular;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+}
+
+.finded-adds-properties {
+    .title {
+        padding: 20px 0px;
+        font-family: $additional-font;
+
+        .sum-found-property {
+            font-size: 18px;
+
+            .sum {
+                color: $yellow;
+                font-weight: bold;
+            }
+        }
+
+        select {
+            font-family: $additional-font;
+            @extend .search-tab-content;
+            padding: 5px 20px;
+
+            &:focus {
+                @extend .search-tab-content-focus;
+            }
+        }
+    }
+
+    .filter-panel {
+        font-family: $additional-font;
+
+        .title {
+            justify-content: flex-start;
+            align-items: center;
+
+            span {
+                font-size: 18px;
+                margin-left: 5px;
+            }
+        }
+
+        .filter-contain {
+
+            padding: 20px;
+            border: 1px solid $grey;
+            border-radius: $br-regular;
+
+            div {
+                margin-bottom: 30px;
+            }
+
+            .rent-sale-buttons {
+                display: flex;
+                justify-content: space-between;
+
+                a {
+                    @extend .button;
+                    background-color: $hoverBack;
+                    transition: $t-regular;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 18px;
+                    color: $yellow;
+
+                    &:hover {
+                        background-color: $yellow;
+                        transition: $t-regular;
+                        color: $white;
+                    }
+                }
+            }
+
+            .search-select {
+
+                select {
+                    @extend .search-tab-content;
+
+                    padding: 5px;
+
+                    &:focus {
+                        @extend .search-tab-content-focus;
+                    }
+                }
+            }
+
+            .search-range {
+                text-align: center;
+
+                h3 {
+                    font-weight: bold;
+                }
+            }
+
+            button {
+                font-family: $additional-font;
+                font-weight: bold;
+                @extend .button;
+                display: block;
+                margin-top: 50px;
+                width: 100%;
+                background-color: $hoverBack;
+                transition: $t-regular;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 18px;
+                color: $yellow;
+
+                &:hover {
+                    background-color: $yellow;
+                    transition: $t-regular;
+                    color: $white;
+                }
+            }
+
+        }
+    }
+}
+
+.partner-page {
+    .title {
+        display: flex;
+        align-items: center;
+        padding: 20px 0px;
+        font-family: $additional-font;
+        justify-content: flex-start;
+
+        span {
+            margin-left: 10px;
+        }
+    }
+
+    .partner-panel {
+        .contain {
+            h2 {
+                font-family: $primary-font;
+                margin-bottom: 10px;
+                font-weight: bold;
+                font-size: 18px;
+                letter-spacing: $ls-regular;
+            }
+
+            padding: 20px;
+            border: 1px solid $grey;
+            border-radius: $br-regular;
+
+            .general {
+                .photo {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .name {
+                    text-align: center;
+                    font-size: $add-title-size;
+                    font-weight: bold;
+                    margin: 10px 0px;
+                }
+            }
+
+            .partner-adds {
+                font-family: $additional-font;
+                font-size: 14px;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+
+                span {
+                    color: $yellow;
+                    padding: 10px 20px;
+                    @extend .button;
+                    display: inline-block;
+                    border-radius: 8px;
+                    transition: $t-regular;
+                    background-color: $hoverBack;
+
+                    &:hover {
+                        @extend .button-hover;
+                        color: $white;
+                        transition: $t-regular;
+                    }
+                }
+            }
+
+            .about {
+                text-align: justify;
+                line-height: 20px;
+                font-family: $additional-font;
+                margin: 20px 0px;
+
+                p {
+                    font-size: $add-features-size;
+                    color: $gray;
+                }
+            }
+
+            .contact {
+                ul {
+                    li {
+                        padding: 10px 0px;
+                        font-family: $primary-font;
+                        font-size: 18px;
+
+                        i {
+                            color: $yellow;
+                            font-size: 16px;
+                        }
+
+                        .info-text {
+                            margin-top: 5px;
+
+                            span {
+                                font-family: $additional-font;
+                                font-size: $add-features-size;
+                                color: $gray;
+                            }
+                        }
+
+                    }
+
+                }
+            }
         }
     }
 }

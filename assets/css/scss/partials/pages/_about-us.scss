@@ -1,0 +1,18 @@
+@import '../sections/another-intro';
+
+#about-us{
+    @extend .section-title;
+    @extend .recent-adds-properties;
+    .contain-item{
+        padding: 20px 25px;
+        text-align: justify;
+        font-family: $additional-font;
+        font-size: $section-text-size;
+        color:$gray;
+        line-height: 20px;
+        strong{
+            color:$blue;
+        }
+    }
+
+}

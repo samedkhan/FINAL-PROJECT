@@ -1,108 +1,12 @@
+@import '../sections/another-intro';
 //All Properties of  #partners-intro section were writed on page - _prop-details.scss
 
 // Some properties of #partner-page section were write on sections _prop-search.scss and _recent-properties.scss
 
 #partner-page, #property-detail {
-    .title {
-        display: flex;
-        align-items: center;
-        padding: 20px 0px;
-        font-family: $additional-font;
-        justify-content: flex-start;
-        span {
-            margin-left: 10px;
-        }
-    }
-
-    .partner-panel {
-        .contain {
-            h2 {
-                font-family: $primary-font;
-                margin-bottom: 10px;
-                font-weight: bold;
-                font-size: 18px;
-                letter-spacing: $ls-regular;
-            }
-
-            padding: 20px;
-            border: 1px solid $grey;
-            border-radius: $br-regular;
-
-            .general {
-                .photo {
-                    display: flex;
-                    justify-content: center;
-                }
-
-                .name {
-                    text-align: center;
-                    font-size: $add-title-size;
-                    font-weight: bold;
-                    margin: 10px 0px;
-                }
-            }
-            .partner-adds{
-                font-family: $additional-font;
-                font-size:14px;
-                font-weight: bold;
-                display: flex;
-                justify-content: center;
-                span{
-                    color:$yellow;
-                    padding: 10px 20px;
-                    @extend .button;
-                    display: inline-block;
-                    border-radius: 8px;
-                    transition: $t-regular;
-                    background-color: $hoverBack;
-                    &:hover{
-                       @extend .button-hover;
-                       color: $white;
-                       transition: $t-regular;
-                    }
-                }
-            }
-            .about {
-                text-align: justify;
-                line-height: 20px;
-                font-family: $additional-font;
-                margin: 20px 0px;
-
-                p {
-                    font-size: $add-features-size;
-                    color: $gray;
-                }
-            }
-
-            .contact {
-                ul {
-                    li {
-                        padding: 10px 0px;
-                        font-family: $primary-font;
-                        font-size: 18px;
-
-                        i {
-                            color: $yellow;
-                            font-size: 16px;
-                        }
-
-                        .info-text {
-                            margin-top: 5px;
-
-                            span {
-                                font-family: $additional-font;
-                                font-size: $add-features-size;
-                                color: $gray;
-                            }
-                        }
-
-                    }
-
-                }
-            }
-
-        }
-    }
+    @extend .partner-page;
+    @extend .recent-adds-properties;
+    @extend .finded-adds-properties;
 
     .adds-panel {
         .title {
@@ -129,12 +33,8 @@
                         transition: $t-regular;
                         color: $white;
                     }
-
                 }
-
-
             }
         }
-
     }
 }

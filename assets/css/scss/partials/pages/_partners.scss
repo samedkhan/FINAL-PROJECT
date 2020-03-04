@@ -1,7 +1,7 @@
-//All Properties of  #partners-intro section were writed on page - _prop-details.scss
+@import '../sections/another-intro';
 
-// Some properties of #partners section were write on section _recent-properties.scss
 #partners{
+    @extend .recent-adds-properties;
     .add-partner{
         height: 229px;
         display: flex;

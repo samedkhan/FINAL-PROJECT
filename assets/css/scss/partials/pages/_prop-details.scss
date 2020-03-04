@@ -1,28 +1,11 @@
+@import '../sections/another-intro';
 
 
-#propdetails-intro, #prop-search-intro, #partners-intro, #partner-page-intro{
-    @extend .intro-section;
-    background: url('../img/banner/4.png');
-    background-size: cover;
-    .breadcumb-text{
-        // margin-top: 100px;
-        a, span{
-            color: $white;
-            font-family: $additional-font;
-            letter-spacing: $ls-regular;
-        }
-        a{
-            &:hover{
-                color: $yellow;
-                transition: $t-regular;
-            }
-        }
-
-    }
+#partner-properties{
+    @extend .section-title;
+    @extend .recent-adds-properties;
 }
 
-// Properties of #partner-properties section were write on section - _recent-properties.scss 
-// Properties of .partner-panel were write on _partner-page.scss
 #property-detail{
     @include section-prop;
     

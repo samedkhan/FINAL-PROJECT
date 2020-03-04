@@ -1,5 +1,9 @@
 
 //SECTIONS
-@import '../sections/intro';
+@import '../sections/home-intro';
 @import '../sections/our-partners';
-@import '../sections/recent-properties';
+
+#recent-properties{
+    @extend .section-title;
+    @extend .recent-adds-properties;
+}
