@@ -5,7 +5,7 @@
 
 #partner-page, #property-detail {
     @extend .partner-page;
-    @extend .recent-adds-properties;
+    @extend .contain;
     @extend .finded-adds-properties;
 
     .adds-panel {

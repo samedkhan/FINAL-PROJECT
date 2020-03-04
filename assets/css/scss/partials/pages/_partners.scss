@@ -1,7 +1,7 @@
 @import '../sections/another-intro';
 
 #partners{
-    @extend .recent-adds-properties;
+    @extend .contain;
     .add-partner{
         height: 229px;
         display: flex;
