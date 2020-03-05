@@ -256,6 +256,20 @@
 
 }
 
+.input{
+    width: 100%;
+        padding: 10px 5px;
+        font-size: $footer-list-head;
+        font-family: $additional-font;
+        border-radius: $br-regular;
+        border: 2px solid $grey;
+        transition: $t-regular;
+        &:focus{
+            border: 2px solid $yellow;
+            transition: $t-regular;
+        }
+}
+
 .finded-adds-properties {
     .title {
         padding: 20px 0px;
@@ -474,6 +488,71 @@
 
                 }
             }
+        }
+    }
+}
+
+.form{
+    form{
+        padding: 10px 0px;
+        .form-group{
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            label{
+                width:160px;
+                color: $blue;
+                font-size: $add-price-size;
+            }
+            select{
+                width:250px;
+                @extend .search-tab-content;
+                padding: 5px !important;
+                font-size: $add-price-size;
+                &:focus{
+                    @extend .search-tab-content-focus;
+                }
+            }
+            input{
+                width:250px;
+                @extend .input;
+                padding: 5px !important;
+                font-size: $add-price-size;
+            }
+            textarea{
+                width:250px;
+                // height:150px;
+                @extend .input;
+                padding: 5px !important;
+                font-size: $add-price-size;
+            }
+
+            
+        }
+        button,a{
+            @extend .search-tab-content;
+            width: inherit !important;
+            border-color: $yellow;
+            background-color: $hoverBack;
+            color: $yellow;
+                    transition: $t-regular;
+            letter-spacing: $ls-regular;
+            
+            margin: 0 auto;
+            padding: 5px 10px;
+            display: block;
+            &:hover{
+                background-color: $yellow;
+                    transition: $t-regular;
+                    color:$white;
+            }
+            i{
+                margin-right: 10px;
+            }
+        }
+        a{
+            width: 250px !important;
         }
     }
 }

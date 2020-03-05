@@ -38,19 +38,7 @@
                 border-top-left-radius: 0px;
             }
             .search-input{
-                input{
-                    width: 100%;
-                    padding: 10px 5px;
-                    font-size: $footer-list-head;
-                    font-family: $additional-font;
-                    border-radius: $br-regular;
-                    border: 2px solid $grey;
-                    transition: $t-regular;
-                    &:focus{
-                        border: 2px solid $yellow;
-                        transition: $t-regular;
-                    }
-                }
+                @extend .input;
             }
             .search-select{
                 select{

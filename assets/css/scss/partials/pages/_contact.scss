@@ -10,9 +10,30 @@
         font-size: $section-text-size;
         color:$gray;
         line-height: 20px;
-        strong{
-            color:$blue;
+        @extend .form;
+        .row{
+            display: flex;
+            align-items: center;
+            .contain{
+                display: flex;
+                justify-content: center;
+                ul{
+                    li{
+                        color:$blue;
+                        margin-bottom:30px;
+                        display: flex;
+                        align-items: center;
+                        i{
+                            color: $yellow;
+                            display: block;
+                            width:30px;
+                            font-size: $add-title-size;
+                        }
+                    }
+                }
+            }
         }
+        
     }
 
 }
