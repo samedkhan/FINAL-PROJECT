@@ -79,6 +79,11 @@
                     color: $blue;
                     font-size: $hyperlink-text-size;
                     letter-spacing: $ls-regular;
+                    transition: $t-regular;
+                    &:hover{
+                        color: $yellow;
+                        transition: $t-regular;
+                    }
                 }
 
                 .submenu, .zero-submenu {
@@ -117,6 +122,8 @@
                                 background: $hoverBack;
                                 padding-left: 25px;
                                 border-left: 4px solid $yellow;
+                                color:$yellow;
+                                
                             }
                         }
                         &[data-dropright]::after{
