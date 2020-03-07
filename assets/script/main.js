@@ -13,19 +13,48 @@ $(document).ready(function(){
         if(viewTop > navmenu[0].clientHeight){
             navmenu.css({
                 "background-color": "white",
-                "box-shadow": "0 2px 48px 0 rgba(0, 0, 0, 0.08)",
-                "transition" : "all 0.5s ease 0s"
+                "box-shadow": "7px 7px 11px -7px rgba(110,110,110,1)",
+                "transition" : "all 0.5s ease 0s",
+                "border-bottom" : "1px solid #FDA94F"
             });
         }
         else{
             navmenu.css({
                 "background-color": "transparent",
-                "box-shadow": "none"
+                "box-shadow": "none",
+                "transition" : "all 0.5s ease 0s",
+                "border-bottom" : "none"
             });
         }
         // END of NAVIGATION MENU       
         
-        // Carousels
+    });
+     //NAVIGATION TABS MENU 
+     $('.nav-tabs > li > a').click(function(event){
+        event.preventDefault();//stop browser to take action for clicked anchor
+					
+		//get displaying tab content jQuery selector
+		var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');					
+					
+		//find actived navigation and remove 'active' css
+		var actived_nav = $('.nav-tabs > li.active');
+		actived_nav.removeClass('active');
+					
+		//add 'active' css into clicked navigation
+		$(this).parents('li').addClass('active');
+					
+		//hide displaying tab content
+		$(active_tab_selector).removeClass('active');
+		$(active_tab_selector).addClass('hide');
+					
+		//show target tab content
+		var target_tab_selector = $(this).attr('href');
+		$(target_tab_selector).removeClass('hide');
+		$(target_tab_selector).addClass('active');
+        });
+        //END OF NAVIGATION TABS MENU
+
+        //Carousels
         $(".property-photo").owlCarousel({
             loop:true,
             items: 1,
@@ -111,8 +140,7 @@ $(document).ready(function(){
         //     }
         // }
        //END of PRICE PLAN FADE-UP
-    })
-    
+
 //     // SMOOTH SLIDE SECTIONS ON NAVBAR MENU
 //     $('a[href^="#"]').on('click', function(e) {
 //         e.preventDefault()

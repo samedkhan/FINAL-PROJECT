@@ -1,7 +1,7 @@
 @import './variables';
 
 .button {
-    border: 1px solid $hoverBack;
+    border: 1px solid $yellow;
     border-radius: $br-regular;
     transition: $t-regular;
 }
@@ -9,7 +9,6 @@
 .button-hover {
     background-color: $yellow;
     transition: $t-regular;
-
     a {
         color: $lightgrey;
         transition: $t-regular;
@@ -26,7 +25,7 @@
 
 .search-tab-content {
     width: 100%;
-    padding: 10px 5px;
+    padding: 8px 4px;
     font-size: $footer-list-head;
     font-family: $additional-font;
     border-radius: $br-regular;
@@ -80,7 +79,46 @@
         }
     }
 }
-
+.contain-item-small{
+    padding: 15px 10px 5px;
+                    .item-property{
+                        padding: 5px 0px;
+                        .property-price{
+                            padding: 8px 0px;
+                        }
+                        .property-name{
+                            font-size: 15px;
+                            padding: 10px 0px;
+                        }
+                        .add-sort{
+                            top: 5%;
+                            right: 5%;
+                        }
+                        
+                        .additional-properties{
+                            padding: 10px 0px 0px;
+                        }
+                        .hover-overlay{
+                            bottom: -36px;
+                            padding: 0px !important;
+                            ul{
+                                padding: 5px 0px;
+                                li{
+                                    padding: 3px 0px !important;
+                                    border-radius: 4px;
+                                    width: 50px;
+                                    text-align: center;
+                                   a{
+                                    
+                                    i{
+                                        font-size: 20px;
+                                    }
+                                   }
+                                }
+                            }
+                        }
+                    }
+}
 .contain{
     .contain-item {
         box-shadow: $bs-regular;
