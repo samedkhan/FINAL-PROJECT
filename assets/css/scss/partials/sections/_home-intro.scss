@@ -9,7 +9,9 @@
             li{
                 display: inline-block;
                 @extend .button;
+                box-shadow: none;
                 padding: 15px 25px;
+                border-bottom-color: $white;
                 border-bottom-right-radius: 0px !important;
                 border-bottom-left-radius: 0px !important;
                 background-color: $white;
@@ -36,6 +38,7 @@
                 background-color: $white;
                 border-radius: $br-regular;
                 border-top-left-radius: 0px;
+                box-shadow: $bs-regular;
             }
             .search-input{
                 @extend .input;
@@ -51,6 +54,7 @@
             .search-button{
                 button{
                     @extend .search-tab-content;
+                    
                     letter-spacing: $ls-regular;
                     background-color: $hoverBack;
                     color: $yellow;

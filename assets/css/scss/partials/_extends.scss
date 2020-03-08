@@ -4,6 +4,7 @@
     border: 1px solid $yellow;
     border-radius: $br-regular;
     transition: $t-regular;
+    box-shadow: $bs-regular;
 }
 
 .button-hover {
@@ -28,6 +29,7 @@
     padding: 8px 4px;
     font-size: $footer-list-head;
     font-family: $additional-font;
+    box-shadow: $bs-regular;
     border-radius: $br-regular;
     border: 2px solid $grey;
     transition: $t-regular;
@@ -80,9 +82,9 @@
     }
 }
 .contain-item-small{
-    padding: 15px 10px 5px;
+    margin-bottom: 20px;
                     .item-property{
-                        padding: 5px 0px;
+                        padding: 15px 10px;
                         .property-price{
                             padding: 8px 0px;
                         }
@@ -104,8 +106,9 @@
                             ul{
                                 padding: 5px 0px;
                                 li{
-                                    padding: 3px 0px !important;
+                                    padding: 3px 0px;
                                     border-radius: 4px;
+                                    border: 1px solid $yellow;
                                     width: 50px;
                                     text-align: center;
                                    a{
@@ -127,7 +130,7 @@
         background-color: $lightgrey;
         position: relative;
         overflow: hidden;
-
+        margin-bottom: 20px;
         &:hover {
             .item-image {
                 img {
@@ -174,7 +177,7 @@
             }
 
             .author {
-                padding: 10px 0px;
+                padding-bottom: 10px;
             }
 
             .property-name {
@@ -197,7 +200,7 @@
             .property-price {
                 font-family: $primary-font;
                 font-size: $add-price-size;
-                padding: 20px 0px;
+                padding: 10px 0px;
 
                 .previous-price {
                     font-size: $add-last-price-size;
@@ -332,6 +335,31 @@
             }
         }
     }
+    
+    .rent-sale-buttons {
+        .nav-tabs{
+            li{
+                display: inline-block;
+                width: 100px;
+                background-color: $hoverBack;
+                padding: 12px 0px;
+                text-align: center;
+                @extend .button;
+                a{
+                    color: $yellow;
+                }
+                &:hover{
+                    @extend .button-hover;
+                }
+            }
+            .active{
+                background-color: $yellow;
+                a{
+                    color: $white;
+                }
+            }
+        }
+    }
 
     .filter-panel {
         font-family: $additional-font;
@@ -345,38 +373,15 @@
                 margin-left: 5px;
             }
         }
-
         .filter-contain {
 
             padding: 20px;
             border: 1px solid $grey;
             border-radius: $br-regular;
-
+            box-shadow: $bs-regular;
             div {
                 margin-bottom: 30px;
             }
-
-            .rent-sale-buttons {
-                display: flex;
-                justify-content: space-between;
-
-                a {
-                    @extend .button;
-                    background-color: $hoverBack;
-                    transition: $t-regular;
-                    height: 40px;
-                    line-height: 40px;
-                    padding: 0 18px;
-                    color: $yellow;
-
-                    &:hover {
-                        background-color: $yellow;
-                        transition: $t-regular;
-                        color: $white;
-                    }
-                }
-            }
-
             .search-select {
 
                 select {
@@ -438,6 +443,7 @@
 
     .partner-panel {
         .contain {
+            box-shadow: $bs-regular;
             h2 {
                 font-family: $primary-font;
                 margin-bottom: 10px;

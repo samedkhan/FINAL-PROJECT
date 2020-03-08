@@ -7,33 +7,35 @@
     @extend .partner-page;
     @extend .contain;
     @extend .finded-adds-properties;
-
+    
     .adds-panel {
         .title {
             justify-content: space-between;
-
-            .rent-sale-buttons {
-                display: flex;
-                justify-content: space-between;
-
-                a {
-                    @extend .button;
-                    background-color: $hoverBack;
-                    transition: $t-regular;
-                    height: 40px;
-                    line-height: 40px;
-                    padding: 0 18px;
-                    color: $yellow;
-                    width: 100px;
-                    text-align: center;
-                    margin: 0 10px;
-
-                    &:hover {
-                        background-color: $yellow;
-                        transition: $t-regular;
-                        color: $white;
+            
+        }
+        .tab-content{
+            @extend .contain;
+            .tab-panel{
+                .contain-item{
+                    @extend .contain-item-small;
+                    .hover-overlay{
+                        bottom: -41px !important;
+                        ul{
+                            li{
+                                padding: 5px 10px !important;
+                                width:100% !important;
+                                margin-right: 0px !important;
+                               
+                            }
+                        }
                     }
                 }
+            }
+            .active{
+                display: block;
+            }
+            .hide{
+                display: none;
             }
         }
     }

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/grid.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/rangeslider/rangeslider.css">
     <script src="./assets/script/jquery.js"></script>
 </head>
 <body>
@@ -105,7 +104,7 @@
                 <div class="row">
                    <div class="col-md-12">
                        <div class="title">
-                           <h1>"Əhmədli"də olan kirayə evlər</h1>
+                           <h1>Axtarış</h1>
                        </div>
                        <div class="breadcumb-text mt-20">
                         <a href="index.html">Ana Səhifə</a>
@@ -116,7 +115,7 @@
             </div>
         </section>
 
-        <section id="finded-properties">
+        <section id="prop-search">
             <div class="container">
                 <div class="col-md-3">
                     <div class="filter-panel">
@@ -126,70 +125,110 @@
                         </div>
                         <div class="filter-contain">
                             <div class="rent-sale-buttons">
-                                <a href="#tabs_1">Kirayə</a>
-                                <a href="#tabs_2">Satış</a>
+                                <ul class="nav-tabs">
+                                    <li class="active"><a href="#tabs_1">Kirayə</a></li>
+                                    <li><a href="#tabs_2">Satış</a></li>
+                                </ul>
                             </div>
-                            <form action="get">
-                                <div class="search-select">
-                                    <select name="city" id="city">
-                                        <option value="Şəhər" selected>Şəhər</option>
-                                        <option value="Bakı">Bakı</option>
-                                        <option value="Abşeron">Abşeron</option>
-                                        <option value="Sumqayıt">Sumqayıt</option>
-                                        <option value="Gəncə">Gəncə</option>
-                                        <option value="Mingəçevir">Mingəçevir</option>
-                                        <option value="Şirvan">Şirvan</option>
-                                    </select>
+                            <div class="tab-content">
+                                <div class="tab-panel active" id="tabs_1">
+                                    <form action="get">
+                                        <div class="search-select">
+                                            <select name="city" id="city">
+                                                <option value="Şəhər" selected>Şəhər</option>
+                                                <option value="Bakı">Bakı</option>
+                                                <option value="Abşeron">Abşeron</option>
+                                                <option value="Sumqayıt">Sumqayıt</option>
+                                                <option value="Gəncə">Gəncə</option>
+                                                <option value="Mingəçevir">Mingəçevir</option>
+                                                <option value="Şirvan">Şirvan</option>
+                                            </select>
+                                        </div>
+                                        <div class="search-select">
+                                            <select name="region" id="region">
+                                                <option value="Rayon|Qəsəbə" selected>Rayon/Qəsəbə</option>
+                                                <option value="Nizami">Nizami</option>
+                                                <option value="Xətai">Xətai</option>
+                                                <option value="Nəsimi">Nəsimi</option>
+                                                <option value="Binəqədi">Binəqədi</option>
+                                                <option value="Səbail">Səbail</option>
+                                                <option value="Suraxanı">Suraxanı</option>
+                                            </select>
+                                        </div>
+                                        <div class="search-select">
+                                            <select name="property" id="property">
+                                                <option value="Hamısı" selected>Bütün elanlar</option>
+                                                <option value="yenitikili">Yeni tikili</option>
+                                                <option value="köhnətikili">Köhnə tikili</option>
+                                                <option value="heyetevi">Həyət Evi/Villa</option>
+                                                <option value="ofis">Ofis</option>
+                                                <option value="obyekt">Obyekt</option>
+                                                <option value="obyekt">Qaraj</option>
+                                            </select>
+                                        </div>
+                                        <div class="search-select">
+                                            <select name="flat" id="flat">
+                                                <option value="Mənzil sayı" selected>Mənzil sayı</option>
+                                                <option value="1otaqlimenzil">1 otaqlı mənzil</option>
+                                                <option value="2otaqlimenzil">2 otaqlı mənzil</option>
+                                                <option value="3otaqlimenzil">3 otaqlı mənzil</option>
+                                                <option value="4otaqlimenzil">4 otaqlı mənzil</option>
+                                                <option value="5otaqlimenzil">5 otaqlı mənzil</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit">Axtar</button>
+                                    </form>
                                 </div>
-                                <div class="search-select">
-                                    <select name="region" id="region">
-                                        <option value="Rayon|Qəsəbə" selected>Rayon/Qəsəbə</option>
-                                        <option value="Nizami">Nizami</option>
-                                        <option value="Xətai">Xətai</option>
-                                        <option value="Nəsimi">Nəsimi</option>
-                                        <option value="Binəqədi">Binəqədi</option>
-                                        <option value="Səbail">Səbail</option>
-                                        <option value="Suraxanı">Suraxanı</option>
-                                    </select>
+                                <div class="tab-panel hide" id="tabs_2">
+                                    <form action="get">
+                                        <div class="search-select">
+                                            <select name="city" id="city">
+                                                <option value="Şəhər" selected>Şəhər</option>
+                                                <option value="Bakı">Bakı</option>
+                                                <option value="Abşeron">Abşeron</option>
+                                                <option value="Sumqayıt">Sumqayıt</option>
+                                                <option value="Gəncə">Gəncə</option>
+                                                <option value="Mingəçevir">Mingəçevir</option>
+                                                <option value="Şirvan">Şirvan</option>
+                                            </select>
+                                        </div>
+                                        <div class="search-select">
+                                            <select name="region" id="region">
+                                                <option value="Rayon|Qəsəbə" selected>Rayon/Qəsəbə</option>
+                                                <option value="Nizami">Nizami</option>
+                                                <option value="Xətai">Xətai</option>
+                                                <option value="Nəsimi">Nəsimi</option>
+                                                <option value="Binəqədi">Binəqədi</option>
+                                                <option value="Səbail">Səbail</option>
+                                                <option value="Suraxanı">Suraxanı</option>
+                                            </select>
+                                        </div>
+                                        <div class="search-select">
+                                            <select name="property" id="property">
+                                                <option value="Hamısı" selected>Bütün elanlar</option>
+                                                <option value="yenitikili">Yeni tikili</option>
+                                                <option value="köhnətikili">Köhnə tikili</option>
+                                                <option value="heyetevi">Həyət Evi/Villa</option>
+                                                <option value="ofis">Ofis</option>
+                                                <option value="obyekt">Obyekt</option>
+                                                <option value="obyekt">Qaraj</option>
+                                            </select>
+                                        </div>
+                                        <div class="search-select">
+                                            <select name="flat" id="flat">
+                                                <option value="Mənzil sayı" selected>Mənzil sayı</option>
+                                                <option value="1otaqlimenzil">1 otaqlı mənzil</option>
+                                                <option value="2otaqlimenzil">2 otaqlı mənzil</option>
+                                                <option value="3otaqlimenzil">3 otaqlı mənzil</option>
+                                                <option value="4otaqlimenzil">4 otaqlı mənzil</option>
+                                                <option value="5otaqlimenzil">5 otaqlı mənzil</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit">Axtar</button>
+                                    </form>
                                 </div>
-                                <div class="search-select">
-                                    <select name="property" id="property">
-                                        <option value="Hamısı" selected>Bütün elanlar</option>
-                                        <option value="yenitikili">Yeni tikili</option>
-                                        <option value="köhnətikili">Köhnə tikili</option>
-                                        <option value="heyetevi">Həyət Evi/Villa</option>
-                                        <option value="ofis">Ofis</option>
-                                        <option value="obyekt">Obyekt</option>
-                                        <option value="obyekt">Qaraj</option>
-                                    </select>
-                                </div>
-                                <div class="search-select">
-                                    <select name="flat" id="flat">
-                                        <option value="Mənzil sayı" selected>Mənzil sayı</option>
-                                        <option value="1otaqlimenzil">1 otaqlı mənzil</option>
-                                        <option value="2otaqlimenzil">2 otaqlı mənzil</option>
-                                        <option value="3otaqlimenzil">3 otaqlı mənzil</option>
-                                        <option value="4otaqlimenzil">4 otaqlı mənzil</option>
-                                        <option value="5otaqlimenzil">5 otaqlı mənzil</option>
-                                    </select>
-                                </div>
-
-                                <!-- // Düzgün rəqəmi seçmək olmur dəyə istifadə edə bilmirəm -->
-                                <!-- <div class="search-range"> 
-                                    <div class="search-title">
-                                        <h3>Otaq sayı</h3>
-                                    </div>
-                                    <input type="range" value="1" step="1" min="1" max="5" id="room">
-                                </div> -->
-                                <div class="search-range">
-                                    <div class="search-title">
-                                        <h3>Maksimum<br>qiymət</h3>
-                                    </div>
-                                    <input type="range" value="6500" step="1" min="1000" max="12600" id="price">
-
-                                </div>
-                                <button type="submit">Axtar</button>
-                            </form>
+                            </div>
+                            
                             
                         </div>
                       
@@ -475,7 +514,6 @@
     </footer>
 </body>
 <script src="./assets/script/main.js"></script>
-<script src="./assets/script/rangeslider/rangeslider.js"></script>
 <script src="./assets/script/owl-carousel/owl.carousel.js"></script>
 
 </html>

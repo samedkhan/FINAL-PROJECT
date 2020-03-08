@@ -55,25 +55,30 @@ $(document).ready(function(){
         //END OF NAVIGATION TABS MENU
 
         //Carousels
-        $(".property-photo").owlCarousel({
-            loop:true,
-            items: 1,
-            nav:true,
-            smartSpeed: 500,
-            dots: false
-        });
-
-        $(".partners-logo").owlCarousel({
-            loop:true,
-            items: 3,
-            loop: true,
-            nav:true,
-            smartSpeed: 500,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            autoplayHoverPause: true,
-            dots: false
-        });
+        if($(".property-photo").legth>0){
+            $(".property-photo").owlCarousel({
+                loop:true,
+                items: 1,
+                nav:true,
+                smartSpeed: 500,
+                dots: false
+            });
+        }
+       
+        if($(".partners-logo").length>0){
+            $(".partners-logo").owlCarousel({
+                loop:true,
+                items: 3,
+                loop: true,
+                nav:true,
+                smartSpeed: 500,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true,
+                dots: false
+            });
+        }
+        
         // END of Carousels
 
         

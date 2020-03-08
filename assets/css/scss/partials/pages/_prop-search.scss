@@ -1,7 +1,8 @@
 @import '../sections/another-intro';
 
-#finded-properties{
+#prop-search{
     @extend .section-title;
     @extend .contain;
     @extend .finded-adds-properties;
+
 }
