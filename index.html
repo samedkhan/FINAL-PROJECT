@@ -11,8 +11,26 @@
     <link rel="stylesheet" href="assets/css/owl-carousel/owl.carousel.css">
 <link rel="stylesheet" href="assets/css/owl-carousel/owl.theme.default.css">
     <script src="./assets/script/jquery.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $('.spinner').delay(1500).fadeOut("slow", function () {
+                $(this).css('z-index', '0');
+                $('.preloader').addClass('complete').css("z-index", "0");
+            });
+        });
+    </script>
 </head>
 <body>
+    <!-- preloader -->
+    <div class="preloader">
+        <div class="spinner">
+            <div class="shadow"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+
+    <!-- header -->
     <header>
         <section id="header"> 
             <div class="container">
@@ -100,7 +118,10 @@
             </div>
         </section>
     </header>
+    <!-- end of header -->
+
     <main>
+        <!-- intro section -->
         <section id="home-intro">
             <div class="container">
                 <div class="row">
@@ -241,7 +262,9 @@
                 </div>
             </div>
         </section>
+        <!-- end of intro section -->
 
+        <!-- property-advertisiments section -->
         <section id="recent-properties" class="mt-20">
             <div class="container">
                 <div class="row">
@@ -454,7 +477,9 @@
                 </div>
             </div>
         </section>
+        <!-- end of property-advertisiments section -->
 
+        <!-- our partners section -->
         <section id="partners">
             <div class="container">
                 <div class="row">
@@ -480,7 +505,9 @@
                
             </div>
         </section>
+        <!-- end of our partners section -->
     </main>
+    <!-- footer -->
     <footer>
         <section id="footer">
             <div class="container">
@@ -585,6 +612,7 @@
             </div>
         </section>
     </footer>
+    <!-- end of footer -->
 </body>
 <script src="./assets/script/main.js"></script>
 <script src="./assets/script/owl-carousel/owl.carousel.js"></script>

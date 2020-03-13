@@ -1,0 +1,419 @@
+﻿@{
+    ViewData["Title"] = "Ana səhifə";
+}
+
+<!-- intro section -->
+    <section id="home-intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title">
+                        <h1>Ən Mükəmməl <br> Evi Tap</h1>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="contain-stack mt-40">
+                        <ul class="nav-tabs">
+                            <li class="active"><a href="#tabs_1">Kirayə</a></li>
+                            <li><a href="#tabs_2">Satış</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-panel active" id="tabs_1">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="search-select">
+                                            <select name="city" id="city">
+                                                <option value="Şəhər" selected>Şəhər</option>
+                                                <option value="Bakı">Bakı</option>
+                                                <option value="Abşeron">Abşeron</option>
+                                                <option value="Sumqayıt">Sumqayıt</option>
+                                                <option value="Gəncə">Gəncə</option>
+                                                <option value="Mingəçevir">Mingəçevir</option>
+                                                <option value="Şirvan">Şirvan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="search-select">
+                                            <select name="region" id="region">
+                                                <option value="Rayon|Qəsəbə" selected>Rayon/Qəsəbə</option>
+                                                <option value="Nizami">Nizami</option>
+                                                <option value="Xətai">Xətai</option>
+                                                <option value="Nəsimi">Nəsimi</option>
+                                                <option value="Binəqədi">Binəqədi</option>
+                                                <option value="Səbail">Səbail</option>
+                                                <option value="Suraxanı">Suraxanı</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="search-select">
+                                            <select name="property" id="property">
+                                                <option value="Hamısı" selected>Hamısı</option>
+                                                <option value="yenitikili">Yeni tikili</option>
+                                                <option value="köhnətikili">Köhnə tikili</option>
+                                                <option value="heyetevi">Həyət Evi/Villa</option>
+                                                <option value="ofis">Ofis</option>
+                                                <option value="obyekt">Obyekt</option>
+                                                <option value="obyekt">Qaraj</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="search-select">
+                                            <select name="flat" id="flat">
+                                                <option value="Mənzil sayı" selected>Mənzil sayı</option>
+                                                <option value="1otaqlimenzil">1 otaqlı mənzil</option>
+                                                <option value="2otaqlimenzil">2 otaqlı mənzil</option>
+                                                <option value="3otaqlimenzil">3 otaqlı mənzil</option>
+                                                <option value="4otaqlimenzil">4 otaqlı mənzil</option>
+                                                <option value="5otaqlimenzil">5 otaqlı mənzil</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="search-button">
+                                            <button class="search">Axtar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-panel hide" id="tabs_2">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="search-select">
+                                            <select name="city" id="city">
+                                                <option value="Şəhər" selected>Şəhər</option>
+                                                <option value="Bakı">Bakı</option>
+                                                <option value="Abşeron">Abşeron</option>
+                                                <option value="Sumqayıt">Sumqayıt</option>
+                                                <option value="Gəncə">Gəncə</option>
+                                                <option value="Mingəçevir">Mingəçevir</option>
+                                                <option value="Şirvan">Şirvan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="search-select">
+                                            <select name="region" id="region">
+                                                <option value="Rayon|Qəsəbə" selected>Rayon/Qəsəbə</option>
+                                                <option value="Nizami">Nizami</option>
+                                                <option value="Xətai">Xətai</option>
+                                                <option value="Nəsimi">Nəsimi</option>
+                                                <option value="Binəqədi">Binəqədi</option>
+                                                <option value="Səbail">Səbail</option>
+                                                <option value="Suraxanı">Suraxanı</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="search-select">
+                                            <select name="property" id="property">
+                                                <option value="Hamısı" selected>Hamısı</option>
+                                                <option value="yenitikili">Yeni tikili</option>
+                                                <option value="köhnətikili">Köhnə tikili</option>
+                                                <option value="heyetevi">Həyət Evi/Villa</option>
+                                                <option value="ofis">Ofis</option>
+                                                <option value="obyekt">Obyekt</option>
+                                                <option value="obyekt">Qaraj</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="search-select">
+                                            <select name="flat" id="flat">
+                                                <option value="Mənzil sayı" selected>Mənzil sayı</option>
+                                                <option value="1otaqlimenzil">1 otaqlı mənzil</option>
+                                                <option value="2otaqlimenzil">2 otaqlı mənzil</option>
+                                                <option value="3otaqlimenzil">3 otaqlı mənzil</option>
+                                                <option value="4otaqlimenzil">4 otaqlı mənzil</option>
+                                                <option value="5otaqlimenzil">5 otaqlı mənzil</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="search-button">
+                                            <button class="search">Axtar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- end of intro section -->
+<!-- property-advertisiments section -->
+<section id="recent-properties" class="mt-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Son əlavə edilən daşınmaz əmlaklar</h1>
+                    <a href="#">Hamısına bax</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contain-stack mt-40">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="contain-item">
+                            <div class="item-image">
+                                <a href="#"><img src="~/img/property/sale/4 (1).png" alt="property"></a>
+                            </div>
+                            <div class="item-property">
+                                <div class="author">
+                                    <i class="fas fa-user"></i><span class="author-name">Vilma Jarvi By Redbrox</span>
+                                </div>
+                                <div class="date">
+                                    <i class="far fa-calendar-alt"></i><span class="added-date">27.02.2020</span>
+                                </div>
+                                <div class="property-name">
+                                    <a href="#">Jason Landville Apartment</a>
+                                </div>
+                                <div class="property-price">
+                                    <span class="present-price">350 ₼/ay</span>
+                                    <span class="previous-price">790 ₼/ay</span>
+                                </div>
+                                <div class="additional-properties">
+                                    <div class="add-prop-item">
+                                        <i class="fas fa-bed"></i>
+                                        <span class="num">05</span>
+                                    </div>
+                                    <div class="add-prop-item">
+                                        <i class="fas fa-bath"></i>
+                                        <span class="num">02</span>
+                                    </div>
+                                    <div class="add-prop-item">
+                                        <i class="far fa-square"></i>
+                                        <span class="num">188</span>
+                                        <span>kv/m</span>
+                                    </div>
+                                </div>
+                                <div class="add-sort">
+                                    <h3 class="name">Kirayə</h3>
+                                </div>
+                                <div class="hover-overlay">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-phone-alt"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-comment-alt"></i></a></li>
+                                        <li><a href="#">Ətraflı</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="contain-item">
+                            <div class="item-image">
+                                <a href="#"><img src="~/img/property/sale/5.png" alt="property"></a>
+                            </div>
+                            <div class="item-property">
+                                <div class="author">
+                                    <i class="fas fa-user"></i><span class="author-name">Vilma Jarvi By Redbrox</span>
+                                </div>
+                                <div class="date">
+                                    <i class="far fa-calendar-alt"></i><span class="added-date">27.02.2020</span>
+                                </div>
+                                <div class="property-name">
+                                    <a href="#">Vegas Landville Apartment</a>
+                                </div>
+                                <div class="property-price">
+                                    <span class="present-price">500 ₼/ay</span>
+                                    <span class="previous-price">790 ₼/ay</span>
+                                </div>
+                                <div class="additional-properties">
+                                    <div class="add-prop-item">
+                                        <i class="fas fa-bed"></i>
+                                        <span class="num">02</span>
+
+                                    </div>
+                                    <div class="add-prop-item">
+                                        <i class="fas fa-bath"></i>
+                                        <span class="num">02</span>
+
+                                    </div>
+                                    <div class="add-prop-item">
+                                        <i class="far fa-square"></i>
+                                        <span class="num">95</span>
+                                        <span>kv/m</span>
+                                    </div>
+                                </div>
+                                <div class="add-sort">
+                                    <h3 class="name">Kirayə</h3>
+                                </div>
+                                <div class="hover-overlay">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-phone-alt"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-comment-alt"></i></a></li>
+                                        <li><a href="#">Ətraflı</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="contain-item">
+                            <div class="item-image">
+                                <a href="#"><img src="~/img/property/sale/6.png" alt="property"></a>
+                            </div>
+                            <div class="item-property">
+                                <div class="author">
+                                    <i class="fas fa-user"></i><span class="author-name">Vilma Jarvi By Redbrox</span>
+                                </div>
+                                <div class="date">
+                                    <i class="far fa-calendar-alt"></i><span class="added-date">27.02.2020</span>
+                                </div>
+                                <div class="property-name">
+                                    <a href="#">United Landville Apartment</a>
+                                </div>
+                                <div class="property-price">
+                                    <span class="present-price">25000 ₼</span>
+                                    <!-- <span class="previous-price">450 ₼/ay</span> -->
+                                </div>
+                                <div class="additional-properties">
+                                    <div class="add-prop-item">
+                                        <i class="fas fa-bed"></i>
+                                        <span class="num">08</span>
+
+                                    </div>
+                                    <div class="add-prop-item">
+                                        <i class="fas fa-bath"></i>
+                                        <span class="num">04</span>
+
+                                    </div>
+                                    <div class="add-prop-item">
+                                        <i class="far fa-square"></i>
+                                        <span class="num">243</span>
+                                        <span>kv/m</span>
+                                    </div>
+                                </div>
+                                <div class="add-sort">
+                                    <h3 class="name">Satış</h3>
+                                </div>
+                                <div class="hover-overlay">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-phone-alt"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-comment-alt"></i></a></li>
+                                        <li><a href="#">Ətraflı</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="contain-item">
+                            <div class="item-image">
+                                <a href="#"><img src="~/img/property/sale/7.png" alt="property"></a>
+                            </div>
+                            <div class="item-property">
+                                <div class="author">
+                                    <i class="fas fa-user"></i><span class="author-name">Vilma Jarvi By Redbrox</span>
+                                </div>
+                                <div class="date">
+                                    <i class="far fa-calendar-alt"></i><span class="added-date">27.02.2020</span>
+                                </div>
+                                <div class="property-name">
+                                    <a href="#">Jason Landville Apartment</a>
+                                </div>
+                                <div class="property-price">
+                                    <span class="present-price">350 ₼/ay</span>
+                                    <span class="previous-price">790 ₼/ay</span>
+                                </div>
+                                <div class="additional-properties">
+                                    <div class="add-prop-item">
+                                        <i class="fas fa-bed"></i>
+                                        <span class="num">05</span>
+
+                                    </div>
+                                    <div class="add-prop-item">
+                                        <i class="fas fa-bath"></i>
+                                        <span class="num">02</span>
+
+                                    </div>
+                                    <div class="add-prop-item">
+                                        <i class="far fa-square"></i>
+                                        <span class="num">188</span>
+                                        <span>kv/m</span>
+                                    </div>
+                                </div>
+                                <div class="add-sort">
+                                    <h3 class="name">Kirayə</h3>
+                                </div>
+                                <div class="hover-overlay">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-phone-alt"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-comment-alt"></i></a></li>
+                                        <li><a href="#">Ətraflı</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of property-advertisiments section -->
+<!-- our partners section -->
+<section id="partners">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Bizim Agentliklər</h1>
+                </div>
+                <div class="contain-stack mt-40">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="owl-carousel partners-logo">
+                                <div class="item"> <a href="#"><img src="~/img/partners-logo/1.png" alt=""></a>  </div>
+                                <div class="item"> <a href="#"><img src="~/img/partners-logo/2.png" alt=""></a>  </div>
+                                <div class="item"> <a href="#"><img src="~/img/partners-logo/3.png" alt=""></a>  </div>
+                                <div class="item"> <a href="#"><img src="~/img/partners-logo/4.png" alt=""></a>  </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- end of our partners section -->
+
+@section owlCss{
+    <link rel="stylesheet" href="~/css/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="~/css/owl-carousel/owl.theme.default.css">
+}
+
+@section preloaderScript{
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $('.spinner').delay(1500).fadeOut("slow", function () {
+                $(this).css('z-index', '0');
+                $('.preloader').addClass('complete').css("z-index", "0");
+            });
+        });
+    </script>
+}
+
+@section preloader{
+    <!-- preloader -->
+    <div class="preloader">
+        <div class="spinner">
+            <div class="shadow"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+}
+
+@section owlScript{
+    <script src="~/script/owl-carousel/owl.carousel.js"></script>
+}

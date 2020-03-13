@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arenda</title>
+    <script src="https://kit.fontawesome.com/3da3c9c8f9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/grid.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    @RenderSection("owlCss", required: false)
+    <script src="~/script/jquery.js"></script>
+    @RenderSection("preloaderScript", required: false)
+</head>
+<body>
+
+    @RenderSection("preloader", required: false)
+  
+    <!-- header -->
+    <header>
+        <section id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navigation-bar">
+                            <div class="left-side">
+                                <div class="logo-side">
+                                    <a href="#"><img src="~/img/logo/logo.png" alt="logo"></a>
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <div class="nav-menu">
+                                    <ul>
+                                        <li class="main-menu"><a href="#">Agentliklər</a></li>
+
+                                        <li class="main-menu" data-dropdown="true">
+                                            <a href="#">Kirayə</a>
+                                            <ul class="submenu">
+                                                <li data-dropright="true">
+                                                    <a href="#">Yeni tikili</a>
+                                                    <ul class="zero-submenu">
+                                                        <li><a href="#">1 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">2 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">3 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">4 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">5 otaqlı mənzillər</a></li>
+                                                    </ul>
+                                                </li>
+
+                                                <li data-dropright="true">
+                                                    <a href="#">Köhnə tikili</a>
+                                                    <ul class="zero-submenu">
+                                                        <li><a href="#">1 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">2 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">3 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">4 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">5 otaqlı mənzillər</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Həyət evi/Villa</a></li>
+                                                <li><a href="#">Ofis</a></li>
+                                                <li><a href="#">Obyekt</a></li>
+                                                <li><a href="#">Qaraj/Anbar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="main-menu" data-dropdown="true">
+                                            <a href="#">Satış</a>
+                                            <ul class="submenu">
+                                                <li data-dropright="true">
+                                                    <a href="#">Yeni tikili</a>
+                                                    <ul class="zero-submenu">
+                                                        <li><a href="#">1 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">2 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">3 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">4 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">5 otaqlı mənzillər</a></li>
+                                                    </ul>
+                                                </li>
+
+                                                <li data-dropright="true">
+                                                    <a href="#">Köhnə tikili</a>
+                                                    <ul class="zero-submenu">
+                                                        <li><a href="#">1 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">2 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">3 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">4 otaqlı mənzillər</a></li>
+                                                        <li><a href="#">5 otaqlı mənzillər</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Həyət evi/Villa</a></li>
+                                                <li><a href="#">Ofis</a></li>
+                                                <li><a href="#">Obyekt</a></li>
+                                                <li><a href="#">Qaraj/Anbar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="main-menu"><a href="#">Haqqımızda</a></li>
+                                        <li class="main-menu"><a href="#">Əlaqə</a></li>
+                                        <li class="main-menu" data-button="true" data-checked="true"><a href="#"><i class="fas fa-plus"></i>ELAN YERLƏŞDİR</a></li>
+                                    </ul>
+                                </div>
+                                <div class="registration">
+                                    <ul>
+                                        <li class="main-menu" data-button="true"><a href="#">Giriş/Qeydiyyat</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!-- end of header -->
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-top">
+                            <div class="left-side">
+                                <div class="logo-side">
+                                    <a href="#"><img src="~/img/logo/logo.png" alt="logo"></a>
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <ul class="social-links">
+                                    <li><a href="#"><i class="fi flaticon-facebook-logo"></i></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="footer-bottom">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="subjects">
+                                        <div class="title mb-10">
+                                            <h2>Ümumi</h2>
+                                        </div>
+                                        <div class="contain">
+                                            <ul>
+                                                <li><a href="#">Haqqımızda</a></li>
+                                                <li><a href="#">Agentliklər</a></li>
+                                                <li><a href="#">İstifadə qaydaları</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="subjects">
+                                        <div class="title mb-10">
+                                            <h2>Elanlar</h2>
+                                        </div>
+                                        <div class="contain">
+                                            <ul>
+                                                <li><a href="#">Kirayə</a></li>
+                                                <li><a href="#">Satış</a></li>
+                                                <li><a href="#">Elan yerləşdir</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="subjects">
+                                        <div class="title mb-10">
+                                            <h2>Daşınmaz əmlak</h2>
+                                        </div>
+                                        <div class="contain">
+                                            <ul>
+                                                <li><a href="#">Yeni tikili</a></li>
+                                                <li><a href="#">Köhnə tikili</a></li>
+                                                <li><a href="#">Həyət evi/Villa</a></li>
+                                                <li><a href="#">Ofis</a></li>
+                                                <li><a href="#">Obyekt</a></li>
+                                                <li><a href="#">Qaraj/Anbar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="subjects">
+                                        <div class="title mb-10">
+                                            <h2>Əlaqə</h2>
+                                        </div>
+                                        <div class="contain">
+                                            <ul>
+                                                <li><i class="fas fa-map-marker-alt"></i> Qara Qarayev 126/89, Bakı, Azərbaycan</li>
+                                                <li><i class="fas fa-phone-alt"></i> (+99412) 376 92 36</li>
+                                                <li><i class="fas fa-mobile-alt"></i> (+99455) 653 30 31</li>
+                                                <li><i class="far fa-envelope"></i> samadakh@code.edu.az</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="footer-author">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="subjects author mt-10">
+                                        <div class="title">
+                                            <p>© 2020 Müəllif: Samed-Khan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!-- end of footer -->
+</body>
+<script src="~/script/main.js"></script>
+@RenderSection("owlScript", required: false)
+@RenderSection("Scripts", required: false)
+
+</html>

@@ -2,6 +2,7 @@
 //SECTIONS
 @import '../sections/home-intro';
 @import '../sections/our-partners';
+@import '../components/index';
 
 #recent-properties{
     @extend .section-title;
