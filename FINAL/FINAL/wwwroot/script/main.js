@@ -35,7 +35,7 @@ $(document).ready(function(){
         event.preventDefault();//stop browser to take action for clicked anchor
 					
 		//get displaying tab content jQuery selector
-		var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');					
+         var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
 					
 		//find actived navigation and remove 'active' css
 		var actived_nav = $('.nav-tabs > li.active');
@@ -82,7 +82,18 @@ $(document).ready(function(){
         
         // END of Carousels
 
-        
+    //REGISTER USER
+    $("#userType").change(function () {
+
+        if ($("#userType option:selected").val() == "Agentlik") {
+
+            $("#surname").css("visibility", "hidden");
+        }
+        else {
+            $("#surname").css("visibility", "visible");
+        }
+
+    });
         // //#PARALLAX DIGIT counterup 
         // if($('.content-parallax strong').length>0){
         //     let digits = $('.content-parallax strong');

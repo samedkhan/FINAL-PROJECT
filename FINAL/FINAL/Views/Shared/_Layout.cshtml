@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model User
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +9,7 @@
     <script src="https://kit.fontawesome.com/3da3c9c8f9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/css/reset.css">
     <link rel="stylesheet" href="~/css/grid.css">
-    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
     @RenderSection("owlCss", required: false)
     <script src="~/script/jquery.js"></script>
     @RenderSection("preloaderScript", required: false)
@@ -25,13 +27,13 @@
                         <div class="navigation-bar">
                             <div class="left-side">
                                 <div class="logo-side">
-                                    <a href="#"><img src="~/img/logo/logo.png" alt="logo"></a>
+                                    <a asp-controller="home" asp-action="index"><img src="~/img/logo/logo.png" alt="logo"></a>
                                 </div>
                             </div>
                             <div class="right-side">
                                 <div class="nav-menu">
                                     <ul>
-                                        <li class="main-menu"><a href="#">Agentliklər</a></li>
+                                        <li class="main-menu"><a asp-controller="partners" asp-action="index">Agentliklər</a></li>
 
                                         <li class="main-menu" data-dropdown="true">
                                             <a href="#">Kirayə</a>
@@ -93,14 +95,25 @@
                                                 <li><a href="#">Qaraj/Anbar</a></li>
                                             </ul>
                                         </li>
-                                        <li class="main-menu"><a href="#">Haqqımızda</a></li>
-                                        <li class="main-menu"><a href="#">Əlaqə</a></li>
-                                        <li class="main-menu" data-button="true" data-checked="true"><a href="#"><i class="fas fa-plus"></i>ELAN YERLƏŞDİR</a></li>
+                                        <li class="main-menu"><a asp-controller="about" asp-action="index">Haqqımızda</a></li>
+                                        <li class="main-menu"><a asp-controller="contact" asp-action="index">Əlaqə</a></li>
+                                        <li class="main-menu" data-button="true" data-checked="true"><a asp-action="create" asp-controller="add"><i class="fas fa-plus"></i>ELAN YERLƏŞDİR</a></li>
                                     </ul>
                                 </div>
                                 <div class="registration">
                                     <ul>
-                                        <li class="main-menu" data-button="true"><a href="#">Giriş/Qeydiyyat</a></li>
+                                        @if (Context.Request.Cookies["token"] != null)
+                                        {
+                                            <li class="main-menu" data-button="true"><a asp-controller="cabinet" asp-action="index" asp-route-id="@ViewBag.UserId">@ViewBag.UserName</a></li>
+                                            <li class="main-menu" data-button="true"><a asp-controller="account" asp-action="logout">Çıxış Et</a></li>
+                                            
+                                        }
+                                        else
+                                        {
+                                            <li class="main-menu" data-button="true"><a asp-controller="account" asp-action="login">Daxil ol</a></li>
+                                            <li class="main-menu" data-button="true"><a asp-controller="account" asp-action="register">Qeydiyyat</a></li>
+                                        }
+
                                     </ul>
                                 </div>
                             </div>
@@ -118,14 +131,14 @@
 
     <!-- footer -->
     <footer>
-        <section id="footer">
+        <section id="footer" class="mt-20">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="footer-top">
                             <div class="left-side">
                                 <div class="logo-side">
-                                    <a href="#"><img src="~/img/logo/logo.png" alt="logo"></a>
+                                    <a asp-controller="home" asp-action="index"><img src="~/img/logo/logo.png" alt="logo"></a>
                                 </div>
                             </div>
                             <div class="right-side">
@@ -147,9 +160,9 @@
                                         </div>
                                         <div class="contain">
                                             <ul>
-                                                <li><a href="#">Haqqımızda</a></li>
-                                                <li><a href="#">Agentliklər</a></li>
-                                                <li><a href="#">İstifadə qaydaları</a></li>
+                                                <li><a asp-controller="about" asp-action="index">Haqqımızda</a></li>
+                                                <li><a asp-controller="partners" asp-action="index">Agentliklər</a></li>
+                                                <li><a asp-controller="faq" asp-action="index">İstifadə qaydaları</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -223,7 +236,7 @@
     </footer>
     <!-- end of footer -->
 </body>
-<script src="~/script/main.js"></script>
+<script src="~/script/main.js" asp-append-version="true"></script>
 @RenderSection("owlScript", required: false)
 @RenderSection("Scripts", required: false)
 

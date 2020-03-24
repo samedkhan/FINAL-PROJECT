@@ -32,16 +32,25 @@ namespace FINAL.Models
         Barter = 4
     }
 
+    public enum AddStatus
+    {
+        Waiting = 0,
+        Active = 1,
+        Deactive = 2,
+        Hidden = 3
+    }
+
     public class PropAdd
     {
         [Key]
         public int PropAddId { get; set; }
         
         [Required]
-        public bool IsActive { get; set; }
+        public AddStatus AddStatus { get; set; }
 
+        [Required]
         [MaxLength(100)]
-        public string PropertyName { get; set; }
+        public string MainPhoto { get; set; }
 
         [Required]
         [Column(TypeName = "datetime")]
@@ -53,10 +62,16 @@ namespace FINAL.Models
         public int PropertySortId { get; set; }
         public PropertySort PropertySort { get; set; }
 
-        public int AddressId { get; set; }
-        public Adress Adress { get; set; }
+        [ForeignKey("City")]
+        public int CityId { get; set; }
 
-       
+        public City City { get; set; }
+
+        [ForeignKey("District")]
+        public int? DistrictId { get; set; }
+
+        public District District { get; set; }
+
         [Column(TypeName = "ntext")]
         [Required(ErrorMessage = "Ünvanı düzgün qeyd edin")]
         public string FullAddress { get; set; }
@@ -96,7 +111,7 @@ namespace FINAL.Models
         public string FullAbout { get; set; }
 
         
-        public bool AdminAgree { get; set; }
+        
 
 
     }

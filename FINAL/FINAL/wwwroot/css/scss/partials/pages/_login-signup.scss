@@ -1,0 +1,80 @@
+@import '../sections/another-intro';
+
+#login-signup{
+    @extend .section-title;
+    @extend .contain;
+    .contain-stack{
+        font-family: $primary-font;
+        padding: 20px 25px 0px;
+        box-shadow: $bs-regular;
+        border: 1px solid $grey;
+        border-radius: $br-regular;
+        color:$gray;
+        @extend .form;
+        .header-panel{
+            .nav-tabs{
+                display: flex;
+                justify-content: center;
+                border-bottom: 2px solid $hoverBack;
+                li{
+                    margin: 0px 50px;
+                    padding-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                    transition: $t-regular;
+                    a{
+                        font-weight: bold;
+                        font-family: $primary-font;
+                        text-decoration: none;
+                        letter-spacing: $ls-regular;
+                        color:$blue;
+                        font-size: $footer-list-head;
+                        i{
+                            color: $yellow;
+                            margin-right: 10px;
+                        }
+                    }
+                    .sum{
+                        display: inline-block;
+                        margin-left: 15px;
+                        font-size: 18px;
+                        color: $yellow;
+                        font-weight: bold;
+                        border: 1px solid $yellow;
+                        border-radius: 100%;
+                        padding: 4px;
+                    }
+                }
+                .active{
+                    position: relative;
+                    &::after{
+                        content: "";
+                        width: 100%;
+                        height: 6px;
+                        background-color: $yellow;
+                        position: absolute;
+                        bottom: -4px;
+                        left:0;
+                        transition: $t-regular;
+                    }
+                }
+            }
+           
+        }
+        .tab-content{
+            @extend .contain;
+
+            .tab-panel{
+                padding: 20px 0px;
+                height: 60vh;
+            }
+            .active{
+                display: block;
+            }
+            .hide{
+                display: none;
+            }
+        }
+    }
+
+}

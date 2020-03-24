@@ -1,0 +1,71 @@
+﻿@model AccountIndexViewModel
+@{
+    ViewData["Title"] = "Giriş";
+}
+
+
+@*Intro*@
+<partial name="_Breadcumb" model="ViewBag.Partial" />
+
+
+<!-- login-signup section -->
+<section id="login-signup" class="mt-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Daxil Ol</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contain-stack mt-20">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="header-panel">
+                            <ul class="nav-tabs">
+                                <li class="active"><a href="#tabs_2">Şəxsi kabinetə giriş</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-panel active" id="tabs_1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form asp-controller="Account" asp-action="Login" method="post" enctype="multipart/form-data">
+                                            
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="email">E-Poçt</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="text" id="email" placeholder="E-poçt" asp-for="Login.Email">
+                                                    <span class="text-danger" asp-validation-for="Login.Email"> </span>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="password">Şifrə</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="password" id="password" asp-for="Login.Password" placeholder="Şifrə">
+                                                    <span class="text-danger" asp-validation-for="Login.Password"> </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="right-side">
+                                                <button type="submit">Daxil Ol</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of login-sgnup section -->

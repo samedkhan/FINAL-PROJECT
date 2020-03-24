@@ -15,11 +15,8 @@ namespace FINAL.Models
         [MaxLength(50)]
         public string DistrictName { get; set; }
 
-        [Required]
-        public int CityId { get; set; }
+       
+        public List<PropAdd> PropAdds { get; set; }
 
-        public City City { get; set; }
-
-        public List<Region> Regions { get; set; }
     }
 }

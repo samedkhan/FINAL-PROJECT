@@ -1,0 +1,152 @@
+﻿@model AccountIndexViewModel
+@{
+    ViewData["Title"] = "Giriş / Qeydiyyat";
+}
+
+<!-- intro-section -->
+<section id="another-intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Daxil Ol</h1>
+                </div>
+                <div class="breadcumb-text mt-20">
+                    <a href="index.html">Ana Səhifə</a>
+                    <span>/ Daxil ol</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of intro-section -->
+<!-- login-signup section -->
+<section id="login-signup" class="mt-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Daxil ol / Qeydiyyat</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contain-stack mt-20">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="header-panel">
+                            <ul class="nav-tabs">
+                                <li class="active"><a href="#tabs_1">Şəxsi Kabinetə giriş</a></li>
+                                <li><a href="#tabs_2">Qeydiyyat</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-panel active" id="tabs_1">
+                                <div class="row">
+                                    <div class="form">
+                                        <form action="post">
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="email">E-Poçt</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="text" id="email" placeholder="E-poçt">
+                                                    <span class="text-danger"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="password">Şifrə</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="password" id="password" placeholder="Şifrə">
+                                                    <span class="text-danger"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="right-side">
+                                                <button type="submit">Daxil ol</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-panel hide" id="tabs_2">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form asp-controller="Account" asp-action="Register" method="post" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="name">Ad</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="text" id="name" asp-for="Register.Name" placeholder="Ad">
+                                                    <span class="text-danger" asp-validation-for="Register.Name" ></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="surname">Soyad</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="text" asp-for="Register.Surname" id="surname" placeholder="Soyad">
+                                                    <span class="text-danger" asp-validation-for="Register.Surname"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="email">E-Poçt</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="text" id="email" placeholder="E-poçt" asp-for="Register.Email">
+                                                    <span class="text-danger" asp-validation-for="Register.Email"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="userType">Qeydiyyat növü</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <select id="userType" asp-for="Register.Type">
+                                                        <option selected>Ev sahibi</option>
+                                                        <option>Vasitəçi</option>
+                                                        <option>Agentlik</option>
+                                                    </select>
+                                                    <span class="text-danger" asp-validation-for="Register.Type"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="password">Şifrə</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="password" id="password" asp-for="Register.Password" placeholder="Şifrə">
+                                                    <span class="text-danger"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="repassword" asp-for="Register.RePassword">Şifrənin təkrarı</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="password" id="repassword" asp-for="Register.RePassword" placeholder="Şifrəni təkrarı">
+                                                    <span class="text-danger" asp-validation-for="Register.RePassword"> </span>
+                                                </div>
+
+                                            </div>
+                                            <div class="right-side">
+                                                <button type="submit">Qeydiyyat</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of login-sgnup section -->

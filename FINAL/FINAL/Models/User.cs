@@ -9,9 +9,9 @@ namespace FINAL.Models
 {
     public enum UserType
     {
-        EvSahibi = 0,
-        Vasiteci = 1,
-        Agentlik = 2
+        EvSahibi,
+        Vasitəçi,
+        Agentlik
     }
     public class User
     {
@@ -22,7 +22,6 @@ namespace FINAL.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
-        [Required]
         [MaxLength(50)]
         public string Surname { get; set; }
 
@@ -47,11 +46,9 @@ namespace FINAL.Models
         [MaxLength(100)]
         public string Address { get; set; }
 
-        [Column(TypeName = "datetime")]
-        public DateTime SignDate { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime CreatedAt { get; set; }
 
-        [Column(TypeName = "datetime")]
-        public DateTime LastLoginDate { get; set; }
 
         public List<PropAdd> PropAdds { get; set; }
     }

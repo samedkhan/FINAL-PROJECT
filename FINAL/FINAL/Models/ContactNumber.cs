@@ -13,7 +13,7 @@ namespace FINAL.Models
 
         [Required]
         [MaxLength(50)]
-        public string ContactName { get; set; }
+        public string ContactName { get; set; } //Whatsapp, Telegram, Fax and etc
 
         [Required]
         [MaxLength(10)]

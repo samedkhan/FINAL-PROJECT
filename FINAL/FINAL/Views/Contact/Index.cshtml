@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Əlaqə";
+}
+
+<!-- intro-section -->
+@*<section id="another-intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title">
+                        <h1>Əlaqə</h1>
+                    </div>
+                    <div class="breadcumb-text mt-20">
+                        <a href="index.html">Ana Səhifə</a>
+                        <span>/ Əlaqə</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+<!-- end of intro-section -->
+
+@*Intro*@
+<partial name="_Breadcumb" model="ViewBag.Partial" />
+
+<!-- contact-section -->
+<section id="contact" class="mt-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Əlaqə</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contain-stack mt-20">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contain-item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="contain">
+                                        <ul>
+                                            <li><i class="fas fa-map-marker-alt"></i> Qara Qarayev 126/89, Bakı, Azərbaycan</li>
+                                            <li><i class="fas fa-phone-alt"></i> (+99412) 376 92 36</li>
+                                            <li><i class="fas fa-mobile-alt"></i> (+99455) 653 30 31</li>
+                                            <li><i class="far fa-envelope"></i> samadakh@code.edu.az</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form action="post">
+                                        <div class="form-group">
+                                            <label for="name">Ad</label>
+                                            <input type="text" id="name" placeholder="Ad">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="surname">Soyad</label>
+                                            <input type="text" id="surname" placeholder="Soyad">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">E-Poçt</label>
+                                            <input type="text" id="email" placeholder="E-poçt">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message">Mesajınız</label>
+                                            <textarea type="text" id="message" placeholder="Ad" row="5"></textarea>
+                                        </div>
+                                        <button type="submit">Göndər</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of contact-section -->

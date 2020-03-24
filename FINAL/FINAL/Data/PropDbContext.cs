@@ -13,7 +13,6 @@ namespace FINAL.Data
         {
 
         }
-        public DbSet<Adress> Adresses { get; set; }
 
         public DbSet<City> Cities { get; set; }
 
@@ -29,9 +28,9 @@ namespace FINAL.Data
 
         public DbSet<PropPhoto> PropPhotos { get; set; }
 
-        public DbSet<Region> Regions { get; set; }
-
         public DbSet<User> Users { get; set; }
+
+        public DbSet<WebsiteSetting> WebsiteSettings { get; set; }
 
 
     }

@@ -83,8 +83,18 @@
 }
 .contain-item-small{
     margin-bottom: 20px;
+    .item-image{
+        height: 150px;
+        width:100%;
+        a{
+            img{
+                width:100%;
+                height: 100%;
+            }
+        }
+    }
                     .item-property{
-                        padding: 15px 10px;
+                        padding: 8px 10px;
                         .property-price{
                             padding: 8px 0px;
                         }
@@ -101,7 +111,7 @@
                             padding: 10px 0px 0px;
                         }
                         .hover-overlay{
-                            bottom: -36px;
+                            bottom: -43px;
                             padding: 0px !important;
                             ul{
                                 padding: 5px 0px;
@@ -120,9 +130,32 @@
                                 }
                             }
                         }
+                        .add-sort{
+                            top:1%;
+                            right:1%;
+                        }
                     }
 }
 .contain{
+    .nonactive{
+        position: relative !important;
+        &::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: $nonactive;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        &:hover{
+            .item-image {
+                img {
+                    transform: scale(1) !important;
+                }
+            }
+        }
+    }
     .contain-item {
         box-shadow: $bs-regular;
         border: 1px solid $grey;
@@ -173,7 +206,7 @@
             .author,
             .date {
                 font-size: $add-author-text-size;
-
+                padding: 5px 0px;
             }
 
             .author {
@@ -201,7 +234,7 @@
                 font-family: $primary-font;
                 font-size: $add-price-size;
                 padding: 10px 0px;
-
+                font-weight: bold;
                 .previous-price {
                     font-size: $add-last-price-size;
                     color: $grey;
@@ -227,19 +260,27 @@
 
             }
 
-            .add-sort {
+            .add-sort, .prop-sort {
                 position: absolute;
-                top: 2px;
-                right: 2px;
-                border-radius: 8px;
-                padding: 5px 10px;
+                right: 1%;
+                border-radius: 4px;
+                padding: 5px 7px;
                 background-color: white;
-
+                box-shadow: $bs-regular;
                 .name {
                     font-family: $additional-font;
                     color: $yellow;
                     letter-spacing: $ls-section-title;
                     font-weight: bold;
+                }
+            }
+            .add-sort{
+                top: 1%;
+            }
+            .prop-sort{
+                bottom:36%;
+                .name{
+                    font-family: $primary-font;
                 }
             }
 
@@ -250,14 +291,14 @@
             border-top: 1px solid $grey;
             width: 100%;
             position: absolute;
-            bottom: -61px;
+            bottom: -66px;
             left: 0;
             right: 0;
             background-color: $lightgrey;
             opacity: 0;
             visibility: hidden;
             z-index: -1;
-            transition-delay: 0s, 0s, 0.4s;
+            transition-delay: 0s, 0s, 0.3s;
             transition: all 0.5s ease-in-out 0s, visibility 0.4s linear 0.3s, z-index 0.3s linear 0.3s;
 
             ul {
@@ -270,7 +311,7 @@
                     padding: 10px;
                     background-color: $hoverBack;
                     border-radius: $br-regular;
-
+                    border: 1px solid $yellow;
                     a {
                         color: $yellow;
                     }
@@ -300,6 +341,7 @@
 .input{
     width: 100%;
         padding: 10px 5px;
+        box-shadow: $bs-regular;
         font-size: $footer-list-head;
         font-family: $additional-font;
         border-radius: $br-regular;
@@ -428,7 +470,7 @@
     }
 }
 
-.partner-page {
+.partner-detail {
     .title {
         display: flex;
         align-items: center;
@@ -540,41 +582,54 @@
     form{
         padding: 10px 0px;
         .form-group{
-            margin-bottom: 20px;
+            width:100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            label{
-                width:160px;
-                color: $blue;
-                font-size: $add-price-size;
-            }
-            select{
-                width:250px;
-                @extend .search-tab-content;
-                padding: 5px !important;
-                font-size: $add-price-size;
-                &:focus{
-                    @extend .search-tab-content-focus;
+            justify-content: space-between;
+            margin: 10px 0px; 
+            .left-side{
+                width:30%;
+                label{
+                    padding: 9px !important;
+                    display: block;
+                    color: $blue;
+                    font-size: $add-price-size;
+                    float: right;
                 }
             }
-            input{
-                width:250px;
-                @extend .input;
-                padding: 5px !important;
-                font-size: $add-price-size;
-            }
-            textarea{
-                width:250px;
-                // height:150px;
-                @extend .input;
-                padding: 5px !important;
-                font-size: $add-price-size;
+            .right-side{
+                width:60%;
+                select{
+                    display: block;
+                    @extend .search-tab-content;
+                    padding: 5px !important;
+                    font-size: $add-price-size;
+                    &:focus{
+                        @extend .search-tab-content-focus;
+                    }
+                }
+                input{
+                    display: block;
+                    @extend .input;
+                    padding: 5px !important;
+                    font-size: $add-price-size;
+                }
+                .text-danger{
+                    display: block;
+                    color: red;
+                    padding: 5px !important;
+                }
+                textarea{
+                    display: block;
+                    @extend .input;
+                    padding: 5px !important;
+                    font-size: $add-price-size;
+                }
             }
 
             
         }
         button,a{
+            float: right;
             @extend .search-tab-content;
             width: inherit !important;
             border-color: $yellow;
@@ -584,8 +639,7 @@
             letter-spacing: $ls-regular;
             
             margin: 0 auto;
-            padding: 5px 10px;
-            display: block;
+            padding: 4px 10px;
             &:hover{
                 background-color: $yellow;
                     transition: $t-regular;
@@ -600,3 +654,4 @@
         }
     }
 }
+

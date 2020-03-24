@@ -1,0 +1,42 @@
+﻿@model BreadcumbViewModel
+
+<!-- intro-section -->
+<section id="another-intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>@Model.Title</h1>
+                </div>
+                <div class="breadcumb-text mt-20">
+                    <ol>
+                        @*@foreach (KeyValuePair<string, string> item in Model.Path)
+                        {
+                            if (item.Value != null)
+                            {
+                                <li><a asp-action="@item.Key" asp-controller="@item.Value">@item.Value</a></li>
+                            }
+                            else
+                            {
+                                <li><span>@item.Key</span></li>
+                            }
+
+                        }*@
+                        @foreach (var item in Model.Path)
+                        {
+                            if (item.Action != null)
+                            {
+                                <li><a asp-action="@item.Action" asp-controller="@item.Controller">@item.Name</a></li>
+                            }
+                            else
+                            {
+                                <li><span>@item.Name</span></li>
+                            }
+                        }
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of intro-section -->

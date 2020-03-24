@@ -19,23 +19,6 @@ namespace FINAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FINAL.Models.Adress", b =>
-                {
-                    b.Property<int>("AdressId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AdressId");
-
-                    b.HasIndex("CityId");
-
-                    b.ToTable("Adresses");
-                });
-
             modelBuilder.Entity("FINAL.Models.City", b =>
                 {
                     b.Property<int>("CityId")
@@ -87,7 +70,7 @@ namespace FINAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CityId")
+                    b.Property<int?>("CityId")
                         .HasColumnType("int");
 
                     b.Property<string>("DistrictName")
@@ -109,20 +92,20 @@ namespace FINAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AddStatus")
+                        .HasColumnType("int");
+
                     b.Property<int>("AddType")
                         .HasColumnType("int");
 
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("AdminAgree")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("AdressId")
+                    b.Property<int>("CityId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime");
+
+                    b.Property<int?>("DistrictId")
+                        .HasColumnType("int");
 
                     b.Property<string>("FullAbout")
                         .IsRequired()
@@ -132,8 +115,10 @@ namespace FINAL.Migrations
                         .IsRequired()
                         .HasColumnType("ntext");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                    b.Property<string>("MainPhoto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<int>("PropDoc")
                         .HasColumnType("int");
@@ -153,10 +138,6 @@ namespace FINAL.Migrations
                     b.Property<decimal>("PropVolume")
                         .HasColumnType("money");
 
-                    b.Property<string>("PropertyName")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
                     b.Property<int>("PropertySortId")
                         .HasColumnType("int");
 
@@ -168,7 +149,9 @@ namespace FINAL.Migrations
 
                     b.HasKey("PropAddId");
 
-                    b.HasIndex("AdressId");
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("DistrictId");
 
                     b.HasIndex("PropertySortId");
 
@@ -209,7 +192,7 @@ namespace FINAL.Migrations
                         .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
-                    b.Property<int>("PropAddId")
+                    b.Property<int?>("PropAddId")
                         .HasColumnType("int");
 
                     b.HasKey("PCId");
@@ -236,28 +219,6 @@ namespace FINAL.Migrations
                     b.ToTable("PropertySorts");
                 });
 
-            modelBuilder.Entity("FINAL.Models.Region", b =>
-                {
-                    b.Property<int>("RegionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DistrictId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("RegionName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("RegionId");
-
-                    b.HasIndex("DistrictId");
-
-                    b.ToTable("Regions");
-                });
-
             modelBuilder.Entity("FINAL.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -269,13 +230,13 @@ namespace FINAL.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("date");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
-
-                    b.Property<DateTime>("LastLoginDate")
-                        .HasColumnType("datetime");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -290,11 +251,7 @@ namespace FINAL.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("SignDate")
-                        .HasColumnType("datetime");
-
                     b.Property<string>("Surname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
@@ -309,13 +266,60 @@ namespace FINAL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("FINAL.Models.Adress", b =>
+            modelBuilder.Entity("FINAL.Models.WebsiteSetting", b =>
                 {
-                    b.HasOne("FINAL.Models.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("FacebookAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("FooterLogo")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("LinkedinAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("LocalAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("MainLogo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("MobileNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
+
+                    b.Property<string>("TwitterAdress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WebsiteSettings");
                 });
 
             modelBuilder.Entity("FINAL.Models.ContactNumber", b =>
@@ -327,18 +331,22 @@ namespace FINAL.Migrations
 
             modelBuilder.Entity("FINAL.Models.District", b =>
                 {
-                    b.HasOne("FINAL.Models.City", "City")
+                    b.HasOne("FINAL.Models.City", null)
                         .WithMany("Districts")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CityId");
                 });
 
             modelBuilder.Entity("FINAL.Models.PropAdd", b =>
                 {
-                    b.HasOne("FINAL.Models.Adress", "Adress")
+                    b.HasOne("FINAL.Models.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FINAL.Models.District", "District")
                         .WithMany("PropAdds")
-                        .HasForeignKey("AdressId");
+                        .HasForeignKey("DistrictId");
 
                     b.HasOne("FINAL.Models.PropertySort", "PropertySort")
                         .WithMany("PropAdds")
@@ -364,20 +372,9 @@ namespace FINAL.Migrations
 
             modelBuilder.Entity("FINAL.Models.PropertyCharacter", b =>
                 {
-                    b.HasOne("FINAL.Models.PropAdd", "PropAdd")
+                    b.HasOne("FINAL.Models.PropAdd", null)
                         .WithMany("PropertyCharacters")
-                        .HasForeignKey("PropAddId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("FINAL.Models.Region", b =>
-                {
-                    b.HasOne("FINAL.Models.District", "District")
-                        .WithMany("Regions")
-                        .HasForeignKey("DistrictId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PropAddId");
                 });
 #pragma warning restore 612, 618
         }

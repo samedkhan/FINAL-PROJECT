@@ -6,7 +6,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FINAL.Models
 {
-    public class PropertyCharacter
+    // asma-tavan, isti-dosheme ve s xarakterler
+    public class PropertyCharacter 
     {
         [Key]
         public int PCId { get; set; }
@@ -15,9 +16,6 @@ namespace FINAL.Models
         [MaxLength(15)]
         public string PCName { get; set; }
 
-        public int PropAddId { get; set; }
-
-        public PropAdd PropAdd { get; set; }
 
     }
 }

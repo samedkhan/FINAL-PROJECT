@@ -15,6 +15,7 @@ namespace FINAL.Models
         [Required]
         public string MainLogo { get; set; }
 
+        [MaxLength(100)]
         public string FooterLogo { get; set; }
 
         [Required]
@@ -46,4 +47,5 @@ namespace FINAL.Models
         [EmailAddress]
         public string Email { get; set; }
     }
+
 }

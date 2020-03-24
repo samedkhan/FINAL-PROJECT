@@ -1,0 +1,78 @@
+#home-intro{
+    background: url('../img/banner/1.jpg');
+    background-size: cover;
+    @extend .intro-section;
+    
+    .contain-stack{
+        font-family: $additional-font;
+        .nav-tabs{
+            li{
+                display: inline-block;
+                @extend .button;
+                box-shadow: none;
+                padding: 15px 25px;
+                border-bottom-color: $white;
+                border-bottom-right-radius: 0px !important;
+                border-bottom-left-radius: 0px !important;
+                background-color: $white;
+                a{
+                    color:$blue;
+                    font-size:18px;
+                    font-weight: 900;
+                    letter-spacing: $ls-regular;
+                }
+            }
+            .active{
+                background-color: $yellow;
+                transition: $t-regular;
+
+                a {
+                    color: $lightgrey;
+                    transition: $t-regular;
+                }
+            }
+        }
+        .tab-content{
+            .tab-panel{
+                padding: 40px 20px;
+                background-color: $white;
+                border-radius: $br-regular;
+                border-top-left-radius: 0px;
+                box-shadow: $bs-regular;
+            }
+            .search-input{
+                @extend .input;
+            }
+            .search-select{
+                select{
+                    @extend .search-tab-content;
+                    &:focus{
+                        @extend .search-tab-content-focus;
+                    }
+                }
+            }
+            .search-button{
+                button{
+                    @extend .search-tab-content;
+                    
+                    letter-spacing: $ls-regular;
+                    background-color: $hoverBack;
+                    color: $yellow;
+                    font-weight: bold;
+                    padding: 9px 4px;
+                    &:hover{
+                        @extend .button-hover;
+                        color:$white;
+                    }
+                    
+                }
+            }
+        }
+        .active{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+    }
+}

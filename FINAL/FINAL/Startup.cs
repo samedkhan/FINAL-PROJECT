@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using FINAL.Data;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Http;
+using Rejoin.Injections;
 
 namespace FINAL
 {
@@ -29,8 +32,12 @@ namespace FINAL
 
             services.AddDbContext<PropDbContext>(option =>
             {
-                option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                option.UseSqlServer(Configuration.GetConnectionString("FinalConnection"));
             });
+
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddTransient<IAuth, Auth>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -39,7 +39,10 @@
                         font-weight: bold;
                         border: 1px solid $yellow;
                         border-radius: 100%;
-                        padding: 4px;
+                        width: 35px;
+                        height: 35px;
+                        line-height: 34px;
+                        text-align: center;
                     }
                 }
                 .active{
@@ -63,6 +66,7 @@
             .tab-panel{
                 padding: 20px 0px;
                 min-height: 50vh;
+                
                 .contain-item{
                     @extend .contain-item-small;
                 }

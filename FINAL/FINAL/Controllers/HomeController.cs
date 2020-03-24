@@ -10,22 +10,15 @@ using FINAL.Data;
 
 namespace FINAL.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        //private readonly PropDbContext _context;
-
-        //public HomeController(PropDbContext context)
-        //{
-        //    _context = context;
-        //}
-
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
+        private readonly PropDbContext _context;
+        private readonly ILogger<HomeController> _logger;
+        public HomeController(ILogger<HomeController> logger, PropDbContext context) : base(context)
+        {
+            _context = context;
+            _logger = logger;
+        }
         public IActionResult Index()
         {
             return View();

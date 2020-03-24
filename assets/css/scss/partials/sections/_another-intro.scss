@@ -4,17 +4,34 @@
     background-size: cover;
     .breadcumb-text{
         // margin-top: 100px;
-        a, span{
-            color: $white;
-            font-family: $additional-font;
-            letter-spacing: $ls-regular;
-        }
-        a{
-            &:hover{
-                color: $yellow;
-                transition: $t-regular;
+        ol{
+            li{
+                display: inline-block;
+                a, span{
+                    color: $white;
+                    font-family: $additional-font;
+                    letter-spacing: $ls-regular;
+                }
+                a{
+                    &:hover{
+                        color: $yellow;
+                        transition: $t-regular;
+                    }
+
+                    
+                }
+                &::after{
+                    content: "/";
+                    font-family: inherit;
+                    margin-left: 5px;
+                    color: $white;                    
+                }
+            }
+            li:last-child::after{
+                content: "";
+                font-family: inherit;  
             }
         }
-
+        
     }
 }
