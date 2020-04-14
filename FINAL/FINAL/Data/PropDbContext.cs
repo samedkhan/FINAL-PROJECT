@@ -13,22 +13,27 @@ namespace FINAL.Data
         {
 
         }
+        public DbSet<AddType> AddTypes { get; set; }
+
+        public DbSet<Addvertisiment> Addvertisiments { get; set; }
 
         public DbSet<City> Cities { get; set; }
 
-        public DbSet<ContactNumber> ContactNumbers { get; set; }
-
         public DbSet<District> Districts { get; set; }
 
-        public DbSet<PropAdd> PropAdds { get; set; }
+        public DbSet<Feature> Features { get; set; }
 
-        public DbSet<PropertyCharacter> PropertyCharacters { get; set; }
+        public DbSet<Property> Properties { get; set; }
 
         public DbSet<PropertySort> PropertySorts { get; set; }
+
+        public DbSet<PropFeature> PropFeatures { get; set; }
 
         public DbSet<PropPhoto> PropPhotos { get; set; }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<UserType> UserTypes { get; set; }
 
         public DbSet<WebsiteSetting> WebsiteSettings { get; set; }
 

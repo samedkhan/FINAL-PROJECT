@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FINAL.Data;
+using FINAL.Injections;
 using FINAL.Models;
 using FINAL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Rejoin.Injections;
 
 namespace FINAL.Controllers
 {
@@ -41,12 +41,12 @@ namespace FINAL.Controllers
                 else
                 {
 
-                    List<PropAdd> AllAdds = _context.PropAdds.Include(a => a.User).Where(a => a.UserId == id && (a.AddStatus != AddStatus.Hidden || a.AddStatus != AddStatus.Deactive)).ToList();
-                    List<PropAdd> ActiveAdds = _context.PropAdds.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
-                    List<PropAdd> DeactiveAdds = _context.PropAdds.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Deactive).OrderByDescending(a => a.CreatedAt).ToList();
-                    List<PropAdd> WaitingAdds = _context.PropAdds.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Waiting).OrderByDescending(a => a.CreatedAt).ToList();
-                    List<PropAdd> RentAdds = _context.PropAdds.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && (a.AddType == AddType.KirayeAyliq || a.AddType == AddType.KirayeGunluk) && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
-                    List<PropAdd> SaleAdds = _context.PropAdds.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddType == AddType.Satilir && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+                    //List<Addvertisiment> AllAdds = _context.Addvertisiments.Include(a => a.User).Where(a => a.UserId == id && (a.AddStatus != AddStatus.Hidden || a.AddStatus != AddStatus.Deactive)).ToList();
+                    //List<Addvertisiment> ActiveAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+                    //List<Addvertisiment> DeactiveAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Deactive).OrderByDescending(a => a.CreatedAt).ToList();
+                    //List<Addvertisiment> WaitingAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Waiting).OrderByDescending(a => a.CreatedAt).ToList();
+                    //List<Addvertisiment> RentAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && (a.AddType == AddType.KirayeAyliq || a.AddType == AddType.KirayeGunluk)).OrderByDescending(a => a.CreatedAt).ToList();
+                    //List<Addvertisiment> SaleAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddType == AddType.Satilir && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
 
                     CabinetIndexViewModel data = new CabinetIndexViewModel
                     {
@@ -57,12 +57,12 @@ namespace FINAL.Controllers
                         }
                     };
 
-                    ViewBag.AllAdds = AllAdds;
-                    ViewBag.Active = ActiveAdds;
-                    ViewBag.Deactive = DeactiveAdds;
-                    ViewBag.Waiting = WaitingAdds;
-                    ViewBag.Rent = RentAdds;
-                    ViewBag.Sale = SaleAdds;
+                    //ViewBag.AllAdds = AllAdds;
+                    //ViewBag.Active = ActiveAdds;
+                    //ViewBag.Deactive = DeactiveAdds;
+                    //ViewBag.Waiting = WaitingAdds;
+                    //ViewBag.Rent = RentAdds;
+                    //ViewBag.Sale = SaleAdds;
 
                     BreadcumbItemViewModel home = new BreadcumbItemViewModel
                     {

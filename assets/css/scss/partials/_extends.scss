@@ -584,8 +584,14 @@
         .form-group{
             width:100%;
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: flex-end;
             margin: 10px 0px; 
+            #showMap{
+                display: block;
+                width: 100% !important;
+                margin: 0px !important;
+            }
             .left-side{
                 width:30%;
                 label{
@@ -598,6 +604,7 @@
             }
             .right-side{
                 width:60%;
+                margin-left: 10%;
                 select{
                     display: block;
                     @extend .search-tab-content;
@@ -624,8 +631,38 @@
                     padding: 5px !important;
                     font-size: $add-price-size;
                 }
+                .image{
+                    width: 150px;
+                    height: 150px;
+                    overflow: hidden;
+                    float: right;
+                    box-shadow: $bs-regular;
+                    border-radius: $br-regular;
+                    border: 1px solid $grey;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    img{
+                        max-width: 150px;
+                        align-self: center;
+                    }
+                    i{
+                        color: $yellow;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        font-size: 15px;
+                        border: 1px solid $yellow;
+                        padding: 5px;
+                        border-radius: 100%;
+                        cursor: pointer;
+                    }
+                }
             }
-
+            .help-block{
+                color: red;
+            }
             
         }
         button,a{
@@ -638,7 +675,7 @@
                     transition: $t-regular;
             letter-spacing: $ls-regular;
             
-            margin: 0 auto;
+            margin: 10px auto;
             padding: 4px 10px;
             &:hover{
                 background-color: $yellow;

@@ -26,7 +26,7 @@
 
             .main-menu {
                 display: inline-block;
-                margin: 0px 15px;
+                padding: 2px 15px;
                 position: relative;
 
                 &[data-dropdown]::after {
@@ -74,12 +74,13 @@
                     }
                 }
 
-                a {
+                span, a {
                     font-weight: 900;
                     color: $blue;
                     font-size: $hyperlink-text-size;
                     letter-spacing: $ls-regular;
                     transition: $t-regular;
+                    cursor: pointer;
                     &:hover{
                         color: $yellow;
                         transition: $t-regular;
@@ -149,6 +150,8 @@
             }
 
             .registration {
+                display: flex;
+                align-items: center;
                 .main-menu {
                     margin: 0px;
                 }

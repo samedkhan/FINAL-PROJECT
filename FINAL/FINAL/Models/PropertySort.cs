@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FINAL.Models
 {
+    //Property sort (Villa, Newbuilding or etc)
     public class PropertySort
     {
         [Key]
@@ -15,6 +16,6 @@ namespace FINAL.Models
         [MaxLength(15)]
         public string PropertySortName { get; set; }
 
-        public List<PropAdd> PropAdds { get; set; }
+        public List<Property> Properties { get; set; }
     }
 }

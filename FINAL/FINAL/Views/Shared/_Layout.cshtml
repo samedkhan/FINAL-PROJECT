@@ -11,13 +11,17 @@
     <link rel="stylesheet" href="~/css/grid.css">
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
     @RenderSection("owlCss", required: false)
+    @RenderSection("ConfirmCss", required: false)
     <script src="~/script/jquery.js"></script>
+    @RenderSection("FormValidator", required: false)
+    @RenderSection("PhoneMask", required: false)
+    @RenderSection("ConfirmJs", required: false)
     @RenderSection("preloaderScript", required: false)
 </head>
 <body>
 
     @RenderSection("preloader", required: false)
-  
+
     <!-- header -->
     <header>
         <section id="header">
@@ -36,7 +40,7 @@
                                         <li class="main-menu"><a asp-controller="partners" asp-action="index">Agentliklər</a></li>
 
                                         <li class="main-menu" data-dropdown="true">
-                                            <a href="#">Kirayə</a>
+                                            <span>Kirayə</span>
                                             <ul class="submenu">
                                                 <li data-dropright="true">
                                                     <a href="#">Yeni tikili</a>
@@ -66,7 +70,7 @@
                                             </ul>
                                         </li>
                                         <li class="main-menu" data-dropdown="true">
-                                            <a href="#">Satış</a>
+                                            <span>Satış</span>
                                             <ul class="submenu">
                                                 <li data-dropright="true">
                                                     <a href="#">Yeni tikili</a>
@@ -104,14 +108,23 @@
                                     <ul>
                                         @if (Context.Request.Cookies["token"] != null)
                                         {
-                                            <li class="main-menu" data-button="true"><a asp-controller="cabinet" asp-action="index" asp-route-id="@ViewBag.UserId">@ViewBag.UserName</a></li>
-                                            <li class="main-menu" data-button="true"><a asp-controller="account" asp-action="logout">Çıxış Et</a></li>
-                                            
+                                            <li class="main-menu" data-dropdown="true">
+
+                                                <span>@ViewBag.UserName</span>
+
+                                                <ul class="submenu">
+                                                    <li><a asp-controller="cabinet" asp-action="index" asp-route-id="@ViewBag.UserId">Şəxsi Kabinet</a></li>
+                                                    <li><a asp-controller="account" asp-action="settings" asp-route-id="@ViewBag.UserId">Tənzimləmələr</a></li>
+                                                    <li><a asp-controller="account" asp-action="logout">Çıxış Et</a></li>
+                                                </ul>
+                                            </li>
+
+
                                         }
                                         else
                                         {
-                                            <li class="main-menu" data-button="true"><a asp-controller="account" asp-action="login">Daxil ol</a></li>
-                                            <li class="main-menu" data-button="true"><a asp-controller="account" asp-action="register">Qeydiyyat</a></li>
+                                            <li class="main-menu" data-button="true"><a asp-controller="account" asp-action="index">Şəxsi kabinet</a></li>
+                                            @*<li class="main-menu" data-button="true"><a asp-controller="account" asp-action="register">Qeydiyyat</a></li>*@
                                         }
 
                                     </ul>
@@ -143,7 +156,7 @@
                             </div>
                             <div class="right-side">
                                 <ul class="social-links">
-                                    <li><a href="#"><i class="fi flaticon-facebook-logo"></i></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-facebook-logo"></i></a></li>
                                     <li><a href="#"><i class="fi flaticon-twitter"></i></a></li>
                                     <li><a href="#"><i class="fi flaticon-linkedin"></i></a></li>
                                 </ul>
@@ -177,7 +190,7 @@
                                             <ul>
                                                 <li><a href="#">Kirayə</a></li>
                                                 <li><a href="#">Satış</a></li>
-                                                <li><a href="#">Elan yerləşdir</a></li>
+                                                <li><a asp-controller="Add" asp-action="Create">Elan yerləşdir</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -236,8 +249,11 @@
     </footer>
     <!-- end of footer -->
 </body>
+
+</html>
+
 <script src="~/script/main.js" asp-append-version="true"></script>
+
 @RenderSection("owlScript", required: false)
 @RenderSection("Scripts", required: false)
 
-</html>

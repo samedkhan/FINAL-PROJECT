@@ -56,7 +56,7 @@ $(document).ready(function(){
         //END OF NAVIGATION TABS MENU
 
         //Carousels
-        if($(".property-photo").legth>0){
+        if($(".property-photo").length>0){
             $(".property-photo").owlCarousel({
                 loop:true,
                 items: 1,
@@ -80,8 +80,47 @@ $(document).ready(function(){
             });
         }
         
-        // END of Carousels
+        $("#propSort").change(function(){
+            if($(this).val()=='yenitikili'||
+            $(this).val()=='köhnətikili' ||
+            $(this).val()=='heyetevi'){
+                $('#flatSum').removeClass('d-none');
+                $('#totalVolume').removeClass('d-none');
+            }
+            else if($(this).val()=='ofis'||
+            $(this).val()=='obyekt'||
+            $(this).val()=='qaraj'
+            ){
+                $('#totalVolume').removeClass('d-none');
+                if(!$('#flatSum').hasClass('d-none')){
+                    $('#flatSum').addClass('d-none');
+                }
+            }
+            else{
+                $('#flatSum').addClass('d-none');
+                $('#totalVolume').addClass('d-none');
+            }
+            
+        })
 
+        $("#city").change(function(){
+            if($(this).val()=="Bakı"){
+                $('#regionCity').removeClass('d-none');
+            }
+            else{
+                if(!$('#regionCity').hasClass('d-none')){
+                    $('#regionCity').addClass('d-none');
+                }
+            }
+        })
+        // END of Carousels
+        
+        $("#showMap").click(function(){
+            $("#modal").css("display", "block");
+        });
+        $("#modal #close").click(function(){
+            $("#modal").css("display", "none");
+        })
         
         // //#PARALLAX DIGIT counterup 
         // if($('.content-parallax strong').length>0){

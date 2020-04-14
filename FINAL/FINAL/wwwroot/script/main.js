@@ -1,4 +1,4 @@
-
+﻿
 $(document).ready(function(){
     let alreadyDid = false;
 
@@ -56,7 +56,7 @@ $(document).ready(function(){
         //END OF NAVIGATION TABS MENU
 
         //Carousels
-        if($(".property-photo").legth>0){
+        if($(".property-photo").length>0){
             $(".property-photo").owlCarousel({
                 loop:true,
                 items: 1,
@@ -83,17 +83,95 @@ $(document).ready(function(){
         // END of Carousels
 
     //REGISTER USER
-    $("#userType").change(function () {
+    $("#userTypeId").change(function () {
+        var human = $('.humanparam');
+        var company = $('.companyparam');
+        var value = $("#userTypeId option:selected").val();
+        var paramArr = [human, company];
+        // Selected PropertyOwner or Makler
+        if (value > 1) { 
+            
+            if (!company.hasClass("d-none")) {
+                company.addClass("d-none");
+            }
 
-        if ($("#userType option:selected").val() == "Agentlik") {
-
-            $("#surname").css("visibility", "hidden");
+            human.removeClass("d-none");
+            
         }
+        // Selected nothing
+        else if (value == "") {
+
+            for (var i = 0; i < paramArr.length; i++) {
+
+                if (!paramArr[i].hasClass('d-none')) {
+
+                    paramArr[i].addClass('d-none');
+                }
+            }
+
+        }
+        // Se;ected Company
         else {
-            $("#surname").css("visibility", "visible");
+            if (!human.hasClass("d-none")) {
+                human.addClass("d-none");
+            }
+
+            company.removeClass("d-none");
+            
         }
 
     });
+
+    //ADD PROPERTY
+    $("#propSort").change(function () {
+        if ($(this).val() == 'yenitikili' ||
+            $(this).val() == 'köhnətikili' ||
+            $(this).val() == 'heyetevi') {
+            $('#flatSum').removeClass('d-none');
+            $('#totalVolume').removeClass('d-none');
+        }
+        else if ($(this).val() == 'ofis' ||
+            $(this).val() == 'obyekt' ||
+            $(this).val() == 'qaraj'
+        ) {
+            $('#totalVolume').removeClass('d-none');
+            if (!$('#flatSum').hasClass('d-none')) {
+                $('#flatSum').addClass('d-none');
+            }
+        }
+        else {
+            $('#flatSum').addClass('d-none');
+            $('#totalVolume').addClass('d-none');
+        }
+
+    });
+    
+    //Fill Districts by select City
+    $("#city").change(function () {
+     
+        var id = $(this).val();
+
+        $.getJSON('./getdistricts/' + id, function (response) {
+         
+            if (response.length > 0) {
+
+                $("#district").removeClass("d-none");
+                $(".districtSelect").append('<select name="district" id="districtList"> <option value = "0" selected > Seçin</option > </select >');
+
+                $.each(response, function (index, value) {
+                    $("#districtList").append('<option value="' + value.districtId + '">' + value.districtName + ' rayonu</option>');
+                });
+
+            } else {
+                $("#district").addClass("d-none");
+                $('#districtList').remove();
+            }
+        });
+
+        
+    });
+
+   
         // //#PARALLAX DIGIT counterup 
         // if($('.content-parallax strong').length>0){
         //     let digits = $('.content-parallax strong');

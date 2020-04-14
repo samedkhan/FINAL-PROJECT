@@ -7,12 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FINAL.Models
 {
-    public enum UserType
-    {
-        EvSahibi,
-        Vasitəçi,
-        Agentlik
-    }
+ 
     public class User
     {
         [Key]
@@ -29,27 +24,38 @@ namespace FINAL.Models
         [MaxLength(150)]
         public string Password { get; set; }
 
-        public string Token { get; set; }
-
-        [Required]
-        public UserType UserType { get; set; }
-
-
-        public string Photo { get; set; }
-
         [Required]
         [MaxLength(100)]
         public string Email { get; set; }
+        
 
-        public List<ContactNumber> ContactNumbers { get; set; }
+        [MaxLength(15)]
+        public string PhoneNumber { get; set; }
+
+        public string Token { get; set; }
+        
+        [MaxLength(100)]
+        public string Logo { get; set; }
+      
+
+        [Column(TypeName = "ntext")]
+        public string AboutCompany { get; set; }
 
         [MaxLength(100)]
-        public string Address { get; set; }
+        [Column(TypeName = "ntext")]
+        public string Adress { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime CreatedAt { get; set; }
 
+        [Required]
+        [ForeignKey("UserType")]
+        public int UserTypeID { get; set; }
 
-        public List<PropAdd> PropAdds { get; set; }
+        public UserType UserType { get; set; }
+
+        public List<Addvertisiment> Adds { get; set; }
+
+        
     }
 }

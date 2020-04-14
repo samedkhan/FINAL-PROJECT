@@ -1,0 +1,270 @@
+﻿@model AddIndexViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+@*Intro*@
+<partial name="_Breadcumb" model="ViewBag.Partial" />
+
+<section id="add-prop" class="mt-20">
+    <div id="modal">
+        <span><i class="far fa-times-circle" id="close"></i></span>
+        <div id="modal-content">
+
+        </div>
+        <button type="button" id="check"><i class="fas fa-check"></i>Təsdiqlə</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="contain-stack mt-20">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="header-panel">
+                            <ul class="nav-tabs">
+                                <li class="active"><a href="#tabs_1">Elan yerləşdir</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-panel active" id="tabs_1">
+                                <div class="row">
+                                    <form method="post" enctype="multipart/form-data" asp-action="create" asp-controller="add">
+                                        <div class="form-group">
+                                            <div class="left-side">
+                                                <label for="addSort">Elanın növü</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select">
+                                                    <select name="addSort" id="addSort">
+                                                        <option value="Seçin" selected>Seçin</option>
+                                                        <option value="Satılır">Satılır</option>
+                                                        <option value="Kirayə-Aylıq">Kirayə (aylıq)</option>
+                                                        <option value="Kirayə-Gunluk">Kirayə (günlük)</option>
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger"> </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="left-side">
+                                                <label for="propSort">Əmlakın növü</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select">
+                                                    <select name="propSort" id="propSort">
+                                                        <option value="Seçin" selected>Seçin</option>
+                                                        <option value="yenitikili">Yeni tikili</option>
+                                                        <option value="köhnətikili">Köhnə tikili</option>
+                                                        <option value="heyetevi">Həyət Evi/Villa</option>
+                                                        <option value="ofis">Ofis</option>
+                                                        <option value="obyekt">Obyekt</option>
+                                                        <option value="qaraj">Qaraj</option>
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger"> </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group d-none" id="flatSum">
+                                            <div class="left-side">
+                                                <label for="flat">Otaq sayı</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select">
+                                                    <select name="flat" id="flat">
+                                                        <option value="Seçin" selected>Seçin</option>
+                                                        <option value="1otaqlimenzil">1 otaqlı mənzil</option>
+                                                        <option value="2otaqlimenzil">2 otaqlı mənzil</option>
+                                                        <option value="3otaqlimenzil">3 otaqlı mənzil</option>
+                                                        <option value="4otaqlimenzil">4 otaqlı mənzil</option>
+                                                        <option value="5otaqlimenzil">5 otaqlı mənzil</option>
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger"> </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group d-none" id="totalVolume">
+                                            <div class="left-side">
+                                                <label for="volume">Ümumi həcm (kv/m)</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <input type="text" id="volume" placeholder="Ümumi həcmi daxil edin">
+                                                <span class="text-danger"> </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="left-side">
+                                                <label for="city">Şəhər</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select">
+                                                    <select name="city" id="city">
+                                                        <option value="0" selected>Seçin</option>
+                                                        @foreach (City item in ViewBag.Cities)
+                                                        {
+                                                            <option value="@item.CityId">@item.CityName</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger"> </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group d-none" id="district">
+                                            <div class="left-side">
+                                                <label for="district">Rayon</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select districtSelect">
+
+                                                </div>
+                                                <span class="text-danger"> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="left-side">
+                                                <label for="address">Ünvan</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <input type="text" id="address" disabled>
+                                                <span class="text-danger"> </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="left-side">
+
+                                            </div>
+                                            <div class="right-side">
+                                                <button type="button" id="showMap">Xəritədə göstər</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="left-side">
+                                                <label for="about">Əmlak haqqında</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <textarea id="about" placeholder="Əmlak haqqında" rows="4"></textarea>
+                                                <span class="text-danger"> </span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="left-side">
+                                                <label for="photo">Əmlakın fotoları</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <input type="file" id="photo">
+                                                <span class="text-danger"> </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="left-side">
+                                                <label for="price">Qiymət (AZN)</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <input type="text" id="price" placeholder="Qiyməti daxil edin">
+                                                <span class="text-danger"> </span>
+                                            </div>
+                                        </div>
+                                        <div class="right-side">
+                                            <button type="submit"><i class="fas fa-plus"></i>Əlavə et</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8EdJxYPClDOkk4tzALsjm-OkjKA59fjQ&language=az&region=AZ&v=3.exp&sensor=false">
+    </script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+    </script>
+    <script>
+        $("#city").change(function () {
+            var id = $(this).val();
+            if (id != 0) {
+                $.getJSON('./getgeoinfo/' + id, function (response) {
+                    myLatlng = new google.maps.LatLng(response.latitude, response.longitude);
+                });
+            }
+            else {
+                myLatlng = new google.maps.LatLng(40.409591351226027, 49.886315730571162); //Cordinate of Baku city
+            }
+        });
+        
+         //Show GoogleMap modal
+        $("#showMap").click(function () {
+            $("#modal").css("display", "block");
+        });
+        $("#modal #close").click(function () {
+            $("#modal").css("display", "none");
+        });
+       
+        var map;
+        var marker;
+        var myLatlng = new google.maps.LatLng(40.409591351226027, 49.886315730571162); //Cordinate of Baku city
+        var geocoder = new google.maps.Geocoder();
+        var infowindow = new google.maps.InfoWindow();
+        function initialize() {
+            var mapOptions = {
+                zoom: 13,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById("modal-content"), mapOptions);
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: myLatlng,
+                draggable: true
+            });
+
+            google.maps.event.addListener(marker, 'dragend', function () {
+
+                geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            infowindow.setContent(results[0].formatted_address);
+                            infowindow.open(map, marker);
+                        }
+                    }
+                });
+            });
+
+            $("#modal #check").click(function(){
+                geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            $('#address').val(results[0].formatted_address);
+                            console.log(marker.getPosition().lat());
+                            console.log(marker.getPosition().lng());
+                            $("#modal").css("display", "none");
+                        }
+                    }
+                });
+            });
+
+        }
+        var activateButton = document.getElementById('showMap');
+        google.maps.event.addDomListener(activateButton, 'click', initialize);
+
+    </script>
+
+}
+

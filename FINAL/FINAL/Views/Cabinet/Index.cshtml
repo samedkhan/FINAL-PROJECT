@@ -8,7 +8,7 @@
 <partial name="_Breadcumb" model="ViewBag.Partial" />
 
 
-<section id="user-page" class="mt-20">
+@*<section id="user-page" class="mt-20">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -74,23 +74,40 @@
 
                                                         </div>
                                                         <div class="additional-properties">
-                                                            <div class="add-prop-item">
+                                                            
 
                                                                 @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
                                                                 {
-                                                                    <i class="fas fa-building"></i>
-                                                                    <span class="num">@item.PropFloorNumber/@item.PropFloorSum mərt.</span>
+                                                                    <div class="add-prop-item">
+                                                                        <i class="fas fa-building"></i>
+                                                                        <span class="num">@item.PropFloorNumber/@item.PropFloorSum mərt.</span>
+                                                                    </div>
+                                                                    <div class="add-prop-item">
+                                                                        <i class="far fa-square"></i>
+                                                                        <span class="num">@item.PropFlatSum otaq</span>
+                                                                    </div>
+
                                                                 }
                                                                 else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
                                                                 {
-                                                                    <i class="fas fa-home"></i>
-                                                                    <span class="num">@item.PropFloorSum mərtəbə</span>
+                                                                    <div class="add-prop-item">
+                                                                        <i class="fas fa-home"></i>
+                                                                        <span class="num">@item.PropFloorSum mərtəbə</span>
+                                                                    </div>
+                                                                    <div class="add-prop-item">
+                                                                        <i class="far fa-square"></i>
+                                                                        <span class="num">@item.PropFlatSum otaq</span>
+                                                                    </div>
                                                                 }
-                                                            </div>
-                                                            <div class="add-prop-item">
-                                                                <i class="far fa-square"></i>
-                                                                <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
-                                                            </div>
+                                                                else
+                                                                {
+                                                                    <div class="add-prop-item">
+                                                                        <i class="far fa-square"></i>
+                                                                        <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
+                                                                    </div>
+                                                                }
+                                                          
+                                                          
                                                         </div>
                                                         <div class="add-sort">
                                                             @if (item.AddType == AddType.KirayeAyliq || item.AddType == AddType.KirayeGunluk)
@@ -107,8 +124,8 @@
                                                         </div>
                                                         <div class="hover-overlay">
                                                             <ul>
-                                                                <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-edit"></i></a></li>
-                                                                <li><a title="Deaktiv et" asp-action="deactivate" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-times"></i></a></li>
+                                                                <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-edit"></i></a></li>
+                                                                <li><a title="Deaktiv et" asp-action="deactivate" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-times"></i></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -169,23 +186,37 @@
 
                                                         </div>
                                                         <div class="additional-properties">
-                                                            <div class="add-prop-item">
 
-                                                                @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
-                                                                {
+                                                            @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
+                                                            {
+                                                                <div class="add-prop-item">
                                                                     <i class="fas fa-building"></i>
                                                                     <span class="num">@item.PropFloorNumber/@item.PropFloorSum mərt.</span>
-                                                                }
-                                                                else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
-                                                                {
+                                                                </div>
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropFlatSum otaq</span>
+                                                                </div>
+
+                                                            }
+                                                            else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
+                                                            {
+                                                                <div class="add-prop-item">
                                                                     <i class="fas fa-home"></i>
                                                                     <span class="num">@item.PropFloorSum mərtəbə</span>
-                                                                }
-                                                            </div>
-                                                            <div class="add-prop-item">
-                                                                <i class="far fa-square"></i>
-                                                                <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
-                                                            </div>
+                                                                </div>
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropFlatSum otaq</span>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
+                                                                </div>
+                                                            }
                                                         </div>
                                                         <div class="add-sort">
                                                             @if (item.AddType == AddType.KirayeAyliq || item.AddType == AddType.KirayeGunluk)
@@ -202,7 +233,7 @@
                                                         </div>
                                                         <div class="hover-overlay">
                                                             <ul>
-                                                                <li><a title="Sil" asp-action="delete" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-trash-alt"></i></a></li>
+                                                                <li><a title="Sil" asp-action="delete" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-trash-alt"></i></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -263,23 +294,37 @@
 
                                                         </div>
                                                         <div class="additional-properties">
-                                                            <div class="add-prop-item">
 
-                                                                @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
-                                                                {
+                                                            @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
+                                                            {
+                                                                <div class="add-prop-item">
                                                                     <i class="fas fa-building"></i>
                                                                     <span class="num">@item.PropFloorNumber/@item.PropFloorSum mərt.</span>
-                                                                }
-                                                                else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
-                                                                {
+                                                                </div>
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropFlatSum otaq</span>
+                                                                </div>
+
+                                                            }
+                                                            else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
+                                                            {
+                                                                <div class="add-prop-item">
                                                                     <i class="fas fa-home"></i>
                                                                     <span class="num">@item.PropFloorSum mərtəbə</span>
-                                                                }
-                                                            </div>
-                                                            <div class="add-prop-item">
-                                                                <i class="far fa-square"></i>
-                                                                <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
-                                                            </div>
+                                                                </div>
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropFlatSum otaq</span>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
+                                                                </div>
+                                                            }
                                                         </div>
                                                         <div class="add-sort">
                                                             @if (item.AddType == AddType.KirayeAyliq || item.AddType == AddType.KirayeGunluk)
@@ -296,8 +341,8 @@
                                                         </div>
                                                         <div class="hover-overlay">
                                                             <ul>
-                                                                <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-edit"></i></a></li>
-                                                                <li><a title="Deaktiv et" asp-action="deactivate" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-times"></i></a></li>
+                                                                <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-edit"></i></a></li>
+                                                                <li><a title="Deaktiv et" asp-action="deactivate" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-times"></i></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -355,23 +400,37 @@
 
                                                         </div>
                                                         <div class="additional-properties">
-                                                            <div class="add-prop-item">
 
-                                                                @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
-                                                                {
+                                                            @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
+                                                            {
+                                                                <div class="add-prop-item">
                                                                     <i class="fas fa-building"></i>
                                                                     <span class="num">@item.PropFloorNumber/@item.PropFloorSum mərt.</span>
-                                                                }
-                                                                else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
-                                                                {
+                                                                </div>
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropFlatSum otaq</span>
+                                                                </div>
+
+                                                            }
+                                                            else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
+                                                            {
+                                                                <div class="add-prop-item">
                                                                     <i class="fas fa-home"></i>
                                                                     <span class="num">@item.PropFloorSum mərtəbə</span>
-                                                                }
-                                                            </div>
-                                                            <div class="add-prop-item">
-                                                                <i class="far fa-square"></i>
-                                                                <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
-                                                            </div>
+                                                                </div>
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropFlatSum otaq</span>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="add-prop-item">
+                                                                    <i class="far fa-square"></i>
+                                                                    <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
+                                                                </div>
+                                                            }
                                                         </div>
                                                         <div class="add-sort">
                                                             @if (item.AddType == AddType.KirayeAyliq || item.AddType == AddType.KirayeGunluk)
@@ -388,8 +447,8 @@
                                                         </div>
                                                         <div class="hover-overlay">
                                                             <ul>
-                                                                <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-edit"></i></a></li>
-                                                                <li><a title="Deaktiv et" asp-action="deactivate" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-times"></i></a></li>
+                                                                <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-edit"></i></a></li>
+                                                                <li><a title="Deaktiv et" asp-action="deactivate" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-times"></i></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -438,23 +497,37 @@
 
                                                     </div>
                                                     <div class="additional-properties">
-                                                        <div class="add-prop-item">
 
-                                                            @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
-                                                            {
+                                                        @if (item.PropFloorNumber > 0 && (item.PropertySort.PropertySortName != "Qaraj" || item.PropertySort.PropertySortName != "Obyekt"))
+                                                        {
+                                                            <div class="add-prop-item">
                                                                 <i class="fas fa-building"></i>
                                                                 <span class="num">@item.PropFloorNumber/@item.PropFloorSum mərt.</span>
-                                                            }
-                                                            else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
-                                                            {
+                                                            </div>
+                                                            <div class="add-prop-item">
+                                                                <i class="far fa-square"></i>
+                                                                <span class="num">@item.PropFlatSum otaq</span>
+                                                            </div>
+
+                                                        }
+                                                        else if (item.PropertySort.PropertySortName == "Həyət Evi/Villa")
+                                                        {
+                                                            <div class="add-prop-item">
                                                                 <i class="fas fa-home"></i>
                                                                 <span class="num">@item.PropFloorSum mərtəbə</span>
-                                                            }
-                                                        </div>
-                                                        <div class="add-prop-item">
-                                                            <i class="far fa-square"></i>
-                                                            <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
-                                                        </div>
+                                                            </div>
+                                                            <div class="add-prop-item">
+                                                                <i class="far fa-square"></i>
+                                                                <span class="num">@item.PropFlatSum otaq</span>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="add-prop-item">
+                                                                <i class="far fa-square"></i>
+                                                                <span class="num">@item.PropVolume.ToString("0.0") kv/m</span>
+                                                            </div>
+                                                        }
                                                     </div>
                                                     <div class="add-sort">
                                                         @if (item.AddType == AddType.KirayeAyliq || item.AddType == AddType.KirayeGunluk)
@@ -471,8 +544,8 @@
                                                     </div>
                                                     <div class="hover-overlay">
                                                         <ul>
-                                                            <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-edit"></i></a></li>
-                                                            <li><a title="Deaktiv et" asp-action="deactivate" asp-controller="cabinet" asp-route-id="@item.PropAddId"><i class="fas fa-times"></i></a></li>
+                                                            <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-edit"></i></a></li>
+                                                            <li><a title="Deaktiv et" asp-action="deactivate" asp-controller="add" asp-route-id="@item.PropAddId"><i class="fas fa-times"></i></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -496,5 +569,5 @@
             </div>
         </div>
     </div>
-</section>
+</section>*@
 

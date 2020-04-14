@@ -1,7 +1,9 @@
 ﻿using FINAL.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,14 +14,17 @@ namespace FINAL.ViewModels
         public BreadcumbViewModel Breadcumb { get; set; }
         public AccountRegisterModel Register { get; set; }
         public AccountLoginModel Login { get; set; }
+        public AccountSettingModel Setting { get; set; }
+
+
     }
 
     public class AccountRegisterModel
     {
         [Required(ErrorMessage = "Qeyd edin")]
-        public UserType Type { get; set; }
+        public int UserTypeId { get; set; }
 
-        [Required(ErrorMessage = "Adınızı daxil edin")]
+        [Required(ErrorMessage = "Adınızı daxil etməminiz !!!")]
         [MaxLength(50)]
         [MinLength(3)]
         public string Name { get; set; }
@@ -42,6 +47,9 @@ namespace FINAL.ViewModels
         [Required(ErrorMessage = "E-poçt ünvanı daxil edin")]
         [EmailAddress(ErrorMessage = "E-poçt ünvanını düzgün daxil edin!")]
         public string Email { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
     }
 
     public class AccountLoginModel
@@ -54,5 +62,36 @@ namespace FINAL.ViewModels
         [Required(ErrorMessage = "Şifrə daxil edin")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+    }
+
+    public class AccountSettingModel
+    {
+        [Required(ErrorMessage = "Adınızı daxil etməminiz !!!")]
+        [MaxLength(50)]
+        [MinLength(3)]
+        public string Name { get; set; }
+
+
+        [MaxLength(50)]
+        [MinLength(3)]
+        public string Surname { get; set; }
+
+
+        [Column(TypeName = "ntext")]
+        public string Adress { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
+
+
+        [MaxLength(500)]
+        [Column(TypeName = "ntext")]
+        public string AboutCompany { get; set; }
+
+
+        public IFormFile Photo { get; set; }
+
+        [MaxLength(150)]
+        public string LogoImage { get; set; }
     }
 }

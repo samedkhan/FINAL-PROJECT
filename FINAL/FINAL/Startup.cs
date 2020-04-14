@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using FINAL.Data;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Http;
-using Rejoin.Injections;
+using FINAL.Injections;
 
 namespace FINAL
 {

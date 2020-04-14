@@ -36,3 +36,29 @@ a{
  .mt-40{
     margin:40px 0px 0px;
  } 
+
+ //CLASSES
+ .d-block{
+    display: block !important;
+ }
+ .d-none{
+    display: none !important;
+ }
+ .d-flex{
+    display: flex !important;
+ }
+ .d-inline-block{
+    display: inline-block !important;
+ }
+ .d-inline{
+    display: inline !important;
+ }
+ .text-danger{
+    color: red;
+ }
+ .text-warning{
+    color:yellow;
+ }
+ .text-success{
+    color: green;
+ }

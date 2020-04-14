@@ -1,0 +1,178 @@
+﻿@model AccountIndexViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+
+
+
+<!-- login-signup section -->
+@*<section id="login-signup" class="mt-20">
+    <div class="container">
+        <div class="row">
+            <div class="contain-stack mt-20">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="header-panel">
+                            <ul class="nav-tabs">
+                                <li class="active"><a href="#tabs_1">Tənzimləmələr</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-panel active" id="tabs_1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form asp-controller="Account" asp-action="Profile" method="post" enctype="multipart/form-data">
+
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    @if (ViewBag.User.UserType == UserType.Agentlik)
+                                                    {
+                                                        <label for="name">Şirkətin adı</label>
+                                                    }
+                                                    else
+                                                    {
+                                                        <label for="name">Ad</label>
+                                                    }
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="text" id="name" value="@ViewBag.User.Name" disabled />
+                                                    <span class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            @if (ViewBag.User.UserType != UserType.Agentlik)
+                                            {
+                                                <div class="form-group">
+                                                    <div class="left-side">
+                                                        <label for="surname">Soyad</label>
+                                                    </div>
+                                                    <div class="right-side">
+                                                        <input type="text" id="name" value="@ViewBag.User.Surname" disabled />
+                                                        <span class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            }
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    <label for="phone">Telefon</label>
+                                                </div>
+                                                <div class="right-side">
+                                                    <input type="text" id="phone" asp-for="Profile.PhoneNumber" value="@ViewBag.User.PhoneNumber"
+                                                           data-validation="required"
+                                                           data-validation-error-msg-required="Telefon nömrəsi daxil edin!"/>
+                                                    <span class="text-danger" asp-validation-for="Profile.PhoneNumber"></span>
+                                                </div>
+                                            </div>
+                                            @if (ViewBag.User.UserType == UserType.Agentlik)
+                                            {
+                                                <div class="form-group">
+                                                    <div class="left-side">
+                                                        <label for="adress">Ünvan</label>
+                                                    </div>
+                                                    <div class="right-side">
+                                                        <input type="text" id="adress" asp-for="Profile.Adress" value="@ViewBag.User.Adress"
+                                                                data-validation="required"
+                                                                data-validation-error-msg-required="Ünvanı daxil edin!"
+                                                               />
+                                                        <span class="text-danger" asp-validation-for="Profile.Adress"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="left-side">
+                                                        <label for="photo">Logo</label>
+                                                    </div>
+                                                    <div class="right-side">
+                                                        <input type="file" asp-for="Profile.Photo" id="photo" class="custom-file-input" value="@ViewBag.User.Photo"
+                                                               data-validation="required, mime size, dimension mime"
+                                                               data-validation-allowing="jpg, png, gif" 
+		                                                       data-validation-max-size="300kb"
+                                                               data-validation-dimension="max200x300"
+                                                               data-validation-error-msg-required="Logo faylı seçilməyib!"
+                                                               data-validation-error-msg-mime="Ancaq foto formatı yükləyə bilərsiniz!"
+                                                               data-validation-error-msg-size="Faylın həcmi 300kb-dan çox olmasın!"
+                                                               data-validation-error-msg-dimension="Fotonun ölçüləri maksimum 200x300px ola bilər!"
+		                                                       />
+                                                        <label class="custom-file-label"></label>
+                                                        <span asp-validation-for="Profile.Photo" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="left-side">
+                                                        <label for="about">Haqqında</label>
+                                                    </div>
+                                                    <div class="right-side">
+                                                        <span id="max-length-element">500</span> xarakter qalmaqdadır
+                                                        <textarea id="about" asp-for="Profile.AboutCompany" rows="5"
+                                                                  data-validation="required, length"
+                                                                  data-validation-length="50-500"
+                                                                  data-validation-error-msg-required="Şirkətiniz haqqında qısa məlumat daxil edin!"
+                                                                  data-validation-error-msg-length="Minimum 50 xarakter maksimum 500 xarakter olmalıdır!">@ViewBag.User.AboutCompany</textarea>
+                                                        <span class="text-danger" asp-validation-for="Profile.AboutCompany"></span>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            <div class="right-side">
+                                                <button type="submit" id="submit">Qeydiyyatı tamamla</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<!-- end of login-sgnup section -->
+@section FormValidator{
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+}
+@section PhoneMask{ 
+    <script src="~/script/phone-mask/jquery.browser.min.js"></script>
+}
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            //FILE UPLOAD
+            $('.custom-file-input').on("change", function () {
+                var FileName = $(this).val().split("\\").pop();
+                
+                $('.custom-file-label').html(FileName);
+               
+            });
+
+
+            //PHONE MASK
+            $("#phone").mask("(999) 999-9999");
+
+            $("#phone").on("blur", function () {
+                var last = $(this).val().substr($(this).val().indexOf("-") + 1);
+
+                if (last.length == 5) {
+                    var move = $(this).val().substr($(this).val().indexOf("-") + 1, 1);
+
+                    var lastfour = last.substr(1, 4);
+
+                    var first = $(this).val().substr(0, 9);
+
+                    $(this).val(first + move + '-' + lastfour);
+                }
+            });
+
+            //FORM VALIDATION
+            $.validate({
+                modules: 'file',
+            });
+            $('#about').restrictLength($('#max-length-element'));
+
+        });
+    </script>
+    
+
+}

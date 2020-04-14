@@ -1,0 +1,4 @@
+C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\net461\FINAL.csprojAssemblyReference.cache
+C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\net461\FINAL.exe.config
+C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\net461\FINAL.AssemblyInfoInputs.cache
+C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\net461\FINAL.AssemblyInfo.cs
