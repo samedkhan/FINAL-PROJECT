@@ -51,6 +51,9 @@ namespace FINAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime");
 
+                    b.Property<DateTime>("ExpDate")
+                        .HasColumnType("date");
+
                     b.Property<decimal>("PropPrice")
                         .HasColumnType("money");
 
@@ -132,6 +135,53 @@ namespace FINAL.Migrations
                     b.ToTable("Features");
                 });
 
+            modelBuilder.Entity("FINAL.Models.Flat", b =>
+                {
+                    b.Property<int>("FlatID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FlatNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FlatID");
+
+                    b.ToTable("Flats");
+                });
+
+            modelBuilder.Entity("FINAL.Models.Floor", b =>
+                {
+                    b.Property<int>("FloorID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FloorNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FloorID");
+
+                    b.ToTable("Floors");
+                });
+
+            modelBuilder.Entity("FINAL.Models.PropDoc", b =>
+                {
+                    b.Property<int>("PropDocID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PropDocName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("PropDocID");
+
+                    b.ToTable("PropDocs");
+                });
+
             modelBuilder.Entity("FINAL.Models.PropFeature", b =>
                 {
                     b.Property<int>("PropFeatureID")
@@ -175,6 +225,28 @@ namespace FINAL.Migrations
                     b.ToTable("PropPhotos");
                 });
 
+            modelBuilder.Entity("FINAL.Models.PropProject", b =>
+                {
+                    b.Property<int>("PropProjectID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PropProjectName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int>("PropertySortId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PropProjectID");
+
+                    b.HasIndex("PropertySortId");
+
+                    b.ToTable("PropProjects");
+                });
+
             modelBuilder.Entity("FINAL.Models.Property", b =>
                 {
                     b.Property<int>("PropertyId")
@@ -182,22 +254,35 @@ namespace FINAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<decimal>("BuildingVolume")
+                        .HasColumnType("money");
+
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
                     b.Property<int?>("DistrictId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FlatSum")
+                    b.Property<int?>("FlatId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FloorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FloorSum")
                         .HasColumnType("int");
 
                     b.Property<string>("FullAbout")
                         .IsRequired()
-                        .HasColumnType("ntext");
+                        .HasColumnType("ntext")
+                        .HasMaxLength(500);
 
                     b.Property<string>("FullAddress")
                         .IsRequired()
                         .HasColumnType("ntext");
+
+                    b.Property<decimal>("LandVolume")
+                        .HasColumnType("money");
 
                     b.Property<double>("Latitude")
                         .HasColumnType("float");
@@ -214,26 +299,28 @@ namespace FINAL.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("PropDoc")
+                    b.Property<int?>("PropDocId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PropFloorNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PropFloorSum")
+                    b.Property<int?>("PropProjectId")
                         .HasColumnType("int");
 
                     b.Property<int>("PropertySortId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Volume")
-                        .HasColumnType("money");
 
                     b.HasKey("PropertyId");
 
                     b.HasIndex("CityId");
 
                     b.HasIndex("DistrictId");
+
+                    b.HasIndex("FlatId");
+
+                    b.HasIndex("FloorId");
+
+                    b.HasIndex("PropDocId");
+
+                    b.HasIndex("PropProjectId");
 
                     b.HasIndex("PropertySortId");
 
@@ -246,6 +333,10 @@ namespace FINAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DataFilter")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("PropertySortName")
                         .IsRequired()
@@ -441,6 +532,15 @@ namespace FINAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("FINAL.Models.PropProject", b =>
+                {
+                    b.HasOne("FINAL.Models.PropertySort", "PropertySort")
+                        .WithMany()
+                        .HasForeignKey("PropertySortId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("FINAL.Models.Property", b =>
                 {
                     b.HasOne("FINAL.Models.City", "City")
@@ -452,6 +552,22 @@ namespace FINAL.Migrations
                     b.HasOne("FINAL.Models.District", "District")
                         .WithMany("Properties")
                         .HasForeignKey("DistrictId");
+
+                    b.HasOne("FINAL.Models.Flat", "Flat")
+                        .WithMany("Properties")
+                        .HasForeignKey("FlatId");
+
+                    b.HasOne("FINAL.Models.Floor", "Floor")
+                        .WithMany("Properties")
+                        .HasForeignKey("FloorId");
+
+                    b.HasOne("FINAL.Models.PropDoc", "PropDoc")
+                        .WithMany("Properties")
+                        .HasForeignKey("PropDocId");
+
+                    b.HasOne("FINAL.Models.PropProject", "Project")
+                        .WithMany("Properties")
+                        .HasForeignKey("PropProjectId");
 
                     b.HasOne("FINAL.Models.PropertySort", "PropertySort")
                         .WithMany("Properties")

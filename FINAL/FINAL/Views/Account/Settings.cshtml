@@ -227,11 +227,11 @@
     </div>
 </section>
 <!-- end of login-sgnup section -->
-@section ConfirmCss{ 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+@section NotifyConfirmCss{
+    <link rel="stylesheet" href="~/css/notiflix/notiflix-2.1.3.min.css">
 }
-@section ConfirmJs{ 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+@section NotifyConfirmJs{
+    <script src="~/script/notiflix/notiflix-2.1.3.min.js"></script>
 }
 @section FormValidator{
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
@@ -247,26 +247,33 @@
         $(document).ready(function () {
             //REMOVE UPLOADED LOGO
             $("#removeLogo").click(function () {
-                //if (confirm('Yeni foto yükləmək istəyirsinizmi?')) {
-                //    $('.photoViewUser').addClass('d-none');
-                //    alert('Zəhmət olmazsa yeni fotonu yükləyin!');
-                //} 
-                $.confirm({
-                    title: 'Foto yenilənmə',
-                    content: 'Əminsinizmi',
-                    buttons: {
-                        Bəli: function () {
-                            $.alert('Zəhmət olmazsa yeni fotonu yükləyin!');
-                            $('.photoViewUser').addClass('d-none');
-                            $('.uploadPhoto').removeClass('d-none');
-                        },
-                        Xeyr: function () {
-                            
-                        }
-                        
+
+                Notiflix.Confirm.Show(
+                    'Foto Silinsin?',
+                    ' ',
+                    'Bəli',
+                    'Xeyr',
+                    function () { // Yes button callback
+                       
+
+                        $('.photoViewUser').addClass('d-none');
+
+                        $('.uploadPhoto').removeClass('d-none');
+
+                        Notiflix.Report.Success(
+                            'Foto silindi !!!',
+                            'Yeni Foto yükləyin!!!',
+                            'Oldu'
+                        );
+
+
+
+                    }, function () { // No button callback
+
                     }
-                });
+                );
             });
+
             //FILE (LOGO) UPLOAD
             $('.custom-file-input').on("change", function () {
                 $('.photoView').removeClass("d-none");

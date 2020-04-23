@@ -128,7 +128,6 @@ C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.TagHelpers
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.RazorCoreGenerate.cache
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
-C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Profile.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Settings.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Create.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Detail.cshtml.g.cs

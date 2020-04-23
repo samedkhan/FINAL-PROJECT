@@ -49,6 +49,9 @@ namespace FINAL.Models
         [Column(TypeName = "datetime")]
         public DateTime CreatedAt { get; set; }
 
+        
+        [Column(TypeName = "date")]
+        public DateTime ExpDate { get; set; }
 
         [Required]
         public AddStatus AddStatus { get; set; }

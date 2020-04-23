@@ -27,6 +27,7 @@ namespace FINAL.Controllers
         public IActionResult Index(int id)
         {
             string Token = Request.Cookies["token"];
+            
             if (Token == null)
             {
                 return RedirectToAction("login", "account");
@@ -34,6 +35,7 @@ namespace FINAL.Controllers
             else
             {
                 User LoginedUser = _context.Users.Where(u => u.Token == Token && u.UserId == id).FirstOrDefault();
+                
                 if (LoginedUser == null)
                 {
                     return BadRequest();
@@ -41,15 +43,27 @@ namespace FINAL.Controllers
                 else
                 {
 
-                    //List<Addvertisiment> AllAdds = _context.Addvertisiments.Include(a => a.User).Where(a => a.UserId == id && (a.AddStatus != AddStatus.Hidden || a.AddStatus != AddStatus.Deactive)).ToList();
-                    //List<Addvertisiment> ActiveAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
-                    //List<Addvertisiment> DeactiveAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Deactive).OrderByDescending(a => a.CreatedAt).ToList();
-                    //List<Addvertisiment> WaitingAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddStatus == AddStatus.Waiting).OrderByDescending(a => a.CreatedAt).ToList();
-                    //List<Addvertisiment> RentAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && (a.AddType == AddType.KirayeAyliq || a.AddType == AddType.KirayeGunluk)).OrderByDescending(a => a.CreatedAt).ToList();
-                    //List<Addvertisiment> SaleAdds = _context.Addvertisiments.Include(a => a.User).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.UserId == id && a.AddType == AddType.Satilir && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+                    List<Addvertisiment> allAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == id && a.AddStatus != AddStatus.Hidden).OrderByDescending(a => a.CreatedAt).ToList();
+                
+                    List<Addvertisiment> activeAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == id && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+                    
+                    List<Addvertisiment> deactiveAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == id && a.AddStatus == AddStatus.Deactive).OrderByDescending(a => a.CreatedAt).ToList();
+                    
+                    List<Addvertisiment> waitingAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == id && a.AddStatus == AddStatus.Waiting).OrderByDescending(a => a.CreatedAt).ToList();
+                    
+                    List<Addvertisiment> rentAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == id && a.AddTypeID<3 && a.AddStatus == AddStatus.Active ).OrderByDescending(a => a.CreatedAt).ToList();
+                    
+                    List<Addvertisiment> saleAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == id && a.AddTypeID==3 && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
 
                     CabinetIndexViewModel data = new CabinetIndexViewModel
                     {
+                        AllAdds = allAdds,
+                        ActiveAdds = activeAdds,
+                        DeactiveAdds = deactiveAdds,
+                        WaitingAdds = waitingAdds,
+                        RentAdds = rentAdds,
+                        SaleAdds = saleAdds,
+
                         Breadcumb = new BreadcumbViewModel
                         {
                             Title = "Şəxsi kabinet",
@@ -57,12 +71,6 @@ namespace FINAL.Controllers
                         }
                     };
 
-                    //ViewBag.AllAdds = AllAdds;
-                    //ViewBag.Active = ActiveAdds;
-                    //ViewBag.Deactive = DeactiveAdds;
-                    //ViewBag.Waiting = WaitingAdds;
-                    //ViewBag.Rent = RentAdds;
-                    //ViewBag.Sale = SaleAdds;
 
                     BreadcumbItemViewModel home = new BreadcumbItemViewModel
                     {
@@ -77,7 +85,7 @@ namespace FINAL.Controllers
                     data.Breadcumb.Path.Add(home);
                     data.Breadcumb.Path.Add(cab);
                     ViewBag.Partial = data.Breadcumb;
-                    return View();
+                    return View(data);
                 }
             }
         }

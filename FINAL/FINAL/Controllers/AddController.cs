@@ -33,13 +33,24 @@ namespace FINAL.Controllers
 
             if (token == null)
             {
-                return RedirectToAction("login", "account");
+                return RedirectToAction("index", "account");
             }
             else
             {
                 AddIndexViewModel data = new AddIndexViewModel
                 {
+                    AddCreateIndex = new AddCreateIndexViewModel {
+                        Cities = _context.Cities.Include(c => c.Districts).ToList(),
+                        PropertySorts = _context.PropertySorts.OrderBy(ps => ps.PropertySortId).ToList(),
+                        AddTypes = _context.AddTypes.OrderBy(ad => ad.AddTypeId).ToList(),
+                        Flats = _context.Flats.OrderBy(f => f.FlatID).ToList(),
+                        Floors = _context.Floors.OrderBy(f => f.FloorID).ToList(),
+                        PropDocs = _context.PropDocs.OrderBy(ps => ps.PropDocID).ToList(),
+                        Features = _context.Features.OrderBy(f => f.FeatureID).ToList()
+                    },
+                  
                     Breadcumb = new BreadcumbViewModel
+                    
                     {
                         Title = "Elan yerləşdir",
                         Path = new List<BreadcumbItemViewModel>()
@@ -64,13 +75,22 @@ namespace FINAL.Controllers
 
                 ViewBag.Partial = data.Breadcumb;
 
-                List<City> Cities = _context.Cities.Include(c=>c.Districts).ToList();
-                 
-                ViewBag.Cities = Cities;
 
-                return View();
+                return View(data);
             }
             
+        }
+
+        public IActionResult GetProjects(int id)
+        {
+            List<PropProject> projects = _context.PropProjects.Where(pp => pp.PropertySortId == id).ToList();
+
+            return Ok(
+               projects.Select(p => new
+               {
+                   p.PropProjectID,
+                   p.PropProjectName
+               }));
         }
 
         public IActionResult GetDistricts(int id)
@@ -100,53 +120,139 @@ namespace FINAL.Controllers
         }
 
 
-        public IActionResult Detail(int id)
+        //public IActionResult Detail(int id)
+        //{
+        //    //Addvertisiment Add = _context.PropAdds.Include(a => a.User).Include(a => a.PropPhotos).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.PropAddId == id).FirstOrDefault();
+
+        //    //if (Add == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
+        //    //else
+        //    //{
+        //    //    AddIndexViewModel data = new AddIndexViewModel
+        //    //    {
+        //    //        Breadcumb = new BreadcumbViewModel
+        //    //        {
+        //    //            Title = "Elan haqqında",
+        //    //            Path = new List<BreadcumbItemViewModel>()
+        //    //        }
+        //    //    };
+
+        //    //    BreadcumbItemViewModel home = new BreadcumbItemViewModel
+        //    //    {
+        //    //        Name = "Ana səhifə",
+        //    //        Controller = "Home",
+        //    //        Action = "index"
+        //    //    };
+
+        //    //    BreadcumbItemViewModel adds = new BreadcumbItemViewModel
+        //    //    {
+        //    //        Name = "Bütün elanlar",
+        //    //        Controller = "Add",
+        //    //        Action = "index"
+        //    //    };
+
+        //    //    BreadcumbItemViewModel detail = new BreadcumbItemViewModel
+        //    //    {
+        //    //        Name = "Elan haqqında"
+        //    //    };
+
+        //    //    data.Breadcumb.Path.Add(home);
+        //    //    data.Breadcumb.Path.Add(adds);
+        //    //    data.Breadcumb.Path.Add(detail);
+
+        //    //    ViewBag.Partial = data.Breadcumb;
+
+        //    //}
+        //        return View();
+
+        //}
+
+
+        public IActionResult Deactivate(int id)
         {
-            //Addvertisiment Add = _context.PropAdds.Include(a => a.User).Include(a => a.PropPhotos).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.PropAddId == id).FirstOrDefault();
+            var token = Request.Cookies["token"];
 
-            //if (Add == null)
-            //{
-            //    return NotFound();
-            //}
-            //else
-            //{
-            //    AddIndexViewModel data = new AddIndexViewModel
-            //    {
-            //        Breadcumb = new BreadcumbViewModel
-            //        {
-            //            Title = "Elan haqqında",
-            //            Path = new List<BreadcumbItemViewModel>()
-            //        }
-            //    };
+            if (token == null)
+            {
+                return RedirectToAction("index", "account");
+            }
 
-            //    BreadcumbItemViewModel home = new BreadcumbItemViewModel
-            //    {
-            //        Name = "Ana səhifə",
-            //        Controller = "Home",
-            //        Action = "index"
-            //    };
+            Addvertisiment SelectedAdd = _context.Addvertisiments.Include("User").Where(a => a.AddvertisimentID == id && a.UserId == _auth.User.UserId).FirstOrDefault();
 
-            //    BreadcumbItemViewModel adds = new BreadcumbItemViewModel
-            //    {
-            //        Name = "Bütün elanlar",
-            //        Controller = "Add",
-            //        Action = "index"
-            //    };
+            if(SelectedAdd == null)
+            {
+                return BadRequest();
+            }
 
-            //    BreadcumbItemViewModel detail = new BreadcumbItemViewModel
-            //    {
-            //        Name = "Elan haqqında"
-            //    };
+            SelectedAdd.AddStatus = AddStatus.Deactive;
 
-            //    data.Breadcumb.Path.Add(home);
-            //    data.Breadcumb.Path.Add(adds);
-            //    data.Breadcumb.Path.Add(detail);
+            _context.Entry(SelectedAdd).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
 
-            //    ViewBag.Partial = data.Breadcumb;
+            //return RedirectToAction("index", "cabinet", new { id = _auth.User.UserId });
 
-            //}
-                return View();
+            List<Addvertisiment> DeactivatedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Deactive).ToList();
+            int DeactivatedAddsCount = DeactivatedAdds.Count();
+           
+            List<Addvertisiment> ActivedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active).ToList();
+            int ActiveAddsCount = ActivedAdds.Count();
+            
+            List<Addvertisiment> WaitingdAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Waiting).ToList();
+            int WaitingAddsCount = WaitingdAdds.Count();
 
+            List<Addvertisiment> RentAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active && a.AddTypeID<3).ToList();
+            int RentAddsCount = RentAdds.Count();
+
+            List<Addvertisiment> SaleAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active && a.AddTypeID == 3).ToList();
+            int SaleAddsCount = SaleAdds.Count();
+
+            return Ok(
+                new
+                {
+                    DeactivatedAddsCount,
+                    ActiveAddsCount,
+                    WaitingAddsCount,
+                    RentAddsCount,
+                    SaleAddsCount
+                });
+        }
+
+        public IActionResult Remove(int id)
+        {
+            var token = Request.Cookies["token"];
+
+            if (token == null)
+            {
+                return RedirectToAction("index", "account");
+            }
+
+            Addvertisiment SelectedAdd = _context.Addvertisiments.Include("User").Where(a => a.AddvertisimentID == id && a.UserId == _auth.User.UserId).FirstOrDefault();
+
+            if (SelectedAdd == null)
+            {
+                return BadRequest();
+            }
+
+            SelectedAdd.AddStatus = AddStatus.Hidden;
+
+            _context.Entry(SelectedAdd).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+
+            List<Addvertisiment> DeactivatedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Deactive).ToList();
+            List<Addvertisiment> AllAdds = _context.Addvertisiments.Where(a => a.AddStatus != AddStatus.Hidden).ToList();
+
+            int DeactivatedAddsCount = DeactivatedAdds.Count();
+            int AllAddsCount = AllAdds.Count();
+           
+            return Ok(
+                new
+                {
+                    DeactivatedAddsCount,
+                    AllAddsCount
+                }
+                );
         }
     }
 }

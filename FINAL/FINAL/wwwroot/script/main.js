@@ -52,10 +52,147 @@ $(document).ready(function(){
 		var target_tab_selector = $(this).attr('href');
 		$(target_tab_selector).removeClass('hide');
 		$(target_tab_selector).addClass('active');
-        });
+     });
+
+    $('.nav-tabs > li > button').click(function () {
+        //find actived navigation and remove 'active' css
+        var actived_nav = $('.nav-tabs > li.active');
+        actived_nav.removeClass('active');
+
+        //add 'active' css into clicked navigation
+        $(this).parents('li').addClass('active');
+
+        if ($(this).attr('data-filter') == ".active") {
+            $('.selectPanel').css("opacity", 1);
+
+            var actived_panel = $('.selectPanel > ul > li.active');
+            actived_panel.removeClass('active');
+
+            $('.selectPanel > ul > li').first().addClass('active');
+        }
+        else {
+            $('.selectPanel').css("opacity", 0);
+        }
+    });
+
+    $('.selectPanel > ul > li > button').click(function () {
+
+        //find actived navigation and remove 'active' css
+        var actived_nav = $('.selectPanel > ul > li.active');
+
+        actived_nav.removeClass('active');
+
+        //add 'active' css into clicked navigation
+        $(this).parents('li').addClass('active');
+    });
+
         //END OF NAVIGATION TABS MENU
 
-        //Carousels
+    //REMOVE Deactivated addvertisiment from list (CABINET)
+             $(document).on("click", ".removeItem", function (e) {
+
+                var selectedButton = $(this);
+
+                e.preventDefault();
+
+                Notiflix.Confirm.Show(
+                    'Elan Silinsin?',
+                    ' ',
+                    'Bəli',
+                    'Xeyr',
+                    function () { // Yes button callback
+                         // Addvertisiment status will be changed to HIDDEN (Add controller, Remove action)
+                            $.getJSON('../..' + selectedButton[0].pathname, function (response) {
+                                 // Deactive Adds count will be renewed
+                                $("#deactivatedAdds").text(response.deactivatedAddsCount);
+
+                                // All Adds count will be renewed
+                                $("#allAdds").text(response.allAddsCount);
+                                
+                            });
+
+                       Notiflix.Notify.Success('Elanınız silindi!');
+                         // Addvertisiment item will be remove
+                        selectedButton.closest(".col-md-3").remove();
+
+
+                            
+                    }, function () { // No button callback
+                       
+                    }
+
+                );
+
+                
+             });
+    //END of REMOVING
+
+            //DEACTIVATE addvertisiment (CABINET)
+            $(document).on("click", ".deactivateItem", function (e) {
+
+                var selectedButton = $(this);
+
+                e.preventDefault();
+
+                //Customizing Confirm
+                Notiflix.Confirm.Init({
+                    titleColor: 'red',
+                    titleFontSize: '20px',
+                    buttonsFontSize: '16px',
+                    fontFamily: 'Arch',
+                })
+
+                Notiflix.Confirm.Show(
+                    
+                    'Elan Deaktiv Edilsin?',
+                    ' ',
+                    'Bəli',
+                    'Xeyr',
+                    function () { // Yes button callback
+                          //Addvertisiment status will be changed to DEACTIVE (Add controller, Deactive action)
+                            $.getJSON('../..' + selectedButton[0].pathname, function (response) {
+
+                                // Deactive Adds count will be renewed
+                                $("#deactivatedAdds").text(response.deactivatedAddsCount);
+
+                                // Active Adds count will be renewed
+                                $("#activeAdds").text(response.activeAddsCount);
+
+                                // Waiting Adds count will be renewed
+                                $("#waitingAdds").text(response.waitingAddsCount);
+
+                                $("#rentAdds").text(response.rentAddsCount);
+
+                                $("#saleAdds").text(response.saleAddsCount);
+                                
+                        });
+
+                        selectedButton.closest(".col-md-3").removeClass('active').removeClass('waiting').addClass('deactive');
+
+                        selectedButton.closest(".contain-item").addClass('nonactive');
+
+                        selectedButton.parent('li').siblings().remove();
+
+                        var id = selectedButton[0].pathname.split('/')[3];
+
+                        selectedButton.attr("class", "removeItem").attr("title", "Sil").attr('href', '/add/remove/' + id);
+
+                        selectedButton.children().attr('class', 'far fa-trash-alt');
+
+
+
+                         Notiflix.Notify.Success('Elanınız deaktivasiya edildi');
+
+                    },
+                    function () { // No button callback
+                        
+                    }
+
+                );
+            });
+        //END OF DEACTIVATING !!!
+
+        //Carousels in HOME page
         if($(".property-photo").length>0){
             $(".property-photo").owlCarousel({
                 loop:true,
@@ -122,31 +259,63 @@ $(document).ready(function(){
 
     });
 
-    //ADD PROPERTY
-    $("#propSort").change(function () {
-        if ($(this).val() == 'yenitikili' ||
-            $(this).val() == 'köhnətikili' ||
-            $(this).val() == 'heyetevi') {
-            $('#flatSum').removeClass('d-none');
-            $('#totalVolume').removeClass('d-none');
-        }
-        else if ($(this).val() == 'ofis' ||
-            $(this).val() == 'obyekt' ||
-            $(this).val() == 'qaraj'
-        ) {
-            $('#totalVolume').removeClass('d-none');
-            if (!$('#flatSum').hasClass('d-none')) {
-                $('#flatSum').addClass('d-none');
-            }
-        }
-        else {
-            $('#flatSum').addClass('d-none');
-            $('#totalVolume').addClass('d-none');
-        }
+    //Filling FloorNumber options (ADD ADVERTISIMENT)
+    $("#floorSum").change(function () {
+
+        //Remove all options
+        $("#floorNum > option[value!='0']").remove();
+
+        var id = $(this).val();
+
+        for (var i = 1; i <= id; i++) {
+            //Add new options
+            $("#floorNum").append('<option value="' + i + '">' + i + '</option>');
+        };
 
     });
+
+    // Filter Form-items by select PropertySort  (ADD ADDVERTISIMENT)
+    $('#propSort').change(function () {
+        var filterValue = $(this).children("option:selected").attr('data-filter');
+
+        var FormGroup = $(".form-group:not('.showByJs')");
+
+        for (var i = 0; i < FormGroup.length; i++) {
+
+            if (!FormGroup[i].classList.contains(filterValue)) {
+
+                FormGroup[i].classList.add("d-none");
+            }
+            else {
+                FormGroup[i].classList.remove("d-none");
+            }
+        }
+    });
+
+    //Fill Property Projects by select PropertySort  (ADD ADDVERTISIMENT)
+    $("#propSort").change(function () {
+
+        var id = $(this).val();
+
+        $.getJSON('./GetProjects/' + id, function (response) {
+
+            if (response.length > 0) {
+
+                $("#project").removeClass("d-none");
+
+                $.each(response, function (index, value) {
+                    $("#projectList").append('<option value="' + value.propProjectID + '">' + value.propProjectName + '</option>');
+                });
+
+            } else {
+                $("#project").addClass("d-none");
+                $("#projectList >  option[value!='0']").remove();
+            }
+        });
+    });
     
-    //Fill Districts by select City
+
+    //Fill Districts by select City  (ADD ADDVERTISIMENT)
     $("#city").change(function () {
      
         var id = $(this).val();
@@ -156,7 +325,6 @@ $(document).ready(function(){
             if (response.length > 0) {
 
                 $("#district").removeClass("d-none");
-                $(".districtSelect").append('<select name="district" id="districtList"> <option value = "0" selected > Seçin</option > </select >');
 
                 $.each(response, function (index, value) {
                     $("#districtList").append('<option value="' + value.districtId + '">' + value.districtName + ' rayonu</option>');
@@ -164,12 +332,14 @@ $(document).ready(function(){
 
             } else {
                 $("#district").addClass("d-none");
-                $('#districtList').remove();
+                $("#districtList >  option[value!='0']").remove();
             }
         });
 
         
     });
+
+   
 
    
         // //#PARALLAX DIGIT counterup 

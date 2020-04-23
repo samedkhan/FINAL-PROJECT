@@ -15,6 +15,7 @@ namespace FINAL.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
+
         public List<Addvertisiment> Adds { get; set; }
     }
 }

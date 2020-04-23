@@ -117,12 +117,13 @@
                 </div>
             </div>
         </section>
-        <section id="user-page" class="mt-20">
+        <section id="cabinet" class="mt-20">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title">
                             <h1>Mənim elanlarım</h1>
+                            <span class="sum">20</span>
                         </div>
                     </div>
                 </div>
@@ -132,16 +133,25 @@
                             <div class="col-md-12">
                                 <div class="header-panel">
                                             <ul class="nav-tabs">
-                                                <li class="active"><a href="#tabs_1"><i class="fas fa-check"></i>Aktiv</a><span class="sum">20</span></li>
-                                                <li><a href="#tabs_2"><i class="far fa-clock"></i>Deaktiv</a><span class="sum">20</span></li>
-                                                <li><a href="#tabs_3"><i class="fas fa-stopwatch"></i>Gözləmədə olan</a><span class="sum">20</span></li>
-                                                <li><a href="#tabs_4">Kirayə</a><span class="sum">20</span></li>
-                                                <li><a href="#tabs_5">Satış</a><span class="sum">20</span></li>
+                                                <li class="active"><button><i class="fas fa-check"></i>Aktiv</button><span class="sum">20</span></li>
+                                                <li><button><i class="far fa-clock"></i>Deaktiv</button><span class="sum">20</span></li>
+                                                <li><button><i class="fas fa-stopwatch"></i>Gözləmədə olan</button><span class="sum">20</span></li>
                                             </ul>
                                            </div>
                                            <div class="tab-content">
                                                <div class="tab-panel active" id="tabs_1">
-                                                   <div class="row">
+                                                <div class="row">
+                                                  <div class="col-md-12">
+                                                    <div class="selectPanel">
+                                                        <ul>
+                                                            <li class="active"><button data-filter="*">Hamısı</button><span class="sum" id="allAdds">15</span></li>
+                                                            <li><button data-filter=".rent:not(.deactive)">Kirayə</button><span class="sum">20</span></li>
+                                                            <li><button data-filter=".sale:not(.deactive)">Satış</button><span class="sum">20</span></li>
+                                                        </ul>
+                                                    </div>
+                                                  </div>
+                                                </div>  
+                                                <div class="row">
                                                     <div class="col-md-3">
                                                         <div class="contain-item">
                                                             <div class="item-image">

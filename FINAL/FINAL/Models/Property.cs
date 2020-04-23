@@ -7,15 +7,6 @@ using System.Threading.Tasks;
 
 namespace FINAL.Models
 {
-    public enum PropDoc
-    {
-        Kupca = 0,
-        Muqavile = 1,
-        BelediyyeSenedi = 2,
-        Serencam = 3,
-        Kupcasiz = 4,
-        Etibarname = 5
-    }
 
     public class Property
     {
@@ -38,24 +29,42 @@ namespace FINAL.Models
 
         [ForeignKey("PropertySort")]
         public int PropertySortId { get; set; }
+
         public PropertySort PropertySort { get; set; }
 
-        [Required]
+        [ForeignKey("PropDoc")]
+        public int? PropDocId { get; set; }
+
         public PropDoc PropDoc { get; set; }
 
-        public int? PropFloorSum { get; set; }
+        [ForeignKey("Floor")]
+        public int? FloorId { get; set; }
 
-        public int? PropFloorNumber { get; set; }
+        public Floor Floor { get; set; }
 
-        public int? FlatSum { get; set; }
+        public int? FloorSum { get; set; }
+
+        [ForeignKey("Flat")]
+        public int? FlatId { get; set; }
+
+        public Flat Flat { get; set; }
+
+        [ForeignKey("PropProject")]
+        public int? PropProjectId { get; set; }
+
+        public PropProject Project { get; set; }
 
         [Required]
         [Column(TypeName = "money")]
-        public decimal Volume { get; set; }
+        public decimal BuildingVolume { get; set; }
+
+        [Column(TypeName = "money")]
+        public decimal LandVolume { get; set; }
 
         [Column(TypeName = "ntext")]
         [Required(ErrorMessage = "Əmlak haqqında ətraflı yazın")]
         [MinLength(100)]
+        [MaxLength(500)]
         public string FullAbout { get; set; }
 
         [Required]
@@ -66,11 +75,11 @@ namespace FINAL.Models
         [Required(ErrorMessage = "Ünvanı düzgün qeyd edin")]
         public string FullAddress { get; set; }
 
-        [Required]
+        
         [Column(TypeName = "float")]
         public float Longitude { get; set; }
 
-        [Required]
+        
         [Column(TypeName = "float")]
         public float Latitude { get; set; }
 

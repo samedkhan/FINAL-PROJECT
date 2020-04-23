@@ -1,4 +1,4 @@
-﻿@model User
+﻿
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +11,15 @@
     <link rel="stylesheet" href="~/css/grid.css">
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
     @RenderSection("owlCss", required: false)
-    @RenderSection("ConfirmCss", required: false)
+    @RenderSection("NotifyConfirmCss", required: false)
+    @RenderSection("PhotoUploadCss", required: false)
     <script src="~/script/jquery.js"></script>
+    @RenderSection("GoogleMap", required: false);
+    @RenderSection("Filter", required: false)
     @RenderSection("FormValidator", required: false)
     @RenderSection("PhoneMask", required: false)
-    @RenderSection("ConfirmJs", required: false)
+    @RenderSection("NotifyConfirmJs", required: false)
+    @RenderSection("PhotoUploadJs", required: false)
     @RenderSection("preloaderScript", required: false)
 </head>
 <body>

@@ -25,155 +25,268 @@
 
                             </ul>
                         </div>
+
                         <div class="tab-content">
                             <div class="tab-panel active" id="tabs_1">
                                 <div class="row">
-                                    <form method="post" enctype="multipart/form-data" asp-action="create" asp-controller="add">
-                                        <div class="form-group">
+                                    <form class="grid" method="post" enctype="multipart/form-data" asp-action="create" asp-controller="add">
+
+                                        <div class="form-group @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
                                                 <label for="addSort">Elanın növü</label>
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select name="addSort" id="addSort">
-                                                        <option value="Seçin" selected>Seçin</option>
-                                                        <option value="Satılır">Satılır</option>
-                                                        <option value="Kirayə-Aylıq">Kirayə (aylıq)</option>
-                                                        <option value="Kirayə-Gunluk">Kirayə (günlük)</option>
+                                                    <select id="addSort" asp-for="AddCreatePost.AddTypeId" name="AddCreatePost.AddTypeId">
+                                                        <option value="0" selected>Seçin</option>
+
+                                                        @foreach (AddType item in Model.AddCreateIndex.AddTypes)
+                                                        {
+                                                            <option value="@item.AddTypeId">@item.Name</option>
+                                                        }
+
                                                     </select>
                                                 </div>
-                                                <span class="text-danger"> </span>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.AddTypeId"> </span>
                                             </div>
-
                                         </div>
-                                        <div class="form-group">
+
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
                                                 <label for="propSort">Əmlakın növü</label>
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select name="propSort" id="propSort">
-                                                        <option value="Seçin" selected>Seçin</option>
-                                                        <option value="yenitikili">Yeni tikili</option>
-                                                        <option value="köhnətikili">Köhnə tikili</option>
-                                                        <option value="heyetevi">Həyət Evi/Villa</option>
-                                                        <option value="ofis">Ofis</option>
-                                                        <option value="obyekt">Obyekt</option>
-                                                        <option value="qaraj">Qaraj</option>
+                                                    <select id="propSort" asp-for="AddCreatePost.PropertySortId" name="AddCreatePost.PropertySortId">
+                                                        <option value="0" selected>Seçin</option>
+                                                        @foreach (PropertySort item in Model.AddCreateIndex.PropertySorts)
+                                                        {
+                                                            <option data-filter="@item.DataFilter" value="@item.PropertySortId">@item.PropertySortName</option>
+                                                        }
+
                                                     </select>
                                                 </div>
-                                                <span class="text-danger"> </span>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropertySortId"> </span>
                                             </div>
+                                        </div>
 
-                                        </div>
-                                        <div class="form-group d-none" id="flatSum">
-                                            <div class="left-side">
-                                                <label for="flat">Otaq sayı</label>
-                                            </div>
-                                            <div class="right-side">
-                                                <div class="select">
-                                                    <select name="flat" id="flat">
-                                                        <option value="Seçin" selected>Seçin</option>
-                                                        <option value="1otaqlimenzil">1 otaqlı mənzil</option>
-                                                        <option value="2otaqlimenzil">2 otaqlı mənzil</option>
-                                                        <option value="3otaqlimenzil">3 otaqlı mənzil</option>
-                                                        <option value="4otaqlimenzil">4 otaqlı mənzil</option>
-                                                        <option value="5otaqlimenzil">5 otaqlı mənzil</option>
-                                                    </select>
-                                                </div>
-                                                <span class="text-danger"> </span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group d-none" id="totalVolume">
-                                            <div class="left-side">
-                                                <label for="volume">Ümumi həcm (kv/m)</label>
-                                            </div>
-                                            <div class="right-side">
-                                                <input type="text" id="volume" placeholder="Ümumi həcmi daxil edin">
-                                                <span class="text-danger"> </span>
-                                            </div>
 
-                                        </div>
-                                        <div class="form-group">
+
+                                        <div class="form-group @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
                                                 <label for="city">Şəhər</label>
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select name="city" id="city">
+                                                    <select id="city" asp-for="AddCreatePost.CityId" name="AddCreatePost.CityId">
                                                         <option value="0" selected>Seçin</option>
-                                                        @foreach (City item in ViewBag.Cities)
+                                                        @foreach (City item in Model.AddCreateIndex.Cities)
                                                         {
                                                             <option value="@item.CityId">@item.CityName</option>
                                                         }
                                                     </select>
                                                 </div>
-                                                <span class="text-danger"> </span>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.CityId"> </span>
                                             </div>
                                         </div>
-                                        <div class="form-group d-none" id="district">
+
+                                        <div class="form-group d-none showByJs @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())" id="district">
                                             <div class="left-side">
                                                 <label for="district">Rayon</label>
                                             </div>
                                             <div class="right-side">
                                                 <div class="select districtSelect">
-
+                                                    <select asp-for="AddCreatePost.DistrictId" name="AddCreatePost.DistrictId" id="districtList">
+                                                        <option value="0" selected> Seçin</option>
+                                                    </select>
                                                 </div>
-                                                <span class="text-danger"> </span>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.DistrictId"> </span>
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
                                                 <label for="address">Ünvan</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="address" disabled>
-                                                <span class="text-danger"> </span>
+                                                <input type="text" id="address" placeholder="Ünvanı daxil edin" asp-for="AddCreatePost.PropertyFullAddress" name="AddCreatePost.PropertyFullAddress">
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropertyFullAddress"> </span>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
 
-                                            </div>
+                                            </div> ????????????????????
                                             <div class="right-side">
                                                 <button type="button" id="showMap">Xəritədə göstər</button>
+
+                                                <input type="text" id="GoogleMapAddress">
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
+
+
+                                        <div class="form-group d-none showByJs @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())" id="project">
+                                            <div class="left-side">
+                                                <label for="propProject">Proyekt</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select projectSelect">
+                                                    <select asp-for="AddCreatePost.PropertySortId" name="AddCreatePost.PropertySortId" id="projectList">
+                                                        <option value="0" selected> Seçin</option>
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropertySortId"> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group new-building old-building yard-house office">
+                                            <div class="left-side">
+                                                <label for="floorSum">Mərtəbə sayı</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select">
+                                                    <select id="floorSum" asp-for="AddCreatePost.FloorSum" name="AddCreatePost.FloorSum">
+                                                        <option value="0" selected>Seçin</option>
+
+                                                        @foreach (Floor item in Model.AddCreateIndex.Floors)
+                                                        {
+                                                            <option value="@item.FloorID">@item.FloorNumber</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.FloorSum"> </span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group new-building old-building office">
+                                            <div class="left-side">
+                                                <label for="floorNum">Yerləşdiyi mərtəbə</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select">
+                                                    <select id="floorNum" asp-for="AddCreatePost.FloorId" name="AddCreatePost.FloorId">
+                                                        <option value="0" selected>Seçin</option>
+
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.FloorId"> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group new-building old-building yard-house office" id="flatSum">
+                                            <div class="left-side">
+                                                <label for="flat">Otaq sayı</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select">
+                                                    <select id="flat" asp-for="AddCreatePost.FlatId" name="AddCreatePost.FlatId">
+                                                        <option value="Seçin" selected>Seçin</option>
+
+                                                        @foreach (Flat item in Model.AddCreateIndex.Flats)
+                                                        {
+                                                            <option value="@item.FlatID">@item.FlatNumber otaq</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.FlatId"> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())" id="propDoc">
+                                            <div class="left-side">
+                                                <label for="propDoc">Əmlakın sənədi</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <div class="select">
+                                                    <select id="propDoc" asp-for="AddCreatePost.PropDocId" name="AddCreatePost.PropDocId">
+                                                        <option value="Seçin" selected>Seçin</option>
+
+                                                        @foreach (PropDoc item in Model.AddCreateIndex.PropDocs)
+                                                        {
+                                                            <option value="@item.PropDocID">@item.PropDocName</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropDocId"> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group new-building old-building yard-house office garage" id="buildingVolume">
+                                            <div class="left-side">
+                                                <label for="buildingVolume">Tikili sahə (kv/m)</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <input type="text" id="buildingVolume" placeholder="Sahəni daxil edin" asp-for="AddCreatePost.BuildingVolume" name="AddCreatePost.BuildingVolume">
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.BuildingVolume"> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group yard-house land" id="landVolume">
+                                            <div class="left-side">
+                                                <label for="landVolume">Torpaq sahəsi (kv/m)</label>
+                                            </div>
+                                            <div class="right-side">
+                                                <input type="text" id="landVolume" placeholder="Sahəni daxil edin" asp-for="AddCreatePost.LandVolume" name="AddCreatePost.LandVolume">
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.LandVolume"> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
                                                 <label for="about">Əmlak haqqında</label>
                                             </div>
                                             <div class="right-side">
-                                                <textarea id="about" placeholder="Əmlak haqqında" rows="4"></textarea>
-                                                <span class="text-danger"> </span>
+                                                <textarea id="about" placeholder="Əmlak haqqında" rows="4" asp-for="AddCreatePost.FullAbout" name="AddCreatePost.FullAbout"></textarea>
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.FullAbout"> </span>
                                             </div>
-
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group old-building new-building yard-house office">
                                             <div class="left-side">
-                                                <label for="photo">Əmlakın fotoları</label>
+                                                <label for="photo">Xüsusiyyətlər</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="file" id="photo">
-                                                <span class="text-danger"> </span>
+                                                @foreach (Feature item in Model.AddCreateIndex.Features)
+                                                {
+                                                    <div class="feature">
+                                                        <label for="@item.FeatureID">@item.Name</label>
+                                                        <input type="checkbox" id="@item.FeatureID" @*asp-for="AddCreatePost.Features" name="AddCreatePost.Features"*@>
+                                                    </div>
+                                                }
+                                                <span class="text-danger" @*asp-validation-for="AddCreatePost.Features"*@> </span>
                                             </div>
 
                                         </div>
-                                        <div class="form-group">
+
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
                                                 <label for="price">Qiymət (AZN)</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="price" placeholder="Qiyməti daxil edin">
-                                                <span class="text-danger"> </span>
+                                                <input type="text" id="price" placeholder="Qiyməti daxil edin" asp-for="AddCreatePost.AddPrice" name="AddCreatePost.AddPrice">
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.AddPrice"> </span>
                                             </div>
                                         </div>
-                                        <div class="right-side">
-                                            <button type="submit"><i class="fas fa-plus"></i>Əlavə et</button>
+
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
+                                            <div class="input-image"></div>
                                         </div>
+
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
+                                            <div class="left-side">
+
+                                            </div>
+                                            <div class="right-side">
+                                                <button type="submit"><i class="fas fa-plus"></i>Əlavə et</button>
+                                            </div>
+                                        </div>
+
+
 
                                     </form>
                                 </div>
@@ -186,83 +299,111 @@
         </div>
     </div>
 </section>
-
+@section PhotoUploadCss{
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="~/css/image-upload/image-uploader.min.css">
+}
+@section PhotoUploadJs{
+    <script type="text/javascript" src="~/script/image-upload/image-uploader.js"></script>
+}
+@section GoogleMap{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8EdJxYPClDOkk4tzALsjm-OkjKA59fjQ&language=az&region=AZ&v=3.exp&sensor=false"></script>
+}
 
 @section Scripts{
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8EdJxYPClDOkk4tzALsjm-OkjKA59fjQ&language=az&region=AZ&v=3.exp&sensor=false">
-    </script>
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-    </script>
+
     <script>
-        $("#city").change(function () {
-            var id = $(this).val();
-            if (id != 0) {
-                $.getJSON('./getgeoinfo/' + id, function (response) {
-                    myLatlng = new google.maps.LatLng(response.latitude, response.longitude);
-                });
-            }
-            else {
-                myLatlng = new google.maps.LatLng(40.409591351226027, 49.886315730571162); //Cordinate of Baku city
-            }
-        });
-        
-         //Show GoogleMap modal
-        $("#showMap").click(function () {
-            $("#modal").css("display", "block");
-        });
-        $("#modal #close").click(function () {
-            $("#modal").css("display", "none");
-        });
-       
-        var map;
-        var marker;
-        var myLatlng = new google.maps.LatLng(40.409591351226027, 49.886315730571162); //Cordinate of Baku city
-        var geocoder = new google.maps.Geocoder();
-        var infowindow = new google.maps.InfoWindow();
-        function initialize() {
-            var mapOptions = {
-                zoom: 13,
-                center: myLatlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
+        $(document).ready(function () {
 
-            map = new google.maps.Map(document.getElementById("modal-content"), mapOptions);
+   
 
-            marker = new google.maps.Marker({
-                map: map,
-                position: myLatlng,
-                draggable: true
+            $(document).on("change", ".image-uploader > input", function (e) {
+
+                console.log($(this).files.length);
             });
 
-            google.maps.event.addListener(marker, 'dragend', function () {
+            
 
-                geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                            infowindow.setContent(results[0].formatted_address);
-                            infowindow.open(map, marker);
+            $('.input-image').imageUploader({
+                label: 'Əmlakın şəkillərini buradan yükləyin',
+                imagesInputName: 'photos',
+            });
+             $(".inputs").click(function () {
+                console.log("test");
+            });
+
+            //Begin GoogleMap from selected City
+            $("#city").change(function () {
+                var id = $(this).val();
+                if (id != 0) {
+                    $.getJSON('./getgeoinfo/' + id, function (response) {
+                        myLatlng = new google.maps.LatLng(response.latitude, response.longitude);
+                    });
+                }
+                else {
+                    myLatlng = new google.maps.LatLng(40.409591351226027, 49.886315730571162); //Cordinate of Baku city
+                }
+            });
+
+            //Show GoogleMap modal
+            $("#showMap").click(function () {
+                $("#modal").css("display", "block");
+            });
+            $("#modal #close").click(function () {
+                $("#modal").css("display", "none");
+            });
+
+            var map;
+            var marker;
+            var myLatlng = new google.maps.LatLng(40.409591351226027, 49.886315730571162); //Cordinate of Baku city
+            var geocoder = new google.maps.Geocoder();
+            var infowindow = new google.maps.InfoWindow();
+            function initialize() {
+                var mapOptions = {
+                    zoom: 13,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+
+                map = new google.maps.Map(document.getElementById("modal-content"), mapOptions);
+
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: myLatlng,
+                    draggable: true
+                });
+
+                google.maps.event.addListener(marker, 'dragend', function () {
+
+                    geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                infowindow.setContent(results[0].formatted_address);
+                                infowindow.open(map, marker);
+                            }
                         }
-                    }
+                    });
                 });
-            });
 
-            $("#modal #check").click(function(){
-                geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                            $('#address').val(results[0].formatted_address);
-                            console.log(marker.getPosition().lat());
-                            console.log(marker.getPosition().lng());
-                            $("#modal").css("display", "none");
+                $("#modal #check").click(function () {
+                    geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                $('#GoogleMapAddress').val(results[0].formatted_address);
+                                console.log(marker.getPosition().lat());
+                                console.log(marker.getPosition().lng());
+                                $("#modal").css("display", "none");
+                            }
                         }
-                    }
+                    });
                 });
-            });
 
-        }
-        var activateButton = document.getElementById('showMap');
-        google.maps.event.addDomListener(activateButton, 'click', initialize);
+            }
+            var activateButton = document.getElementById('showMap');
+            google.maps.event.addDomListener(activateButton, 'click', initialize);
+
+        });
+
 
     </script>
 

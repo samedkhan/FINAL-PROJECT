@@ -16,6 +16,9 @@ namespace FINAL.Models
         [MaxLength(15)]
         public string PropertySortName { get; set; }
 
+        [MaxLength(100)]
+        public string DataFilter { get; set; }
+
         public List<Property> Properties { get; set; }
     }
 }
