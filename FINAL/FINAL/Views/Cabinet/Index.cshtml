@@ -50,7 +50,7 @@
                                             <div class="col-md-3 element-item @(@item.AddTypeID < 3 ? "rent" : "sale") @(@item.AddStatus == AddStatus.Active ? "active" : "") @(@item.AddStatus == AddStatus.Deactive ? "deactive" : "") @(@item.AddStatus == AddStatus.Waiting ? "waiting" : "") " data-category='@(@item.AddTypeID < 3 ? "rent" : "sale")'>
                                                 <div class="contain-item  @(@item.AddStatus == AddStatus.Deactive ? "nonactive" : "")">
                                                     <div class="item-image">
-                                                        <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@item.Property.MainPhoto" alt="property"></a>
+                                                        <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property"></a>
                                                     </div>
                                                     <div class="item-property">
                                                         <div class="date">
@@ -106,7 +106,7 @@
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="far fa-square"></i>
-                                                                    <span class="num">@item.Property.BuildingVolume.ToString("0.0") kv/m</span>
+                                                                    <span class="num">@item.Property.BuildingVolume.Value.ToString("0") kv/m</span>
                                                                 </div>
                                                             }
 
@@ -114,7 +114,7 @@
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="far fa-square"></i>
-                                                                    <span class="num">@item.Property.LandVolume.ToString("0.0") kv/m</span>
+                                                                    <span class="num">@item.Property.LandVolume.Value.ToString("0") sot</span>
                                                                 </div>
                                                             }
 
@@ -141,9 +141,7 @@
                                                                 else
                                                                 {
                                                                     <li><a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID">Ətraflı</a></li>
-                                                                    <li><a title="Dəyişiklik et" asp-action="edit" asp-controller="add" asp-route-id="@item.AddvertisimentID"><i class="fas fa-edit"></i></a></li>
                                                                     <li><a title="Deaktiv et" class="deactivateItem" asp-action="Deactivate" asp-controller="add" asp-route-id="@item.AddvertisimentID"><i class="fas fa-minus-circle"></i></a></li>
-
                                                                 }
                                                             </ul>
                                                         </div>

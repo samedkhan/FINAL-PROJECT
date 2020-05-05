@@ -16,7 +16,8 @@ namespace FINAL.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
-       
+        public bool Selected { get; set; }
+
         public List<PropFeature> PropFeatures { get; set; }
     }
 }

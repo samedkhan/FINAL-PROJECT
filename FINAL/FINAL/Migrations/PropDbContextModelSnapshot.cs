@@ -130,6 +130,9 @@ namespace FINAL.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<bool>("Selected")
+                        .HasColumnType("bit");
+
                     b.HasKey("FeatureID");
 
                     b.ToTable("Features");
@@ -254,7 +257,7 @@ namespace FINAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("BuildingVolume")
+                    b.Property<decimal?>("BuildingVolume")
                         .HasColumnType("money");
 
                     b.Property<int>("CityId")
@@ -281,23 +284,18 @@ namespace FINAL.Migrations
                         .IsRequired()
                         .HasColumnType("ntext");
 
-                    b.Property<decimal>("LandVolume")
+                    b.Property<decimal?>("LandVolume")
                         .HasColumnType("money");
 
-                    b.Property<double>("Latitude")
+                    b.Property<double?>("Latitude")
                         .HasColumnType("float");
 
-                    b.Property<double>("Longitude")
+                    b.Property<double?>("Longitude")
                         .HasColumnType("float");
 
                     b.Property<string>("MainPhoto")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
 
                     b.Property<int?>("PropDocId")
                         .HasColumnType("int");

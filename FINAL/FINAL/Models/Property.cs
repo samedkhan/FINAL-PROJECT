@@ -12,8 +12,6 @@ namespace FINAL.Models
     {
         public int PropertyId { get; set; }
         
-        [MaxLength(50)]
-        public string Name { get; set; }
 
         [ForeignKey("City")]
         public int CityId { get; set; }
@@ -54,12 +52,12 @@ namespace FINAL.Models
 
         public PropProject Project { get; set; }
 
-        [Required]
+        
         [Column(TypeName = "money")]
-        public decimal BuildingVolume { get; set; }
+        public decimal? BuildingVolume { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal LandVolume { get; set; }
+        public decimal? LandVolume { get; set; }
 
         [Column(TypeName = "ntext")]
         [Required(ErrorMessage = "Əmlak haqqında ətraflı yazın")]
@@ -67,7 +65,7 @@ namespace FINAL.Models
         [MaxLength(500)]
         public string FullAbout { get; set; }
 
-        [Required]
+        
         [MaxLength(100)]
         public string MainPhoto { get; set; }
 
@@ -77,11 +75,11 @@ namespace FINAL.Models
 
         
         [Column(TypeName = "float")]
-        public float Longitude { get; set; }
+        public float? Longitude { get; set; }
 
         
         [Column(TypeName = "float")]
-        public float Latitude { get; set; }
+        public float? Latitude { get; set; }
 
         public List<PropPhoto> Photos { get; set; }
 

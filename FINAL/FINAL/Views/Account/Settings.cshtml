@@ -22,7 +22,7 @@
                             <div class="tab-panel active" id="tabs_1">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form asp-controller="Account" asp-action="Settings" method="post" enctype="multipart/form-data">
+                                        <form asp-controller="Account" asp-action="Settings" method="post" enctype="multipart/form-data" id="SettingForm">
 
                                             <div class="form-group">
                                                 <div class="left-side">
@@ -84,103 +84,51 @@
                                             </div>
 
 
-                                            @if (ViewBag.User.Logo != null)
-                                            {
-                                                <div class="form-group d-none uploadPhoto">
-                                                    <div class="left-side">
-                                                        @if (ViewBag.User.UserTypeID > 1)
-                                                        {
-                                                            <label for="photo">Profil şəkli</label>
-                                                        }
-                                                        else
-                                                        {
-                                                            <label for="photo">Logo</label>
-                                                        }
+                                            <div class="form-group">
+                                                <div class="left-side">
+                                                    @if (ViewBag.User.UserTypeID > 1)
+                                                    {
+                                                        <label for="photo">Profil şəkli</label>
+                                                    }
+                                                    else
+                                                    {
+                                                        <label for="photo">Logo</label>
+                                                    }
 
-                                                    </div>
-                                                    <div class="right-side">
-                                                        <input type="file" asp-for="Setting.Photo" id="photo" class="custom-file-input" value="@ViewBag.User.Logo"
-                                                               data-validation="required, mime size"
-                                                               data-validation-allowing="jpg, png, gif"
-                                                               data-validation-max-size="200kb"
-                                                               data-validation-error-msg-required="Foto daxil edilməyib!"
-                                                               data-validation-error-msg-mime="Ancaq foto formatı yükləyə bilərsiniz!"
-                                                               data-validation-error-msg-size="Faylın həcmi 200kb-a qədər ola bilər!" />
-                                                        <label class="custom-file-label"></label>
-                                                        <span asp-validation-for="Setting.Photo" class="text-danger"></span>
-
-                                                    </div>
                                                 </div>
-
-                                                <div class="form-group d-none photoView">
-                                                    <div class="left-side">
-
-                                                    </div>
-                                                    <div class="right-side">
-                                                        <div class="image">
-                                                            <img id="uploadedPhoto" src="" />
+                                                <div class="right-side">
+                                                    @if (ViewBag.User.Logo != null)
+                                                    {
+                                                        <div id="addPhoto" class="d-none">
+                                                            <label for="upload-photo"><i class="fas fa-camera"></i>FOTO YÜKLƏ</label>
+                                                            <input type="file" asp-for="Setting.Photo" id="upload-photo" accept="image/*" class="custom-file-input" value="@ViewBag.User.Logo"
+                                                                  />
+                                                            <label class="custom-file-label"></label>
+                                                            <span asp-validation-for="Setting.Photo" class="text-danger"></span>
                                                         </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group photoViewUser">
-                                                    <div class="left-side">
-                                                        @if (ViewBag.User.UserTypeID > 1)
-                                                        {
-                                                            <label>Profil şəkli</label>
-                                                        }
-                                                        else
-                                                        {
-                                                            <label>Logo</label>
-                                                        }
-                                                    </div>
-                                                    <div class="right-side">
                                                         <div class="image">
-                                                            <img id="uploadedPhoto" src="~/img/users/@ViewBag.User.Logo" />
-                                                            <i class="fas fa-times" id="removeLogo"></i>
+                                                            <div class="imageContainer">
+                                                                <img id="uploadedPhoto" src="~/img/users/@ViewBag.User.Logo" alt="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            }
-                                            else
-                                            {
-                                                <div class="form-group">
-                                                    <div class="left-side">
-                                                        @if (ViewBag.User.UserTypeID > 1)
-                                                        {
-                                                            <label for="photo">Profil şəkli</label>
-                                                        }
-                                                        else
-                                                        {
-                                                            <label for="photo">Logo</label>
-                                                        }
-
-                                                    </div>
-                                                    <div class="right-side">
-                                                        <input type="file" asp-for="Setting.Photo" id="photo" class="custom-file-input" value="@ViewBag.User.Logo"
-                                                               data-validation="required, mime size"
-                                                               data-validation-allowing="jpg, png, gif"
-                                                               data-validation-max-size="200kb"
-                                                               data-validation-error-msg-required="Foto daxil edilməyib!"
-                                                               data-validation-error-msg-mime="Ancaq foto formatı yükləyə bilərsiniz!"
-                                                               data-validation-error-msg-size="Faylın həcmi 200kb-a qədər ola bilər!" />
-                                                        <label class="custom-file-label"></label>
-                                                        <span asp-validation-for="Setting.Photo" class="text-danger"></span>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group d-none photoView">
-                                                    <div class="left-side">
-
-                                                    </div>
-                                                    <div class="right-side">
-                                                        <div class="image">
-                                                            <img id="uploadedPhoto" src="" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <div id="addPhoto">
+                                                            <label for="upload-photo"><i class="fas fa-camera"></i>FOTO YÜKLƏ</label>
+                                                            <input type="file" asp-for="Setting.Photo" id="upload-photo" accept="image/*" class="custom-file-input" value="@ViewBag.User.Logo"
+                                                                data-validation="required"
+                                                                data-validation-error-msg-required="Foto daxil edin!!!" />
+                                                            <label class="custom-file-label"></label>
+                                                            <span asp-validation-for="Setting.Photo" class="text-danger"></span>
                                                         </div>
-                                                    </div>
+                                                    }
+
                                                 </div>
-                                            }
+
+                                            </div>
+
+                                           
 
                                             @if (ViewBag.User.UserTypeID == 1)
                                             {
@@ -239,79 +187,36 @@
 
 @section PhoneMask{
     <script src="~/script/phone-mask/jquery.browser.min.js"></script>
-}
-
-@section Scripts{
-
     <script>
-        $(document).ready(function () {
-            //REMOVE UPLOADED LOGO
-            $("#removeLogo").click(function () {
+        //PHONE MASK
+        $("#phone").mask("(999) 999-9999");
 
-                Notiflix.Confirm.Show(
-                    'Foto Silinsin?',
-                    ' ',
-                    'Bəli',
-                    'Xeyr',
-                    function () { // Yes button callback
-                       
+        $("#phone").on("blur", function () {
+            var last = $(this).val().substr($(this).val().indexOf("-") + 1);
 
-                        $('.photoViewUser').addClass('d-none');
+            if (last.length == 5) {
+                var move = $(this).val().substr($(this).val().indexOf("-") + 1, 1);
 
-                        $('.uploadPhoto').removeClass('d-none');
+                var lastfour = last.substr(1, 4);
 
-                        Notiflix.Report.Success(
-                            'Foto silindi !!!',
-                            'Yeni Foto yükləyin!!!',
-                            'Oldu'
-                        );
+                var first = $(this).val().substr(0, 9);
 
-
-
-                    }, function () { // No button callback
-
-                    }
-                );
-            });
-
-            //FILE (LOGO) UPLOAD
-            $('.custom-file-input').on("change", function () {
-                $('.photoView').removeClass("d-none");
-                readURL(this);
-            });
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $('#uploadedPhoto').attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(input.files[0]);
-                }
+                $(this).val(first + move + '-' + lastfour);
             }
-            //PHONE MASK
-            $("#phone").mask("(999) 999-9999");
-
-            $("#phone").on("blur", function () {
-                var last = $(this).val().substr($(this).val().indexOf("-") + 1);
-
-                if (last.length == 5) {
-                    var move = $(this).val().substr($(this).val().indexOf("-") + 1, 1);
-
-                    var lastfour = last.substr(1, 4);
-
-                    var first = $(this).val().substr(0, 9);
-
-                    $(this).val(first + move + '-' + lastfour);
-                }
-            });
-
-            //FORM VALIDATION
-            $.validate({
-                modules: 'file',
-            });
-            $('#about').restrictLength($('#max-length-element'));
-
         });
     </script>
 }
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            //FORM VALIDATION
+        $.validate({
+            modules: 'file, security',
+            addSuggestions: true,
+            decimalSeparator: ','
+        });
+        $('#about').restrictLength($('#max-length-element'));
+        });
+        
+    </script>
+ }

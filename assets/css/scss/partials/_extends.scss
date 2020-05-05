@@ -588,36 +588,70 @@
             justify-content: flex-end;
             align-items: center;
             margin: 10px 0px; 
-            .input-image{
-                width:100%;
+            
+            #showMap, #addPhoto, #uploadedPhotos{
+                display: block;
+                width: 100% !important;
+            }
+            #addPhoto{
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+                margin-bottom: 20px;
+                label {
+                    cursor: pointer;
+                    font-family: $additional-font;
+                 }
+                 
+                 #upload-photo {
+                    opacity: 0;
+                    position: absolute;
+                    cursor: pointer;
+                 }
+            }
+            #uploadedPhotos{
+                display: flex;
+                flex-wrap: wrap;
+                border: 1px solid $grey;
+                border-radius: $br-regular;
                 box-shadow: $bs-regular;
-                .uploaded{
-                    .uploaded-image{
-                        width: calc(33% - 1rem);
-                        .delete-image{
-                            margin:0px !important;
-                            padding: 0px !important;
-                            border-radius: 50%;
-                            border: 1px solid $yellow;
-                            &:hover{
-                                i{
-                                    color: $white;
-                                }
-                            }
-                            i{
-                                color: $yellow;
-                                font-size: 1.05rem;
-                                line-height: 26px;
-                                margin-right: 0px !important;
-                            }
+                .imageContainer{
+                    border-radius: $br-regular;
+                    overflow: hidden;
+                    width: 23%;
+                    height: 90px;
+                    margin: 10px 5px;
+                    cursor: pointer;
+                    position: relative;
+                    &::after{
+                        content: "\f2ed";
+                        font-family: "Font Awesome 5 Free"; 
+                        font-weight: 900;
+                        color: $yellow;
+                        font-size: 30px;
+                        width: 100%;
+                        height: 100%;
+                        background-color:#00000085;
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        display: none;
+                        justify-content: center;
+                        align-items: center;
+                        transition: $t-regular;
+                    }
+                    img{
+                        width: 100%;
+                        height: 90px;
+                    }
+                    &:hover{
+                        &::after{
+                            display: flex;
+                            transition: $t-regular;
                         }
                     }
                 }
-            }
-            #showMap{
-                display: block;
-                width: 100% !important;
-                margin: 0px !important;
+                
             }
             .left-side{
                 width:30%;
@@ -670,20 +704,32 @@
                     justify-content: center;
                     align-items: center;
                     position: relative;
-                    img{
-                        max-width: 150px;
-                        align-self: center;
-                    }
-                    i{
+                    cursor:pointer;
+                    &::after{
+                        content: "\f2ed";
+                        font-family: "Font Awesome 5 Free"; 
+                        font-weight: 900;
                         color: $yellow;
+                        font-size: 30px;
+                        width: 100%;
+                        height: 100%;
+                        background-color:#00000085;
                         position: absolute;
-                        top: 0;
-                        right: 0;
-                        font-size: 15px;
-                        border: 1px solid $yellow;
-                        padding: 5px;
-                        border-radius: 100%;
-                        cursor: pointer;
+                        top:0;
+                        left:0;
+                        display: none;
+                        justify-content: center;
+                        align-items: center;
+                        transition: $t-regular;
+                    }
+                    img{
+                        width: 100%;
+                    }
+                    &:hover{
+                        &::after{
+                            display: flex;
+                            transition: $t-regular;
+                        }
                     }
                 }
                 .feature{
@@ -705,10 +751,11 @@
             }
             .help-block{
                 color: red;
+                float:right;
             }
             
         }
-        button,a{
+        button,a,#addPhoto{
             float: right;
             @extend .search-tab-content;
             width: inherit !important;

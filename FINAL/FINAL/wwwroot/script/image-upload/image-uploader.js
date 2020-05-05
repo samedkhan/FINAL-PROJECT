@@ -67,13 +67,16 @@
             // Create the image uploader container
             let $container = $('<div>', {class: 'image-uploader'}),
 
+            //let $container = $('.image-uploader'),
+
                 // Create the input type file and append it to the container
-                $input = $('<input>', {
-                    type: 'file',
-                    id: plugin.settings.imagesInputName + '-' + random(),
-                    name: plugin.settings.imagesInputName + '[]',
-                    accept: "image/*"
-                }).appendTo($container),
+                //$input = $('<input>', {
+                //    type: 'file',
+                //    id: plugin.settings.imagesInputName + '-' + random(),
+                //    name: plugin.settings.imagesInputName + '[]',
+                //    accept: "image/*",
+                //    multiple: true,
+                //}).appendTo($container),
 
                 // Create the uploaded images container and append it to the container
                 $uploadedContainer = $('<div>', {class: 'uploaded'}).appendTo($container),

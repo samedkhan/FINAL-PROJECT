@@ -173,7 +173,9 @@
 <!-- end of login-sgnup section -->
 
 @section FormValidator{
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script src="~/script/form-validator/jquery.form-validator.min.js"></script>
+    <script src="~/script/form-validator/security.js"></script>
+    <script src="~/script/form-validator/file.js"></script>
 }
 @section PhoneMask{
     <script src="~/script/phone-mask/jquery.browser.min.js"></script>
@@ -181,14 +183,10 @@
 @section Scripts{
 
     <script>
-        
+
         $(document).ready(function () {
 
-            //FORM VALIDATION
-            $.validate({
-                modules: 'file, security',
-                addSuggestions: true
-            });
+
 
 
             //PHONE MASK
@@ -209,6 +207,6 @@
             });
         });
 
-         
+
     </script>
 }

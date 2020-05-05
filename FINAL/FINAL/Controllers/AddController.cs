@@ -8,6 +8,9 @@ using FINAL.Models;
 using FINAL.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace FINAL.Controllers
 {
@@ -15,11 +18,12 @@ namespace FINAL.Controllers
     {
         private readonly PropDbContext _context;
         private readonly IAuth _auth;
-
-        public AddController(PropDbContext context, IAuth auth) : base(context)
+        private readonly Microsoft.AspNetCore.Hosting.IWebHostEnvironment _hosting;
+        public AddController(PropDbContext context, Microsoft.AspNetCore.Hosting.IWebHostEnvironment hosting, IAuth auth) : base(context)
         {
             _context = context;
             _auth = auth;
+            _hosting = hosting;
         }
 
         public IActionResult Index()
@@ -80,7 +84,115 @@ namespace FINAL.Controllers
             }
             
         }
+        [HttpPost]
+        public IActionResult Create(AddCreatePostViewModel AddCreatePost)
+        {
 
+            //Checking User who created addvertisiment
+            if (_auth.User.Token != Request.Cookies["token"])
+            {
+                return BadRequest();
+            }
+
+            if (ModelState.IsValid)
+            {
+                Property newProp = new Property //CREATE NEW PROPERTY
+                {
+                    CityId = AddCreatePost.CityId,
+                    DistrictId = AddCreatePost.DistrictId,
+                    PropertySortId = AddCreatePost.PropertySortId,
+                    PropDocId = AddCreatePost.PropDocId,
+                    FloorId = AddCreatePost.FloorId,
+                    FloorSum = AddCreatePost.FloorSum,
+                    FlatId = AddCreatePost.FlatId,
+                    PropProjectId = AddCreatePost.ProjectId,
+                    BuildingVolume = AddCreatePost.BuildingVolume,
+                    LandVolume = AddCreatePost.LandVolume,
+                    Longitude = AddCreatePost.Longitude,
+                    Latitude = AddCreatePost.Latitude,
+                    FullAbout = AddCreatePost.FullAbout,
+                    FullAddress = AddCreatePost.PropertyFullAddress
+                };
+                
+                
+                _context.Properties.Add(newProp);
+                _context.SaveChanges();
+
+                foreach (Feature item in AddCreatePost.Features) 
+                {
+                    if (item.Selected)
+                    {
+                        PropFeature newPropFeature = new PropFeature //PROPERTY FEATURE
+                        {
+                            PropertyID = newProp.PropertyId,
+                            FeatureID = item.FeatureID
+                        };
+
+                        _context.PropFeatures.Add(newPropFeature);
+                        _context.SaveChanges();
+                    }
+                }
+
+                string FileName;
+
+                if (AddCreatePost.Photos != null && AddCreatePost.Photos.Count() > 0)
+                {
+                    foreach (IFormFile photo in AddCreatePost.Photos)
+                    {
+                        string UploadsFolder;
+                        if (AddCreatePost.AddTypeId < 3)
+                        {
+                            UploadsFolder = Path.Combine(_hosting.WebRootPath, "img", "property", "rent");
+                        }
+                        else
+                        {
+                            UploadsFolder = Path.Combine(_hosting.WebRootPath, "img", "property", "sale");
+                        } 
+                        FileName = Guid.NewGuid() + "_" + photo.FileName;
+                        string FilePath = Path.Combine(UploadsFolder, FileName);
+                        photo.CopyTo(new FileStream(FilePath, FileMode.Create));
+
+                        PropPhoto newPropPhoto = new PropPhoto //CREATE NEW PHOTO OF PROPERTY
+                        {
+                            PropPhotoName = FileName,
+                            PropertyId = newProp.PropertyId
+                        };
+                        _context.PropPhotos.Add(newPropPhoto);
+                        _context.SaveChanges();
+                    }
+
+                }
+
+                Addvertisiment newAdd = new Addvertisiment // CREATE NEW ADDVERTISIMENT
+                {
+                    PropertyID = newProp.PropertyId,
+                    UserId = _auth.User.UserId,
+                    AddTypeID = AddCreatePost.AddTypeId,
+                    PropPrice = AddCreatePost.AddPrice,
+                    CreatedAt = DateTime.Now,
+                    ExpDate = DateTime.Now.AddMonths(1),
+                    AddStatus = AddStatus.Waiting
+                };
+
+                _context.Addvertisiments.Add(newAdd);
+
+                newProp.MainPhoto = newProp.Photos[0].PropPhotoName;
+                _context.Entry(newProp).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+                _context.SaveChanges();
+
+                return RedirectToAction("index", "home");
+            }
+            else
+            {
+                //ModelState.AddModelError("model.addTypeId", "Error");
+                //return View();
+                return Ok("BAD");
+
+            }
+
+
+        }
         public IActionResult GetProjects(int id)
         {
             List<PropProject> projects = _context.PropProjects.Where(pp => pp.PropertySortId == id).ToList();

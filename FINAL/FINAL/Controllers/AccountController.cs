@@ -150,7 +150,7 @@ namespace FINAL.Controllers
                         Expires = DateTime.Now.AddYears(1),
                         HttpOnly = true
                     });
-                    return RedirectToAction("settings", "account", new { id = NewUser.UserId });
+                    return RedirectToAction("settings", "account");
                 }
                 else
                 {
@@ -187,35 +187,39 @@ namespace FINAL.Controllers
 
         public IActionResult Logout()
         {
-            var token = Request.Cookies["token"];
-            User LoggedUser = _context.Users.Find(_auth.User.UserId);
-            LoggedUser.Token = null;
+            if(_auth.User == null)
+            {
+                return RedirectToAction("index", "home");
+            }
+
+            _auth.User.Token = null;
             _context.SaveChanges();
-            Response.Cookies.Append("token", token, new Microsoft.AspNetCore.Http.CookieOptions
+
+            Response.Cookies.Append("token", Request.Cookies["token"], new Microsoft.AspNetCore.Http.CookieOptions
             {
                 Expires = DateTime.Now.AddDays(-1),
                 HttpOnly = true
             });
             return RedirectToAction("index", "home");
+
         }
 
-        public IActionResult Settings(int id)
+        public IActionResult Settings()
         {
             var token = Request.Cookies["token"];
             
             if(token == null)
             {
-                return RedirectToAction("login", "account");
+                return RedirectToAction("index", "account");
             }
 
-            User LoggedUser = _context.Users.Include(u=>u.UserType).Where(u=>u.UserId==id).FirstOrDefault();
 
-            if (LoggedUser == null)
+            if (_auth.User == null)
             {
                 return NotFound();
             }
 
-            if(LoggedUser.Token != token)
+            if(_auth.User.Token != token)
             {
                 return BadRequest();
             }
@@ -243,24 +247,27 @@ namespace FINAL.Controllers
             data.Breadcumb.Path.Add(settings);
             ViewBag.Partial = data.Breadcumb;
 
-            ViewBag.User = LoggedUser;
+            ViewBag.User = _auth.User;
             return View();
         }
 
         [HttpPost]
         public IActionResult Settings(AccountSettingModel setting)
         {
+            var token = Request.Cookies["token"];
+
+            User LoggedUser = _auth.User;
+
+            if (LoggedUser.Token != token)
+            {
+                return BadRequest();
+            }
+
+            string FileName;
 
             if (ModelState.IsValid)
             {
-                var token = Request.Cookies["token"];
-                string FileName = null;
-                User LoggedUser = _context.Users.Find(_auth.User.UserId);
-                if(LoggedUser.Token != token)
-                {
-                    return BadRequest();
-                }
-
+                
                 LoggedUser.Name = setting.Name;
                 LoggedUser.PhoneNumber = setting.PhoneNumber;
 
@@ -283,6 +290,10 @@ namespace FINAL.Controllers
                     string FilePath = Path.Combine(UploadsFolder, FileName);
                     setting.Photo.CopyTo(new FileStream(FilePath, FileMode.Create));
                     LoggedUser.Logo = FileName;
+                }
+                else
+                {
+                    LoggedUser.Logo = null;
                 }
 
                 _context.Entry(LoggedUser).State = Microsoft.EntityFrameworkCore.EntityState.Modified;

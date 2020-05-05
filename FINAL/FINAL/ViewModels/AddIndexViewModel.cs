@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using FINAL.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace FINAL.ViewModels
 {
@@ -13,7 +11,7 @@ namespace FINAL.ViewModels
 
         public AddCreateIndexViewModel AddCreateIndex { get; set; }
 
-        public AddCreaterPostViewModel AddCreatePost { get; set; }
+        public AddCreatePostViewModel AddCreatePost { get; set; }
     }
 
     public class AddCreateIndexViewModel
@@ -33,9 +31,9 @@ namespace FINAL.ViewModels
         public List<Feature> Features { get; set; }
     }
 
-    public class AddCreaterPostViewModel
+    public class AddCreatePostViewModel
     {
-        [Required(ErrorMessage = "Qeyd edin")]
+        [Required]
         public int AddTypeId { get; set; }
 
         [Required(ErrorMessage = "Qeyd edin")]
@@ -49,6 +47,12 @@ namespace FINAL.ViewModels
         [Required(ErrorMessage = "Daxil edin")]
         public string PropertyFullAddress { get; set; }
 
+        public float? Longitude { get; set; }
+
+        public float? Latitude { get; set; }
+
+        public int? ProjectId { get; set; }
+
         public int? FloorSum { get; set; }
 
         public int? FloorId { get; set; }
@@ -57,21 +61,19 @@ namespace FINAL.ViewModels
 
         public int PropDocId { get; set; }
 
-        [Required]
-        public decimal BuildingVolume { get; set; }
+        public decimal? BuildingVolume { get; set; }
 
         public decimal? LandVolume { get; set; }
 
         [Required(ErrorMessage = "Əmlak haqqında ətraflı yazın")]
         public string FullAbout { get; set; }
 
+        public List<Feature> Features { get; set; }
+
         [Required(ErrorMessage = "Daxil edin")]
         public decimal AddPrice { get; set; }
 
-        public float? Longitude { get; set; }
-
-        public float? Latitude { get; set; }
-
-        public List<PropFeature> Features { get; set; }
+        public List<IFormFile> Photos { get; set; }
     }
+
 }

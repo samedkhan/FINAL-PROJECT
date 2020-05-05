@@ -29,7 +29,7 @@
                         <div class="tab-content">
                             <div class="tab-panel active" id="tabs_1">
                                 <div class="row">
-                                    <form class="grid" method="post" enctype="multipart/form-data" asp-action="create" asp-controller="add">
+                                    <form asp-action="Create" asp-controller="Add" method="post" enctype="multipart/form-data" id="CreateAdd">
 
                                         <div class="form-group @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
@@ -37,8 +37,8 @@
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select id="addSort" asp-for="AddCreatePost.AddTypeId" name="AddCreatePost.AddTypeId">
-                                                        <option value="0" selected>Seçin</option>
+                                                    <select id="addSort" asp-for="AddCreatePost.AddTypeId" name="AddCreatePost.AddTypeId" data-validation="required" data-validation-error-msg-required="Elanın növünü seçin!!!">
+                                                        <option value="" selected>Seçin</option>
 
                                                         @foreach (AddType item in Model.AddCreateIndex.AddTypes)
                                                         {
@@ -57,8 +57,8 @@
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select id="propSort" asp-for="AddCreatePost.PropertySortId" name="AddCreatePost.PropertySortId">
-                                                        <option value="0" selected>Seçin</option>
+                                                    <select id="propSort" asp-for="AddCreatePost.PropertySortId" name="AddCreatePost.PropertySortId" data-validation="required" data-validation-error-msg-required="Əmlakın növünü seçin!!!">
+                                                        <option value="" id="default">Seçin</option>
                                                         @foreach (PropertySort item in Model.AddCreateIndex.PropertySorts)
                                                         {
                                                             <option data-filter="@item.DataFilter" value="@item.PropertySortId">@item.PropertySortName</option>
@@ -70,16 +70,14 @@
                                             </div>
                                         </div>
 
-
-
                                         <div class="form-group @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
                                                 <label for="city">Şəhər</label>
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select id="city" asp-for="AddCreatePost.CityId" name="AddCreatePost.CityId">
-                                                        <option value="0" selected>Seçin</option>
+                                                    <select id="city" asp-for="AddCreatePost.CityId" name="AddCreatePost.CityId" data-validation="required" data-validation-error-msg-required="Şəhəri seçin!!!">
+                                                        <option value="" selected>Seçin</option>
                                                         @foreach (City item in Model.AddCreateIndex.Cities)
                                                         {
                                                             <option value="@item.CityId">@item.CityName</option>
@@ -96,8 +94,8 @@
                                             </div>
                                             <div class="right-side">
                                                 <div class="select districtSelect">
-                                                    <select asp-for="AddCreatePost.DistrictId" name="AddCreatePost.DistrictId" id="districtList">
-                                                        <option value="0" selected> Seçin</option>
+                                                    <select asp-for="AddCreatePost.DistrictId" name="AddCreatePost.DistrictId" id="districtList" data-validation="required" data-validation-error-msg-required="Rayonu seçin!!!">
+                                                        <option value="" selected> Seçin</option>
                                                     </select>
                                                 </div>
                                                 <span class="text-danger" asp-validation-for="AddCreatePost.DistrictId"> </span>
@@ -109,22 +107,22 @@
                                                 <label for="address">Ünvan</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="address" placeholder="Ünvanı daxil edin" asp-for="AddCreatePost.PropertyFullAddress" name="AddCreatePost.PropertyFullAddress">
+                                                <input type="text" id="address" placeholder="Ünvanı daxil edin" asp-for="AddCreatePost.PropertyFullAddress" name="AddCreatePost.PropertyFullAddress" data-validation="required" data-validation-error-msg-required="Ünvanı qeyd edin!!!">
                                                 <span class="text-danger" asp-validation-for="AddCreatePost.PropertyFullAddress"> </span>
                                             </div>
                                         </div>
+
                                         <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
                                             <div class="left-side">
 
-                                            </div> ????????????????????
+                                            </div>
                                             <div class="right-side">
-                                                <button type="button" id="showMap">Xəritədə göstər</button>
+                                                <button type="button" id="showMap"><i class="fas fa-map-marker-alt"></i>Xəritədə göstər</button>
 
-                                                <input type="text" id="GoogleMapAddress">
+                                                <input type="hidden" id="latitude" asp-for="@Model.AddCreatePost.Latitude">
+                                                <input type="hidden" id="longitude" asp-for="@Model.AddCreatePost.Longitude">
                                             </div>
                                         </div>
-
-
 
                                         <div class="form-group d-none showByJs @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())" id="project">
                                             <div class="left-side">
@@ -132,8 +130,8 @@
                                             </div>
                                             <div class="right-side">
                                                 <div class="select projectSelect">
-                                                    <select asp-for="AddCreatePost.PropertySortId" name="AddCreatePost.PropertySortId" id="projectList">
-                                                        <option value="0" selected> Seçin</option>
+                                                    <select asp-for="AddCreatePost.ProjectId" name="AddCreatePost.ProjectId" id="projectList" data-validation="required" data-validation-error-msg-required="Binanın proyektini seçin!!!">
+                                                        <option value="" selected>Seçin</option>
                                                     </select>
                                                 </div>
                                                 <span class="text-danger" asp-validation-for="AddCreatePost.PropertySortId"> </span>
@@ -146,8 +144,8 @@
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select id="floorSum" asp-for="AddCreatePost.FloorSum" name="AddCreatePost.FloorSum">
-                                                        <option value="0" selected>Seçin</option>
+                                                    <select id="floorSum" asp-for="AddCreatePost.FloorSum" name="AddCreatePost.FloorSum" data-validation="required" data-validation-error-msg-required="Binanın neçə mərtəbəli olduğunu seçin!!!">
+                                                        <option value="" selected>Seçin</option>
 
                                                         @foreach (Floor item in Model.AddCreateIndex.Floors)
                                                         {
@@ -160,15 +158,14 @@
                                             </div>
                                         </div>
 
-
                                         <div class="form-group new-building old-building office">
                                             <div class="left-side">
                                                 <label for="floorNum">Yerləşdiyi mərtəbə</label>
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select id="floorNum" asp-for="AddCreatePost.FloorId" name="AddCreatePost.FloorId">
-                                                        <option value="0" selected>Seçin</option>
+                                                    <select id="floorNum" asp-for="AddCreatePost.FloorId" name="AddCreatePost.FloorId" data-validation="required" data-validation-error-msg-required="Mənzilin yerləşdiyi mərtəbəni seçin!!!">
+                                                        <option value="" selected>Seçin</option>
 
                                                     </select>
                                                 </div>
@@ -182,8 +179,8 @@
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select id="flat" asp-for="AddCreatePost.FlatId" name="AddCreatePost.FlatId">
-                                                        <option value="Seçin" selected>Seçin</option>
+                                                    <select id="flat" asp-for="AddCreatePost.FlatId" name="AddCreatePost.FlatId" data-validation="required" data-validation-error-msg-required="Otaq sayını seçin!!!">
+                                                        <option value="" selected>Seçin</option>
 
                                                         @foreach (Flat item in Model.AddCreateIndex.Flats)
                                                         {
@@ -202,8 +199,8 @@
                                             </div>
                                             <div class="right-side">
                                                 <div class="select">
-                                                    <select id="propDoc" asp-for="AddCreatePost.PropDocId" name="AddCreatePost.PropDocId">
-                                                        <option value="Seçin" selected>Seçin</option>
+                                                    <select id="propDoc" asp-for="AddCreatePost.PropDocId" name="AddCreatePost.PropDocId" data-validation="required" data-validation-error-msg-required="Əmlakın sənədini seçin!!!">
+                                                        <option value="" selected>Seçin</option>
 
                                                         @foreach (PropDoc item in Model.AddCreateIndex.PropDocs)
                                                         {
@@ -221,17 +218,21 @@
                                                 <label for="buildingVolume">Tikili sahə (kv/m)</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="buildingVolume" placeholder="Sahəni daxil edin" asp-for="AddCreatePost.BuildingVolume" name="AddCreatePost.BuildingVolume">
+                                                <input type="text" id="buildingVolume" placeholder="Sahəni daxil edin" asp-for="AddCreatePost.BuildingVolume" name="AddCreatePost.BuildingVolume"
+                                                       data-validation="required, number" data-validation-error-msg-required="Tikili sahəni qeyd edin!!!"
+                                                       data-validation-error-msg-number="Düzgün rəqəm daxil edin!" />
                                                 <span class="text-danger" asp-validation-for="AddCreatePost.BuildingVolume"> </span>
                                             </div>
                                         </div>
 
                                         <div class="form-group yard-house land" id="landVolume">
                                             <div class="left-side">
-                                                <label for="landVolume">Torpaq sahəsi (kv/m)</label>
+                                                <label for="landVolume">Torpaq sahəsi (sot)</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="landVolume" placeholder="Sahəni daxil edin" asp-for="AddCreatePost.LandVolume" name="AddCreatePost.LandVolume">
+                                                <input type="text" id="landVolume" placeholder="Sahəni daxil edin" asp-for="AddCreatePost.LandVolume" name="AddCreatePost.LandVolume"
+                                                       data-validation="required, number" data-validation-error-msg-required="Torpaq sahəsini qeyd edin!!!"
+                                                       data-validation-error-msg-number="Düzgün rəqəm daxil edin" />
                                                 <span class="text-danger" asp-validation-for="AddCreatePost.LandVolume"> </span>
                                             </div>
                                         </div>
@@ -241,24 +242,51 @@
                                                 <label for="about">Əmlak haqqında</label>
                                             </div>
                                             <div class="right-side">
-                                                <textarea id="about" placeholder="Əmlak haqqında" rows="4" asp-for="AddCreatePost.FullAbout" name="AddCreatePost.FullAbout"></textarea>
+                                                <span id="max-length-element">500</span> xarakter qalmaqdadır
+                                                <textarea id="about" placeholder="Əmlak haqqında" rows="4" asp-for="AddCreatePost.FullAbout" name="AddCreatePost.FullAbout"
+                                                          data-validation="required, length" data-validation-error-msg-required="Əmlak haqqında ətraflı yazın (min 50 xarakter)!!!"
+                                                          data-validation-length="50-500" data-validation-error-msg-length="Minimum 50 xarakter olmalıdır!"></textarea>
                                                 <span class="text-danger" asp-validation-for="AddCreatePost.FullAbout"> </span>
                                             </div>
                                         </div>
 
-                                        <div class="form-group old-building new-building yard-house office">
+                                        <div class="form-group old-building new-building yard-house office feature">
                                             <div class="left-side">
                                                 <label for="photo">Xüsusiyyətlər</label>
                                             </div>
                                             <div class="right-side">
-                                                @foreach (Feature item in Model.AddCreateIndex.Features)
+                                                @for (var i = 0; i < Model.AddCreateIndex.Features.Count(); i++)
                                                 {
                                                     <div class="feature">
-                                                        <label for="@item.FeatureID">@item.Name</label>
-                                                        <input type="checkbox" id="@item.FeatureID" @*asp-for="AddCreatePost.Features" name="AddCreatePost.Features"*@>
+                                                        <h1></h1>
+                                                        <label for="@Model.AddCreateIndex.Features[i].Selected">@Model.AddCreateIndex.Features[i].Name</label>
+                                                        @{
+                                                            String id = $"AddCreatePost_Features_{i}__FeatureID";
+                                                            String name = $"AddCreatePost.Features[{i}].FeatureID";
+                                                        }
+                                                        <input type="hidden" name="@name" id="@id" value="@Model.AddCreateIndex.Features[i].FeatureID" />
+                                                        <input type="checkbox" asp-for="@Model.AddCreatePost.Features[i].Selected" />
                                                     </div>
                                                 }
-                                                <span class="text-danger" @*asp-validation-for="AddCreatePost.Features"*@> </span>
+                                                <span class="text-danger"> </span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
+                                            <div class="left-side">
+
+                                            </div>
+                                            <div class="right-side">
+                                                <div id="addPhoto">
+                                                    <label for="upload-photo"><i class="fas fa-camera"></i>ƏMLAKIN FOTOLARI</label>
+                                                    <input asp-for="@Model.AddCreatePost.Photos" id="upload-photo" accept="image/*" multiple
+                                                           data-validation="required, mime size"
+                                                           data-validation-error-msg-required="Əmlakın fotolarını daxil edin!!!"
+                                                           data-validation-error-msg-size="Fotonun həcmi 1Mb-dan artıq ola bilməz!!!"
+                                                           data-validation-allowing="jpg, png, gif"
+                                                           data-validation-max-size="1M" />
+                                                </div>
                                             </div>
 
                                         </div>
@@ -268,26 +296,16 @@
                                                 <label for="price">Qiymət (AZN)</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="price" placeholder="Qiyməti daxil edin" asp-for="AddCreatePost.AddPrice" name="AddCreatePost.AddPrice">
+                                                <input type="text" id="price" placeholder="Qiyməti daxil edin" asp-for="AddCreatePost.AddPrice" name="AddCreatePost.AddPrice"
+                                                       data-validation="required, number" data-validation-error-msg-required="Əmlakın qiymətini daxil edin!!!"
+                                                       data-validation-allowing="range[1;10000000],float" data-validation-error-msg-number="Düzgün rəqəm daxil edin (1-10000000 arasında ola bilər)" />
                                                 <span class="text-danger" asp-validation-for="AddCreatePost.AddPrice"> </span>
                                             </div>
                                         </div>
 
-                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
-                                            <div class="input-image"></div>
+                                        <div class="right-side">
+                                            <button type="submit"><i class="fas fa-plus"></i>Əlavə et</button>
                                         </div>
-
-                                        <div class="form-group  @string.Join(" ",Model.AddCreateIndex.PropertySorts.Select(p=>p.DataFilter).ToArray())">
-                                            <div class="left-side">
-
-                                            </div>
-                                            <div class="right-side">
-                                                <button type="submit"><i class="fas fa-plus"></i>Əlavə et</button>
-                                            </div>
-                                        </div>
-
-
-
                                     </form>
                                 </div>
                             </div>
@@ -299,38 +317,10 @@
         </div>
     </div>
 </section>
-@section PhotoUploadCss{
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link type="text/css" rel="stylesheet" href="~/css/image-upload/image-uploader.min.css">
-}
-@section PhotoUploadJs{
-    <script type="text/javascript" src="~/script/image-upload/image-uploader.js"></script>
-}
 @section GoogleMap{
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8EdJxYPClDOkk4tzALsjm-OkjKA59fjQ&language=az&region=AZ&v=3.exp&sensor=false"></script>
-}
-
-@section Scripts{
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8EdJxYPClDOkk4tzALsjm-OkjKA59fjQ&language=az&region=AZ&v=3.exp"></script>
     <script>
         $(document).ready(function () {
-
-   
-
-            $(document).on("change", ".image-uploader > input", function (e) {
-
-                console.log($(this).files.length);
-            });
-
-            
-
-            $('.input-image').imageUploader({
-                label: 'Əmlakın şəkillərini buradan yükləyin',
-                imagesInputName: 'photos',
-            });
-             $(".inputs").click(function () {
-                console.log("test");
-            });
 
             //Begin GoogleMap from selected City
             $("#city").change(function () {
@@ -389,10 +379,12 @@
                     geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
                             if (results[0]) {
-                                $('#GoogleMapAddress').val(results[0].formatted_address);
-                                console.log(marker.getPosition().lat());
-                                console.log(marker.getPosition().lng());
+                                //$('#GoogleMapAddress').val(results[0].formatted_address);
+                                //console.log(marker.getPosition().lat());
+                                //console.log(marker.getPosition().lng());
                                 $("#modal").css("display", "none");
+                                $("#latitude").val(marker.getPosition().lat());
+                                $("#longitude").val(marker.getPosition().lng());
                             }
                         }
                     });
@@ -406,6 +398,24 @@
 
 
     </script>
-
 }
+@section FormValidator{
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+}
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            //FORM VALIDATION
+            $.validate({
+                modules: 'file, security',
+                addSuggestions: true,
+                decimalSeparator: ','
+            });
+            $('#about').restrictLength($('#max-length-element'));
+        });
+    </script>
+}
+
 

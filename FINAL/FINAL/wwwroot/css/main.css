@@ -25,7 +25,7 @@
   -webkit-transition-delay: 0s, 0s, 0.3s;
           transition-delay: 0s, 0s, 0.3s; }
 
-.search-tab-content, .finded-adds-properties .title select, #prop-search .title select, #partner-detail .title select, #property-detail .title select, .finded-adds-properties .filter-panel .filter-contain .search-select select, #prop-search .filter-panel .filter-contain .search-select select, #partner-detail .filter-panel .filter-contain .search-select select, #property-detail .filter-panel .filter-contain .search-select select, .form form .form-group .right-side select, #contact .contain-item form .form-group .right-side select, #add-prop .contain-stack form .form-group .right-side select, #login-signup .contain-stack form .form-group .right-side select, .form form button, #contact .contain-item form button, #add-prop .contain-stack form button, #login-signup .contain-stack form button, .form form a, #contact .contain-item form a, #add-prop .contain-stack form a, #login-signup .contain-stack form a, #home-intro .contain-stack .tab-content .search-select select, #home-intro .contain-stack .tab-content .search-button button, #add-prop #modal #check {
+.search-tab-content, .finded-adds-properties .title select, #prop-search .title select, #partner-detail .title select, #property-detail .title select, .finded-adds-properties .filter-panel .filter-contain .search-select select, #prop-search .filter-panel .filter-contain .search-select select, #partner-detail .filter-panel .filter-contain .search-select select, #property-detail .filter-panel .filter-contain .search-select select, .form form .form-group .right-side select, #contact .contain-item form .form-group .right-side select, #add-prop .contain-stack form .form-group .right-side select, #login-signup .contain-stack form .form-group .right-side select, .form form button, #contact .contain-item form button, #add-prop .contain-stack form button, #login-signup .contain-stack form button, .form form a, #contact .contain-item form a, #add-prop .contain-stack form a, #login-signup .contain-stack form a, .form form #addPhoto, #contact .contain-item form #addPhoto, #add-prop .contain-stack form #addPhoto, #login-signup .contain-stack form #addPhoto, #home-intro .contain-stack .tab-content .search-select select, #home-intro .contain-stack .tab-content .search-button button, #add-prop #modal #check {
   width: 100%;
   padding: 8px 4px;
   font-size: 18px;
@@ -468,28 +468,73 @@
         -ms-flex-align: center;
             align-items: center;
     margin: 10px 0px; }
-    .form form .form-group .input-image, #contact .contain-item form .form-group .input-image, #add-prop .contain-stack form .form-group .input-image, #login-signup .contain-stack form .form-group .input-image {
-      width: 100%;
+    .form form .form-group #showMap, #contact .contain-item form .form-group #showMap, #add-prop .contain-stack form .form-group #showMap, #login-signup .contain-stack form .form-group #showMap, .form form .form-group #addPhoto, #contact .contain-item form .form-group #addPhoto, #add-prop .contain-stack form .form-group #addPhoto, #login-signup .contain-stack form .form-group #addPhoto, .form form .form-group #uploadedPhotos, #contact .contain-item form .form-group #uploadedPhotos, #add-prop .contain-stack form .form-group #uploadedPhotos, #login-signup .contain-stack form .form-group #uploadedPhotos {
+      display: block;
+      width: 100% !important; }
+    .form form .form-group #addPhoto, #contact .contain-item form .form-group #addPhoto, #add-prop .contain-stack form .form-group #addPhoto, #login-signup .contain-stack form .form-group #addPhoto {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      padding: 10px;
+      margin-bottom: 20px; }
+      .form form .form-group #addPhoto label, #contact .contain-item form .form-group #addPhoto label, #add-prop .contain-stack form .form-group #addPhoto label, #login-signup .contain-stack form .form-group #addPhoto label {
+        cursor: pointer;
+        font-family: "OpenSans"; }
+      .form form .form-group #addPhoto #upload-photo, #contact .contain-item form .form-group #addPhoto #upload-photo, #add-prop .contain-stack form .form-group #addPhoto #upload-photo, #login-signup .contain-stack form .form-group #addPhoto #upload-photo {
+        opacity: 0;
+        position: absolute;
+        cursor: pointer; }
+    .form form .form-group #uploadedPhotos, #contact .contain-item form .form-group #uploadedPhotos, #add-prop .contain-stack form .form-group #uploadedPhotos, #login-signup .contain-stack form .form-group #uploadedPhotos {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      border: 1px solid #e0d7d7;
+      border-radius: 8px;
       -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
               box-shadow: 7px 7px 11px -7px #6e6e6e; }
-      .form form .form-group .input-image .uploaded .uploaded-image, #contact .contain-item form .form-group .input-image .uploaded .uploaded-image, #add-prop .contain-stack form .form-group .input-image .uploaded .uploaded-image, #login-signup .contain-stack form .form-group .input-image .uploaded .uploaded-image {
-        width: calc(33% - 1rem); }
-        .form form .form-group .input-image .uploaded .uploaded-image .delete-image, #contact .contain-item form .form-group .input-image .uploaded .uploaded-image .delete-image, #add-prop .contain-stack form .form-group .input-image .uploaded .uploaded-image .delete-image, #login-signup .contain-stack form .form-group .input-image .uploaded .uploaded-image .delete-image {
-          margin: 0px !important;
-          padding: 0px !important;
-          border-radius: 50%;
-          border: 1px solid #FDA94F; }
-          .form form .form-group .input-image .uploaded .uploaded-image .delete-image:hover i, #contact .contain-item form .form-group .input-image .uploaded .uploaded-image .delete-image:hover i, #add-prop .contain-stack form .form-group .input-image .uploaded .uploaded-image .delete-image:hover i, #login-signup .contain-stack form .form-group .input-image .uploaded .uploaded-image .delete-image:hover i {
-            color: white; }
-          .form form .form-group .input-image .uploaded .uploaded-image .delete-image i, #contact .contain-item form .form-group .input-image .uploaded .uploaded-image .delete-image i, #add-prop .contain-stack form .form-group .input-image .uploaded .uploaded-image .delete-image i, #login-signup .contain-stack form .form-group .input-image .uploaded .uploaded-image .delete-image i {
-            color: #FDA94F;
-            font-size: 1.05rem;
-            line-height: 26px;
-            margin-right: 0px !important; }
-    .form form .form-group #showMap, #contact .contain-item form .form-group #showMap, #add-prop .contain-stack form .form-group #showMap, #login-signup .contain-stack form .form-group #showMap {
-      display: block;
-      width: 100% !important;
-      margin: 0px !important; }
+      .form form .form-group #uploadedPhotos .imageContainer, #contact .contain-item form .form-group #uploadedPhotos .imageContainer, #add-prop .contain-stack form .form-group #uploadedPhotos .imageContainer, #login-signup .contain-stack form .form-group #uploadedPhotos .imageContainer {
+        border-radius: 8px;
+        overflow: hidden;
+        width: 23%;
+        height: 90px;
+        margin: 10px 5px;
+        cursor: pointer;
+        position: relative; }
+        .form form .form-group #uploadedPhotos .imageContainer::after, #contact .contain-item form .form-group #uploadedPhotos .imageContainer::after, #add-prop .contain-stack form .form-group #uploadedPhotos .imageContainer::after, #login-signup .contain-stack form .form-group #uploadedPhotos .imageContainer::after {
+          content: "\f2ed";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          color: #FDA94F;
+          font-size: 30px;
+          width: 100%;
+          height: 100%;
+          background-color: #00000085;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: none;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s; }
+        .form form .form-group #uploadedPhotos .imageContainer img, #contact .contain-item form .form-group #uploadedPhotos .imageContainer img, #add-prop .contain-stack form .form-group #uploadedPhotos .imageContainer img, #login-signup .contain-stack form .form-group #uploadedPhotos .imageContainer img {
+          width: 100%;
+          height: 90px; }
+        .form form .form-group #uploadedPhotos .imageContainer:hover::after, #contact .contain-item form .form-group #uploadedPhotos .imageContainer:hover::after, #add-prop .contain-stack form .form-group #uploadedPhotos .imageContainer:hover::after, #login-signup .contain-stack form .form-group #uploadedPhotos .imageContainer:hover::after {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s; }
     .form form .form-group .left-side, #contact .contain-item form .form-group .left-side, #add-prop .contain-stack form .form-group .left-side, #login-signup .contain-stack form .form-group .left-side {
       width: 30%; }
       .form form .form-group .left-side label, #contact .contain-item form .form-group .left-side label, #add-prop .contain-stack form .form-group .left-side label, #login-signup .contain-stack form .form-group .left-side label {
@@ -535,21 +580,37 @@
         -webkit-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
-        position: relative; }
-        .form form .form-group .right-side .image img, #contact .contain-item form .form-group .right-side .image img, #add-prop .contain-stack form .form-group .right-side .image img, #login-signup .contain-stack form .form-group .right-side .image img {
-          max-width: 150px;
-          -ms-flex-item-align: center;
-              align-self: center; }
-        .form form .form-group .right-side .image i, #contact .contain-item form .form-group .right-side .image i, #add-prop .contain-stack form .form-group .right-side .image i, #login-signup .contain-stack form .form-group .right-side .image i {
+        position: relative;
+        cursor: pointer; }
+        .form form .form-group .right-side .image::after, #contact .contain-item form .form-group .right-side .image::after, #add-prop .contain-stack form .form-group .right-side .image::after, #login-signup .contain-stack form .form-group .right-side .image::after {
+          content: "\f2ed";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
           color: #FDA94F;
+          font-size: 30px;
+          width: 100%;
+          height: 100%;
+          background-color: #00000085;
           position: absolute;
           top: 0;
-          right: 0;
-          font-size: 15px;
-          border: 1px solid #FDA94F;
-          padding: 5px;
-          border-radius: 100%;
-          cursor: pointer; }
+          left: 0;
+          display: none;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s; }
+        .form form .form-group .right-side .image img, #contact .contain-item form .form-group .right-side .image img, #add-prop .contain-stack form .form-group .right-side .image img, #login-signup .contain-stack form .form-group .right-side .image img {
+          width: 100%; }
+        .form form .form-group .right-side .image:hover::after, #contact .contain-item form .form-group .right-side .image:hover::after, #add-prop .contain-stack form .form-group .right-side .image:hover::after, #login-signup .contain-stack form .form-group .right-side .image:hover::after {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s; }
       .form form .form-group .right-side .feature, #contact .contain-item form .form-group .right-side .feature, #add-prop .contain-stack form .form-group .right-side .feature, #login-signup .contain-stack form .form-group .right-side .feature {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -571,8 +632,9 @@
                   box-shadow: none;
           width: 10%; }
     .form form .form-group .help-block, #contact .contain-item form .form-group .help-block, #add-prop .contain-stack form .form-group .help-block, #login-signup .contain-stack form .form-group .help-block {
-      color: red; }
-  .form form button, #contact .contain-item form button, #add-prop .contain-stack form button, #login-signup .contain-stack form button, .form form a, #contact .contain-item form a, #add-prop .contain-stack form a, #login-signup .contain-stack form a {
+      color: red;
+      float: right; }
+  .form form button, #contact .contain-item form button, #add-prop .contain-stack form button, #login-signup .contain-stack form button, .form form a, #contact .contain-item form a, #add-prop .contain-stack form a, #login-signup .contain-stack form a, .form form #addPhoto, #contact .contain-item form #addPhoto, #add-prop .contain-stack form #addPhoto, #login-signup .contain-stack form #addPhoto {
     float: right;
     width: inherit !important;
     border-color: #FDA94F;
@@ -583,12 +645,12 @@
     letter-spacing: 1.1px;
     margin: 10px auto;
     padding: 4px 10px; }
-    .form form button:hover, #contact .contain-item form button:hover, #add-prop .contain-stack form button:hover, #login-signup .contain-stack form button:hover, .form form a:hover, #contact .contain-item form a:hover, #add-prop .contain-stack form a:hover, #login-signup .contain-stack form a:hover {
+    .form form button:hover, #contact .contain-item form button:hover, #add-prop .contain-stack form button:hover, #login-signup .contain-stack form button:hover, .form form a:hover, #contact .contain-item form a:hover, #add-prop .contain-stack form a:hover, #login-signup .contain-stack form a:hover, .form form #addPhoto:hover, #contact .contain-item form #addPhoto:hover, #add-prop .contain-stack form #addPhoto:hover, #login-signup .contain-stack form #addPhoto:hover {
       background-color: #FDA94F;
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s;
       color: white; }
-    .form form button i, #contact .contain-item form button i, #add-prop .contain-stack form button i, #login-signup .contain-stack form button i, .form form a i, #contact .contain-item form a i, #add-prop .contain-stack form a i, #login-signup .contain-stack form a i {
+    .form form button i, #contact .contain-item form button i, #add-prop .contain-stack form button i, #login-signup .contain-stack form button i, .form form a i, #contact .contain-item form a i, #add-prop .contain-stack form a i, #login-signup .contain-stack form a i, .form form #addPhoto i, #contact .contain-item form #addPhoto i, #add-prop .contain-stack form #addPhoto i, #login-signup .contain-stack form #addPhoto i {
       margin-right: 10px; }
   .form form a, #contact .contain-item form a, #add-prop .contain-stack form a, #login-signup .contain-stack form a {
     width: 250px !important; }

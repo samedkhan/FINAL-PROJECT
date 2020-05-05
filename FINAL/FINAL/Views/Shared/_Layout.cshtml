@@ -6,21 +6,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arenda</title>
-    <script src="https://kit.fontawesome.com/3da3c9c8f9.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3da3c9c8f9.js" crossorigin="anonymous" SameSite="None"></script>
     <link rel="stylesheet" href="~/css/reset.css">
     <link rel="stylesheet" href="~/css/grid.css">
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
     @RenderSection("owlCss", required: false)
     @RenderSection("NotifyConfirmCss", required: false)
-    @RenderSection("PhotoUploadCss", required: false)
     <script src="~/script/jquery.js"></script>
-    @RenderSection("GoogleMap", required: false);
+    @RenderSection("GoogleMap", required: false)
     @RenderSection("Filter", required: false)
     @RenderSection("FormValidator", required: false)
     @RenderSection("PhoneMask", required: false)
     @RenderSection("NotifyConfirmJs", required: false)
-    @RenderSection("PhotoUploadJs", required: false)
     @RenderSection("preloaderScript", required: false)
+
 </head>
 <body>
 
@@ -118,7 +117,7 @@
 
                                                 <ul class="submenu">
                                                     <li><a asp-controller="cabinet" asp-action="index" asp-route-id="@ViewBag.UserId">Şəxsi Kabinet</a></li>
-                                                    <li><a asp-controller="account" asp-action="settings" asp-route-id="@ViewBag.UserId">Tənzimləmələr</a></li>
+                                                    <li><a asp-controller="account" asp-action="settings">Tənzimləmələr</a></li>
                                                     <li><a asp-controller="account" asp-action="logout">Çıxış Et</a></li>
                                                 </ul>
                                             </li>

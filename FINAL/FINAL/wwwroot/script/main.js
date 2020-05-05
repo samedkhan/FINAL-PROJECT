@@ -88,109 +88,7 @@ $(document).ready(function(){
 
         //END OF NAVIGATION TABS MENU
 
-    //REMOVE Deactivated addvertisiment from list (CABINET)
-             $(document).on("click", ".removeItem", function (e) {
-
-                var selectedButton = $(this);
-
-                e.preventDefault();
-
-                Notiflix.Confirm.Show(
-                    'Elan Silinsin?',
-                    ' ',
-                    'Bəli',
-                    'Xeyr',
-                    function () { // Yes button callback
-                         // Addvertisiment status will be changed to HIDDEN (Add controller, Remove action)
-                            $.getJSON('../..' + selectedButton[0].pathname, function (response) {
-                                 // Deactive Adds count will be renewed
-                                $("#deactivatedAdds").text(response.deactivatedAddsCount);
-
-                                // All Adds count will be renewed
-                                $("#allAdds").text(response.allAddsCount);
-                                
-                            });
-
-                       Notiflix.Notify.Success('Elanınız silindi!');
-                         // Addvertisiment item will be remove
-                        selectedButton.closest(".col-md-3").remove();
-
-
-                            
-                    }, function () { // No button callback
-                       
-                    }
-
-                );
-
-                
-             });
-    //END of REMOVING
-
-            //DEACTIVATE addvertisiment (CABINET)
-            $(document).on("click", ".deactivateItem", function (e) {
-
-                var selectedButton = $(this);
-
-                e.preventDefault();
-
-                //Customizing Confirm
-                Notiflix.Confirm.Init({
-                    titleColor: 'red',
-                    titleFontSize: '20px',
-                    buttonsFontSize: '16px',
-                    fontFamily: 'Arch',
-                })
-
-                Notiflix.Confirm.Show(
-                    
-                    'Elan Deaktiv Edilsin?',
-                    ' ',
-                    'Bəli',
-                    'Xeyr',
-                    function () { // Yes button callback
-                          //Addvertisiment status will be changed to DEACTIVE (Add controller, Deactive action)
-                            $.getJSON('../..' + selectedButton[0].pathname, function (response) {
-
-                                // Deactive Adds count will be renewed
-                                $("#deactivatedAdds").text(response.deactivatedAddsCount);
-
-                                // Active Adds count will be renewed
-                                $("#activeAdds").text(response.activeAddsCount);
-
-                                // Waiting Adds count will be renewed
-                                $("#waitingAdds").text(response.waitingAddsCount);
-
-                                $("#rentAdds").text(response.rentAddsCount);
-
-                                $("#saleAdds").text(response.saleAddsCount);
-                                
-                        });
-
-                        selectedButton.closest(".col-md-3").removeClass('active').removeClass('waiting').addClass('deactive');
-
-                        selectedButton.closest(".contain-item").addClass('nonactive');
-
-                        selectedButton.parent('li').siblings().remove();
-
-                        var id = selectedButton[0].pathname.split('/')[3];
-
-                        selectedButton.attr("class", "removeItem").attr("title", "Sil").attr('href', '/add/remove/' + id);
-
-                        selectedButton.children().attr('class', 'far fa-trash-alt');
-
-
-
-                         Notiflix.Notify.Success('Elanınız deaktivasiya edildi');
-
-                    },
-                    function () { // No button callback
-                        
-                    }
-
-                );
-            });
-        //END OF DEACTIVATING !!!
+    
 
         //Carousels in HOME page
         if($(".property-photo").length>0){
@@ -247,7 +145,7 @@ $(document).ready(function(){
             }
 
         }
-        // Se;ected Company
+        // Selected Company
         else {
             if (!human.hasClass("d-none")) {
                 human.addClass("d-none");
@@ -259,11 +157,172 @@ $(document).ready(function(){
 
     });
 
-    //Filling FloorNumber options (ADD ADVERTISIMENT)
-    $("#floorSum").change(function () {
+   
+
+    //FILE (LOGO) UPLOAD (SETTINGS)
+    $('#SettingForm #upload-photo').on("change", function () {
+        //Remove before uploaded logo
+        $(this).closest(".right-side").find(".image").remove();
+        //Create new place for uploaded logo
+        uploadedPhoto = $('<div>', { class: 'image' }).appendTo($(this).closest(".right-side"));
+        //Attach uploaded logo into place
+        readURL(this);
+    });
+    //Reading uploaded logo
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            $(reader).on("load", function () {
+                $('<div>', { class: 'imageContainer' }).appendTo(uploadedPhoto).append($("<img/>", { src: this.result }));
+            });
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    //REMOVE UPLOADED LOGO (SETTINGS)
+    $(document).on("click", "#SettingForm .image", function (e) {
+
+        var selectedImage = $(this);
+
+        Notiflix.Confirm.Show(
+            'Foto Silinsin?',
+            ' ',
+            'Bəli',
+            'Xeyr',
+            function () { // Yes button callback
+
+                if ($(selectedImage).closest(".right-side").find("#addPhoto").attr("class") == "d-none") {
+
+                    $(selectedImage).closest(".right-side").find("#addPhoto").removeClass("d-none");
+
+                }
+
+                $(selectedImage).remove();
+
+                Notiflix.Report.Success(
+                    'Foto silindi !!!',
+                    ' ',
+                    'Oldu'
+                );
+
+
+
+            }, function () { // No button callback
+
+            }
+        );
+    });
+
+    //DEACTIVATE addvertisiment (CABINET)
+    $(document).on("click", ".deactivateItem", function (e) {
+
+        var selectedButton = $(this);
+
+        e.preventDefault();
+
+        //Customizing Confirm
+        Notiflix.Confirm.Init({
+            titleColor: 'red',
+            titleFontSize: '20px',
+            buttonsFontSize: '16px',
+            fontFamily: 'Arch',
+        })
+
+        Notiflix.Confirm.Show(
+
+            'Elan Deaktiv Edilsin?',
+            ' ',
+            'Bəli',
+            'Xeyr',
+            function () { // Yes button callback
+                //Addvertisiment status will be changed to DEACTIVE (Add controller, Deactive action)
+                $.getJSON('../..' + selectedButton[0].pathname, function (response) {
+
+                    // Deactive Adds count will be renewed
+                    $("#deactivatedAdds").text(response.deactivatedAddsCount);
+
+                    // Active Adds count will be renewed
+                    $("#activeAdds").text(response.activeAddsCount);
+
+                    // Waiting Adds count will be renewed
+                    $("#waitingAdds").text(response.waitingAddsCount);
+
+                    $("#rentAdds").text(response.rentAddsCount);
+
+                    $("#saleAdds").text(response.saleAddsCount);
+
+                });
+
+                selectedButton.closest(".col-md-3").removeClass('active').removeClass('waiting').addClass('deactive');
+
+                selectedButton.closest(".contain-item").addClass('nonactive');
+
+                selectedButton.parent('li').siblings().remove();
+
+                var id = selectedButton[0].pathname.split('/')[3];
+
+                selectedButton.attr("class", "removeItem").attr("title", "Sil").attr('href', '/add/remove/' + id);
+
+                selectedButton.children().attr('class', 'far fa-trash-alt');
+
+
+
+                Notiflix.Notify.Success('Elanınız deaktivasiya edildi');
+
+            },
+            function () { // No button callback
+
+            }
+
+        );
+    });
+
+    //REMOVE Deactivated addvertisiment from list (CABINET)
+    $(document).on("click", ".removeItem", function (e) {
+
+        var selectedButton = $(this);
+
+        e.preventDefault();
+
+        Notiflix.Confirm.Show(
+            'Elan Silinsin?',
+            ' ',
+            'Bəli',
+            'Xeyr',
+            function () { // Yes button callback
+                // Addvertisiment status will be changed to HIDDEN (Add controller, Remove action)
+                $.getJSON('../..' + selectedButton[0].pathname, function (response) {
+                    // Deactive Adds count will be renewed
+                    $("#deactivatedAdds").text(response.deactivatedAddsCount);
+
+                    // All Adds count will be renewed
+                    $("#allAdds").text(response.allAddsCount);
+
+                });
+
+                Notiflix.Notify.Success('Elanınız silindi!');
+                // Addvertisiment item will be remove
+                selectedButton.closest(".col-md-3").remove();
+
+
+
+            }, function () { // No button callback
+
+            }
+
+        );
+
+
+    });
+    
+
+    //Filling FloorNumber options (ADD -> CREATE)
+    $("#CreateAdd #floorSum").change(function () {
 
         //Remove all options
-        $("#floorNum > option[value!='0']").remove();
+        $("#floorNum > option[value!='']").remove();
 
         var id = $(this).val();
 
@@ -274,30 +333,35 @@ $(document).ready(function(){
 
     });
 
-    // Filter Form-items by select PropertySort  (ADD ADDVERTISIMENT)
-    $('#propSort').change(function () {
+    // Filter Form-items by select PropertySort  (ADD -> CREATE)
+    $('#CreateAdd #propSort').change(function () {
+
         var filterValue = $(this).children("option:selected").attr('data-filter');
 
         var FormGroup = $(".form-group:not('.showByJs')");
 
         for (var i = 0; i < FormGroup.length; i++) {
 
-            if (!FormGroup[i].classList.contains(filterValue)) {
+            if (filterValue != undefined) {
 
-                FormGroup[i].classList.add("d-none");
+                if (!FormGroup[i].classList.contains(filterValue)) {
+
+                    FormGroup[i].classList.add("d-none");
+                }
+                else {
+                    FormGroup[i].classList.remove("d-none");
+                }
             }
-            else {
-                FormGroup[i].classList.remove("d-none");
-            }
+            
         }
     });
 
-    //Fill Property Projects by select PropertySort  (ADD ADDVERTISIMENT)
-    $("#propSort").change(function () {
-
+    //Fill Property Projects by select PropertySort  (ADD -> CREATE)
+    $("#CreateAdd #propSort").change(function () {
+       
         var id = $(this).val();
 
-        $.getJSON('./GetProjects/' + id, function (response) {
+        $.getJSON('./getprojects/' + id, function (response) {
 
             if (response.length > 0) {
 
@@ -309,14 +373,14 @@ $(document).ready(function(){
 
             } else {
                 $("#project").addClass("d-none");
-                $("#projectList >  option[value!='0']").remove();
+                $("#projectList >  option[value!='']").remove();
             }
         });
     });
     
 
-    //Fill Districts by select City  (ADD ADDVERTISIMENT)
-    $("#city").change(function () {
+    //Fill Districts by select City  (ADD -> CREATE)
+    $("#CreateAdd #city").change(function () {
      
         var id = $(this).val();
 
@@ -332,15 +396,54 @@ $(document).ready(function(){
 
             } else {
                 $("#district").addClass("d-none");
-                $("#districtList >  option[value!='0']").remove();
+                $("#districtList >  option[value!='']").remove();
             }
         });
 
         
     });
 
+
+
+    //UPLOAD PHOTOS OF PROPERTY (ADD -> CREATE)
+    $("#CreateAdd #upload-photo").change(function (e) {
+
+        var uploadedPhotos = $(this).closest(".form-group").find("#uploadedPhotos");
+
+        if (uploadedPhotos.length == 0) {
+            uploadedPhotos = $('<div>', { id: 'uploadedPhotos' }).appendTo($(this).closest(".form-group"));
+        }
+
+        for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+
+            var file = e.originalEvent.srcElement.files[i];
+
+            var reader = new FileReader();
+
+            $(reader).on("load", function () {
+                $('<div>', { class: 'imageContainer' }).appendTo(uploadedPhotos).append($("<img/>", { src: this.result }));
+            });
+
+            reader.readAsDataURL(file);
+
+        }
+    });
+
+    //REMOVE UPLOADED PHOTO OF PROPERTY (ADD -> CREATE)
+    $(document).on("click", "#CreateAdd .imageContainer", function (e) {
+        if ($(".imageContainer").length > 1) {
+            $(this).remove();
+        }
+        else {
+            $(this).closest("#uploadedPhotos").remove();
+        }
+    });
+
    
 
+
+   
+    
    
         // //#PARALLAX DIGIT counterup 
         // if($('.content-parallax strong').length>0){
