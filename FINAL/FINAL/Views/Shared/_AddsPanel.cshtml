@@ -1,0 +1,105 @@
+﻿@model AddsPanelViewModel
+
+@foreach (Addvertisiment item in Model.AddList)
+{
+    <div class="col-md-@(Model.type==ViewType.small?"4":"3") element-item @(@item.AddTypeID < 3 ? "rent" : "sale")">
+        <div class="contain-item">
+            <div class="item-image">
+                <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property"></a>
+            </div>
+            <div class="item-property">
+                <div class="date">
+                    <i class="far fa-calendar-alt"></i><span class="added-date">@item.CreatedAt.ToString("dd.MM.yyyy")</span>
+                </div>
+                <div class="property-name">
+                    @if (@item.Property.DistrictId != null)
+                    {
+                        <span>@item.Property.City.CityName şəh/@item.Property.District.DistrictName ray.</span>
+                    }
+                    else
+                    {
+                        <span>@item.Property.City.CityName şəhəri</span>
+                    }
+                </div>
+                <div class="property-price">
+
+                    @if (item.AddTypeID == 1) //Günlük kirayə
+                    {
+                        <span class="present-price">@item.PropPrice.ToString("0.0") ₼/gün</span>
+                    }
+                    else if (item.AddTypeID == 2) //Aylıq kirayə
+                    {
+                        <span class="present-price">@item.PropPrice.ToString("0.0") ₼/ay</span>
+                    }
+                    else
+                    {
+                        <span class="present-price">@item.PropPrice.ToString("0.0") ₼</span>// Satılır
+                    }
+
+                </div>
+                <div class="additional-properties">
+
+
+                    @if (item.Property.FloorId > 0 && item.Property.FloorSum > 0)
+                    {
+                        <div class="add-prop-item">
+                            <i class="fas fa-home"></i>
+                            <span class="num">@item.Property.FloorId/@item.Property.FloorSum mərtəbə</span>
+                        </div>
+
+                    }
+                    else if (item.Property.FloorSum > 0 && item.Property.FloorId == null) //həyət evi
+                    {
+                        <div class="add-prop-item">
+                            <i class="fas fa-home"></i>
+                            <span class="num">@item.Property.FloorSum mərtəbə</span>
+                        </div>
+                    }
+
+                    @if (item.Property.FlatId > 0 && item.Property.PropertySortId < 3)
+                    {
+                        <div class="add-prop-item">
+                            <i class="far fa-square"></i>
+                            <span class="num">@item.Property.FloorId otaq</span>
+                        </div>
+                    }
+
+                    @if (item.Property.PropertySort.PropertySortId > 3 && item.Property.PropertySort.PropertySortId < 6) //Ofis, Qaraj
+                    {
+                        <div class="add-prop-item">
+                            <i class="far fa-square"></i>
+                            <span class="num">@item.Property.BuildingVolume.Value.ToString("0") kv/m</span>
+                        </div>
+                    }
+
+                    @if (item.Property.PropertySort.PropertySortId > 5) //Torpaq
+                    {
+                        <div class="add-prop-item">
+                            <i class="far fa-square"></i>
+                            <span class="num">@item.Property.LandVolume.Value.ToString("0") sot</span>
+                        </div>
+                    }
+
+                </div>
+                <div class="add-sort">
+                    @if (item.AddTypeID < 3) //Kirayələr
+                    {
+                        <h3 class="name">Kirayə</h3>
+                    }
+                    else //Satış
+                    {
+                        <h3 class="name">Satış</h3>
+                    }
+                </div>
+                <div class="prop-sort">
+                    <h3 class="name">@item.Property.PropertySort.PropertySortName</h3>
+                </div>
+                <div class="hover-overlay">
+                    <ul>
+                        <li><a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID">Ətraflı</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -13,30 +13,21 @@
             justify-content: space-between;
             
         }
-        .tab-content{
-            @extend .contain;
-            .tab-panel{
-                .contain-item{
-                    @extend .contain-item-small;
-                    .hover-overlay{
-                        bottom: -41px !important;
-                        ul{
-                            li{
-                                padding: 5px 10px !important;
-                                width:100% !important;
-                                margin-right: 0px !important;
-                               
-                            }
-                        }
+        @extend .contain;
+        .contain-item{
+            @extend .contain-item-small;
+            .hover-overlay{
+                bottom: -41px !important;
+                ul{
+                    li{
+                        padding: 5px 10px !important;
+                        width:100% !important;
+                        margin-right: 0px !important;
+                       
                     }
                 }
             }
-            .active{
-                display: block;
-            }
-            .hide{
-                display: none;
-            }
         }
+        
     }
 }

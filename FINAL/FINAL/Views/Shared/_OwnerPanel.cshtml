@@ -1,0 +1,72 @@
+﻿@model OwnerPanelViewModel
+
+<div class="partner-panel">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="contain">
+                <div class="general">
+                    <div class="photo">
+                        <img src="~/img/users/@Model.Owner.Logo" alt="">
+                    </div>
+                    <div class="name">
+                        @if (Model.Owner.UserTypeID == 1) //Agency
+                        {
+                            <h2 class="name">@Model.Owner.Name</h2>
+                        }
+                        else
+                        {
+                            <h2 class="name">@Model.Owner.Name @Model.Owner.Surname</h2>
+                        }
+                    </div>
+                    <a asp-controller="Account" asp-action="UserPage" asp-route-id="@Model.Owner.UserId">
+                        <div class="partner-adds">
+                            <span>@Model.OwnerActiveAdds ELAN</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="contact">
+                    <h2>Əlaqə</h2>
+                    <ul>
+                        @if (Model.Owner.Adress != null)
+                        {
+                            <li>
+                                <div class="header-text">
+                                    <i class="fas fa-map-marker-alt"></i> Adres
+                                </div>
+                                <div class="info-text">
+                                    <span>@Model.Owner.Adress</span>
+                                </div>
+                            </li>
+                        }
+
+                        <li>
+                            <div class="header-text">
+                                <i class="fas fa-phone-alt"></i> Telefon
+                            </div>
+                            <div class="info-text">
+                                <span>@Model.Owner.PhoneNumber</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="header-text">
+                                <i class="far fa-envelope"></i> E-mail
+                            </div>
+                            <div class="info-text">
+                                <span>@Model.Owner.Email</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="header-text">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Qeydiyyat tarixi
+                            </div>
+                            <div class="info-text">
+                                <span>@Model.Owner.CreatedAt.ToString("dd.MM.yyyy")</span>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

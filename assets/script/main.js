@@ -65,7 +65,70 @@ $(document).ready(function(){
                 dots: false
             });
         }
-       
+        
+        //Show POPUP 
+        $(".property-photo .item").click(function(){ 
+            $href = $(this).children("img").attr("src"); //get image source from pressed image
+            $("#modal").css("display","flex"); //Show popup
+            $("#modal #modal-content img").attr("src", ""+ $href); //set image source into popup
+         
+        });
+
+        //Close Popup 
+        $("#modal #modal-content img").click(function(){
+            ClosePopup();
+        });
+        $("#modal #close").click(function(){
+            ClosePopup();
+        });
+
+        function ClosePopup(){
+            $("#modal").css("display", "none");
+            $(".property-photo .show").removeClass("show");
+            $(".property-photo .active").addClass("show");
+        };
+
+        //Select Next arrow button
+        $next = $("#modal > #modal-content > .nav-buttons > i[aria-label='Next']");
+        //Select Previous arrow button
+        $prev = $("#modal > #modal-content > .nav-buttons > i[aria-label='Previous']");
+        
+        //Adding show class into active photo in owl for using in popup
+        $(".property-photo .active").addClass("show");
+        
+        //Next arrow button click
+        $next.click(function(){
+            $active = $(".property-photo .show");
+            $nextItem = $active.next();
+            $start = $(".owl-item").not(".cloned").first();
+           
+            ChangePhotoInModal($active, $nextItem, $start);
+        });
+
+        //Previous arrow button click
+        $prev.click(function(){
+            $active = $(".property-photo .show");
+            $prevItem = $active.prev();
+            $start = $(".owl-item").not(".cloned").last();
+
+            ChangePhotoInModal($active, $prevItem, $start);
+
+        });
+
+
+        // Function for change image in Popup
+        function ChangePhotoInModal(active, arrow, start){
+            if(arrow.length>0 && !arrow.hasClass("cloned")){
+                arrow.addClass("show");
+                active.removeClass("show");
+            }
+            else{
+                start.addClass("show");
+                active.removeClass("show");
+            }
+             $("#modal #modal-content img").attr("src", ""+arrow.find("img").attr("src"));
+        }
+        
         if($(".partners-logo").length>0){
             $(".partners-logo").owlCarousel({
                 loop:true,

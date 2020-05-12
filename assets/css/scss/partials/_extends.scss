@@ -86,12 +86,10 @@
     .item-image{
         height: 150px;
         width:100%;
-        a{
-            img{
+        img{
                 width:100%;
                 height: 100%;
             }
-        }
     }
                     .item-property{
                         padding: 8px 10px;
@@ -381,22 +379,29 @@
     .rent-sale-buttons {
         .nav-tabs{
             li{
+                button{
+                    background-color: transparent;
+                    border: none;
+                    color: $yellow;
+                    font-family: $additional-font;
+                }
                 display: inline-block;
                 width: 100px;
                 background-color: $hoverBack;
-                padding: 12px 0px;
+                padding: 8px 0px;
                 text-align: center;
                 @extend .button;
-                a{
-                    color: $yellow;
-                }
+               
                 &:hover{
                     @extend .button-hover;
+                    button{
+                        color: $white;
+                    }
                 }
             }
             .active{
                 background-color: $yellow;
-                a{
+                button{
                     color: $white;
                 }
             }
@@ -476,7 +481,7 @@
         align-items: center;
         padding: 20px 0px;
         font-family: $additional-font;
-        justify-content: flex-start;
+        justify-content: space-between;
 
         span {
             margin-left: 10px;
@@ -500,8 +505,11 @@
 
             .general {
                 .photo {
-                    display: flex;
-                    justify-content: center;
+                    height: 100px;
+                    img {
+                        width: 100%;
+                        object-fit: contain;
+                    }
                 }
 
                 .name {
@@ -509,6 +517,7 @@
                     font-size: $add-title-size;
                     font-weight: bold;
                     margin: 10px 0px;
+                    padding-top: 5px; 
                 }
             }
 
@@ -780,5 +789,55 @@
             width: 250px !important;
         }
     }
+}
+
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 101; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.658); /* Black w/ opacity */
+    #close{
+        position: absolute;
+        top: 7vh;
+        right: 7vw;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+    #check{
+        @extend .search-tab-content;
+        border-color: $yellow;
+        background-color: $hoverBack;
+        color: $yellow;
+        transition: $t-regular;
+        letter-spacing: $ls-regular;
+        width: fit-content !important;
+        position: absolute;
+        right: 9vw;
+        bottom: 7vh;
+        padding: 4px 10px;
+        i{
+            margin-right: 10px;
+        }
+        &:hover{
+            background-color: $yellow;
+            transition: $t-regular;
+            color:$white;
+        }
+    }
+    #modal-content{
+        width: 80vw;
+        height: 70vh;
+        margin: 15vh auto;
+        
+    }
+
+
 }
 

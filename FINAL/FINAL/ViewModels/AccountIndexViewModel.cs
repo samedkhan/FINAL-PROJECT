@@ -12,11 +12,12 @@ namespace FINAL.ViewModels
     public class AccountIndexViewModel
     {
         public BreadcumbViewModel Breadcumb { get; set; }
+        public OwnerPanelViewModel Owner { get; set; }
+        public AddsPanelViewModel AddsPanel { get; set; }
         public AccountRegisterModel Register { get; set; }
         public AccountLoginModel Login { get; set; }
         public AccountSettingModel Setting { get; set; }
-
-
+        public AccountCabinetModel Cabinet { get; set; }
     }
 
     public class AccountRegisterModel
@@ -83,15 +84,27 @@ namespace FINAL.ViewModels
         [Required]
         public string PhoneNumber { get; set; }
 
-
-        [MaxLength(500)]
-        [Column(TypeName = "ntext")]
-        public string AboutCompany { get; set; }
-
-
         public IFormFile Photo { get; set; }
 
         [MaxLength(150)]
         public string LogoImage { get; set; }
     }
+
+    public class AccountCabinetModel
+    {
+
+        public List<Addvertisiment> AllAdds { get; set; }
+
+        public List<Addvertisiment> ActiveAdds { get; set; }
+
+        public List<Addvertisiment> DeactiveAdds { get; set; }
+
+        public List<Addvertisiment> WaitingAdds { get; set; }
+
+        public List<Addvertisiment> RentAdds { get; set; }
+
+        public List<Addvertisiment> SaleAdds { get; set; }
+
+    }
+
 }

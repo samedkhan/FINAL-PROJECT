@@ -4,53 +4,7 @@
     @extend .section-title;
     @extend .contain;
     #modal{
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 101; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.658); /* Black w/ opacity */
-        #close{
-            position: absolute;
-            top: 7vh;
-            right: 7vw;
-            font-size: 35px;
-            color: white;
-            cursor: pointer;
-        }
-        #check{
-            @extend .search-tab-content;
-            border-color: $yellow;
-            background-color: $hoverBack;
-            color: $yellow;
-            transition: $t-regular;
-            letter-spacing: $ls-regular;
-            width: fit-content !important;
-            position: absolute;
-            right: 9vw;
-            bottom: 7vh;
-            padding: 4px 10px;
-            i{
-                margin-right: 10px;
-            }
-            &:hover{
-                background-color: $yellow;
-                transition: $t-regular;
-                color:$white;
-            }
-        }
-        #modal-content{
-            width: 80vw;
-            height: 70vh;
-            margin: 15vh auto;
-            
-        }
-
-
+        @extend .modal;
     }
     .contain-stack{
         font-family: $primary-font;

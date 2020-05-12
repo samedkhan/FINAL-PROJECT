@@ -10,18 +10,6 @@
                 </div>
                 <div class="breadcumb-text mt-20">
                     <ol>
-                        @*@foreach (KeyValuePair<string, string> item in Model.Path)
-                        {
-                            if (item.Value != null)
-                            {
-                                <li><a asp-action="@item.Key" asp-controller="@item.Value">@item.Value</a></li>
-                            }
-                            else
-                            {
-                                <li><span>@item.Key</span></li>
-                            }
-
-                        }*@
                         @foreach (var item in Model.Path)
                         {
                             if (item.Action != null)

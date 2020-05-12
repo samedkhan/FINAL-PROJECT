@@ -36,10 +36,6 @@ namespace FINAL.Models
         
         [MaxLength(100)]
         public string Logo { get; set; }
-      
-
-        [Column(TypeName = "ntext")]
-        public string AboutCompany { get; set; }
 
         [MaxLength(100)]
         [Column(TypeName = "ntext")]

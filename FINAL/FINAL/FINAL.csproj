@@ -22,6 +22,5 @@
     <Folder Include="wwwroot\img\users\" />
   </ItemGroup>
 
-
-
+  
 </Project>

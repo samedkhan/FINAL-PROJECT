@@ -189,7 +189,7 @@ namespace FINAL.Controllers
         {
             if(_auth.User == null)
             {
-                return RedirectToAction("index", "home");
+                return RedirectToAction("index", "account");
             }
 
             _auth.User.Token = null;
@@ -280,7 +280,6 @@ namespace FINAL.Controllers
                 {
 
                     LoggedUser.Adress = setting.Adress;
-                    LoggedUser.AboutCompany = setting.AboutCompany;
                 }
 
                 if (setting.Photo != null)
@@ -291,10 +290,7 @@ namespace FINAL.Controllers
                     setting.Photo.CopyTo(new FileStream(FilePath, FileMode.Create));
                     LoggedUser.Logo = FileName;
                 }
-                else
-                {
-                    LoggedUser.Logo = null;
-                }
+               
 
                 _context.Entry(LoggedUser).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
@@ -327,6 +323,148 @@ namespace FINAL.Controllers
 
             ViewBag.Partial = data.Breadcumb;
             return View("~/Views/Account/Profile.cshtml");
+        }
+
+        public IActionResult Cabinet()
+        {
+            string Token = Request.Cookies["token"];
+
+            if (Token == null)
+            {
+                return RedirectToAction("index", "account");
+            }
+            else
+            {
+                User LoginedUser = _context.Users.Where(u => u.Token == Token && u.UserId == _auth.User.UserId).FirstOrDefault();
+
+                if (LoginedUser == null)
+                {
+                    return BadRequest();
+                }
+                else
+                {
+
+                    List<Addvertisiment> allAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus != AddStatus.Hidden).OrderByDescending(a => a.CreatedAt).ToList();
+
+                    List<Addvertisiment> activeAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+
+                    List<Addvertisiment> deactiveAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Deactive).OrderByDescending(a => a.CreatedAt).ToList();
+
+                    List<Addvertisiment> waitingAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Waiting).OrderByDescending(a => a.CreatedAt).ToList();
+
+                    List<Addvertisiment> rentAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddTypeID < 3 && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+
+                    List<Addvertisiment> saleAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddTypeID == 3 && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+
+                    AccountIndexViewModel data = new AccountIndexViewModel
+                    {
+                        Cabinet = new AccountCabinetModel
+                        {
+                            AllAdds = allAdds,
+                            ActiveAdds = activeAdds,
+                            DeactiveAdds = deactiveAdds,
+                            WaitingAdds = waitingAdds,
+                            RentAdds = rentAdds,
+                            SaleAdds = saleAdds,
+                        },
+
+
+                        Breadcumb = new BreadcumbViewModel
+                        {
+                            Title = "Şəxsi kabinet",
+                            Path = new List<BreadcumbItemViewModel>()
+                        }
+                    };
+
+
+                    BreadcumbItemViewModel home = new BreadcumbItemViewModel
+                    {
+                        Name = "Ana səhifə",
+                        Controller = "Home",
+                        Action = "index"
+                    };
+                    BreadcumbItemViewModel cab = new BreadcumbItemViewModel
+                    {
+                        Name = "Şəxsi kabinet"
+                    };
+                    data.Breadcumb.Path.Add(home);
+                    data.Breadcumb.Path.Add(cab);
+                    ViewBag.Partial = data.Breadcumb;
+                    return View(data);
+                }
+            }
+        }
+
+        public IActionResult UserPage(int id)
+        {
+            User selectedUser = _context.Users.Include("Adds").Where(u => u.UserId == id).FirstOrDefault();
+
+            if (selectedUser == null)
+            {
+                return NotFound();
+            }
+
+            AccountIndexViewModel data = new AccountIndexViewModel
+            {
+                Owner = new OwnerPanelViewModel
+                {
+                    Owner = _context.Users.Include(u => u.Adds).Where(u => u.UserId == id).FirstOrDefault(),
+                    OwnerActiveAdds = _context.Addvertisiments.Where(a => a.UserId == id && a.AddStatus == AddStatus.Active).Count()
+                },
+                Breadcumb = new BreadcumbViewModel
+                {
+                    Title = "Istifadəçinin elanları",
+                    Path = new List<BreadcumbItemViewModel>()
+                },
+                AddsPanel = new AddsPanelViewModel
+                {
+                    type = ViewType.small,
+                    AddList = _context.Addvertisiments.Include("Property").
+                                                                            Include("Property.City").
+                                                                                Include("Property.District").
+                                                                                    Include("Property.Flat").
+                                                                                        Include("Property.Floor").
+                                                                                            Include("Property.PropDoc").
+                                                                                                Include("Property.PropertySort").
+                                                                                                    Include("Property.Project").
+                                                                                                        Where(a => a.UserId==id && a.AddStatus == AddStatus.Active).
+                                                                                                            OrderByDescending(a => a.CreatedAt).ToList(),
+                }
+                
+            };
+            BreadcumbItemViewModel home = new BreadcumbItemViewModel
+            {
+                Name = "Ana səhifə",
+                Controller = "Home",
+                Action = "index"
+            };
+
+            BreadcumbItemViewModel users = new BreadcumbItemViewModel
+            {
+                Name = "İstifadəçilər",
+                Controller = "Account",
+                Action = "users"
+            };
+
+            BreadcumbItemViewModel userPage = new BreadcumbItemViewModel();
+           
+            if (selectedUser.UserTypeID == 1)
+            {
+                userPage.Name = selectedUser.Name;
+            }
+            else
+            {
+                userPage.Name = selectedUser.Name + selectedUser.Surname;
+            }
+
+            data.Breadcumb.Path.Add(home);
+            data.Breadcumb.Path.Add(users);
+            data.Breadcumb.Path.Add(userPage);
+            ViewBag.Partial = data.Breadcumb;
+            ViewBag.Owner = data.Owner;
+            ViewBag.Adds = data.AddsPanel;
+            ViewBag.AddsCount = data.AddsPanel.AddList.Count();
+            return View();
         }
     }
 }

@@ -137,9 +137,11 @@ namespace FINAL.Controllers
 
                 if (AddCreatePost.Photos != null && AddCreatePost.Photos.Count() > 0)
                 {
+                    
                     foreach (IFormFile photo in AddCreatePost.Photos)
                     {
                         string UploadsFolder;
+                        
                         if (AddCreatePost.AddTypeId < 3)
                         {
                             UploadsFolder = Path.Combine(_hosting.WebRootPath, "img", "property", "rent");
@@ -185,14 +187,53 @@ namespace FINAL.Controllers
             }
             else
             {
-                //ModelState.AddModelError("model.addTypeId", "Error");
-                //return View();
-                return Ok("BAD");
+                AddIndexViewModel data = new AddIndexViewModel
+                {
+                    AddCreateIndex = new AddCreateIndexViewModel
+                    {
+                        Cities = _context.Cities.Include(c => c.Districts).ToList(),
+                        PropertySorts = _context.PropertySorts.OrderBy(ps => ps.PropertySortId).ToList(),
+                        AddTypes = _context.AddTypes.OrderBy(ad => ad.AddTypeId).ToList(),
+                        Flats = _context.Flats.OrderBy(f => f.FlatID).ToList(),
+                        Floors = _context.Floors.OrderBy(f => f.FloorID).ToList(),
+                        PropDocs = _context.PropDocs.OrderBy(ps => ps.PropDocID).ToList(),
+                        Features = _context.Features.OrderBy(f => f.FeatureID).ToList()
+                    },
+
+                    Breadcumb = new BreadcumbViewModel
+
+                    {
+                        Title = "Elan yerləşdir",
+                        Path = new List<BreadcumbItemViewModel>()
+                    },
+
+
+                };
+                BreadcumbItemViewModel home = new BreadcumbItemViewModel
+                {
+                    Name = "Ana səhifə",
+                    Controller = "Home",
+                    Action = "index"
+                };
+
+                BreadcumbItemViewModel create = new BreadcumbItemViewModel
+                {
+                    Name = "Elan yerləşdirmə"
+                };
+
+                data.Breadcumb.Path.Add(home);
+                data.Breadcumb.Path.Add(create);
+
+                ViewBag.Partial = data.Breadcumb;
+
+
+                return View(data);
 
             }
 
 
         }
+        
         public IActionResult GetProjects(int id)
         {
             List<PropProject> projects = _context.PropProjects.Where(pp => pp.PropertySortId == id).ToList();
@@ -231,56 +272,90 @@ namespace FINAL.Controllers
                 );
         }
 
+        public IActionResult Detail(int id)
+        {
+            Addvertisiment Add = _context.Addvertisiments.Include("AddType").
+                                                                        Include("Property").
+                                                                            Include("Property.City").
+                                                                                Include("Property.District").
+                                                                                    Include("Property.Flat").
+                                                                                        Include("Property.Floor").
+                                                                                            Include("Property.PropDoc").
+                                                                                                Include("Property.PropertySort").
+                                                                                                    Include("Property.Project").
+                                                                                                                Where(a => a.AddvertisimentID == id).FirstOrDefault();
 
-        //public IActionResult Detail(int id)
-        //{
-        //    //Addvertisiment Add = _context.PropAdds.Include(a => a.User).Include(a => a.PropPhotos).Include(a => a.City).Include(a => a.District).Include(a => a.PropertySort).Where(a => a.PropAddId == id).FirstOrDefault();
+            if (Add == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                AddIndexViewModel data = new AddIndexViewModel
+                {
+                    AddDetailIndex = new AddDetailIndexViewModel
+                    {
+                        Add = Add,
+                        PropertyPhotos = _context.PropPhotos.Where(pp => pp.PropertyId == Add.PropertyID).ToList(),
+                        Features = _context.PropFeatures.Include(pf => pf.Feature).Where(pf => pf.PropertyID == Add.PropertyID).ToList(),
 
-        //    //if (Add == null)
-        //    //{
-        //    //    return NotFound();
-        //    //}
-        //    //else
-        //    //{
-        //    //    AddIndexViewModel data = new AddIndexViewModel
-        //    //    {
-        //    //        Breadcumb = new BreadcumbViewModel
-        //    //        {
-        //    //            Title = "Elan haqqında",
-        //    //            Path = new List<BreadcumbItemViewModel>()
-        //    //        }
-        //    //    };
+                    },
+                    Owner = new OwnerPanelViewModel
+                    {
+                        Owner = _context.Users.Include(u => u.Adds).Where(u => u.UserId == Add.UserId).FirstOrDefault(),
+                        OwnerActiveAdds = _context.Addvertisiments.Where(a => a.UserId == Add.UserId && a.AddStatus == AddStatus.Active).Count()
+                    },
+                    AddsPanel = new AddsPanelViewModel
+                    {
+                         type = ViewType.normal,
+                         AddList = _context.Addvertisiments.Include("Property").
+                                                                            Include("Property.City").
+                                                                                Include("Property.District").
+                                                                                    Include("Property.Flat").
+                                                                                        Include("Property.Floor").
+                                                                                            Include("Property.PropDoc").
+                                                                                                Include("Property.PropertySort").
+                                                                                                    Include("Property.Project").
+                                                                                                        Where(a => a.AddStatus == AddStatus.Active && a.AddTypeID == Add.AddTypeID && a.Property.PropertySortId == Add.Property.PropertySortId && a.AddvertisimentID != Add.AddvertisimentID).
+                                                                                                            OrderByDescending(a => a.CreatedAt).ToList(),
+                    },
+                    Breadcumb = new BreadcumbViewModel
+                    {
+                        Title = "Elan haqqında",
+                        Path = new List<BreadcumbItemViewModel>()
+                    }
+                };
 
-        //    //    BreadcumbItemViewModel home = new BreadcumbItemViewModel
-        //    //    {
-        //    //        Name = "Ana səhifə",
-        //    //        Controller = "Home",
-        //    //        Action = "index"
-        //    //    };
+                BreadcumbItemViewModel home = new BreadcumbItemViewModel
+                {
+                    Name = "Ana səhifə",
+                    Controller = "Home",
+                    Action = "index"
+                };
 
-        //    //    BreadcumbItemViewModel adds = new BreadcumbItemViewModel
-        //    //    {
-        //    //        Name = "Bütün elanlar",
-        //    //        Controller = "Add",
-        //    //        Action = "index"
-        //    //    };
+                BreadcumbItemViewModel adds = new BreadcumbItemViewModel
+                {
+                    Name = "Bütün elanlar",
+                    Controller = "Add",
+                    Action = "index"
+                };
 
-        //    //    BreadcumbItemViewModel detail = new BreadcumbItemViewModel
-        //    //    {
-        //    //        Name = "Elan haqqında"
-        //    //    };
+                BreadcumbItemViewModel detail = new BreadcumbItemViewModel
+                {
+                    Name = "Elan haqqında"
+                };
 
-        //    //    data.Breadcumb.Path.Add(home);
-        //    //    data.Breadcumb.Path.Add(adds);
-        //    //    data.Breadcumb.Path.Add(detail);
+                data.Breadcumb.Path.Add(home);
+                data.Breadcumb.Path.Add(adds);
+                data.Breadcumb.Path.Add(detail);
+                ViewBag.Partial = data.Breadcumb;
+                ViewBag.Adds = data.AddsPanel;
+                ViewBag.Owner = data.Owner;
+                return View(data);
+            }
 
-        //    //    ViewBag.Partial = data.Breadcumb;
 
-        //    //}
-        //        return View();
-
-        //}
-
+        }
 
         public IActionResult Deactivate(int id)
         {
@@ -366,5 +441,7 @@ namespace FINAL.Controllers
                 }
                 );
         }
+
+       
     }
 }

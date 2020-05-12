@@ -1,4 +1,4 @@
-﻿@model CabinetIndexViewModel
+﻿@model AccountIndexViewModel
 
 @{
     ViewData["Title"] = "Şəxsi kabinet";
@@ -23,11 +23,11 @@
                     <div class="col-md-12">
                         <div class="header-panel">
                             <ul class="nav-tabs">
-                                <li class="active"><button data-filter="*"><i class="fas fa-layer-group"></i>Ümumi</button><span class="sum" id="allAdds">@Model.AllAdds.Count</span></li>
-                                <li><button data-filter=".active"><i class="fas fa-check"></i>Aktiv</button><span class="sum" id="activeAdds">@Model.ActiveAdds.Count</span></li>
-                                <li><button data-filter=".deactive"><i class="far fa-clock"></i>Deaktiv</button><span class="sum" id="deactivatedAdds">@Model.DeactiveAdds.Count</span></li>
-                                <li><button data-filter=".waiting:not(.deactive)"><i class="fas fa-stopwatch"></i>Gözləmədə olan</button><span class="sum" id="waitingAdds">@Model.WaitingAdds.Count</span></li>
-                                
+                                <li class="active"><button data-filter="*"><i class="fas fa-layer-group"></i>Ümumi</button><span class="sum" id="allAdds">@Model.Cabinet.AllAdds.Count</span></li>
+                                <li><button data-filter=".active"><i class="fas fa-check"></i>Aktiv</button><span class="sum" id="activeAdds">@Model.Cabinet.ActiveAdds.Count</span></li>
+                                <li><button data-filter=".deactive"><i class="far fa-clock"></i>Deaktiv</button><span class="sum" id="deactivatedAdds">@Model.Cabinet.DeactiveAdds.Count</span></li>
+                                <li><button data-filter=".waiting:not(.deactive)"><i class="fas fa-stopwatch"></i>Gözləmədə olan</button><span class="sum" id="waitingAdds">@Model.Cabinet.WaitingAdds.Count</span></li>
+
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -35,22 +35,29 @@
                                 <div class="row">
                                     <div class="selectPanel">
                                         <ul>
-                                            <li class="active"><button data-filter="*:not(.deactive)">Ümumi</button></li>
-                                            <li><button data-filter=".rent:not(.deactive)">Kirayə</button><span class="sum" id="rentAdds">@Model.RentAdds.Count</span></li>
-                                            <li><button data-filter=".sale:not(.deactive)">Satış</button><span class="sum" id="saleAdds">@Model.SaleAdds.Count</span></li>
+                                            <li class="active"><button data-filter="*:not(.deactive):not(.waiting)">Ümumi</button></li>
+                                            <li><button data-filter=".rent:not(.deactive):not(.waiting)">Kirayə</button><span class="sum" id="rentAdds">@Model.Cabinet.RentAdds.Count</span></li>
+                                            <li><button data-filter=".sale:not(.deactive):not(.waiting)">Satış</button><span class="sum" id="saleAdds">@Model.Cabinet.SaleAdds.Count</span></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="row grid">
-                                  
-                                    @if (Model.AllAdds.Count != 0)
+
+                                    @if (Model.Cabinet.AllAdds.Count != 0)
                                     {
-                                        foreach (Addvertisiment item in Model.AllAdds)
+                                        foreach (Addvertisiment item in Model.Cabinet.AllAdds)
                                         {
                                             <div class="col-md-3 element-item @(@item.AddTypeID < 3 ? "rent" : "sale") @(@item.AddStatus == AddStatus.Active ? "active" : "") @(@item.AddStatus == AddStatus.Deactive ? "deactive" : "") @(@item.AddStatus == AddStatus.Waiting ? "waiting" : "") " data-category='@(@item.AddTypeID < 3 ? "rent" : "sale")'>
                                                 <div class="contain-item  @(@item.AddStatus == AddStatus.Deactive ? "nonactive" : "")">
                                                     <div class="item-image">
-                                                        <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property"></a>
+                                                        @if (@item.AddStatus == AddStatus.Active)
+                                                        {
+                                                            <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property"></a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property">
+                                                        }
                                                     </div>
                                                     <div class="item-property">
                                                         <div class="date">
@@ -85,7 +92,7 @@
                                                         <div class="additional-properties">
 
 
-                                                            @if (item.Property.FloorSum > 0)
+                                                            @if (item.Property.FloorId > 0 && item.Property.FloorSum > 0)
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="fas fa-home"></i>
@@ -93,8 +100,15 @@
                                                                 </div>
 
                                                             }
+                                                            else if (item.Property.FloorSum > 0 && item.Property.FloorId == null) //həyət evi
+                                                            {
+                                                                <div class="add-prop-item">
+                                                                    <i class="fas fa-home"></i>
+                                                                    <span class="num">@item.Property.FloorSum mərtəbə</span>
+                                                                </div>
+                                                            }
 
-                                                            @if (item.Property.FlatId > 0)
+                                                            @if (item.Property.FlatId > 0 && item.Property.PropertySortId < 3)
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="far fa-square"></i>
@@ -138,9 +152,14 @@
                                                                 {
                                                                     <li><a title="Sil" class="removeItem" asp-action="remove" asp-controller="add" asp-route-id="@item.AddvertisimentID"><i class="far fa-trash-alt"></i></a></li>
                                                                 }
-                                                                else
+                                                                else if (@item.AddStatus == AddStatus.Active)
                                                                 {
                                                                     <li><a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID">Ətraflı</a></li>
+                                                                    <li><a title="Deaktiv et" class="deactivateItem" asp-action="Deactivate" asp-controller="add" asp-route-id="@item.AddvertisimentID"><i class="fas fa-minus-circle"></i></a></li>
+                                                                }
+                                                                else
+                                                                {
+
                                                                     <li><a title="Deaktiv et" class="deactivateItem" asp-action="Deactivate" asp-controller="add" asp-route-id="@item.AddvertisimentID"><i class="fas fa-minus-circle"></i></a></li>
                                                                 }
                                                             </ul>
@@ -151,7 +170,7 @@
                                         }
 
                                     }
-                                    else if (Model.AllAdds.Count <= 0)
+                                    else if (Model.Cabinet.AllAdds.Count <= 0)
                                     {
                                         <div class="col-md-12">
                                             <div class="add-addvertisiment">
@@ -161,7 +180,7 @@
                                     }
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -197,7 +216,7 @@
             });
 
 
-            
+
         });
     </script>
 }

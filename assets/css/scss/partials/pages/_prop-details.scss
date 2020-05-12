@@ -4,40 +4,139 @@
 #partner-properties{
     @extend .section-title;
     @extend .contain;
+    .contain-stack{
+        .contain-item{
+            @extend .contain-item-small;
+            .item-property{
+                .hover-overlay{
+                    bottom: -41px !important;
+                }
+                ul{
+                    li{
+                        padding: 5px 10px !important;
+                        width:100% !important;
+                        margin-right: 0px !important;
+                       
+                    }
+                }
+            }
+            
+        }
+    }
+    
 }
 
 #property-detail{
     @include section-prop;
+    #modal{
+        @extend .modal;
+        justify-content: center;
+        align-items: center;
+        #modal-content{
+            height:80vh;
+            width: 85vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            img{
+                cursor: pointer;
+                max-width: 80vw;
+                max-height: 80vh;
+                box-shadow: 0px 0px 17px 3px rgba(242,170,63,1);
+            }
+            .nav-buttons{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-top: -15px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                i{
+                    color: $yellow;
+                    font-size: 25px;
+                    cursor: pointer;
+                    transition: $t-regular;
+                    &:hover{
+                        
+                        &[aria-label="Next"]{
+                            transform: translateX(6px);
+                            transition: $t-regular;
+                        }
+                        &[aria-label="Previous"]{
+                            transform: translateX(-6px);
+                            transition: $t-regular;
+                        }
+                    }
+                }
+            }
+        }
+        #close{
+            top: 3vh;
+            right: 5vh;
+            color: $yellow;
+        }
+        
+    }
     
     .property-photo{
         position: relative;
+        align-items: center;
         border-radius: $br-regular;
+        border: 1px solid $grey;
+        box-shadow: $bs-regular;
         overflow: hidden;
-        img{
-            width: 100%;
+        background-color: $grey;
+        .item{
+            height:400px;
+            width:100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            img{
+                max-height: 400px;
+                width: initial;
+            }
+           
         }
+        
         .owl-nav{
+            width: 100%;
             position: absolute;
-            bottom: 0;
-            right: 0;
+            top: 50%;
+            margin-top: -30px;
+            display: flex;
+            justify-content: space-between;
             button{
                 span{
                     font-size: 60px;
                     font-weight: bold;
                     display: inline-block;
-                    color: white;
+                    color: $yellow;
                     box-shadow: 14px 12px 20px -10px rgba(0,0,0,0.75);
                     transition: $t-regular;
-                    margin: 20px 25px;
+                    margin: 0px 10px;
                     &:hover{  
-                        color:$yellow;
+                        transform: scale(1.1);
                         transition: $t-regular;
+                        
+                        color: white;
+                        &[aria-label="Next"]{
+                            transform: translateX(6px);
+                        }
+                        &[aria-label="Previous"]{
+                            transform: translateX(-6px);
+                        }
                     }
                 }
                 
             }
         }
     }
+
     .property-information{
         display: flex;
         justify-content: space-between;
@@ -53,10 +152,6 @@
                 font-weight: bold;
                 color: $yellow;
                 margin-bottom: 20px;
-            }
-            .previous-price{
-                color: $grey;
-                text-decoration: line-through;
             }
             span{
                 display: block;
@@ -82,7 +177,7 @@
             }
         }
     }
-    
+   
     .info-item{
         border-bottom: 1px solid $yellow;
         width: 100%;
@@ -98,7 +193,8 @@
        .contain{
             font-family: $additional-font;
             font-size: $add-features-size;
-           padding: 10px 0px 20px;
+            padding: 10px 0px 20px;
+        
         i{
             color:$yellow;
             font-size: 20px;
@@ -120,7 +216,10 @@
         }
         ul{
             li{
-                padding: 10px 0px;
+                padding: 10px;
+                margin: 0px 5px;
+                display: inline-block;
+                width: 220px;
                 span{
                     margin-left: 10px;
                 }
@@ -133,4 +232,6 @@
         }
        }
     }
+   
+   
 }

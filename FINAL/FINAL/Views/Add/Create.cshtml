@@ -379,9 +379,7 @@
                     geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
                             if (results[0]) {
-                                //$('#GoogleMapAddress').val(results[0].formatted_address);
-                                //console.log(marker.getPosition().lat());
-                                //console.log(marker.getPosition().lng());
+                                 $('#address').val(results[0].formatted_address);
                                 $("#modal").css("display", "none");
                                 $("#latitude").val(marker.getPosition().lat());
                                 $("#longitude").val(marker.getPosition().lng());

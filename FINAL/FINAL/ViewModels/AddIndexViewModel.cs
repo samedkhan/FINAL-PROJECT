@@ -9,10 +9,19 @@ namespace FINAL.ViewModels
     {
         public BreadcumbViewModel Breadcumb { get; set; }
 
+        public OwnerPanelViewModel Owner { get; set; }
+
+        public AddsPanelViewModel AddsPanel { get; set; }
+
         public AddCreateIndexViewModel AddCreateIndex { get; set; }
 
         public AddCreatePostViewModel AddCreatePost { get; set; }
+
+        public AddDetailIndexViewModel AddDetailIndex { get; set; }
+
+        
     }
+
 
     public class AddCreateIndexViewModel
     {
@@ -30,6 +39,7 @@ namespace FINAL.ViewModels
 
         public List<Feature> Features { get; set; }
     }
+
 
     public class AddCreatePostViewModel
     {
@@ -76,4 +86,18 @@ namespace FINAL.ViewModels
         public List<IFormFile> Photos { get; set; }
     }
 
+
+    public class AddDetailIndexViewModel
+    {
+        public Addvertisiment Add { get; set; }
+
+        public List<PropPhoto> PropertyPhotos { get; set; }
+
+        public List<PropFeature> Features { get; set; }
+
+        public List<Addvertisiment> ActiveAdds { get; set; }
+
+    }
+
+    
 }
