@@ -182,7 +182,7 @@ namespace FINAL.Controllers
                 _context.Entry(newProp).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 
                 _context.SaveChanges();
-
+                TempData["Success"] = "Elanınız qəbul edildi, təsdiq edildikdən sonra yayımlanacaq.";
                 return RedirectToAction("index", "home");
             }
             else
@@ -283,7 +283,7 @@ namespace FINAL.Controllers
                                                                                             Include("Property.PropDoc").
                                                                                                 Include("Property.PropertySort").
                                                                                                     Include("Property.Project").
-                                                                                                                Where(a => a.AddvertisimentID == id).FirstOrDefault();
+                                                                                                                Where(a => a.AddvertisimentID == id && a.AddStatus == AddStatus.Active).FirstOrDefault();
 
             if (Add == null)
             {
@@ -316,7 +316,7 @@ namespace FINAL.Controllers
                                                                                             Include("Property.PropDoc").
                                                                                                 Include("Property.PropertySort").
                                                                                                     Include("Property.Project").
-                                                                                                        Where(a => a.AddStatus == AddStatus.Active && a.AddTypeID == Add.AddTypeID && a.Property.PropertySortId == Add.Property.PropertySortId && a.AddvertisimentID != Add.AddvertisimentID).
+                                                                                                        Where(a =>a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active && a.AddTypeID == Add.AddTypeID && a.Property.PropertySortId == Add.Property.PropertySortId && a.AddvertisimentID != Add.AddvertisimentID).
                                                                                                             OrderByDescending(a => a.CreatedAt).ToList(),
                     },
                     Breadcumb = new BreadcumbViewModel

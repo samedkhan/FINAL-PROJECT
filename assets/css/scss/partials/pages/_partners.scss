@@ -1,44 +1,31 @@
 @import '../sections/another-intro';
 
 #partners{
+    @extend .section-title;
     @extend .contain;
-    .add-partner{
-        height: 229px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 50px;
-        background-color: $hoverBack;
-        transition: $t-regular;
-        &:hover{
-            background-color: $yellow;
-            transition: $t-regular;
-            i{
-                color: $white;
-                border: 1px solid $white;
-            }
-        }
-        i{
-            padding: 10px 14px;
-            border: 1px solid $yellow;
-            border-radius: 50%;
-            color:$yellow;
-           
-        }
-    
+    .contain-stack{
+        padding: 20px 25px 0px;
+        box-shadow: $bs-regular;
+        border: 1px solid $grey;
+        border-radius: $br-regular;
+        color:$gray;
     }
+    
     .contain-item{
         padding:10px;
-        
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
         .item-image{
             overflow: hidden;
-            height: 135px;
-            a{
-                img{
-                    border-radius: 0px !important;
-                    width: 100% !important;
-                    margin:0 auto;
-                }
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            border-radius: $br-regular;
+            img{
+                height: inherit;
+                width: inherit;
             }
             
         }
@@ -47,6 +34,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            align-content: space-between;
             .property-name{
                 font-size: $footer-list-head;
                 font-weight: bold;

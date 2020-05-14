@@ -6,24 +6,44 @@
             <div class="contain">
                 <div class="general">
                     <div class="photo">
-                        <img src="~/img/users/@Model.Owner.Logo" alt="">
+                        <img src="~/img/users/@Model.Owner.Logo" alt="@Model.Owner.Name">
                     </div>
                     <div class="name">
                         @if (Model.Owner.UserTypeID == 1) //Agency
                         {
                             <h2 class="name">@Model.Owner.Name</h2>
+                            <span>Agentlik</span>
                         }
                         else
                         {
                             <h2 class="name">@Model.Owner.Name @Model.Owner.Surname</h2>
+                            @if (Model.Owner.UserTypeID == 2)
+                            {
+                                <span>Ev sahibi</span>
+                            }
+                            else
+                            {
+                                <span>Vasitəçi</span>
+                            }
                         }
                     </div>
-                    <a asp-controller="Account" asp-action="UserPage" asp-route-id="@Model.Owner.UserId">
-                        <div class="partner-adds">
-                            <span>@Model.OwnerActiveAdds ELAN</span>
-                        </div>
-                    </a>
+                    @if (Model.Owner.UserTypeID == 1)//Agency
+                    {
+                        <a asp-controller="agency" asp-action="detail" asp-route-id="@Model.Owner.UserId">
+                            <div class="partner-adds">
+                                <span>@Model.OwnerActiveAdds ELAN</span>
+                            </div>
+                        </a>
+                    }
                 </div>
+                @if (Model.Owner.AboutCompany != null)
+                {
+                    <div class="about">
+                        <h2>Haqqında</h2>
+                        <p>@Model.Owner.AboutCompany</p>
+                    </div>
+                }
+
                 <div class="contact">
                     <h2>Əlaqə</h2>
                     <ul>
@@ -31,7 +51,7 @@
                         {
                             <li>
                                 <div class="header-text">
-                                    <i class="fas fa-map-marker-alt"></i> Adres
+                                    <i class="fas fa-map-marker-alt"></i> Ünvan
                                 </div>
                                 <div class="info-text">
                                     <span>@Model.Owner.Adress</span>

@@ -12,8 +12,6 @@ namespace FINAL.ViewModels
     public class AccountIndexViewModel
     {
         public BreadcumbViewModel Breadcumb { get; set; }
-        public OwnerPanelViewModel Owner { get; set; }
-        public AddsPanelViewModel AddsPanel { get; set; }
         public AccountRegisterModel Register { get; set; }
         public AccountLoginModel Login { get; set; }
         public AccountSettingModel Setting { get; set; }
@@ -77,6 +75,9 @@ namespace FINAL.ViewModels
         [MinLength(3)]
         public string Surname { get; set; }
 
+        [MaxLength(500)]
+        [Column(TypeName = "ntext")]
+        public string AboutCompany { get; set; }
 
         [Column(TypeName = "ntext")]
         public string Adress { get; set; }

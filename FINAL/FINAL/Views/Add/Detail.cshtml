@@ -65,9 +65,10 @@
                         {
                             <h1> @Model.AddDetailIndex.Add.Property.City.CityName şəhəri </h1>
                         }
-                        <div class="property-address">
-                            <h3><i class="fas fa-map-marker-alt"></i> @Model.AddDetailIndex.Add.Property.FullAddress</h3>
-                        </div>
+                    <div class="property-address">
+                        <h3><i class="fas fa-map-marker-alt"></i> @Model.AddDetailIndex.Add.Property.FullAddress</h3>
+                        <h5><i class="fas fa-calendar-alt"></i> @Model.AddDetailIndex.Add.CreatedAt.ToString("dd.MM.yyy")</h5>
+                    </div>
                     </div>
                 </div>
 

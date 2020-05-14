@@ -11,13 +11,15 @@
     <link rel="stylesheet" href="~/css/grid.css">
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
     @RenderSection("owlCss", required: false)
-    @RenderSection("NotifyConfirmCss", required: false)
+    @RenderSection("ConfirmCss", required: false)
+    @RenderSection("NotificationCss", required: false)
     <script src="~/script/jquery.js"></script>
     @RenderSection("GoogleMap", required: false)
     @RenderSection("Filter", required: false)
     @RenderSection("FormValidator", required: false)
     @RenderSection("PhoneMask", required: false)
-    @RenderSection("NotifyConfirmJs", required: false)
+    @RenderSection("ConfirmJs", required: false)
+    @RenderSection("NotificationJs", required: false)
     @RenderSection("preloaderScript", required: false)
 
 </head>
@@ -40,7 +42,7 @@
                             <div class="right-side">
                                 <div class="nav-menu">
                                     <ul>
-                                        <li class="main-menu"><a asp-controller="partners" asp-action="index">Agentliklər</a></li>
+                                        <li class="main-menu"><a asp-controller="agency" asp-action="index">Agentliklər</a></li>
 
                                         <li class="main-menu" data-dropdown="true">
                                             <span>Kirayə</span>

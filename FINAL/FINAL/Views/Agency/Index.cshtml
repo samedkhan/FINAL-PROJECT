@@ -1,0 +1,42 @@
+﻿@model AgencyViewModel
+@{
+    ViewData["Title"] = "Agentliklər";
+}
+
+@*Intro*@
+<partial name="_Breadcumb" model="ViewBag.Partial" />
+
+<!-- partners-section -->
+<section id="partners" class="mt-20">
+    <div class="container">
+        <div class="row">
+            <div class="contain-stack">
+                <div class="row">
+                    @foreach (User item in Model.Agencies.Users)
+                    {
+                        <div class="col-md-2">
+                            <div class="contain-item">
+                                <div class="item-image">
+                                    <a asp-controller="agency" asp-action="detail" asp-route-id="@item.UserId"><img src="~/img/users/@item.Logo" alt="@item.Name"></a>
+                                </div>
+                                <div class="item-property">
+                                    <div class="property-name">
+                                        <a asp-controller="agency" asp-action="detail" asp-route-id="@item.UserId">@item.Name</a>
+                                    </div>
+                                    <a asp-controller="agency" asp-action="detail" asp-route-id="@item.UserId">
+                                        <div class="adds-count">
+                                            <span>@item.Adds.Count() ELAN</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of partners-section -->

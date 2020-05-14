@@ -130,15 +130,12 @@ C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Abou
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Cabinet.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Settings.cshtml.g.cs
-C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\UserPage.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Create.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Detail.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Faq\Index.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Partners\Detail.cshtml.g.cs
-C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Partners\Index.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_AddsPanel.cshtml.g.cs
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Breadcumb.cshtml.g.cs
@@ -154,3 +151,7 @@ C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csproj.Cop
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.dll
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.pdb
 C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csprojAssemblyReference.cache
+C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csproj.CoreCompileInputs.cache
+C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.genruntimeconfig.cache
+C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Agency\Detail.cshtml.g.cs
+C:\Users\SAMED\source\repos\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Agency\Index.cshtml.g.cs

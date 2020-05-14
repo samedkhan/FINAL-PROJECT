@@ -7,7 +7,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FINAL.Models
 {
- 
+    public enum UserStatus
+    {
+        Waiting = 0,
+        Active = 1,
+        Deactive = 2,
+    }
+
     public class User
     {
         [Key]
@@ -41,6 +47,9 @@ namespace FINAL.Models
         [Column(TypeName = "ntext")]
         public string Adress { get; set; }
 
+        [Column(TypeName = "ntext")]
+        public string AboutCompany { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime CreatedAt { get; set; }
 
@@ -52,6 +61,8 @@ namespace FINAL.Models
 
         public List<Addvertisiment> Adds { get; set; }
 
-        
+        public UserStatus Status { get; set; }
+
+
     }
 }

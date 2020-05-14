@@ -506,8 +506,9 @@
             .general {
                 .photo {
                     height: 100px;
+                    display: flex;
+                    justify-content: center;
                     img {
-                        width: 100%;
                         object-fit: contain;
                     }
                 }
@@ -516,8 +517,12 @@
                     text-align: center;
                     font-size: $add-title-size;
                     font-weight: bold;
-                    margin: 10px 0px;
-                    padding-top: 5px; 
+                    margin: 10px 0px 5px;
+                    span{
+                        font-size: 12px;
+                        font-family: $additional-font;
+                        color: $yellow;
+                    }
                 }
             }
 

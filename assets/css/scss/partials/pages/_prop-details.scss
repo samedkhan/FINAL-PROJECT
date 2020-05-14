@@ -165,14 +165,20 @@
                 letter-spacing: $ls-regular;
                 font-weight: bold;
             }
+
             .property-address{
                 padding: 10px 0px;
                 float: right;
-                h3{
+                h3, h5{
                     margin-left: 10px;
                     color:$yellow;
                     font-family: $additional-font;
                     font-weight: bold;
+                }
+                h5{
+                    float: right;
+                    margin-top: 10px;
+                    
                 }
             }
         }

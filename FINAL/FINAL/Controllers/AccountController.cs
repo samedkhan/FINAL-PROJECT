@@ -78,7 +78,7 @@ namespace FINAL.Controllers
                             Expires = DateTime.Now.AddYears(1),
                             HttpOnly = true
                         });
-
+                        TempData["Success"] = "Sistemə müvəffəqiyyətlə daxil oldunuz...";
                         return RedirectToAction("index", "home");
                     }
                     else
@@ -133,7 +133,8 @@ namespace FINAL.Controllers
                         Token = Guid.NewGuid().ToString(),
                         UserTypeID = register.UserTypeId,
                         PhoneNumber = register.PhoneNumber,
-                        CreatedAt = DateTime.Now
+                        CreatedAt = DateTime.Now,
+                        Status = UserStatus.Waiting,
                     };
 
 
@@ -200,6 +201,7 @@ namespace FINAL.Controllers
                 Expires = DateTime.Now.AddDays(-1),
                 HttpOnly = true
             });
+            TempData["Success"] = "Sistemdən müvəffəqiyyətlə çıxış etdiniz...";
             return RedirectToAction("index", "home");
 
         }
@@ -270,6 +272,7 @@ namespace FINAL.Controllers
                 
                 LoggedUser.Name = setting.Name;
                 LoggedUser.PhoneNumber = setting.PhoneNumber;
+                
 
                 if (LoggedUser.UserTypeID > 1) // if user type is ev sahibi or makler
                 {
@@ -278,8 +281,8 @@ namespace FINAL.Controllers
 
                 if (LoggedUser.UserTypeID == 1) //if usertype is Agentlik
                 {
-
                     LoggedUser.Adress = setting.Adress;
+                    LoggedUser.AboutCompany = setting.AboutCompany;
                 }
 
                 if (setting.Photo != null)
@@ -294,7 +297,7 @@ namespace FINAL.Controllers
 
                 _context.Entry(LoggedUser).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
-
+                TempData["Success"] = "Məlumatlar müvəffəqiyyətlə daxil etdiniz, yoxlandıqdan sonra yayımlanacaq...";
                 return RedirectToAction("index", "home");
             }
           
@@ -322,6 +325,7 @@ namespace FINAL.Controllers
             data.Breadcumb.Path.Add(settings);
 
             ViewBag.Partial = data.Breadcumb;
+
             return View("~/Views/Account/Profile.cshtml");
         }
 
@@ -395,75 +399,9 @@ namespace FINAL.Controllers
             }
         }
 
-        public IActionResult UserPage(int id)
+
+        public IActionResult AgencyDetail(int id)
         {
-            User selectedUser = _context.Users.Include("Adds").Where(u => u.UserId == id).FirstOrDefault();
-
-            if (selectedUser == null)
-            {
-                return NotFound();
-            }
-
-            AccountIndexViewModel data = new AccountIndexViewModel
-            {
-                Owner = new OwnerPanelViewModel
-                {
-                    Owner = _context.Users.Include(u => u.Adds).Where(u => u.UserId == id).FirstOrDefault(),
-                    OwnerActiveAdds = _context.Addvertisiments.Where(a => a.UserId == id && a.AddStatus == AddStatus.Active).Count()
-                },
-                Breadcumb = new BreadcumbViewModel
-                {
-                    Title = "Istifadəçinin elanları",
-                    Path = new List<BreadcumbItemViewModel>()
-                },
-                AddsPanel = new AddsPanelViewModel
-                {
-                    type = ViewType.small,
-                    AddList = _context.Addvertisiments.Include("Property").
-                                                                            Include("Property.City").
-                                                                                Include("Property.District").
-                                                                                    Include("Property.Flat").
-                                                                                        Include("Property.Floor").
-                                                                                            Include("Property.PropDoc").
-                                                                                                Include("Property.PropertySort").
-                                                                                                    Include("Property.Project").
-                                                                                                        Where(a => a.UserId==id && a.AddStatus == AddStatus.Active).
-                                                                                                            OrderByDescending(a => a.CreatedAt).ToList(),
-                }
-                
-            };
-            BreadcumbItemViewModel home = new BreadcumbItemViewModel
-            {
-                Name = "Ana səhifə",
-                Controller = "Home",
-                Action = "index"
-            };
-
-            BreadcumbItemViewModel users = new BreadcumbItemViewModel
-            {
-                Name = "İstifadəçilər",
-                Controller = "Account",
-                Action = "users"
-            };
-
-            BreadcumbItemViewModel userPage = new BreadcumbItemViewModel();
-           
-            if (selectedUser.UserTypeID == 1)
-            {
-                userPage.Name = selectedUser.Name;
-            }
-            else
-            {
-                userPage.Name = selectedUser.Name + selectedUser.Surname;
-            }
-
-            data.Breadcumb.Path.Add(home);
-            data.Breadcumb.Path.Add(users);
-            data.Breadcumb.Path.Add(userPage);
-            ViewBag.Partial = data.Breadcumb;
-            ViewBag.Owner = data.Owner;
-            ViewBag.Adds = data.AddsPanel;
-            ViewBag.AddsCount = data.AddsPanel.AddList.Count();
             return View();
         }
     }

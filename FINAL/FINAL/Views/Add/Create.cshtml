@@ -317,6 +317,10 @@
         </div>
     </div>
 </section>
+
+@section NotificationCss{
+    <link rel="stylesheet" href="~/css/toaster/toastr.min.css">
+}
 @section GoogleMap{
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8EdJxYPClDOkk4tzALsjm-OkjKA59fjQ&language=az&region=AZ&v=3.exp"></script>
     <script>
@@ -379,7 +383,7 @@
                     geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
                             if (results[0]) {
-                                 $('#address').val(results[0].formatted_address);
+                                $('#address').val(results[0].formatted_address);
                                 $("#modal").css("display", "none");
                                 $("#latitude").val(marker.getPosition().lat());
                                 $("#longitude").val(marker.getPosition().lng());
@@ -397,6 +401,9 @@
 
     </script>
 }
+@section NotificationJs{
+    <script src="~/script/toaster/toastr.min.js"></script>
+}
 @section FormValidator{
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 }
@@ -412,6 +419,11 @@
                 decimalSeparator: ','
             });
             $('#about').restrictLength($('#max-length-element'));
+
+             @if(TempData.ContainsKey("Success"))
+    {
+        @:toastr.success("Message Sent Successfully");
+    }
         });
     </script>
 }

@@ -353,6 +353,9 @@ namespace FINAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AboutCompany")
+                        .HasColumnType("ntext");
+
                     b.Property<string>("Adress")
                         .HasColumnType("ntext")
                         .HasMaxLength(100);
@@ -382,6 +385,9 @@ namespace FINAL.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(50)")
