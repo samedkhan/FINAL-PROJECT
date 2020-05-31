@@ -1,0 +1,49 @@
+﻿@model FilterPanelViewModel
+
+<div class="filter-panel">
+    <div class="filter-contain">
+        <form id="searchAdds" asp-controller="Add" asp-action="Search" enctype="multipart/form-data" method="get">
+            <div class="search-select">
+                <select id="addSort" asp-for="SearchGet.AddTypeId" name="SearchGet.AddTypeId">
+                    <option value="" selected>Elanın növü</option>
+
+                    @foreach (AddType item in Model.AddTypes)
+                    {
+                        <option value="@item.AddTypeId">@item.Name</option>
+                    }
+
+                </select>
+            </div>
+            <div class="search-select">
+                <select id="city" asp-for="SearchGet.CityId">
+                    <option value="" selected>Şəhər</option>
+                    @foreach (City item in Model.Cities)
+                    {
+                        <option value="@item.CityId">@item.CityName</option>
+                    }
+                </select>
+            </div>
+            <div class="search-select d-none district">
+                <select id="districtList" asp-for="SearchGet.DistrictId">
+                    <option value="" selected>Rayon</option>
+                </select>
+            </div>
+            <div class="search-select">
+                <select id="propSort" asp-for="SearchGet.PropertySortId">
+                    <option value="" id="default">Əmlakın növü</option>
+                    @foreach (PropertySort item in Model.PropertySorts)
+                    {
+                        <option value="@item.PropertySortId">@item.PropertySortName</option>
+                    }
+                </select>
+            </div>
+            <div class="search-select d-none project">
+                <select id="projectList" asp-for="SearchGet.ProjectId">
+                    <option value="" selected>Proyekt</option>
+                </select>
+            </div>
+            <button type="submit">Axtar</button>
+        </form>
+    </div>
+
+</div>

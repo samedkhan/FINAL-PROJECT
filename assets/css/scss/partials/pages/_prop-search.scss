@@ -4,5 +4,24 @@
     @extend .section-title;
     @extend .contain;
     @extend .finded-adds-properties;
+    .contain-stack{
+        .contain-item{
+            @extend .contain-item-small;
+            .item-property{
+                .hover-overlay{
+                    bottom: -41px !important;
+                }
+                ul{
+                    li{
+                        padding: 5px 10px !important;
+                        width:100% !important;
+                        margin-right: 0px !important;
+                       
+                    }
+                }
+            }
+            
+        }
+    }
 
 }

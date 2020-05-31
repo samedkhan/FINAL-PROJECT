@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FINAL.Models;
 using FINAL.Data;
+using FINAL.ViewModels;
 
 namespace FINAL.Controllers
 {
@@ -33,6 +34,32 @@ namespace FINAL.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Contact()
+        {
+            HomeViewModel data = new HomeViewModel
+            {
+                Breadcumb = new BreadcumbViewModel
+                {
+                    Title = "Əlaqə",
+                    Path = new List<BreadcumbItemViewModel>()
+                }
+            };          
+            BreadcumbItemViewModel home = new BreadcumbItemViewModel
+            {
+                Name = "Ana səhifə",
+                Controller = "Home",
+                Action = "index"
+            };
+            BreadcumbItemViewModel contact = new BreadcumbItemViewModel
+            {
+                Name = "Əlaqə"
+            };
+            data.Breadcumb.Path.Add(home);
+            data.Breadcumb.Path.Add(contact);
+            ViewBag.Partial = data.Breadcumb;
+            return View();
         }
     }
 }

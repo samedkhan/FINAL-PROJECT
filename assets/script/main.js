@@ -249,32 +249,32 @@ $(document).ready(function(){
         // }
        //END of PRICE PLAN FADE-UP
 
-//     // SMOOTH SLIDE SECTIONS ON NAVBAR MENU
-//     $('a[href^="#"]').on('click', function(e) {
-//         e.preventDefault()
-//         if($(this).attr('href').length>1){
-//             if($(window).width()<991){
-//                 $("#header .menu").slideToggle();
-//             }
-//            $('html, body').animate(
-//                {
-//                  scrollTop: $($(this).attr('href')).offset().top,
-//                },
-//                1000,
-//                'linear'
-//              )
-//          }
+    // SMOOTH SLIDE SECTIONS ON NAVBAR MENU
+    $('a[href^="#"]').on('click', function(e) {
+        e.preventDefault()
+        if($(this).attr('href').length>1){
+            if($(window).width()<991){
+                $("#header .menu").slideToggle();
+            }
+           $('html, body').animate(
+               {
+                 scrollTop: $($(this).attr('href')).offset().top,
+               },
+               1000,
+               'linear'
+             )
+         }
       
-//       })
-//     // END OF SMOOTH SLIDE SECTIONS
+      })
+    // END OF SMOOTH SLIDE SECTIONS
 
-//     //Trigger MENU in RESPONSIVE SIDE  
-//     triggerMenu.click(function(){
-//         $("#header .menu").slideToggle();
-//         $('#header .trigger').toggleClass('active');
-//     })
-//     //END of Trigger MENU in RESPONSIVE SIDE  
-
+    //Trigger MENU in RESPONSIVE SIDE  
+    triggerMenu.click(function(){
+        $("#header .menu").slideToggle();
+        $('#header .trigger').toggleClass('active');
+    })
+    //END of Trigger MENU in RESPONSIVE SIDE  
+    
 //     //ACCORDION MENU
 //     var accordionButton = $('#faq .content-header');
 //     var accordionMenu = $('#faq .content-text');   

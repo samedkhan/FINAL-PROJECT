@@ -5,13 +5,15 @@ using Microsoft.AspNetCore.Http;
 
 namespace FINAL.ViewModels
 {
-    public class AddIndexViewModel
+    public class AddViewModel
     {
         public BreadcumbViewModel Breadcumb { get; set; }
 
         public OwnerPanelViewModel Owner { get; set; }
 
         public AddsPanelViewModel AddsPanel { get; set; }
+
+        public FilterPanelViewModel FilterPanel { get; set; }
 
         public AddCreateIndexViewModel AddCreateIndex { get; set; }
 
@@ -21,8 +23,6 @@ namespace FINAL.ViewModels
 
         
     }
-
-
     public class AddCreateIndexViewModel
     {
         public List<City> Cities { get; set; }
@@ -98,6 +98,7 @@ namespace FINAL.ViewModels
         public List<Addvertisiment> ActiveAdds { get; set; }
 
     }
+
 
     
 }

@@ -16,6 +16,6 @@ namespace FINAL.ViewModels
     {
         public List<Addvertisiment> AddList { get; set; }
 
-        public ViewType type { get; set; }
+        public ViewType Type { get; set; }
     }
 }

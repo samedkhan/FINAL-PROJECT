@@ -78,7 +78,7 @@ namespace FINAL.Controllers
                 },
                 AddsPanel = new AddsPanelViewModel
                 {
-                    type = ViewType.small,
+                    Type = ViewType.small,
                     AddList = _context.Addvertisiments.Include("Property").
                                                                             Include("Property.City").
                                                                                 Include("Property.District").

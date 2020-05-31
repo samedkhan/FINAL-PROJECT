@@ -165,7 +165,7 @@
         &:hover {
             .item-image {
                 img {
-                    transform: scale(1.1);
+                    transform: scale(1.05);
                     transition: $t-regular;
                 }
             }
@@ -353,7 +353,7 @@
 
 .finded-adds-properties {
     .title {
-        padding: 20px 0px;
+        padding: 20px;
         font-family: $additional-font;
 
         .sum-found-property {

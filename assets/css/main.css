@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.button, .finded-adds-properties .rent-sale-buttons .nav-tabs li, #prop-search .rent-sale-buttons .nav-tabs li, #partner-detail .rent-sale-buttons .nav-tabs li, #property-detail .rent-sale-buttons .nav-tabs li, .finded-adds-properties .filter-panel .filter-contain button, #prop-search .filter-panel .filter-contain button, #partner-detail .filter-panel .filter-contain button, #property-detail .filter-panel .filter-contain button, .partner-detail .partner-panel .contain .partner-adds span, #partner-detail .partner-panel .contain .partner-adds span, #property-detail .partner-panel .contain .partner-adds span, .partner-detail .partner-panel #recent-properties .partner-adds span, #partner-detail .partner-panel #recent-properties .partner-adds span, #property-detail .partner-panel #recent-properties .partner-adds span, .partner-detail .partner-panel #partner-properties .partner-adds span, #partner-detail .partner-panel #partner-properties .partner-adds span, #property-detail .partner-panel #partner-properties .partner-adds span, .partner-detail .partner-panel #prop-search .partner-adds span, #partner-detail .partner-panel #prop-search .partner-adds span, #property-detail .partner-panel #prop-search .partner-adds span, .partner-detail .partner-panel #partners .partner-adds span, #partner-detail .partner-panel #partners .partner-adds span, #property-detail .partner-panel #partners .partner-adds span, .partner-detail .partner-panel #partner-detail .partner-adds span, #partner-detail .partner-panel #partner-detail .partner-adds span, #property-detail .partner-panel #partner-detail .partner-adds span, .partner-detail .partner-panel #property-detail .partner-adds span, #partner-detail .partner-panel #property-detail .partner-adds span, #property-detail .partner-panel #property-detail .partner-adds span, #partner-detail .partner-panel .adds-panel .partner-adds span, #property-detail .partner-panel .adds-panel .partner-adds span, .partner-detail .partner-panel #about-us .partner-adds span, #partner-detail .partner-panel #about-us .partner-adds span, #property-detail .partner-panel #about-us .partner-adds span, .partner-detail .partner-panel #contact .partner-adds span, #partner-detail .partner-panel #contact .partner-adds span, #property-detail .partner-panel #contact .partner-adds span, .partner-detail .partner-panel #add-prop .partner-adds span, #partner-detail .partner-panel #add-prop .partner-adds span, #property-detail .partner-panel #add-prop .partner-adds span, #add-prop .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span, #add-prop .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span, #add-prop .contain-stack #property-detail .partner-panel .tab-content .partner-adds span, .partner-detail .partner-panel #cabinet .partner-adds span, #partner-detail .partner-panel #cabinet .partner-adds span, #property-detail .partner-panel #cabinet .partner-adds span, #cabinet .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span, #cabinet .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span, #cabinet .contain-stack #property-detail .partner-panel .tab-content .partner-adds span, .partner-detail .partner-panel #login-signup .partner-adds span, #partner-detail .partner-panel #login-signup .partner-adds span, #property-detail .partner-panel #login-signup .partner-adds span, #login-signup .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span, #login-signup .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span, #login-signup .contain-stack #property-detail .partner-panel .tab-content .partner-adds span, .partner-detail .partner-panel #faq .partner-adds span, #partner-detail .partner-panel #faq .partner-adds span, #property-detail .partner-panel #faq .partner-adds span, #header .navigation-bar .right-side .main-menu[data-button], #home-intro .contain-stack .nav-tabs li, #partners .contain-item .adds-count span, #cabinet .contain-stack .tab-content .tab-panel .add-addvertisiment a {
+.button, .finded-adds-properties .rent-sale-buttons .nav-tabs li, #prop-search .rent-sale-buttons .nav-tabs li, #partner-detail .rent-sale-buttons .nav-tabs li, #property-detail .rent-sale-buttons .nav-tabs li, .finded-adds-properties .filter-panel .filter-contain button, #prop-search .filter-panel .filter-contain button, #partner-detail .filter-panel .filter-contain button, #property-detail .filter-panel .filter-contain button, .partner-detail .partner-panel .contain .partner-adds span, #partner-detail .partner-panel .contain .partner-adds span, #property-detail .partner-panel .contain .partner-adds span, .partner-detail .partner-panel #recent-properties .partner-adds span, #partner-detail .partner-panel #recent-properties .partner-adds span, #property-detail .partner-panel #recent-properties .partner-adds span, .partner-detail .partner-panel #partner-properties .partner-adds span, #partner-detail .partner-panel #partner-properties .partner-adds span, #property-detail .partner-panel #partner-properties .partner-adds span, .partner-detail .partner-panel #prop-search .partner-adds span, #partner-detail .partner-panel #prop-search .partner-adds span, #property-detail .partner-panel #prop-search .partner-adds span, .partner-detail .partner-panel #partners .partner-adds span, #partner-detail .partner-panel #partners .partner-adds span, #property-detail .partner-panel #partners .partner-adds span, .partner-detail .partner-panel #partner-detail .partner-adds span, #partner-detail .partner-panel #partner-detail .partner-adds span, #property-detail .partner-panel #partner-detail .partner-adds span, .partner-detail .partner-panel #property-detail .partner-adds span, #partner-detail .partner-panel #property-detail .partner-adds span, #property-detail .partner-panel #property-detail .partner-adds span, #partner-detail .partner-panel .adds-panel .partner-adds span, #property-detail .partner-panel .adds-panel .partner-adds span, .partner-detail .partner-panel #about-us .partner-adds span, #partner-detail .partner-panel #about-us .partner-adds span, #property-detail .partner-panel #about-us .partner-adds span, .partner-detail .partner-panel #contact .partner-adds span, #partner-detail .partner-panel #contact .partner-adds span, #property-detail .partner-panel #contact .partner-adds span, .partner-detail .partner-panel #add-prop .partner-adds span, #partner-detail .partner-panel #add-prop .partner-adds span, #property-detail .partner-panel #add-prop .partner-adds span, #add-prop .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span, #add-prop .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span, #add-prop .contain-stack #property-detail .partner-panel .tab-content .partner-adds span, .partner-detail .partner-panel #cabinet .partner-adds span, #partner-detail .partner-panel #cabinet .partner-adds span, #property-detail .partner-panel #cabinet .partner-adds span, #cabinet .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span, #cabinet .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span, #cabinet .contain-stack #property-detail .partner-panel .tab-content .partner-adds span, .partner-detail .partner-panel #login-signup .partner-adds span, #partner-detail .partner-panel #login-signup .partner-adds span, #property-detail .partner-panel #login-signup .partner-adds span, #login-signup .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span, #login-signup .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span, #login-signup .contain-stack #property-detail .partner-panel .tab-content .partner-adds span, .partner-detail .partner-panel #faq .partner-adds span, #partner-detail .partner-panel #faq .partner-adds span, #property-detail .partner-panel #faq .partner-adds span, #header .navigation-bar .menu ul .main-menu[data-button], #header .navigation-bar .registration .main-menu[data-button], #home-intro .contain-stack .nav-tabs li, #partners .contain-item .adds-count span, #cabinet .contain-stack .tab-content .tab-panel .add-addvertisiment a {
   border: 1px solid #FDA94F;
   border-radius: 8px;
   -webkit-transition: all 0.4s ease 0s;
@@ -7,16 +7,16 @@
   -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
           box-shadow: 7px 7px 11px -7px #6e6e6e; }
 
-.button-hover, .finded-adds-properties .rent-sale-buttons .nav-tabs li:hover, #prop-search .rent-sale-buttons .nav-tabs li:hover, #partner-detail .rent-sale-buttons .nav-tabs li:hover, #property-detail .rent-sale-buttons .nav-tabs li:hover, .partner-detail .partner-panel .contain .partner-adds span:hover, #partner-detail .partner-panel .contain .partner-adds span:hover, #property-detail .partner-panel .contain .partner-adds span:hover, .partner-detail .partner-panel #recent-properties .partner-adds span:hover, #partner-detail .partner-panel #recent-properties .partner-adds span:hover, #property-detail .partner-panel #recent-properties .partner-adds span:hover, .partner-detail .partner-panel #partner-properties .partner-adds span:hover, #partner-detail .partner-panel #partner-properties .partner-adds span:hover, #property-detail .partner-panel #partner-properties .partner-adds span:hover, .partner-detail .partner-panel #prop-search .partner-adds span:hover, #partner-detail .partner-panel #prop-search .partner-adds span:hover, #property-detail .partner-panel #prop-search .partner-adds span:hover, .partner-detail .partner-panel #partners .partner-adds span:hover, #partner-detail .partner-panel #partners .partner-adds span:hover, #property-detail .partner-panel #partners .partner-adds span:hover, .partner-detail .partner-panel #partner-detail .partner-adds span:hover, #partner-detail .partner-panel #partner-detail .partner-adds span:hover, #property-detail .partner-panel #partner-detail .partner-adds span:hover, .partner-detail .partner-panel #property-detail .partner-adds span:hover, #partner-detail .partner-panel #property-detail .partner-adds span:hover, #property-detail .partner-panel #property-detail .partner-adds span:hover, #partner-detail .partner-panel .adds-panel .partner-adds span:hover, #property-detail .partner-panel .adds-panel .partner-adds span:hover, .partner-detail .partner-panel #about-us .partner-adds span:hover, #partner-detail .partner-panel #about-us .partner-adds span:hover, #property-detail .partner-panel #about-us .partner-adds span:hover, .partner-detail .partner-panel #contact .partner-adds span:hover, #partner-detail .partner-panel #contact .partner-adds span:hover, #property-detail .partner-panel #contact .partner-adds span:hover, .partner-detail .partner-panel #add-prop .partner-adds span:hover, #partner-detail .partner-panel #add-prop .partner-adds span:hover, #property-detail .partner-panel #add-prop .partner-adds span:hover, #add-prop .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover, #add-prop .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover, #add-prop .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover, .partner-detail .partner-panel #cabinet .partner-adds span:hover, #partner-detail .partner-panel #cabinet .partner-adds span:hover, #property-detail .partner-panel #cabinet .partner-adds span:hover, #cabinet .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover, #cabinet .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover, #cabinet .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover, .partner-detail .partner-panel #login-signup .partner-adds span:hover, #partner-detail .partner-panel #login-signup .partner-adds span:hover, #property-detail .partner-panel #login-signup .partner-adds span:hover, #login-signup .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover, #login-signup .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover, #login-signup .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover, .partner-detail .partner-panel #faq .partner-adds span:hover, #partner-detail .partner-panel #faq .partner-adds span:hover, #property-detail .partner-panel #faq .partner-adds span:hover, #header .navigation-bar .right-side .main-menu[data-button]:hover, #home-intro .contain-stack .tab-content .search-button button:hover, #partners .contain-item .adds-count span:hover, #cabinet .contain-stack .tab-content .tab-panel .add-addvertisiment a:hover {
+.button-hover, .finded-adds-properties .rent-sale-buttons .nav-tabs li:hover, #prop-search .rent-sale-buttons .nav-tabs li:hover, #partner-detail .rent-sale-buttons .nav-tabs li:hover, #property-detail .rent-sale-buttons .nav-tabs li:hover, .partner-detail .partner-panel .contain .partner-adds span:hover, #partner-detail .partner-panel .contain .partner-adds span:hover, #property-detail .partner-panel .contain .partner-adds span:hover, .partner-detail .partner-panel #recent-properties .partner-adds span:hover, #partner-detail .partner-panel #recent-properties .partner-adds span:hover, #property-detail .partner-panel #recent-properties .partner-adds span:hover, .partner-detail .partner-panel #partner-properties .partner-adds span:hover, #partner-detail .partner-panel #partner-properties .partner-adds span:hover, #property-detail .partner-panel #partner-properties .partner-adds span:hover, .partner-detail .partner-panel #prop-search .partner-adds span:hover, #partner-detail .partner-panel #prop-search .partner-adds span:hover, #property-detail .partner-panel #prop-search .partner-adds span:hover, .partner-detail .partner-panel #partners .partner-adds span:hover, #partner-detail .partner-panel #partners .partner-adds span:hover, #property-detail .partner-panel #partners .partner-adds span:hover, .partner-detail .partner-panel #partner-detail .partner-adds span:hover, #partner-detail .partner-panel #partner-detail .partner-adds span:hover, #property-detail .partner-panel #partner-detail .partner-adds span:hover, .partner-detail .partner-panel #property-detail .partner-adds span:hover, #partner-detail .partner-panel #property-detail .partner-adds span:hover, #property-detail .partner-panel #property-detail .partner-adds span:hover, #partner-detail .partner-panel .adds-panel .partner-adds span:hover, #property-detail .partner-panel .adds-panel .partner-adds span:hover, .partner-detail .partner-panel #about-us .partner-adds span:hover, #partner-detail .partner-panel #about-us .partner-adds span:hover, #property-detail .partner-panel #about-us .partner-adds span:hover, .partner-detail .partner-panel #contact .partner-adds span:hover, #partner-detail .partner-panel #contact .partner-adds span:hover, #property-detail .partner-panel #contact .partner-adds span:hover, .partner-detail .partner-panel #add-prop .partner-adds span:hover, #partner-detail .partner-panel #add-prop .partner-adds span:hover, #property-detail .partner-panel #add-prop .partner-adds span:hover, #add-prop .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover, #add-prop .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover, #add-prop .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover, .partner-detail .partner-panel #cabinet .partner-adds span:hover, #partner-detail .partner-panel #cabinet .partner-adds span:hover, #property-detail .partner-panel #cabinet .partner-adds span:hover, #cabinet .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover, #cabinet .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover, #cabinet .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover, .partner-detail .partner-panel #login-signup .partner-adds span:hover, #partner-detail .partner-panel #login-signup .partner-adds span:hover, #property-detail .partner-panel #login-signup .partner-adds span:hover, #login-signup .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover, #login-signup .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover, #login-signup .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover, .partner-detail .partner-panel #faq .partner-adds span:hover, #partner-detail .partner-panel #faq .partner-adds span:hover, #property-detail .partner-panel #faq .partner-adds span:hover, #header .navigation-bar .menu ul .main-menu[data-button]:hover, #header .navigation-bar .registration .main-menu[data-button]:hover, #home-intro .contain-stack .tab-content .search-button button:hover, #partners .contain-item .adds-count span:hover, #cabinet .contain-stack .tab-content .tab-panel .add-addvertisiment a:hover {
   background-color: #FDA94F;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
-  .button-hover a, .finded-adds-properties .rent-sale-buttons .nav-tabs li:hover a, #prop-search .rent-sale-buttons .nav-tabs li:hover a, #partner-detail .rent-sale-buttons .nav-tabs li:hover a, #property-detail .rent-sale-buttons .nav-tabs li:hover a, .partner-detail .partner-panel .contain .partner-adds span:hover a, #partner-detail .partner-panel .contain .partner-adds span:hover a, #property-detail .partner-panel .contain .partner-adds span:hover a, .partner-detail .partner-panel #recent-properties .partner-adds span:hover a, #partner-detail .partner-panel #recent-properties .partner-adds span:hover a, #property-detail .partner-panel #recent-properties .partner-adds span:hover a, .partner-detail .partner-panel #partner-properties .partner-adds span:hover a, #partner-detail .partner-panel #partner-properties .partner-adds span:hover a, #property-detail .partner-panel #partner-properties .partner-adds span:hover a, .partner-detail .partner-panel #prop-search .partner-adds span:hover a, #partner-detail .partner-panel #prop-search .partner-adds span:hover a, #property-detail .partner-panel #prop-search .partner-adds span:hover a, .partner-detail .partner-panel #partners .partner-adds span:hover a, #partner-detail .partner-panel #partners .partner-adds span:hover a, #property-detail .partner-panel #partners .partner-adds span:hover a, .partner-detail .partner-panel #partner-detail .partner-adds span:hover a, #partner-detail .partner-panel #partner-detail .partner-adds span:hover a, #property-detail .partner-panel #partner-detail .partner-adds span:hover a, .partner-detail .partner-panel #property-detail .partner-adds span:hover a, #partner-detail .partner-panel #property-detail .partner-adds span:hover a, #property-detail .partner-panel #property-detail .partner-adds span:hover a, #partner-detail .partner-panel .adds-panel .partner-adds span:hover a, #property-detail .partner-panel .adds-panel .partner-adds span:hover a, .partner-detail .partner-panel #about-us .partner-adds span:hover a, #partner-detail .partner-panel #about-us .partner-adds span:hover a, #property-detail .partner-panel #about-us .partner-adds span:hover a, .partner-detail .partner-panel #contact .partner-adds span:hover a, #partner-detail .partner-panel #contact .partner-adds span:hover a, #property-detail .partner-panel #contact .partner-adds span:hover a, .partner-detail .partner-panel #add-prop .partner-adds span:hover a, #partner-detail .partner-panel #add-prop .partner-adds span:hover a, #property-detail .partner-panel #add-prop .partner-adds span:hover a, #add-prop .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover a, #add-prop .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover a, #add-prop .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover a, .partner-detail .partner-panel #cabinet .partner-adds span:hover a, #partner-detail .partner-panel #cabinet .partner-adds span:hover a, #property-detail .partner-panel #cabinet .partner-adds span:hover a, #cabinet .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover a, #cabinet .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover a, #cabinet .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover a, .partner-detail .partner-panel #login-signup .partner-adds span:hover a, #partner-detail .partner-panel #login-signup .partner-adds span:hover a, #property-detail .partner-panel #login-signup .partner-adds span:hover a, #login-signup .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover a, #login-signup .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover a, #login-signup .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover a, .partner-detail .partner-panel #faq .partner-adds span:hover a, #partner-detail .partner-panel #faq .partner-adds span:hover a, #property-detail .partner-panel #faq .partner-adds span:hover a, #header .navigation-bar .right-side .main-menu[data-button]:hover a, #home-intro .contain-stack .tab-content .search-button button:hover a, #partners .contain-item .adds-count span:hover a, #cabinet .contain-stack .tab-content .tab-panel .add-addvertisiment a:hover a {
+  .button-hover a, .finded-adds-properties .rent-sale-buttons .nav-tabs li:hover a, #prop-search .rent-sale-buttons .nav-tabs li:hover a, #partner-detail .rent-sale-buttons .nav-tabs li:hover a, #property-detail .rent-sale-buttons .nav-tabs li:hover a, .partner-detail .partner-panel .contain .partner-adds span:hover a, #partner-detail .partner-panel .contain .partner-adds span:hover a, #property-detail .partner-panel .contain .partner-adds span:hover a, .partner-detail .partner-panel #recent-properties .partner-adds span:hover a, #partner-detail .partner-panel #recent-properties .partner-adds span:hover a, #property-detail .partner-panel #recent-properties .partner-adds span:hover a, .partner-detail .partner-panel #partner-properties .partner-adds span:hover a, #partner-detail .partner-panel #partner-properties .partner-adds span:hover a, #property-detail .partner-panel #partner-properties .partner-adds span:hover a, .partner-detail .partner-panel #prop-search .partner-adds span:hover a, #partner-detail .partner-panel #prop-search .partner-adds span:hover a, #property-detail .partner-panel #prop-search .partner-adds span:hover a, .partner-detail .partner-panel #partners .partner-adds span:hover a, #partner-detail .partner-panel #partners .partner-adds span:hover a, #property-detail .partner-panel #partners .partner-adds span:hover a, .partner-detail .partner-panel #partner-detail .partner-adds span:hover a, #partner-detail .partner-panel #partner-detail .partner-adds span:hover a, #property-detail .partner-panel #partner-detail .partner-adds span:hover a, .partner-detail .partner-panel #property-detail .partner-adds span:hover a, #partner-detail .partner-panel #property-detail .partner-adds span:hover a, #property-detail .partner-panel #property-detail .partner-adds span:hover a, #partner-detail .partner-panel .adds-panel .partner-adds span:hover a, #property-detail .partner-panel .adds-panel .partner-adds span:hover a, .partner-detail .partner-panel #about-us .partner-adds span:hover a, #partner-detail .partner-panel #about-us .partner-adds span:hover a, #property-detail .partner-panel #about-us .partner-adds span:hover a, .partner-detail .partner-panel #contact .partner-adds span:hover a, #partner-detail .partner-panel #contact .partner-adds span:hover a, #property-detail .partner-panel #contact .partner-adds span:hover a, .partner-detail .partner-panel #add-prop .partner-adds span:hover a, #partner-detail .partner-panel #add-prop .partner-adds span:hover a, #property-detail .partner-panel #add-prop .partner-adds span:hover a, #add-prop .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover a, #add-prop .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover a, #add-prop .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover a, .partner-detail .partner-panel #cabinet .partner-adds span:hover a, #partner-detail .partner-panel #cabinet .partner-adds span:hover a, #property-detail .partner-panel #cabinet .partner-adds span:hover a, #cabinet .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover a, #cabinet .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover a, #cabinet .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover a, .partner-detail .partner-panel #login-signup .partner-adds span:hover a, #partner-detail .partner-panel #login-signup .partner-adds span:hover a, #property-detail .partner-panel #login-signup .partner-adds span:hover a, #login-signup .contain-stack .partner-detail .partner-panel .tab-content .partner-adds span:hover a, #login-signup .contain-stack #partner-detail .partner-panel .tab-content .partner-adds span:hover a, #login-signup .contain-stack #property-detail .partner-panel .tab-content .partner-adds span:hover a, .partner-detail .partner-panel #faq .partner-adds span:hover a, #partner-detail .partner-panel #faq .partner-adds span:hover a, #property-detail .partner-panel #faq .partner-adds span:hover a, #header .navigation-bar .menu ul .main-menu[data-button]:hover a, #header .navigation-bar .registration .main-menu[data-button]:hover a, #home-intro .contain-stack .tab-content .search-button button:hover a, #partners .contain-item .adds-count span:hover a, #cabinet .contain-stack .tab-content .tab-panel .add-addvertisiment a:hover a {
     color: #F6F6F6;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
 
-.submenu-hover, #header .navigation-bar .right-side .main-menu:hover .submenu, #header .navigation-bar .right-side .main-menu .submenu li:hover .zero-submenu, #header .navigation-bar .right-side .main-menu .zero-submenu li:hover .zero-submenu {
+.submenu-hover, #header .navigation-bar .menu ul .main-menu:hover .submenu {
   visibility: visible;
   opacity: 1;
   z-index: 1;
@@ -78,40 +78,40 @@
     letter-spacing: 0.5px;
     font-weight: bold; }
 
-.contain-item-small, #partner-properties .contain-stack .contain-item, #partner-detail .adds-panel .contain-item, #property-detail .adds-panel .contain-item, #cabinet .contain-stack .tab-content .tab-panel .contain-item {
+.contain-item-small, #partner-properties .contain-stack .contain-item, #prop-search .contain-stack .contain-item, #partner-detail .adds-panel .contain-item, #property-detail .adds-panel .contain-item, #cabinet .contain-stack .tab-content .tab-panel .contain-item {
   margin-bottom: 20px; }
-  .contain-item-small .item-image, #partner-properties .contain-stack .contain-item .item-image, #partner-detail .adds-panel .contain-item .item-image, #property-detail .adds-panel .contain-item .item-image, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-image {
+  .contain-item-small .item-image, #partner-properties .contain-stack .contain-item .item-image, #prop-search .contain-stack .contain-item .item-image, #partner-detail .adds-panel .contain-item .item-image, #property-detail .adds-panel .contain-item .item-image, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-image {
     height: 150px;
     width: 100%; }
-    .contain-item-small .item-image img, #partner-properties .contain-stack .contain-item .item-image img, #partner-detail .adds-panel .contain-item .item-image img, #property-detail .adds-panel .contain-item .item-image img, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-image img {
+    .contain-item-small .item-image img, #partner-properties .contain-stack .contain-item .item-image img, #prop-search .contain-stack .contain-item .item-image img, #partner-detail .adds-panel .contain-item .item-image img, #property-detail .adds-panel .contain-item .item-image img, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-image img {
       width: 100%;
       height: 100%; }
-  .contain-item-small .item-property, #partner-properties .contain-stack .contain-item .item-property, #partner-detail .adds-panel .contain-item .item-property, #property-detail .adds-panel .contain-item .item-property, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property {
+  .contain-item-small .item-property, #partner-properties .contain-stack .contain-item .item-property, #prop-search .contain-stack .contain-item .item-property, #partner-detail .adds-panel .contain-item .item-property, #property-detail .adds-panel .contain-item .item-property, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property {
     padding: 8px 10px; }
-    .contain-item-small .item-property .property-price, #partner-properties .contain-stack .contain-item .item-property .property-price, #partner-detail .adds-panel .contain-item .item-property .property-price, #property-detail .adds-panel .contain-item .item-property .property-price, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .property-price {
+    .contain-item-small .item-property .property-price, #partner-properties .contain-stack .contain-item .item-property .property-price, #prop-search .contain-stack .contain-item .item-property .property-price, #partner-detail .adds-panel .contain-item .item-property .property-price, #property-detail .adds-panel .contain-item .item-property .property-price, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .property-price {
       padding: 8px 0px; }
-    .contain-item-small .item-property .property-name, #partner-properties .contain-stack .contain-item .item-property .property-name, #partner-detail .adds-panel .contain-item .item-property .property-name, #property-detail .adds-panel .contain-item .item-property .property-name, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .property-name {
+    .contain-item-small .item-property .property-name, #partner-properties .contain-stack .contain-item .item-property .property-name, #prop-search .contain-stack .contain-item .item-property .property-name, #partner-detail .adds-panel .contain-item .item-property .property-name, #property-detail .adds-panel .contain-item .item-property .property-name, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .property-name {
       font-size: 15px;
       padding: 10px 0px; }
-    .contain-item-small .item-property .add-sort, #partner-properties .contain-stack .contain-item .item-property .add-sort, #partner-detail .adds-panel .contain-item .item-property .add-sort, #property-detail .adds-panel .contain-item .item-property .add-sort, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .add-sort {
+    .contain-item-small .item-property .add-sort, #partner-properties .contain-stack .contain-item .item-property .add-sort, #prop-search .contain-stack .contain-item .item-property .add-sort, #partner-detail .adds-panel .contain-item .item-property .add-sort, #property-detail .adds-panel .contain-item .item-property .add-sort, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .add-sort {
       top: 5%;
       right: 5%; }
-    .contain-item-small .item-property .additional-properties, #partner-properties .contain-stack .contain-item .item-property .additional-properties, #partner-detail .adds-panel .contain-item .item-property .additional-properties, #property-detail .adds-panel .contain-item .item-property .additional-properties, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .additional-properties {
+    .contain-item-small .item-property .additional-properties, #partner-properties .contain-stack .contain-item .item-property .additional-properties, #prop-search .contain-stack .contain-item .item-property .additional-properties, #partner-detail .adds-panel .contain-item .item-property .additional-properties, #property-detail .adds-panel .contain-item .item-property .additional-properties, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .additional-properties {
       padding: 10px 0px 0px; }
-    .contain-item-small .item-property .hover-overlay, #partner-properties .contain-stack .contain-item .item-property .hover-overlay, #partner-detail .adds-panel .contain-item .item-property .hover-overlay, #property-detail .adds-panel .contain-item .item-property .hover-overlay, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .hover-overlay {
+    .contain-item-small .item-property .hover-overlay, #partner-properties .contain-stack .contain-item .item-property .hover-overlay, #prop-search .contain-stack .contain-item .item-property .hover-overlay, #partner-detail .adds-panel .contain-item .item-property .hover-overlay, #property-detail .adds-panel .contain-item .item-property .hover-overlay, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .hover-overlay {
       bottom: -43px;
       padding: 0px !important; }
-      .contain-item-small .item-property .hover-overlay ul, #partner-properties .contain-stack .contain-item .item-property .hover-overlay ul, #partner-detail .adds-panel .contain-item .item-property .hover-overlay ul, #property-detail .adds-panel .contain-item .item-property .hover-overlay ul, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .hover-overlay ul {
+      .contain-item-small .item-property .hover-overlay ul, #partner-properties .contain-stack .contain-item .item-property .hover-overlay ul, #prop-search .contain-stack .contain-item .item-property .hover-overlay ul, #partner-detail .adds-panel .contain-item .item-property .hover-overlay ul, #property-detail .adds-panel .contain-item .item-property .hover-overlay ul, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .hover-overlay ul {
         padding: 5px 0px; }
-        .contain-item-small .item-property .hover-overlay ul li, #partner-properties .contain-stack .contain-item .item-property .hover-overlay ul li, #partner-detail .adds-panel .contain-item .item-property .hover-overlay ul li, #property-detail .adds-panel .contain-item .item-property .hover-overlay ul li, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .hover-overlay ul li {
+        .contain-item-small .item-property .hover-overlay ul li, #partner-properties .contain-stack .contain-item .item-property .hover-overlay ul li, #prop-search .contain-stack .contain-item .item-property .hover-overlay ul li, #partner-detail .adds-panel .contain-item .item-property .hover-overlay ul li, #property-detail .adds-panel .contain-item .item-property .hover-overlay ul li, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .hover-overlay ul li {
           padding: 3px 0px;
           border-radius: 4px;
           border: 1px solid #FDA94F;
           width: 50px;
           text-align: center; }
-          .contain-item-small .item-property .hover-overlay ul li a i, #partner-properties .contain-stack .contain-item .item-property .hover-overlay ul li a i, #partner-detail .adds-panel .contain-item .item-property .hover-overlay ul li a i, #property-detail .adds-panel .contain-item .item-property .hover-overlay ul li a i, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .hover-overlay ul li a i {
+          .contain-item-small .item-property .hover-overlay ul li a i, #partner-properties .contain-stack .contain-item .item-property .hover-overlay ul li a i, #prop-search .contain-stack .contain-item .item-property .hover-overlay ul li a i, #partner-detail .adds-panel .contain-item .item-property .hover-overlay ul li a i, #property-detail .adds-panel .contain-item .item-property .hover-overlay ul li a i, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .hover-overlay ul li a i {
             font-size: 20px; }
-    .contain-item-small .item-property .add-sort, #partner-properties .contain-stack .contain-item .item-property .add-sort, #partner-detail .adds-panel .contain-item .item-property .add-sort, #property-detail .adds-panel .contain-item .item-property .add-sort, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .add-sort {
+    .contain-item-small .item-property .add-sort, #partner-properties .contain-stack .contain-item .item-property .add-sort, #prop-search .contain-stack .contain-item .item-property .add-sort, #partner-detail .adds-panel .contain-item .item-property .add-sort, #property-detail .adds-panel .contain-item .item-property .add-sort, #cabinet .contain-stack .tab-content .tab-panel .contain-item .item-property .add-sort {
       top: 1%;
       right: 1%; }
 
@@ -138,8 +138,8 @@
   overflow: hidden;
   margin-bottom: 20px; }
   .contain .contain-item:hover .item-image img, #recent-properties .contain-item:hover .item-image img, #partner-properties .contain-item:hover .item-image img, #prop-search .contain-item:hover .item-image img, #partners .contain-item:hover .item-image img, #partner-detail .contain-item:hover .item-image img, #property-detail .contain-item:hover .item-image img, #about-us .contain-item:hover .item-image img, #contact .contain-item:hover .item-image img, #add-prop .contain-item:hover .item-image img, #cabinet .contain-item:hover .item-image img, #login-signup .contain-item:hover .item-image img, #faq .contain-item:hover .item-image img {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
   .contain .contain-item:hover .hover-overlay, #recent-properties .contain-item:hover .hover-overlay, #partner-properties .contain-item:hover .hover-overlay, #prop-search .contain-item:hover .hover-overlay, #partners .contain-item:hover .hover-overlay, #partner-detail .contain-item:hover .hover-overlay, #property-detail .contain-item:hover .hover-overlay, #about-us .contain-item:hover .hover-overlay, #contact .contain-item:hover .hover-overlay, #add-prop .contain-item:hover .hover-overlay, #cabinet .contain-item:hover .hover-overlay, #login-signup .contain-item:hover .hover-overlay, #faq .contain-item:hover .hover-overlay {
@@ -303,7 +303,7 @@
     transition: all 0.4s ease 0s; }
 
 .finded-adds-properties .title, #prop-search .title, #partner-detail .title, #property-detail .title {
-  padding: 20px 0px;
+  padding: 20px;
   font-family: "OpenSans"; }
   .finded-adds-properties .title .sum-found-property, #prop-search .title .sum-found-property, #partner-detail .title .sum-found-property, #property-detail .title .sum-found-property {
     font-size: 18px; }
@@ -720,6 +720,141 @@
     height: 70vh;
     margin: 15vh auto; }
 
+@media only screen and (max-width: 991px) {
+  * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+
+  .row {
+    display: block; }
+
+  #header {
+    height: 50px; }
+    #header .trigger {
+      display: block !important;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      text-decoration: none;
+      color: black; }
+      #header .trigger .top, #header .trigger .bottom, #header .trigger .middle {
+        width: 35px;
+        border: 1px solid #FDA94F;
+        margin: 13px;
+        position: relative;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s; }
+      #header .trigger .middle {
+        width: 45px; }
+    #header .active .top, #header .active .bottom {
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s; }
+    #header .active .top {
+      -webkit-transform: rotate(45deg) translateY(22px) translateX(-2px);
+              transform: rotate(45deg) translateY(22px) translateX(-2px); }
+    #header .active .middle {
+      display: none; }
+    #header .active .bottom {
+      -webkit-transform: rotate(-45deg) translateX(-12px) translateY(-13px);
+              transform: rotate(-45deg) translateX(-12px) translateY(-13px); }
+    #header .menu {
+      width: 100% !important;
+      position: absolute;
+      display: none;
+      margin-top: 40px;
+      padding: 0px;
+      left: 0;
+      right: 0; }
+      #header .menu ul {
+        width: 100% !important;
+        margin-left: 0px !important;
+        -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
+                box-shadow: 7px 7px 11px -7px #6e6e6e; }
+        #header .menu ul .main-menu {
+          display: block !important;
+          background: white !important;
+          border-bottom: 1px solid #f5f5f5;
+          padding-left: 0px !important;
+          padding-right: 0px !important; }
+          #header .menu ul .main-menu[data-dropdown]::after {
+            right: 25px !important;
+            font-size: 14px !important;
+            top: 15px !important;
+            content: "\f10f";
+            font-family: "Flaticon";
+            font-weight: 900;
+            position: absolute; }
+          #header .menu ul .main-menu[data-dropdown]:hover .submenu {
+            height: auto !important; }
+          #header .menu ul .main-menu[data-button] {
+            border: none !important;
+            padding: 2px 0px !important;
+            border-radius: 0px !important; }
+          #header .menu ul .main-menu:hover {
+            background: #fff; }
+          #header .menu ul .main-menu:hover > a {
+            background-color: #f5f5f5 !important; }
+          #header .menu ul .main-menu .submenu {
+            visibility: inherit;
+            opacity: 1;
+            z-index: 1;
+            -webkit-transform: translateY(0%);
+                    transform: translateY(0%);
+            -webkit-transition-delay: 0s, 0s, 0.3s;
+                    transition-delay: 0s, 0s, 0.3s;
+            -webkit-box-shadow: none !important;
+                    box-shadow: none !important;
+            -webkit-transition: all 0.4s ease 0s;
+            transition: all 0.4s ease 0s;
+            height: 0px;
+            width: 100% !important;
+            position: relative !important;
+            top: 0 !important;
+            display: block; }
+            #header .menu ul .main-menu .submenu li {
+              background: white;
+              border-bottom: 1px solid #f5f5f5; }
+              #header .menu ul .main-menu .submenu li a {
+                margin-left: 70px !important; }
+          #header .menu ul .main-menu a, #header .menu ul .main-menu span {
+            height: 40px !important;
+            line-height: 40px !important;
+            padding: 0px !important;
+            margin-left: 30px !important;
+            border: none !important;
+            color: #3B566E !important; }
+    #header .registration {
+      display: none !important; }
+
+  #intro .section-contain {
+    margin-top: 50px; }
+  #intro .section-header-left {
+    text-align: center; }
+    #intro .section-header-left .text p {
+      text-align: center; }
+
+  #another-intro .title {
+    text-align: center; }
+  #another-intro .breadcumb-text {
+    text-align: center; }
+
+  #footer .footer-bottom .subjects {
+    text-align: center !important; }
+
+  #about .photo, #about .text {
+    width: 100% !important;
+    max-width: 100% !important; }
+  #about .text {
+    position: relative !important;
+    margin-bottom: 80px; }
+
+  #faq .faq-content {
+    margin-top: 50px; }
+
+  #contactpage .contact-information {
+    width: 100% !important;
+    margin-top: 30px !important;
+    margin-left: 0% !important; } }
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
@@ -791,64 +926,137 @@ a {
   z-index: 100;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s; }
+  #header .logo {
+    float: left; }
   #header .navigation-bar {
     padding: 5px 0px;
     font-family: "Arch"; }
-    #header .navigation-bar .left-side {
-      float: left; }
-    #header .navigation-bar .right-side {
+    #header .navigation-bar .trigger {
+      display: none;
+      cursor: pointer; }
+    #header .navigation-bar .menu {
+      float: left;
       padding: 6px;
+      width: 75%; }
+      #header .navigation-bar .menu ul {
+        width: 85%;
+        margin: auto; }
+        #header .navigation-bar .menu ul .main-menu {
+          display: inline-block;
+          padding: 2px 12px;
+          position: relative; }
+          #header .navigation-bar .menu ul .main-menu[data-dropdown]::after {
+            font-family: "Flaticon";
+            font-size: 12px;
+            padding-left: 5px;
+            font-weight: 900;
+            content: "\f10f"; }
+          #header .navigation-bar .menu ul .main-menu[data-checked] {
+            background-color: #FFEEE2;
+            -webkit-transition: all 0.4s ease 0s;
+            transition: all 0.4s ease 0s; }
+            #header .navigation-bar .menu ul .main-menu[data-checked] a {
+              color: #FDA94F;
+              -webkit-transition: all 0.4s ease 0s;
+              transition: all 0.4s ease 0s; }
+            #header .navigation-bar .menu ul .main-menu[data-checked]:hover {
+              background-color: #FDA94F;
+              -webkit-transition: all 0.4s ease 0s;
+              transition: all 0.4s ease 0s; }
+              #header .navigation-bar .menu ul .main-menu[data-checked]:hover a {
+                color: #F6F6F6;
+                -webkit-transition: all 0.4s ease 0s;
+                transition: all 0.4s ease 0s; }
+          #header .navigation-bar .menu ul .main-menu[data-button] {
+            padding: 10px 20px; }
+            #header .navigation-bar .menu ul .main-menu[data-button] a i {
+              margin-right: 10px; }
+          #header .navigation-bar .menu ul .main-menu span, #header .navigation-bar .menu ul .main-menu a {
+            font-weight: 900;
+            color: #061B40;
+            font-size: 15px;
+            letter-spacing: 1.1px;
+            -webkit-transition: all 0.4s ease 0s;
+            transition: all 0.4s ease 0s;
+            cursor: pointer; }
+            #header .navigation-bar .menu ul .main-menu span:hover, #header .navigation-bar .menu ul .main-menu a:hover {
+              color: #FDA94F;
+              -webkit-transition: all 0.4s ease 0s;
+              transition: all 0.4s ease 0s; }
+          #header .navigation-bar .menu ul .main-menu .submenu {
+            position: absolute;
+            margin-left: 0px;
+            width: 200px;
+            -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
+                    box-shadow: 7px 7px 11px -7px #6e6e6e;
+            background-color: #F6F6F6;
+            border-radius: 8px;
+            padding: 0px;
+            top: 20px;
+            opacity: 0;
+            -webkit-transform: translateY(-2em);
+                    transform: translateY(-2em);
+            visibility: hidden;
+            z-index: -1;
+            -webkit-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+            transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
+            #header .navigation-bar .menu ul .main-menu .submenu li {
+              margin-left: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              position: relative; }
+              #header .navigation-bar .menu ul .main-menu .submenu li a, #header .navigation-bar .menu ul .main-menu .submenu li span {
+                display: block;
+                background: #fff;
+                color: #3B566E;
+                padding-left: 20px;
+                height: 40px;
+                line-height: 40px;
+                -webkit-transition: all 0.4s ease 0s;
+                transition: all 0.4s ease 0s;
+                position: relative;
+                font-size: 13px;
+                border-bottom: 1px solid #f5f5f5; }
+                #header .navigation-bar .menu ul .main-menu .submenu li a:hover, #header .navigation-bar .menu ul .main-menu .submenu li span:hover {
+                  background: #FFEEE2;
+                  padding-left: 25px;
+                  border-left: 4px solid #FDA94F;
+                  color: #FDA94F; }
+    #header .navigation-bar .registration {
+      padding: 5px 0px;
+      font-family: "Arch";
+      float: right;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between; }
-      #header .navigation-bar .right-side .nav-menu {
-        margin: 0 auto; }
-      #header .navigation-bar .right-side .main-menu {
-        display: inline-block;
-        padding: 2px 15px;
-        position: relative; }
-        #header .navigation-bar .right-side .main-menu[data-dropdown]::after {
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      #header .navigation-bar .registration span, #header .navigation-bar .registration a {
+        font-weight: 900;
+        color: #061B40;
+        font-size: 15px;
+        letter-spacing: 1.1px;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        cursor: pointer; }
+        #header .navigation-bar .registration span:hover, #header .navigation-bar .registration a:hover {
+          color: #FDA94F;
+          -webkit-transition: all 0.4s ease 0s;
+          transition: all 0.4s ease 0s; }
+      #header .navigation-bar .registration .main-menu {
+        margin: 0px; }
+        #header .navigation-bar .registration .main-menu[data-dropdown]::after {
           font-family: "Flaticon";
           font-size: 12px;
           padding-left: 5px;
           font-weight: 900;
           content: "\f10f"; }
-        #header .navigation-bar .right-side .main-menu[data-checked] {
-          background-color: #FFEEE2;
-          -webkit-transition: all 0.4s ease 0s;
-          transition: all 0.4s ease 0s; }
-          #header .navigation-bar .right-side .main-menu[data-checked] a {
-            color: #FDA94F;
-            -webkit-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s; }
-          #header .navigation-bar .right-side .main-menu[data-checked]:hover {
-            background-color: #FDA94F;
-            -webkit-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s; }
-            #header .navigation-bar .right-side .main-menu[data-checked]:hover a {
-              color: #F6F6F6;
-              -webkit-transition: all 0.4s ease 0s;
-              transition: all 0.4s ease 0s; }
-        #header .navigation-bar .right-side .main-menu[data-button] {
+        #header .navigation-bar .registration .main-menu[data-button] {
           padding: 10px 20px; }
-          #header .navigation-bar .right-side .main-menu[data-button] a i {
+          #header .navigation-bar .registration .main-menu[data-button] a i {
             margin-right: 10px; }
-        #header .navigation-bar .right-side .main-menu span, #header .navigation-bar .right-side .main-menu a {
-          font-weight: 900;
-          color: #061B40;
-          font-size: 15px;
-          letter-spacing: 1.1px;
-          -webkit-transition: all 0.4s ease 0s;
-          transition: all 0.4s ease 0s;
-          cursor: pointer; }
-          #header .navigation-bar .right-side .main-menu span:hover, #header .navigation-bar .right-side .main-menu a:hover {
-            color: #FDA94F;
-            -webkit-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s; }
-        #header .navigation-bar .right-side .main-menu .submenu, #header .navigation-bar .right-side .main-menu .zero-submenu {
+        #header .navigation-bar .registration .main-menu .submenu {
           position: absolute;
           margin-left: 0px;
           width: 200px;
@@ -865,12 +1073,12 @@ a {
           z-index: -1;
           -webkit-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
           transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
-          #header .navigation-bar .right-side .main-menu .submenu li, #header .navigation-bar .right-side .main-menu .zero-submenu li {
+          #header .navigation-bar .registration .main-menu .submenu li {
             margin-left: 0px;
             padding-left: 0px;
             padding-right: 0px;
             position: relative; }
-            #header .navigation-bar .right-side .main-menu .submenu li a, #header .navigation-bar .right-side .main-menu .zero-submenu li a {
+            #header .navigation-bar .registration .main-menu .submenu li a, #header .navigation-bar .registration .main-menu .submenu li span {
               display: block;
               background: #fff;
               color: #3B566E;
@@ -882,31 +1090,11 @@ a {
               position: relative;
               font-size: 13px;
               border-bottom: 1px solid #f5f5f5; }
-              #header .navigation-bar .right-side .main-menu .submenu li a:hover, #header .navigation-bar .right-side .main-menu .zero-submenu li a:hover {
+              #header .navigation-bar .registration .main-menu .submenu li a:hover, #header .navigation-bar .registration .main-menu .submenu li span:hover {
                 background: #FFEEE2;
                 padding-left: 25px;
                 border-left: 4px solid #FDA94F;
                 color: #FDA94F; }
-            #header .navigation-bar .right-side .main-menu .submenu li[data-dropright]::after, #header .navigation-bar .right-side .main-menu .zero-submenu li[data-dropright]::after {
-              font-family: "Flaticon";
-              font-size: 12px;
-              font-weight: 900;
-              content: "\f111";
-              position: absolute;
-              top: 14px;
-              right: 10px; }
-        #header .navigation-bar .right-side .main-menu .zero-submenu {
-          left: 205px;
-          top: 0px; }
-      #header .navigation-bar .right-side .registration {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center; }
-        #header .navigation-bar .right-side .registration .main-menu {
-          margin: 0px; }
 
 #footer {
   background-color: #e0d7d7;
@@ -1480,6 +1668,13 @@ Creation date: 24/08/2019 12:54
   #another-intro .breadcumb-text ol li:last-child::after {
     content: "";
     font-family: inherit; }
+
+#prop-search .contain-stack .contain-item .item-property .hover-overlay {
+  bottom: -41px !important; }
+#prop-search .contain-stack .contain-item .item-property ul li {
+  padding: 5px 10px !important;
+  width: 100% !important;
+  margin-right: 0px !important; }
 
 #another-intro {
   background: url("../img/banner/4.png");

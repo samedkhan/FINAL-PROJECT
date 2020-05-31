@@ -377,7 +377,52 @@ $(document).ready(function(){
             }
         });
     });
-    
+
+    //Fill Property Projects by select PropertySort  (SEARCH PANEL)
+    $("#searchAdds #propSort").change(function () {
+
+        var id = $(this).val();
+
+        $.getJSON('add/getprojects/' + id, function (response) {
+
+            if (response.length > 0) {
+
+                $(".project").removeClass("d-none");
+
+                $.each(response, function (index, value) {
+                    $("#projectList").append('<option value="' + value.propProjectID + '">' + value.propProjectName + '</option>');
+                });
+
+            } else {
+                $(".project").addClass("d-none");
+                $("#projectList >  option[value!='']").remove();
+            }
+        });
+    });
+
+    //Fill Districts by select City  (SEARCH PANEL)
+    $("#searchAdds #city").change(function () {
+
+        var id = $(this).val();
+
+        $.getJSON('add/getdistricts/' + id, function (response) {
+
+            if (response.length > 0) {
+
+                $(".district").removeClass("d-none");
+
+                $.each(response, function (index, value) {
+                    $("#districtList").append('<option value="' + value.districtId + '">' + value.districtName + ' rayonu</option>');
+                });
+
+            } else {
+                $(".district").addClass("d-none");
+                $("#districtList >  option[value!='']").remove();
+            }
+        });
+
+
+    });
 
     //Fill Districts by select City  (ADD -> CREATE)
     $("#CreateAdd #city").change(function () {
@@ -570,31 +615,31 @@ $(document).ready(function(){
         // }
        //END of PRICE PLAN FADE-UP
 
-//     // SMOOTH SLIDE SECTIONS ON NAVBAR MENU
-//     $('a[href^="#"]').on('click', function(e) {
-//         e.preventDefault()
-//         if($(this).attr('href').length>1){
-//             if($(window).width()<991){
-//                 $("#header .menu").slideToggle();
-//             }
-//            $('html, body').animate(
-//                {
-//                  scrollTop: $($(this).attr('href')).offset().top,
-//                },
-//                1000,
-//                'linear'
-//              )
-//          }
-      
-//       })
-//     // END OF SMOOTH SLIDE SECTIONS
+    // SMOOTH SLIDE SECTIONS ON NAVBAR MENU
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault()
+        if ($(this).attr('href').length > 1) {
+            if ($(window).width() < 991) {
+                $("#header .menu").slideToggle();
+            }
+            $('html, body').animate(
+                {
+                    scrollTop: $($(this).attr('href')).offset().top,
+                },
+                1000,
+                'linear'
+            )
+        }
 
-//     //Trigger MENU in RESPONSIVE SIDE  
-//     triggerMenu.click(function(){
-//         $("#header .menu").slideToggle();
-//         $('#header .trigger').toggleClass('active');
-//     })
-//     //END of Trigger MENU in RESPONSIVE SIDE  
+    })
+    // END OF SMOOTH SLIDE SECTIONS
+
+    //Trigger MENU in RESPONSIVE SIDE  
+    triggerMenu.click(function () {
+        $("#header .menu").slideToggle();
+        $('#header .trigger').toggleClass('active');
+    })
+    //END of Trigger MENU in RESPONSIVE SIDE
 
 //     //ACCORDION MENU
 //     var accordionButton = $('#faq .content-header');

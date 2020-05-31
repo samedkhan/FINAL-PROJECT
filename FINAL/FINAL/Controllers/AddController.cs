@@ -28,7 +28,126 @@ namespace FINAL.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            AddViewModel data = new AddViewModel
+            {
+                FilterPanel = new FilterPanelViewModel
+                {
+                    AddTypes = _context.AddTypes.ToList(),
+                    Cities = _context.Cities.ToList(),
+                    PropertySorts = _context.PropertySorts.ToList(),
+                },
+                AddsPanel = new AddsPanelViewModel
+                {
+                    Type = ViewType.small,
+                    AddList = _context.Addvertisiments.Include("AddType").
+                                                                        Include("Property").
+                                                                            Include("Property.City").
+                                                                                Include("Property.District").
+                                                                                    Include("Property.Flat").
+                                                                                        Include("Property.Floor").
+                                                                                            Include("Property.PropDoc").
+                                                                                                Include("Property.PropertySort").
+                                                                                                    Include("Property.Project").
+                                                                                                         Where(a => a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active).OrderByDescending(a=>a.CreatedAt).ToList(),
+                },
+                  Breadcumb = new BreadcumbViewModel
+                  {
+                      Title = "Elanlar",
+                      Path = new List<BreadcumbItemViewModel>()
+                  },
+            };
+            BreadcumbItemViewModel home = new BreadcumbItemViewModel
+            {
+                Name = "Ana səhifə",
+                Controller = "Home",
+                Action = "index"
+            };
+
+            BreadcumbItemViewModel adds = new BreadcumbItemViewModel
+            {
+                Name = "Bütün elanlar"
+            };
+
+            data.Breadcumb.Path.Add(home);
+            data.Breadcumb.Path.Add(adds);
+
+            ViewBag.Partial = data.Breadcumb;
+            ViewBag.Filters = data.FilterPanel;
+            ViewBag.Adds = data.AddsPanel;
+            ViewBag.AddsCount = data.AddsPanel.AddList.Count();
+            return View(data);
+        }
+
+        [HttpGet]
+        public IActionResult Search(AddSearchGetViewModel SearchGet)
+        {
+
+            if (ModelState.IsValid)
+            {
+                AddViewModel data = new AddViewModel
+                {
+                    FilterPanel = new FilterPanelViewModel
+                    {
+                        AddTypes = _context.AddTypes.ToList(),
+                        Cities = _context.Cities.ToList(),
+                        PropertySorts = _context.PropertySorts.ToList(),
+                    },
+                    AddsPanel = new AddsPanelViewModel
+                    {
+                        Type = ViewType.small,
+                        AddList = _context.Addvertisiments.Include("AddType").
+                                                                        Include("Property").
+                                                                            Include("Property.City").
+                                                                                Include("Property.District").
+                                                                                    Include("Property.Flat").
+                                                                                        Include("Property.Floor").
+                                                                                            Include("Property.PropDoc").
+                                                                                                Include("Property.PropertySort").
+                                                                                                    Include("Property.Project").
+                                                                                                         Where(a => a.User.Status == UserStatus.Active &&
+                                                                                                                    a.AddStatus == AddStatus.Active &&
+                                                                                                                   (SearchGet.AddTypeId == null ? true : a.AddTypeID == SearchGet.AddTypeId &&
+                                                                                                                   (SearchGet.CityId == null ? true : a.Property.CityId == SearchGet.CityId) &&
+                                                                                                                   (SearchGet.DistrictId == null ? true : a.Property.DistrictId == SearchGet.DistrictId) &&
+                                                                                                                   (SearchGet.PropertySortId == null ? true : a.Property.PropertySortId == SearchGet.PropertySortId))).OrderByDescending(a => a.CreatedAt).ToList(),
+                    },
+                    Breadcumb = new BreadcumbViewModel
+                    {
+                        Title = "Axtarılan elanlar",
+                        Path = new List<BreadcumbItemViewModel>()
+                    },
+                };
+                BreadcumbItemViewModel home = new BreadcumbItemViewModel
+                {
+                    Name = "Ana səhifə",
+                    Controller = "Home",
+                    Action = "index"
+                };
+
+                BreadcumbItemViewModel adds = new BreadcumbItemViewModel
+                {
+                    Name = "Bütün elanlar",
+                    Controller = "Add",
+                    Action = "index"
+                };
+                BreadcumbItemViewModel finded = new BreadcumbItemViewModel
+                {
+                    Name = "Axtarış"
+                };
+                data.Breadcumb.Path.Add(home);
+                data.Breadcumb.Path.Add(adds);
+                data.Breadcumb.Path.Add(finded);
+                ViewBag.Partial = data.Breadcumb;
+                ViewBag.Filters = data.FilterPanel;
+                ViewBag.Adds = data.AddsPanel;
+                ViewBag.AddsCount = data.AddsPanel.AddList.Count();
+                return View(data);
+
+            }
+            else
+            {
+                return Ok("NO");
+            }
         }
 
         public IActionResult Create()
@@ -41,7 +160,7 @@ namespace FINAL.Controllers
             }
             else
             {
-                AddIndexViewModel data = new AddIndexViewModel
+                AddViewModel data = new AddViewModel
                 {
                     AddCreateIndex = new AddCreateIndexViewModel {
                         Cities = _context.Cities.Include(c => c.Districts).ToList(),
@@ -187,7 +306,7 @@ namespace FINAL.Controllers
             }
             else
             {
-                AddIndexViewModel data = new AddIndexViewModel
+                AddViewModel data = new AddViewModel
                 {
                     AddCreateIndex = new AddCreateIndexViewModel
                     {
@@ -291,7 +410,7 @@ namespace FINAL.Controllers
             }
             else
             {
-                AddIndexViewModel data = new AddIndexViewModel
+                AddViewModel data = new AddViewModel
                 {
                     AddDetailIndex = new AddDetailIndexViewModel
                     {
@@ -307,7 +426,7 @@ namespace FINAL.Controllers
                     },
                     AddsPanel = new AddsPanelViewModel
                     {
-                         type = ViewType.normal,
+                         Type = ViewType.normal,
                          AddList = _context.Addvertisiments.Include("Property").
                                                                             Include("Property.City").
                                                                                 Include("Property.District").

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./assets/script/jquery.js"></script>
+    <script type="text/javascript">
+    $(window).on('load', function(){
+        $('.preloader .spinner').delay(1800).fadeOut("slow", function(){
+            $(this).css('z-index','0');
+            $('.preloader').addClass('complete').css("z-index", "0");
+        });
+
+    });
+    </script>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/grid.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Jirono</title>
+
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="spinner">
+                <div class="shadow"></div>
+                <div class="box"></div>
+        </div>
+        
+    </div>
+    <header>
+        <section id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <div class="navigation-bar">
+                            <div class="logo">
+                                <img src="./assets/img/logo-blue.png" alt="logo_blue">
+                            </div>
+                            <div class="menu">
+                                <ul>
+                                    <li class="main-menu"><a href="./index.html">Home</a></li>
+                                    <li class="main-menu" data-submenu="true"><a href="#">Discover</a>
+                                        <ul class="submenu">
+                                            <li><a href="#features">Features</a></li>
+                                            <li><a href="#team">Our Team</a></li>
+                                            <li><a href="#price-plans">Pricing Plans</a></li>
+                                            <li><a href="#blog">Latests Blogs</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="main-menu" data-submenu="true"><a href="#">Pages</a>
+                                        <ul class="submenu">
+                                            <li><a href="./about.html">About US</a></li>
+                                            <li><a href="./features.html">Features</a></li>
+                                            <li><a href="./FAQ.html">FAQ's</a></li>
+                                            <li><a href="./blog.html">Blog</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="main-menu"><a href="./contact.html">Contact</a></li>
+                                </ul>
+
+                            </div>
+                            <div class="trigger">
+                                <div class="top"></div>
+                                <div class="middle"></div>
+                                <div class="bottom"></div>
+                            </div>
+                            <div class="registration">
+                                <ul>
+                                    <li><a href="#" class="button">SIGN IN</a></li>
+                                    <li><a href="#" class="button" data-checked="true">SIGN UP</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+    <main>
+        <section id="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12 align-self-center">
+                        <div class="section-header-left">
+                            <div class="name">
+                                <h1>Industry Leading Managed Services and Staffing <span>Solutions</span></h1>
+                            </div>
+                            <div class="text">
+                                <p>Proven methods to capture business priorities and goals as well as current pain
+                                    points that enables measurable business outcomes.</p>
+                            </div>
+                            <a href="#" class="button" data-checked="true">LEARN MORE</a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-lg-offset-1 col-md-12 col-sm-12 col-12 align-self-center">
+                        <div class="section-contain">
+                            <div class="contain-item maxHeight">
+                                <img src="./assets/img/1 (2).jpg" alt="">
+                            </div>
+                            <div class="contain-item minHeight">
+                                <img src="./assets/img/2 (1).jpg" alt="">
+                            </div>
+                            <div class="contain-item minHeight left-bottom">
+                                <img src="./assets/img/3 (1).jpg" alt="">
+                            </div>
+                            <div class="contain-item maxHeight">
+                                <img src="./assets/img/1 (2).jpg" alt="">
+                                <div class="overflow">
+                                    <div class="content">
+                                        <span>Our goal:</span>
+                                        <p>“We create technology for a sustainable future.”</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <a href="#">
+                            <div class="content-features" data-number="1">
+                                <div class="logo">
+                                    <i class="fi flaticon-mobileme-logo-of-black-cloud"></i>
+                                </div>
+                                <div class="header">
+                                    <h5>Cloud Solution</h5>
+                                </div>
+                                <div class="text">
+                                    <p>Morbilling pharetra sapiening ut mattis viverra. Curabitur magna.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <a href="#">
+                            <div class="content-features" data-number="2">
+                                <div class="logo">
+                                    <i class="fi flaticon-laptop"></i>
+                                </div>
+                                <div class="header">
+                                    <h5>Network Services</h5>
+                                </div>
+                                <div class="text">
+                                    <p>Donec pellentesque turpis utium lorem imperdiet semper viverra.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <a href="#">
+                            <div class="content-features" data-number="3">
+                                <div class="logo">
+                                    <i class="fi flaticon-video-camera"></i>
+                                </div>
+                                <div class="header">
+                                    <h5>Webcast Services</h5>
+                                </div>
+                                <div class="text">
+                                    <p>Facilisis arcu ligula, malesuada id tincidunt laoreet, facilisis at justo.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <a href="#">
+                            <div class="content-features" data-number="4">
+                                <div class="logo">
+                                    <i class="fi flaticon-server"></i>
+                                </div>
+                                <div class="header">
+                                    <h5>Disaster Recovery</h5>
+                                </div>
+                                <div class="text">
+                                    <p>Proin arcu ligula, malesuada id tincidunt laoreet, facilisis at justo.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cloud-services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div class="section-header-left">
+                            <div class="name">
+                                <h1>Cloud Services</h1>
+                            </div>
+                            <div class="text">
+                                <p>Phasellus vitae velit sit amet diam semper commodo quis quis libero. Morbi consequat
+                                    arcu augue, molestie
+                                    faucibus metus ullamcorper vel.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="content-cloudServices">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Near Cloud</span>
+                                    </a>
+                                </div>
+                                <div class="content-cloudServices">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Backup Systems</span>
+                                    </a>
+                                </div>
+                                <div class="content-cloudServices">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>API Cloud</span>
+                                    </a>
+                                </div>
+                                <div class="content-cloudServices">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Web Services</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="content-cloudServices">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Office Cloud</span>
+                                    </a>
+                                </div>
+                                <div class="content-cloudServices">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Hybrid Cloud</span>
+                                    </a>
+                                </div>
+                                <div class="content-cloudServices">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>SDK Cloud</span>
+                                    </a>
+                                </div>
+                                <div class="content-cloudServices">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Cloud Hosting</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 cloud-image-service">
+                        <div class="content-photo">
+                            <img src="./assets/img/blue-1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="design-development">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 col-sm-12">
+                        <div class="content-photo">
+                            <img src="./assets/img/blue-2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-6">
+                        <div class="section-header-left">
+                            <div class="name">
+                                <h1>Design & Development</h1>
+                            </div>
+                            <div class="text">
+                                <p>Phasellus vitae velit sit amet diam semper commodo quis quis libero. Morbi consequat
+                                    arcu augue, molestie
+                                    faucibus metus ullamcorper vel.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="content-designDevelopment">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Web Design</span>
+                                    </a>
+                                </div>
+                                <div class="content-designDevelopment">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Android Development</span>
+                                    </a>
+                                </div>
+                                <div class="content-designDevelopment">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Back-End</span>
+                                    </a>
+                                </div>
+                                <div class="content-designDevelopment">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>e-Commerce</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="content-designDevelopment">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Mobile App Design</span>
+                                    </a>
+                                </div>
+                                <div class="content-designDevelopment">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>iOS Development</span>
+                                    </a>
+                                </div>
+                                <div class="content-designDevelopment">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Front-End</span>
+                                    </a>
+                                </div>
+                                <div class="content-designDevelopment">
+                                    <a href="#">
+                                        <i class="fi flaticon-angle-arrow-pointing-to-right"></i>
+                                        <span>Print Design</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="parallax-digits">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="content-parallax">
+                            <strong>0</strong>
+                            <span>Project
+                                <br>
+                                Complate</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="content-parallax">
+                            <strong>0</strong>
+                            <span>Happy
+                                <br>
+                                Customer</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="content-parallax">
+                            <strong>0</strong>
+                            <span>Experienced
+                                <br>
+                                Staff</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="content-parallax">
+                            <strong>0</strong>
+                            <span>Ongoing
+                                <br>
+                                Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <div class="section-header-center">
+                            <div class="name">
+                                <h1>Our Team</h1>
+                            </div>
+                            <div class="text">
+                                <p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum,
+                                    quis congue risus volutpat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="content-team">
+                            <div class="name">
+                                <h3>Fletch Skinner</h3>
+                                <span>Product Strategist</span>
+                            </div>
+                            <div class="social-panel">
+                                <ul>
+                                    <li><a href="#"><i class="fi flaticon-facebook-logo"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-github-logo"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="text">
+                                <p>Proin arcu ligula, malesuada id tincidunt laoreet, facilisis at justo. Sed at lorem.
+                                </p>
+                            </div>
+                            <div class="photo">
+                                <img src="./assets/img/team/1.jpg" alt="Fletch Skinner">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="content-team">
+                            <div class="name">
+                                <h3>Lance Bogrol</h3>
+                                <span>Visual Designer</span>
+                            </div>
+                            <div class="social-panel">
+                                <ul>
+                                    <li><a href="#"><i class="fi flaticon-facebook-logo"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-github-logo"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="text">
+                                <p>Aliquam eget convallis nunc, et porta libero. Etiam velit, lobortis ut tristique.</p>
+                            </div>
+                            <div class="photo">
+                                <img src="./assets/img/team/2.jpg" alt="Fletch Skinner">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="content-team">
+                            <div class="name">
+                                <h3>Valentino Morose</h3>
+                                <span>Android Developer</span>
+                            </div>
+                            <div class="social-panel">
+                                <ul>
+                                    <li><a href="#"><i class="fi flaticon-facebook-logo"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-github-logo"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="text">
+                                <p>Curabitur tristique nec orci quis porta. Aliquam leo justo, auctor eget sapien.</p>
+                            </div>
+                            <div class="photo">
+                                <img src="./assets/img/team/3.jpg" alt="Fletch Skinner">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="content-team">
+                            <div class="name">
+                                <h3>Giles Posture</h3>
+                                <span>iOS Developer</span>
+                            </div>
+                            <div class="social-panel">
+                                <ul>
+                                    <li><a href="#"><i class="fi flaticon-facebook-logo"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fi flaticon-github-logo"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="text">
+                                <p>Nunc posuere lectus ut aliquet facilisis. Nam varius id magna et convallis.</p>
+                            </div>
+                            <div class="photo">
+                                <img src="./assets/img/team/4.jpg" alt="Fletch Skinner">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="price-plans">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <div class="section-header-center">
+                            <div class="name">
+                                <h1>Pricing Plans</h1>
+                            </div>
+                            <div class="text">
+                                <p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum,
+                                    quis congue
+                                    risus volutpat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="content-price">
+                            <div class="name">
+                                <h3>BASIC PLAN</h3>
+                                <span>1</span>
+                            </div>
+                            <div class="price">
+                                <h5><span class="currency">$</span>13.90<span>/Month</span></h5>
+                            </div>
+                            <div class="property">
+                                <ul>
+                                    <li class="active">Unlimited Website</li>
+                                    <li class="active">Unlimited Users</li>
+                                    <li class="active">5 GB Bandwidth</li>
+                                    <li class="active">Highest Speed</li>
+                                    <li class="passive">Data Security and Backups</li>
+                                    <li class="passive">1 GB Storage</li>
+                                    <li class="passive">24x7 Great Support</li>
+                                    <li class="passive">Monthly Reports and Analytics</li>
+                                </ul>
+                            </div>
+                            <div class="select">
+                                <a href="#" class="button" data-checked="true">SELECT PLAN</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="content-price">
+                            <div class="name" data-active="true">
+                                <h3>ADVANCED PLAN</h3>
+                                <span>2</span>
+                            </div>
+                            <div class="price">
+                                <h5><span class="currency">$</span>23.90<span>/Month</span></h5>
+                            </div>
+                            <div class="property">
+                                <ul>
+                                    <li class="active">Unlimited Website</li>
+                                    <li class="active">Unlimited Users</li>
+                                    <li class="active">5 GB Bandwidth</li>
+                                    <li class="active">Highest Speed</li>
+                                    <li class="active">Data Security and Backups</li>
+                                    <li class="active">1 GB Storage</li>
+                                    <li class="passive">24x7 Great Support</li>
+                                    <li class="passive">Monthly Reports and Analytics</li>
+                                </ul>
+                            </div>
+                            <div class="select">
+                                <a href="#" class="button" data-checked="true">SELECT PLAN</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="content-price">
+                            <div class="name">
+                                <h3>EXPERT PLAN</h3>
+                                <span>3</span>
+                            </div>
+                            <div class="price">
+                                <h5><span class="currency">$</span>33.90<span>/Month</span></h5>
+                            </div>
+                            <div class="property">
+                                <ul>
+                                    <li class="active">Unlimited Website</li>
+                                    <li class="active">Unlimited Users</li>
+                                    <li class="active">5 GB Bandwidth</li>
+                                    <li class="active">Highest Speed</li>
+                                    <li class="active">Data Security and Backups</li>
+                                    <li class="active">1 GB Storage</li>
+                                    <li class="active">24x7 Great Support</li>
+                                    <li class="active">Monthly Reports and Analytics</li>
+                                </ul>
+                            </div>
+                            <div class="select">
+                                <a href="#" class="button" data-checked="true">SELECT PLAN</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="parallax-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="content-contact">
+                            <div class="info">
+                                <h3>We design and develop <span>web apps</span> that delight your users and grow your
+                                    business.</h3>
+                                <a href="#" class="button">CONTACT US</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <div class="section-header-center">
+                            <div class="name">
+                                <h1>Latest Blog Posts</h1>
+                            </div>
+                            <div class="text">
+                                <p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum,
+                                    quis congue
+                                    risus volutpat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="content-blog">
+                            <div class="photo">
+                                <img src="./assets/img/1 (1).jpg" alt="">
+                            </div>
+                            <div class="name">
+                                <h3>Jirono Expands the Leadership Team with David Lin, Controller</h3>
+                            </div>
+                            <div class="text">
+                                <p>Mauris tellus sem, ultrices varius nisl at, convallis iaculis mauris. Sed eget sem
+                                    vitae purus tempus dignissim.</p>
+                            </div>
+                            <a href="./blog-single.html" class="button" data-checked="true">READ MORE</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="content-blog">
+                            <div class="photo">
+                                <img src="./assets/img/3.jpg" alt="">
+                            </div>
+                            <div class="name">
+                                <h3>Jirono Partners with Velocloud to Deliver Managed SD-WAN</h3>
+                            </div>
+                            <div class="text">
+                                <p>Cras imperdiet faucibus sem, a dignissim urna feugiat sed. Interdum et malesuada
+                                    fames ac ante ipsum.</p>
+                            </div>
+                            <a href="./blog-single.html" class="button" data-checked="true">READ MORE</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="content-blog">
+                            <div class="photo">
+                                <img src="./assets/img/2.jpg" alt="">
+                            </div>
+                            <div class="name">
+                                <h3>Corporate IT Solutions Adds Neva as Senior Account Executive</h3>
+                            </div>
+                            <div class="text">
+                                <p>Quisque euismod nec lacus sit amet maximus. Ut convallis sagittis lorem auctor
+                                    malesuada. Morbi auctor tortor.</p>
+                            </div>
+                            <a href="./blog-single.html" class="button" data-checked="true">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                        <div class="footer-item">
+                            <div class="item-header">
+                                <img src="./assets/img/logo-white.png" alt="logo">
+                            </div>
+                            <div class="item-contain">
+                                <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat
+                                    eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                        <div class="footer-item">
+                            <div class="item-header">
+                                <h5>Helpful Links</h5>
+                            </div>
+                            <div class="item-contain">
+                                <ul>
+                                    <li><a href="./about.html"><i
+                                                class="fi flaticon-angle-arrow-pointing-to-right"></i><span>About
+                                                Us</span></a></li>
+                                    <li><a href="./features.html"><i
+                                                class="fi flaticon-angle-arrow-pointing-to-right"></i><span>Features</span></a>
+                                    </li>
+                                    <li><a href="./FAQ.html"><i
+                                                class="fi flaticon-angle-arrow-pointing-to-right"></i><span>FAQ's</span></a>
+                                    </li>
+                                    <li><a href="./blog.html"><i
+                                                class="fi flaticon-angle-arrow-pointing-to-right"></i><span>Blog</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                        <div class="footer-item">
+                            <div class="item-header">
+                                <h5>Support</h5>
+                            </div>
+                            <div class="item-contain">
+                                <ul>
+                                    <li><a href="#"><i
+                                                class="fi flaticon-angle-arrow-pointing-to-right"></i><span>Privacy
+                                                Policy</span></a></li>
+                                    <li><a href="#"><i class="fi flaticon-angle-arrow-pointing-to-right"></i><span>Terms
+                                                of Use</span></a></li>
+                                    <li><a href="#"><i
+                                                class="fi flaticon-angle-arrow-pointing-to-right"></i><span>Support
+                                                Center</span></a></li>
+                                    <li><a href="./contact.html"><i
+                                                class="fi flaticon-angle-arrow-pointing-to-right"></i><span>Contact</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="footer-item">
+                            <div class="item-header">
+                                <h5>Contact Us</h5>
+                            </div>
+                            <div class="item-contain">
+                                <ul>
+                                    <li><span>455 West Orchard Street
+                                            Kings Mountain, NC 28086</span></li>
+                                    <li><span>Phone: (272) 211-7370</span></li>
+                                    <li><span>E-Mail:support@yourbrand.com</span></li>
+                                    <li>
+                                        <ul class="footer-social">
+                                            <li><a href="#"><i class="fi flaticon-facebook-logo"></i></a></li>
+                                            <li><a href="#"><i class="fi flaticon-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fi flaticon-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fi flaticon-google-plus"></i></a></li>
+                                            <li><a href="#"><i class="fi flaticon-github-logo"></i></a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="copyright">© 2019 Jirono. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </footer>
+    <script src="./assets/script/main.js"></script>
+    
+</body>
+
+</html>

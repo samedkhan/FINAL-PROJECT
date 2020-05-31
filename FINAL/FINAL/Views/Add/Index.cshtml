@@ -1,0 +1,74 @@
+﻿@model AddViewModel
+@{
+    ViewData["Title"] = "Bütün elanlar";
+}
+
+@*Intro*@
+<partial name="_Breadcumb" model="ViewBag.Partial" />
+
+<section id="prop-search">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9 col-md-offset-3">
+                <div class="title">
+                    <div class="sum-found-property">
+                        <span class="sum">@ViewBag.AddsCount</span>
+                        <span>elan mövcuddur</span>
+                    </div>
+                    <div class="rent-sale-buttons">
+                        <ul class="nav-tabs">
+                            <li class="active"><button data-filter="*">Ümumi</button></li>
+                            <li><button data-filter=".sale">Satış</button></li>
+                            <li><button data-filter=".rent">Kirayə</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+
+                @*Filter Panel*@
+                <partial name="_FilterPanel" model="ViewBag.Filters" />
+            </div>
+
+            <div class="col-md-9">
+                <div class="adds-panel">
+                    <div class="contain-stack grid">
+                        @*Adds Panel*@
+                        <partial name="_AddsPanel" model="ViewBag.Adds" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+@section Filter{
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+}
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+
+            // init Isotope -- FILTERING showing data
+            var $grid = $('.grid').isotope({
+                // options
+                itemSelector: '.element-item',
+                layoutMode: 'fitRows',
+            });
+            // filter items on button click
+            $('button').click(function () {
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+            });
+
+
+
+        });
+    </script>
+}
+
