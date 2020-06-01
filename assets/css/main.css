@@ -16,7 +16,47 @@
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
 
-.submenu-hover, #header .navigation-bar .menu ul .main-menu:hover .submenu {
+.submenu, #header .navigation-bar .menu ul .main-menu .submenu, #header .navigation-bar .registration .main-menu .submenu {
+  position: absolute;
+  margin-left: 0px;
+  width: 200px;
+  -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
+          box-shadow: 7px 7px 11px -7px #6e6e6e;
+  background-color: #F6F6F6;
+  border-radius: 8px;
+  padding: 0px;
+  top: 20px;
+  opacity: 0;
+  -webkit-transform: translateY(-2em);
+          transform: translateY(-2em);
+  visibility: hidden;
+  z-index: -1;
+  -webkit-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
+  .submenu li, #header .navigation-bar .menu ul .main-menu .submenu li, #header .navigation-bar .registration .main-menu .submenu li {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative; }
+    .submenu li a, #header .navigation-bar .menu ul .main-menu .submenu li a, #header .navigation-bar .registration .main-menu .submenu li a, .submenu li span, #header .navigation-bar .menu ul .main-menu .submenu li span, #header .navigation-bar .registration .main-menu .submenu li span {
+      display: block;
+      background: #fff;
+      color: #3B566E;
+      padding-left: 20px;
+      height: 40px;
+      line-height: 40px;
+      -webkit-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s;
+      position: relative;
+      font-size: 13px;
+      border-bottom: 1px solid #f5f5f5; }
+      .submenu li a:hover, #header .navigation-bar .menu ul .main-menu .submenu li a:hover, #header .navigation-bar .registration .main-menu .submenu li a:hover, .submenu li span:hover, #header .navigation-bar .menu ul .main-menu .submenu li span:hover, #header .navigation-bar .registration .main-menu .submenu li span:hover {
+        background: #FFEEE2;
+        padding-left: 25px;
+        border-left: 4px solid #FDA94F;
+        color: #FDA94F; }
+
+.submenu-hover, #header .navigation-bar .menu ul .main-menu:hover .submenu, #header .navigation-bar .registration .main-menu:hover .submenu {
   visibility: visible;
   opacity: 1;
   z-index: 1;
@@ -794,7 +834,7 @@
             background: #fff; }
           #header .menu ul .main-menu:hover > a {
             background-color: #f5f5f5 !important; }
-          #header .menu ul .main-menu .submenu {
+          #header .menu ul .main-menu .submenu, #header .navigation-bar .menu ul .main-menu .submenu, #header .menu ul .navigation-bar .registration .main-menu .submenu {
             visibility: inherit;
             opacity: 1;
             z-index: 1;
@@ -811,10 +851,10 @@
             position: relative !important;
             top: 0 !important;
             display: block; }
-            #header .menu ul .main-menu .submenu li {
+            #header .menu ul .main-menu .submenu li, #header .navigation-bar .menu ul .main-menu .submenu li, #header .menu ul .navigation-bar .registration .main-menu .submenu li {
               background: white;
               border-bottom: 1px solid #f5f5f5; }
-              #header .menu ul .main-menu .submenu li a {
+              #header .menu ul .main-menu .submenu li a, #header .navigation-bar .menu ul .main-menu .submenu li a, #header .menu ul .navigation-bar .registration .main-menu .submenu li a {
                 margin-left: 70px !important; }
           #header .menu ul .main-menu a, #header .menu ul .main-menu span {
             height: 40px !important;
@@ -983,45 +1023,6 @@ a {
               color: #FDA94F;
               -webkit-transition: all 0.4s ease 0s;
               transition: all 0.4s ease 0s; }
-          #header .navigation-bar .menu ul .main-menu .submenu {
-            position: absolute;
-            margin-left: 0px;
-            width: 200px;
-            -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
-                    box-shadow: 7px 7px 11px -7px #6e6e6e;
-            background-color: #F6F6F6;
-            border-radius: 8px;
-            padding: 0px;
-            top: 20px;
-            opacity: 0;
-            -webkit-transform: translateY(-2em);
-                    transform: translateY(-2em);
-            visibility: hidden;
-            z-index: -1;
-            -webkit-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
-            transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
-            #header .navigation-bar .menu ul .main-menu .submenu li {
-              margin-left: 0px;
-              padding-left: 0px;
-              padding-right: 0px;
-              position: relative; }
-              #header .navigation-bar .menu ul .main-menu .submenu li a, #header .navigation-bar .menu ul .main-menu .submenu li span {
-                display: block;
-                background: #fff;
-                color: #3B566E;
-                padding-left: 20px;
-                height: 40px;
-                line-height: 40px;
-                -webkit-transition: all 0.4s ease 0s;
-                transition: all 0.4s ease 0s;
-                position: relative;
-                font-size: 13px;
-                border-bottom: 1px solid #f5f5f5; }
-                #header .navigation-bar .menu ul .main-menu .submenu li a:hover, #header .navigation-bar .menu ul .main-menu .submenu li span:hover {
-                  background: #FFEEE2;
-                  padding-left: 25px;
-                  border-left: 4px solid #FDA94F;
-                  color: #FDA94F; }
     #header .navigation-bar .registration {
       padding: 5px 0px;
       font-family: "Arch";
@@ -1052,49 +1053,15 @@ a {
           padding-left: 5px;
           font-weight: 900;
           content: "\f10f"; }
+        #header .navigation-bar .registration .main-menu[data-dropdown] {
+          margin: 13px 0px; }
         #header .navigation-bar .registration .main-menu[data-button] {
           padding: 10px 20px; }
           #header .navigation-bar .registration .main-menu[data-button] a i {
             margin-right: 10px; }
-        #header .navigation-bar .registration .main-menu .submenu {
-          position: absolute;
-          margin-left: 0px;
-          width: 200px;
-          -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
-                  box-shadow: 7px 7px 11px -7px #6e6e6e;
-          background-color: #F6F6F6;
-          border-radius: 8px;
-          padding: 0px;
-          top: 20px;
-          opacity: 0;
-          -webkit-transform: translateY(-2em);
-                  transform: translateY(-2em);
-          visibility: hidden;
-          z-index: -1;
-          -webkit-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
-          transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
-          #header .navigation-bar .registration .main-menu .submenu li {
-            margin-left: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
-            position: relative; }
-            #header .navigation-bar .registration .main-menu .submenu li a, #header .navigation-bar .registration .main-menu .submenu li span {
-              display: block;
-              background: #fff;
-              color: #3B566E;
-              padding-left: 20px;
-              height: 40px;
-              line-height: 40px;
-              -webkit-transition: all 0.4s ease 0s;
-              transition: all 0.4s ease 0s;
-              position: relative;
-              font-size: 13px;
-              border-bottom: 1px solid #f5f5f5; }
-              #header .navigation-bar .registration .main-menu .submenu li a:hover, #header .navigation-bar .registration .main-menu .submenu li span:hover {
-                background: #FFEEE2;
-                padding-left: 25px;
-                border-left: 4px solid #FDA94F;
-                color: #FDA94F; }
+        #header .navigation-bar .registration .menu ul .main-menu .submenu, #header .navigation-bar .menu ul .registration .main-menu .submenu, #header .navigation-bar .registration .main-menu .submenu {
+          width: 150px;
+          top: 40px; }
 
 #footer {
   background-color: #e0d7d7;

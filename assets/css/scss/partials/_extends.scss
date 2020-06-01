@@ -15,7 +15,48 @@
         transition: $t-regular;
     }
 }
+.submenu{
+    position: absolute;
+    margin-left: 0px;
+    width: 200px;
+    box-shadow: $bs-regular;
+    background-color: $lightgrey;
+    border-radius: $br-regular;
+    padding: 0px;
+    top: 20px;
+    opacity: 0;
+    transform: translateY(-2em);
+    visibility: hidden;
+    z-index: -1;
+    transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    
+    li {
+        margin-left: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        position: relative;
+        a,span {
+            display: block;
+            background: #fff;
+            color: #3B566E;
+            padding-left: 20px;
+            height: 40px;
+            line-height: 40px;
+            transition: $t-regular;
+            position: relative;
+            font-size: 13px;
+            border-bottom: 1px solid #f5f5f5;
 
+            &:hover {
+                background: $hoverBack;
+                padding-left: 25px;
+                border-left: 4px solid $yellow;
+                color:$yellow;
+                
+            }
+        }
+    }
+}
 .submenu-hover {
     visibility: visible;
     opacity: 1;
