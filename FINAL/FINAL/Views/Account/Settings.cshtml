@@ -184,7 +184,9 @@
     <script src="~/script/notiflix/notiflix-2.1.3.min.js"></script>
 }
 @section FormValidator{
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script src="~/script/form-validator/jquery.form-validator.min.js"></script>
+    <script src="~/script/form-validator/security.js"></script>
+    <script src="~/script/form-validator/file.js"></script>
 }
 
 @section PhoneMask{
@@ -212,13 +214,13 @@
     <script>
         $(document).ready(function () {
             //FORM VALIDATION
-        $.validate({
-            modules: 'file, security',
-            addSuggestions: true,
-            decimalSeparator: ','
+            $.validate({
+                modules: 'file, security',
+                addSuggestions: true,
+                decimalSeparator: ','
+            });
+            $('#about').restrictLength($('#max-length-element'));
         });
-        $('#about').restrictLength($('#max-length-element'));
-        });
-        
+
     </script>
- }
+}

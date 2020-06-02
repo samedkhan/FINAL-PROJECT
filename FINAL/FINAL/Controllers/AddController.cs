@@ -436,7 +436,7 @@ namespace FINAL.Controllers
                                                                                                 Include("Property.PropertySort").
                                                                                                     Include("Property.Project").
                                                                                                         Where(a =>a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active && a.AddTypeID == Add.AddTypeID && a.Property.PropertySortId == Add.Property.PropertySortId && a.AddvertisimentID != Add.AddvertisimentID).
-                                                                                                            OrderByDescending(a => a.CreatedAt).ToList(),
+                                                                                                            OrderByDescending(a => a.CreatedAt).Take(8).ToList(),
                     },
                     Breadcumb = new BreadcumbViewModel
                     {

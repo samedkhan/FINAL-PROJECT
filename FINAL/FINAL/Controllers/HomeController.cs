@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using FINAL.Models;
 using FINAL.Data;
 using FINAL.ViewModels;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace FINAL.Controllers
 {
@@ -22,7 +24,31 @@ namespace FINAL.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            HomeIndexViewModel data = new HomeIndexViewModel
+            {
+                AddsPanel = new AddsPanelViewModel
+                {
+                    Type = ViewType.normal,
+                    AddList = _context.Addvertisiments.Include("AddType").Include("Property").
+                                                                            Include("Property.City").
+                                                                                Include("Property.District").
+                                                                                    Include("Property.Flat").
+                                                                                        Include("Property.Floor").
+                                                                                            Include("Property.PropDoc").
+                                                                                                Include("Property.PropertySort").
+                                                                                                    Include("Property.Project").
+                                                                                                         Where(a => a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).Take(12).ToList(),
+                },
+                SearchPanel = new FilterPanelViewModel
+                {
+                    AddTypes = _context.AddTypes.ToList(),
+                    Cities = _context.Cities.ToList(),
+                    PropertySorts = _context.PropertySorts.ToList(),
+                },
+                Agencies = _context.Users.Where(u => u.UserTypeID == 1 && u.Status == UserStatus.Active).ToList(),
+            };
+            ViewBag.Adds = data.AddsPanel;
+            return View(data);
         }
 
         public IActionResult Privacy()
@@ -38,7 +64,7 @@ namespace FINAL.Controllers
 
         public IActionResult Contact()
         {
-            HomeViewModel data = new HomeViewModel
+            HomeIndexViewModel data = new HomeIndexViewModel
             {
                 Breadcumb = new BreadcumbViewModel
                 {

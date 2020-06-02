@@ -1,5 +1,5 @@
 ﻿
-$(document).ready(function(){
+$(document).ready(function () {
     let alreadyDid = false;
 
     var navmenu = $("#header");

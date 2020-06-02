@@ -45,18 +45,43 @@ namespace FINAL.Controllers
                 Controller = "Home",
                 Action = "index"
             };
-            BreadcumbItemViewModel logSign = new BreadcumbItemViewModel
+            BreadcumbItemViewModel login = new BreadcumbItemViewModel
             {
-                Name = "Daxil Ol - Qeydiyyat"
+                Name = "Daxil Ol"
             };
             data.Breadcumb.Path.Add(home);
-            data.Breadcumb.Path.Add(logSign);
+            data.Breadcumb.Path.Add(login);
             ViewBag.Partial = data.Breadcumb;
-            ViewBag.UserTypes = _context.UserTypes.OrderBy(u => u.UserTypeId).ToList();
-
-
             return View();
         }
+        public IActionResult Signup()
+        {
+            AccountIndexViewModel data = new AccountIndexViewModel()
+            {
+                Breadcumb = new BreadcumbViewModel
+                {
+                    Title = "Yeni üzv",
+                    Path = new List<BreadcumbItemViewModel>()
+                },
+            };
+
+            BreadcumbItemViewModel home = new BreadcumbItemViewModel
+            {
+                Name = "Ana səhifə",
+                Controller = "Home",
+                Action = "index"
+            };
+            BreadcumbItemViewModel signup = new BreadcumbItemViewModel
+            {
+                Name = "Qeydiyyat"
+            };
+            data.Breadcumb.Path.Add(home);
+            data.Breadcumb.Path.Add(signup);
+            ViewBag.Partial = data.Breadcumb;
+            ViewBag.UserTypes = _context.UserTypes.OrderBy(u => u.UserTypeId).ToList();
+            return View();
+        }
+
 
 
         [HttpPost]
@@ -106,14 +131,13 @@ namespace FINAL.Controllers
                 Controller = "Home",
                 Action = "index"
             };
-            BreadcumbItemViewModel logSign = new BreadcumbItemViewModel
+            BreadcumbItemViewModel login = new BreadcumbItemViewModel
             {
-                Name = "Daxil Ol - Qeydiyyat"
+                Name = "Daxil Ol"
             };
             data.Breadcumb.Path.Add(home);
-            data.Breadcumb.Path.Add(logSign);
+            data.Breadcumb.Path.Add(login);
             ViewBag.Partial = data.Breadcumb;
-            ViewBag.UserTypes = _context.UserTypes.OrderBy(u => u.UserTypeId).ToList();
             return View("~/Views/Account/Index.cshtml");
         }
 
@@ -166,7 +190,7 @@ namespace FINAL.Controllers
             };
             data.Breadcumb = new BreadcumbViewModel
             {
-                Title = "Şəxsi kabinetə giriş",
+                Title = "Yeni üzv",
                 Path = new List<BreadcumbItemViewModel>()
             };
             BreadcumbItemViewModel home = new BreadcumbItemViewModel
@@ -175,15 +199,15 @@ namespace FINAL.Controllers
                 Controller = "Home",
                 Action = "index"
             };
-            BreadcumbItemViewModel logSign = new BreadcumbItemViewModel
+            BreadcumbItemViewModel signup = new BreadcumbItemViewModel
             {
-                Name = "Daxil Ol - Qeydiyyat"
+                Name = "Qeydiyyat"
             };
             data.Breadcumb.Path.Add(home);
-            data.Breadcumb.Path.Add(logSign);
+            data.Breadcumb.Path.Add(signup);
             ViewBag.Partial = data.Breadcumb;
             ViewBag.UserTypes = _context.UserTypes.OrderBy(u => u.UserTypeId).ToList();
-            return View("~/Views/Account/Index.cshtml");
+            return View("~/Views/Account/Signup.cshtml");
         }
 
         public IActionResult Logout()
