@@ -14,7 +14,7 @@
                 <div class="row">
                     @foreach (User item in Model.Agencies.Users)
                     {
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-xs-6 col-6">
                             <div class="contain-item">
                                 <div class="item-image">
                                     <a asp-controller="agency" asp-action="detail" asp-route-id="@item.UserId"><img src="~/img/users/@item.Logo" alt="@item.Name"></a>

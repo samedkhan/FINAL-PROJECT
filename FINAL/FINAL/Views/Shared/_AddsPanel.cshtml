@@ -2,7 +2,7 @@
 
 @foreach (Addvertisiment item in Model.AddList)
 {
-    <div class="col-md-@(Model.Type==ViewType.small?"4":"3") element-item @(@item.AddTypeID < 3 ? "rent" : "sale")">
+    <div class="col-md-@(Model.Type==ViewType.small?"4":"3") col-sm-6 col-xs-6 element-item @(@item.AddTypeID < 3 ? "rent" : "sale")">
         <div class="contain-item">
             <div class="item-image">
                 <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property"></a>

@@ -103,7 +103,7 @@
                         width: 100% !important;
                         position: relative !important;
                         top: 0 !important;
-                        display:block;
+                        visibility: hidden;
                         li{
                             background: white;
                             border-bottom: 1px solid #f5f5f5;
@@ -176,7 +176,19 @@
     }
     // END of "ABOUT US" PAGE RESPONSIVE PROPERTY
 
-    
+    #home-partners{
+        display: none;
+    }
+
+    #recent-properties{
+        .title{
+            display: flex;
+            justify-content: center;
+            a{
+                display: none;
+            }
+        }
+    }
 
     // "FAQ" PAGE RESPONSIVE PROPERTY
     #faq{

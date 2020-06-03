@@ -1,4 +1,4 @@
-#partners{
+#home-partners{
     @include section-prop;
     @extend .section-title;
     .title{
@@ -7,6 +7,10 @@
     .contain-stack{
         padding: 20px 25px !important;
         .partners-logo{
+            padding: 10px 5px 5px;
+            border: 1px solid $grey;
+            border-radius: $br-regular;
+            box-shadow: $bs-regular;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;

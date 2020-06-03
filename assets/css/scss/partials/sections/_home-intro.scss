@@ -34,10 +34,9 @@
         }
         .tab-content{
             .tab-panel{
-                padding: 40px 20px;
+                padding: 20px 15px;
                 background-color: $white;
                 border-radius: $br-regular;
-                border-top-left-radius: 0px;
                 box-shadow: $bs-regular;
             }
             .search-input{
@@ -46,12 +45,14 @@
             .search-select{
                 select{
                     @extend .search-tab-content;
+                    margin: 10px 0px;
                     &:focus{
                         @extend .search-tab-content-focus;
                     }
                 }
             }
             .search-button{
+                margin: 10px 0px;
                 button{
                     @extend .search-tab-content;
                     

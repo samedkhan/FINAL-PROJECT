@@ -17,29 +17,30 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+
         .item-image{
             overflow: hidden;
             height: 120px;
+            width: 100%;
             display: flex;
             justify-content: center;
+            align-items: center;
             border-radius: $br-regular;
+            border: 1px solid $grey;
             img{
-                height: inherit;
-                width: inherit;
+                max-height: 120px;
+                border-radius: 0px !important;
             }
             
         }
         .item-property{
             padding: 5px 0px !important;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-content: space-between;
             .property-name{
                 font-size: $footer-list-head;
                 font-weight: bold;
                 padding: 5px 0px !important;
                 text-align: center;
+                margin-bottom: 20px;
             }
         }
         .adds-count{

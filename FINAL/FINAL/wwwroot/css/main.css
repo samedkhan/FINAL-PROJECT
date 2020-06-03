@@ -91,7 +91,7 @@
     line-height: 70px;
     font-weight: bold; }
 
-.section-title .title, .addvertisiments .title, #recent-properties .title, #partner-properties .title, #partners .title, #prop-search .title, #about-us .title, #contact .title, #add-prop .title, #cabinet .title, #login-signup .title, #faq .title {
+.section-title .title, .addvertisiments .title, #recent-properties .title, #partner-properties .title, #home-partners .title, #prop-search .title, #partners .title, #about-us .title, #contact .title, #add-prop .title, #cabinet .title, #login-signup .title, #faq .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,18 +101,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .section-title .title a, .addvertisiments .title a, #recent-properties .title a, #partner-properties .title a, #partners .title a, #prop-search .title a, #about-us .title a, #contact .title a, #add-prop .title a, #cabinet .title a, #login-signup .title a, #faq .title a {
+  .section-title .title a, .addvertisiments .title a, #recent-properties .title a, #partner-properties .title a, #home-partners .title a, #prop-search .title a, #partners .title a, #about-us .title a, #contact .title a, #add-prop .title a, #cabinet .title a, #login-signup .title a, #faq .title a {
     color: #FDA94F;
     font-family: "OpenSans";
     font-size: 15px;
     font-weight: bold;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s; }
-    .section-title .title a:hover, .addvertisiments .title a:hover, #recent-properties .title a:hover, #partner-properties .title a:hover, #partners .title a:hover, #prop-search .title a:hover, #about-us .title a:hover, #contact .title a:hover, #add-prop .title a:hover, #cabinet .title a:hover, #login-signup .title a:hover, #faq .title a:hover {
+    .section-title .title a:hover, .addvertisiments .title a:hover, #recent-properties .title a:hover, #partner-properties .title a:hover, #home-partners .title a:hover, #prop-search .title a:hover, #partners .title a:hover, #about-us .title a:hover, #contact .title a:hover, #add-prop .title a:hover, #cabinet .title a:hover, #login-signup .title a:hover, #faq .title a:hover {
       color: #061B40;
       -webkit-transition: all 0.4s ease 0s;
       transition: all 0.4s ease 0s; }
-  .section-title .title h1, .addvertisiments .title h1, #recent-properties .title h1, #partner-properties .title h1, #partners .title h1, #prop-search .title h1, #about-us .title h1, #contact .title h1, #add-prop .title h1, #cabinet .title h1, #login-signup .title h1, #faq .title h1 {
+  .section-title .title h1, .addvertisiments .title h1, #recent-properties .title h1, #partner-properties .title h1, #home-partners .title h1, #prop-search .title h1, #partners .title h1, #about-us .title h1, #contact .title h1, #add-prop .title h1, #cabinet .title h1, #login-signup .title h1, #faq .title h1 {
     font-size: 30px;
     font-family: "Arch";
     letter-spacing: 0.5px;
@@ -879,7 +879,7 @@
             width: 100% !important;
             position: relative !important;
             top: 0 !important;
-            display: block; }
+            visibility: hidden; }
             #header .menu ul .main-menu .submenu li, #header .navigation-bar .menu ul .main-menu .submenu li, #header .menu ul .navigation-bar .registration .main-menu .submenu li {
               background: white;
               border-bottom: 1px solid #f5f5f5; }
@@ -916,6 +916,19 @@
   #about .text {
     position: relative !important;
     margin-bottom: 80px; }
+
+  #home-partners {
+    display: none; }
+
+  #recent-properties .title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    #recent-properties .title a {
+      display: none; }
 
   #faq .faq-content {
     margin-top: 50px; }
@@ -1299,34 +1312,42 @@ Creation date: 24/08/2019 12:54
         -webkit-transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s; }
     #home-intro .contain-stack .tab-content .tab-panel {
-      padding: 40px 20px;
+      padding: 20px 15px;
       background-color: white;
       border-radius: 8px;
-      border-top-left-radius: 0px;
       -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
               box-shadow: 7px 7px 11px -7px #6e6e6e; }
-    #home-intro .contain-stack .tab-content .search-button button {
-      letter-spacing: 1.1px;
-      background-color: #FFEEE2;
-      color: #FDA94F;
-      font-weight: bold;
-      padding: 9px 4px; }
-      #home-intro .contain-stack .tab-content .search-button button:hover {
-        color: white; }
+    #home-intro .contain-stack .tab-content .search-select select {
+      margin: 10px 0px; }
+    #home-intro .contain-stack .tab-content .search-button {
+      margin: 10px 0px; }
+      #home-intro .contain-stack .tab-content .search-button button {
+        letter-spacing: 1.1px;
+        background-color: #FFEEE2;
+        color: #FDA94F;
+        font-weight: bold;
+        padding: 9px 4px; }
+        #home-intro .contain-stack .tab-content .search-button button:hover {
+          color: white; }
     #home-intro .contain-stack .active {
       display: block; }
     #home-intro .contain-stack .hide {
       display: none; }
 
-#partners {
+#home-partners {
   padding: 20px 0px; }
-  #partners .title {
+  #home-partners .title {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  #partners .contain-stack {
+  #home-partners .contain-stack {
     padding: 20px 25px !important; }
-    #partners .contain-stack .partners-logo {
+    #home-partners .contain-stack .partners-logo {
+      padding: 10px 5px 5px;
+      border: 1px solid #e0d7d7;
+      border-radius: 8px;
+      -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
+              box-shadow: 7px 7px 11px -7px #6e6e6e;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -1335,7 +1356,7 @@ Creation date: 24/08/2019 12:54
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      #partners .contain-stack .partners-logo .item {
+      #home-partners .contain-stack .partners-logo .item {
         padding: 0px 25px;
         height: 100px;
         display: -webkit-box;
@@ -1344,12 +1365,12 @@ Creation date: 24/08/2019 12:54
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center; }
-        #partners .contain-stack .partners-logo .item img {
+        #home-partners .contain-stack .partners-logo .item img {
           max-height: 100px;
           max-width: -webkit-min-content;
           max-width: -moz-min-content;
           max-width: min-content; }
-      #partners .contain-stack .partners-logo .owl-nav span {
+      #home-partners .contain-stack .partners-logo .owl-nav span {
         font-size: 35px;
         padding: 0px 20px;
         color: #FDA94F;
@@ -1720,33 +1741,29 @@ Creation date: 24/08/2019 12:54
   #partners .contain-item .item-image {
     overflow: hidden;
     height: 120px;
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    border-radius: 8px; }
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 8px;
+    border: 1px solid #e0d7d7; }
     #partners .contain-item .item-image img {
-      height: inherit;
-      width: inherit; }
+      max-height: 120px;
+      border-radius: 0px !important; }
   #partners .contain-item .item-property {
-    padding: 5px 0px !important;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-flex-line-pack: justify;
-        align-content: space-between; }
+    padding: 5px 0px !important; }
     #partners .contain-item .item-property .property-name {
       font-size: 18px;
       font-weight: bold;
       padding: 5px 0px !important;
-      text-align: center; }
+      text-align: center;
+      margin-bottom: 20px; }
   #partners .contain-item .adds-count {
     font-family: "OpenSans";
     font-size: 12px;

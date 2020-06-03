@@ -1,0 +1,34 @@
+﻿@model HomeIndexViewModel
+@{
+    ViewData["Title"] = "Haqqımızda";
+}
+
+<!-- intro-section -->
+@*Intro*@
+<partial name="_Breadcumb" model="ViewBag.Partial" />
+<!-- end of intro-section -->
+
+<!-- about-us-section -->
+<section id="about-us" class="mt-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Haqqımızda</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contain-stack mt-20">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contain-item">
+                            @Html.Raw(Model.About.Setting.About)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of about-us-section -->

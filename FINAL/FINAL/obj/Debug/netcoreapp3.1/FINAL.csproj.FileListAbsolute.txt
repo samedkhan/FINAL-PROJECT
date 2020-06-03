@@ -444,7 +444,6 @@ C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.TagHelpers.input.cache
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.TagHelpers.output.cache
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.RazorCoreGenerate.cache
-C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Cabinet.cshtml.g.cs
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Settings.cshtml.g.cs
@@ -475,3 +474,4 @@ C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.pdb
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csprojAssemblyReference.cache
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Signup.cshtml.g.cs
+C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs

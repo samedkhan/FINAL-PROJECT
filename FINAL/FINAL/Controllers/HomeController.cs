@@ -22,6 +22,18 @@ namespace FINAL.Controllers
             _context = context;
             _logger = logger;
         }
+       
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
         public IActionResult Index()
         {
             HomeIndexViewModel data = new HomeIndexViewModel
@@ -37,7 +49,7 @@ namespace FINAL.Controllers
                                                                                             Include("Property.PropDoc").
                                                                                                 Include("Property.PropertySort").
                                                                                                     Include("Property.Project").
-                                                                                                         Where(a => a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).Take(12).ToList(),
+                                                                                                         Where(a => a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList(),
                 },
                 SearchPanel = new FilterPanelViewModel
                 {
@@ -51,15 +63,34 @@ namespace FINAL.Controllers
             return View(data);
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            HomeIndexViewModel data = new HomeIndexViewModel
+            {
+                About = new AboutIndexViewModel
+                {
+                    Setting = _context.WebsiteSettings.FirstOrDefault(),
+                },
+                Breadcumb = new BreadcumbViewModel
+                {
+                    Title = "Haqqımızda",
+                    Path = new List<BreadcumbItemViewModel>()
+                }
+            };
+            BreadcumbItemViewModel home = new BreadcumbItemViewModel
+            {
+                Name = "Ana səhifə",
+                Controller = "Home",
+                Action = "index"
+            };
+            BreadcumbItemViewModel about = new BreadcumbItemViewModel
+            {
+                Name = "Haqqımızda"
+            };
+            data.Breadcumb.Path.Add(home);
+            data.Breadcumb.Path.Add(about);
+            ViewBag.Partial = data.Breadcumb;
+            return View(data);
         }
 
         public IActionResult Contact()

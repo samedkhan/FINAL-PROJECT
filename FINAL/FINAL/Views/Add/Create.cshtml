@@ -21,7 +21,7 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="header-panel">
                             <ul class="nav-tabs">
-                                <li class="active"><a href="#tabs_1">Elan yerləşdir</a></li>
+                                <li class="active"><a href="#tabs_1">Elan Formu</a></li>
 
                             </ul>
                         </div>
@@ -46,8 +46,9 @@
                                                         }
 
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.AddTypeId"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.AddTypeId"> </span>
+                                               
                                             </div>
                                         </div>
 
@@ -65,8 +66,9 @@
                                                         }
 
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.PropertySortId"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropertySortId"> </span>
+                                                
                                             </div>
                                         </div>
 
@@ -83,8 +85,9 @@
                                                             <option value="@item.CityId">@item.CityName</option>
                                                         }
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.CityId"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.CityId"> </span>
+                                               
                                             </div>
                                         </div>
 
@@ -97,8 +100,9 @@
                                                     <select asp-for="AddCreatePost.DistrictId" name="AddCreatePost.DistrictId" id="districtList" data-validation="required" data-validation-error-msg-required="Rayonu seçin!!!">
                                                         <option value="" selected> Seçin</option>
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.DistrictId"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.DistrictId"> </span>
+                                                
                                             </div>
                                         </div>
 
@@ -133,8 +137,9 @@
                                                     <select asp-for="AddCreatePost.ProjectId" name="AddCreatePost.ProjectId" id="projectList" data-validation="required" data-validation-error-msg-required="Binanın proyektini seçin!!!">
                                                         <option value="" selected>Seçin</option>
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.PropertySortId"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropertySortId"> </span>
+                                                
                                             </div>
                                         </div>
 
@@ -153,8 +158,9 @@
                                                         }
 
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.FloorSum"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.FloorSum"> </span>
+                                                
                                             </div>
                                         </div>
 
@@ -168,8 +174,9 @@
                                                         <option value="" selected>Seçin</option>
 
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.FloorId"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.FloorId"> </span>
+                                                
                                             </div>
                                         </div>
 
@@ -188,8 +195,9 @@
                                                         }
 
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.FlatId"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.FlatId"> </span>
+                                                
                                             </div>
                                         </div>
 
@@ -208,8 +216,9 @@
                                                         }
 
                                                     </select>
+                                                    <span class="text-danger" asp-validation-for="AddCreatePost.PropDocId"> </span>
                                                 </div>
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropDocId"> </span>
+                                                
                                             </div>
                                         </div>
 
@@ -402,7 +411,9 @@
     </script>
 }
 @section FormValidator{
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script src="~/script/form-validator/jquery.form-validator.min.js"></script>
+    <script src="~/script/form-validator/security.js"></script>
+    <script src="~/script/form-validator/file.js"></script>
 }
 
 @section Scripts{

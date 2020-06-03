@@ -16,5 +16,12 @@ namespace FINAL.ViewModels
         public AddSearchGetViewModel SearchGet { get; set; }
 
         public List<User> Agencies { get; set; }
+
+        public AboutIndexViewModel About { get; set; }
+    }
+
+    public class AboutIndexViewModel
+    {
+        public WebsiteSetting Setting { get; set; }
     }
 }
