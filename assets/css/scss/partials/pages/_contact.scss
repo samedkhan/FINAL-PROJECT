@@ -3,6 +3,8 @@
 #contact{
     @extend .section-title;
     @extend .contain;
+    @extend .form;
+    
     .contain-item{
         padding: 20px 25px;
         text-align: justify;

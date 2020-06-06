@@ -190,20 +190,14 @@
         }
     }
 
-    // "FAQ" PAGE RESPONSIVE PROPERTY
-    #faq{
-        .faq-content{
-            margin-top: 50px;
+    #contact{
+        .contain-item{
+            .row{
+                display: block !important;
+            }
+            .contain{
+                display: none !important;
+            }
         }
     }
-    // End of "FAQ" PAGE RESPONSIVE PROPERTY
-
-   
-     #contactpage{
-         .contact-information{
-             width:100% !important;
-             margin-top:30px !important;
-             margin-left:0% !important;
-         }
-     }
 }
