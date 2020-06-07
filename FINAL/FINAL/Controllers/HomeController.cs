@@ -10,6 +10,8 @@ using FINAL.Data;
 using FINAL.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace FINAL.Controllers
 {
@@ -137,6 +139,25 @@ namespace FINAL.Controllers
                 };
                 _context.Messages.Add(message);
                 _context.SaveChanges();
+
+                //SENDING EMAIL BY MailKit
+                var textmessage = new MimeMessage();
+                textmessage.From.Add(new MailboxAddress("From", "samed-khan@hotmail.com"));
+                textmessage.To.Add(new MailboxAddress("To", "samadakh@code.edu.az"));
+                textmessage.Subject = SendMessage.Namesurname + " / " + SendMessage.Email + " / " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                textmessage.Body = new TextPart()
+                {
+                    Text = SendMessage.Text,
+                };
+                using (var client = new SmtpClient())
+                {
+                    client.Connect("smtp.live.com", 25, false);
+                    client.Authenticate("samed-khan@hotmail.com", "passwordchangedbyme");
+                    client.Send(textmessage);
+                    client.Disconnect(true);
+                }
+                //END
                 TempData["Success"] = "Mesajınız göndərildi...";
                 return RedirectToAction("index", "home");
             }

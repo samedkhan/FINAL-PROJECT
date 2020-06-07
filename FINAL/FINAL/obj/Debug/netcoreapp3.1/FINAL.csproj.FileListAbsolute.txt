@@ -593,8 +593,6 @@ C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\bin\Debug\netcoreapp3.1\runtimes\win-x8
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csproj.CoreCompileInputs.cache
-C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.RazorAssemblyInfo.cache
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.RazorAssemblyInfo.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.AssemblyInfoInputs.cache
@@ -636,3 +634,8 @@ C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.dll
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.pdb
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.genruntimeconfig.cache
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csprojAssemblyReference.cache
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csproj.CoreCompileInputs.cache
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.MvcApplicationPartsAssemblyInfo.cache
