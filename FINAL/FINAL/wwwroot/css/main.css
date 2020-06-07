@@ -907,6 +907,15 @@
   #another-intro .breadcumb-text {
     text-align: center; }
 
+  #footer .footer-top {
+    display: block !important; }
+    #footer .footer-top .logo-side {
+      text-align: center; }
+    #footer .footer-top .right-side .social-links {
+      text-align: center;
+      margin-top: 10px; }
+      #footer .footer-top .right-side .social-links::before {
+        content: "" !important; }
   #footer .footer-bottom .subjects {
     text-align: center !important; }
 
@@ -920,20 +929,36 @@
   #home-partners {
     display: none; }
 
-  #recent-properties .title {
+  #recent-properties .title h1 {
+    text-align: center; }
+  #recent-properties .title a {
+    display: none; }
+
+  .contain-stack .contain-item .prop-sort {
+    bottom: 50% !important; }
+  .contain-stack .contain-item .item-image {
+    height: 140px !important; }
+  .contain-stack .contain-item .add-prop-item span:last-child {
+    display: none; }
+  .contain-stack .contain-item .property-name span:last-child {
+    display: none; }
+
+  #contact .contain-item .row {
+    display: block !important; }
+  #contact .contain-item .contain, #contact .contain-item .addvertisiments, #contact .contain-item #recent-properties, #contact .contain-item #partner-properties, #contact .contain-item #prop-search, #contact .contain-item #partners, #contact .contain-item #partner-detail, #contact .contain-item #property-detail, #contact .contain-item #partner-detail .adds-panel, #partner-detail #contact .contain-item .adds-panel, #contact .contain-item #property-detail .adds-panel, #property-detail #contact .contain-item .adds-panel, #contact .contain-item #about-us, #contact .contain-item #contact, #contact .contain-item #add-prop, #contact .contain-item #add-prop .contain-stack .tab-content, #add-prop .contain-stack #contact .contain-item .tab-content, #contact .contain-item #cabinet, #contact .contain-item #cabinet .contain-stack .tab-content, #cabinet .contain-stack #contact .contain-item .tab-content, #contact .contain-item #login-signup, #contact .contain-item #login-signup .contain-stack .tab-content, #login-signup .contain-stack #contact .contain-item .tab-content, #contact .contain-item #faq {
+    display: none !important; }
+
+  #prop-search .title {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
-    #recent-properties .title a {
-      display: none; }
-
-  #contact .contain-item .row {
-    display: block !important; }
-  #contact .contain-item .contain, #contact .contain-item .addvertisiments, #contact .contain-item #recent-properties, #contact .contain-item #partner-properties, #contact .contain-item #prop-search, #contact .contain-item #partners, #contact .contain-item #partner-detail, #contact .contain-item #property-detail, #contact .contain-item #partner-detail .adds-panel, #partner-detail #contact .contain-item .adds-panel, #contact .contain-item #property-detail .adds-panel, #property-detail #contact .contain-item .adds-panel, #contact .contain-item #about-us, #contact .contain-item #contact, #contact .contain-item #add-prop, #contact .contain-item #add-prop .contain-stack .tab-content, #add-prop .contain-stack #contact .contain-item .tab-content, #contact .contain-item #cabinet, #contact .contain-item #cabinet .contain-stack .tab-content, #cabinet .contain-stack #contact .contain-item .tab-content, #contact .contain-item #login-signup, #contact .contain-item #login-signup .contain-stack .tab-content, #login-signup .contain-stack #contact .contain-item .tab-content, #contact .contain-item #faq {
-    display: none !important; } }
+  #prop-search .rent-sale-buttons {
+    display: none !important; }
+  #prop-search .filter-panel .filter-contain {
+    margin-bottom: 20px; } }
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }

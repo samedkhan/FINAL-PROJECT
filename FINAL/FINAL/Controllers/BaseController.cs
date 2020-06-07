@@ -29,6 +29,14 @@ namespace FINAL.Controllers
                 ViewBag.UserId = usr.UserId;
             }
 
+            ViewBag.PropertySorts = _context.PropertySorts.OrderBy(ps => ps.PropertySortId).ToList();
+            
+            WebsiteSetting setting = _context.WebsiteSettings.FirstOrDefault();
+            
+            ViewBag.Facebook = setting.FacebookAddress;
+            ViewBag.Twitter = setting.TwitterAdress;
+            ViewBag.Linkedin = setting.LinkedinAddress;
+
             base.OnActionExecuting(context);
         }
     }

@@ -25,6 +25,8 @@ namespace FINAL.Controllers
             _auth = auth;
             _hosting = hosting;
         }
+      
+        
 
         public IActionResult Index()
         {
@@ -78,6 +80,142 @@ namespace FINAL.Controllers
             return View(data);
         }
 
+        public IActionResult Sale(int id)
+        {
+            PropertySort propertySort = _context.PropertySorts.Where(ps => ps.PropertySortId == id).FirstOrDefault();
+
+            if (propertySort != null)
+            {
+                AddViewModel data = new AddViewModel
+                {
+                    FilterPanel = new FilterPanelViewModel
+                    {
+                        AddTypes = _context.AddTypes.ToList(),
+                        Cities = _context.Cities.ToList(),
+                        PropertySorts = _context.PropertySorts.ToList(),
+                    },
+                    AddsPanel = new AddsPanelViewModel
+                    {
+                        Type = ViewType.small,
+                        AddList = _context.Addvertisiments.Include("AddType").
+                                                                       Include("Property").
+                                                                           Include("Property.City").
+                                                                               Include("Property.District").
+                                                                                   Include("Property.Flat").
+                                                                                       Include("Property.Floor").
+                                                                                           Include("Property.PropDoc").
+                                                                                               Include("Property.PropertySort").
+                                                                                                   Include("Property.Project").
+                                                                                                        Where(a => a.AddTypeID > 2 && a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active && a.Property.PropertySortId == id).OrderByDescending(a => a.CreatedAt).ToList(),
+                    },
+                    Breadcumb = new BreadcumbViewModel
+                    {
+                        Title = "Satış elanları",
+                        Path = new List<BreadcumbItemViewModel>()
+                    },
+                };
+                BreadcumbItemViewModel home = new BreadcumbItemViewModel
+                {
+                    Name = "Ana səhifə",
+                    Controller = "Home",
+                    Action = "index"
+                };
+
+                BreadcumbItemViewModel adds = new BreadcumbItemViewModel
+                {
+                    Name = "Bütün elanlar",
+                    Controller = "Add",
+                    Action = "index"
+                };
+                BreadcumbItemViewModel finded = new BreadcumbItemViewModel
+                {
+                    Name = propertySort.PropertySortName,
+                };
+
+                data.Breadcumb.Path.Add(home);
+                data.Breadcumb.Path.Add(adds);
+                data.Breadcumb.Path.Add(finded);
+                ViewBag.Partial = data.Breadcumb;
+                ViewBag.Filters = data.FilterPanel;
+                ViewBag.Adds = data.AddsPanel;
+                ViewBag.AddsCount = data.AddsPanel.AddList.Count();
+                return View(data);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
+        public IActionResult Rent(int id)
+        {
+            PropertySort propertySort = _context.PropertySorts.Where(ps => ps.PropertySortId == id).FirstOrDefault();
+
+            if (propertySort != null)
+            {
+                AddViewModel data = new AddViewModel
+                {
+                    FilterPanel = new FilterPanelViewModel
+                    {
+                        AddTypes = _context.AddTypes.ToList(),
+                        Cities = _context.Cities.ToList(),
+                        PropertySorts = _context.PropertySorts.ToList(),
+                    },
+                    AddsPanel = new AddsPanelViewModel
+                    {
+                        Type = ViewType.small,
+                        AddList = _context.Addvertisiments.Include("AddType").
+                                                                       Include("Property").
+                                                                           Include("Property.City").
+                                                                               Include("Property.District").
+                                                                                   Include("Property.Flat").
+                                                                                       Include("Property.Floor").
+                                                                                           Include("Property.PropDoc").
+                                                                                               Include("Property.PropertySort").
+                                                                                                   Include("Property.Project").
+                                                                                                        Where(a => a.AddTypeID < 3 && a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active && a.Property.PropertySortId == id).OrderByDescending(a => a.CreatedAt).ToList(),
+                    },
+                    Breadcumb = new BreadcumbViewModel
+                    {
+                        Title = "Kirayə elanları",
+                        Path = new List<BreadcumbItemViewModel>()
+                    },
+                };
+                BreadcumbItemViewModel home = new BreadcumbItemViewModel
+                {
+                    Name = "Ana səhifə",
+                    Controller = "Home",
+                    Action = "index"
+                };
+
+                BreadcumbItemViewModel adds = new BreadcumbItemViewModel
+                {
+                    Name = "Bütün elanlar",
+                    Controller = "Add",
+                    Action = "index"
+                };
+                BreadcumbItemViewModel finded = new BreadcumbItemViewModel
+                {
+                    Name = propertySort.PropertySortName,
+                };
+
+                data.Breadcumb.Path.Add(home);
+                data.Breadcumb.Path.Add(adds);
+                data.Breadcumb.Path.Add(finded);
+                ViewBag.Partial = data.Breadcumb;
+                ViewBag.Filters = data.FilterPanel;
+                ViewBag.Adds = data.AddsPanel;
+                ViewBag.AddsCount = data.AddsPanel.AddList.Count();
+                return View(data);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
         [HttpGet]
         public IActionResult Search(AddSearchGetViewModel SearchGet)
         {
@@ -106,7 +244,7 @@ namespace FINAL.Controllers
                                                                                                     Include("Property.Project").
                                                                                                          Where(a => a.User.Status == UserStatus.Active &&
                                                                                                                     a.AddStatus == AddStatus.Active &&
-                                                                                                                   (SearchGet.AddTypeId == null ? true : a.AddTypeID == SearchGet.AddTypeId &&
+                                                                                                                   ((SearchGet.AddTypeId == null ? true : a.AddTypeID == SearchGet.AddTypeId) &&
                                                                                                                    (SearchGet.CityId == null ? true : a.Property.CityId == SearchGet.CityId) &&
                                                                                                                    (SearchGet.DistrictId == null ? true : a.Property.DistrictId == SearchGet.DistrictId) &&
                                                                                                                    (SearchGet.PropertySortId == null ? true : a.Property.PropertySortId == SearchGet.PropertySortId))).OrderByDescending(a => a.CreatedAt).ToList(),
@@ -146,7 +284,7 @@ namespace FINAL.Controllers
             }
             else
             {
-                return Ok("NO");
+                return BadRequest();
             }
         }
 

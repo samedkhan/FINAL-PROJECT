@@ -2,7 +2,7 @@
 
 @foreach (Addvertisiment item in Model.AddList)
 {
-    <div class="col-md-@(Model.Type==ViewType.small?"4":"3") col-sm-6 col-xs-6 element-item @(@item.AddTypeID < 3 ? "rent" : "sale")">
+    <div class="col-md-@(Model.Type==ViewType.small?"4":"3") col-sm-4 col-xs-6 element-item @(@item.AddTypeID < 3 ? "rent" : "sale")">
         <div class="contain-item">
             <div class="item-image">
                 <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property"></a>
@@ -14,11 +14,13 @@
                 <div class="property-name">
                     @if (@item.Property.DistrictId != null)
                     {
-                        <span>@item.Property.City.CityName şəh/@item.Property.District.DistrictName ray.</span>
+                        <span>@item.Property.City.CityName</span>
+                        <span>/@item.Property.District.DistrictName ray.</span>
                     }
                     else
                     {
-                        <span>@item.Property.City.CityName şəhəri</span>
+                        <span>@item.Property.City.CityName</span>
+                        <span>şəhəri</span>
                     }
                 </div>
                 <div class="property-price">
@@ -44,7 +46,8 @@
                     {
                         <div class="add-prop-item">
                             <i class="fas fa-home"></i>
-                            <span class="num">@item.Property.FloorId/@item.Property.FloorSum mərtəbə</span>
+                            <span class="num">@item.Property.FloorId/@item.Property.FloorSum</span>
+                            <span>mərtəbə</span>
                         </div>
 
                     }
@@ -52,7 +55,8 @@
                     {
                         <div class="add-prop-item">
                             <i class="fas fa-home"></i>
-                            <span class="num">@item.Property.FloorSum mərtəbə</span>
+                            <span class="num">@item.Property.FloorSum</span>
+                            <span>mərtəbə</span>
                         </div>
                     }
 
@@ -60,7 +64,8 @@
                     {
                         <div class="add-prop-item">
                             <i class="far fa-square"></i>
-                            <span class="num">@item.Property.FloorId otaq</span>
+                            <span class="num">@item.Property.FloorId</span>
+                            <span>otaq</span>
                         </div>
                     }
 
@@ -68,7 +73,8 @@
                     {
                         <div class="add-prop-item">
                             <i class="far fa-square"></i>
-                            <span class="num">@item.Property.BuildingVolume.Value.ToString("0") kv/m</span>
+                            <span class="num">@item.Property.BuildingVolume.Value.ToString("0")</span>
+                            <span>kv/m</span>
                         </div>
                     }
 
@@ -76,7 +82,8 @@
                     {
                         <div class="add-prop-item">
                             <i class="far fa-square"></i>
-                            <span class="num">@item.Property.LandVolume.Value.ToString("0") sot</span>
+                            <span class="num">@item.Property.LandVolume.Value.ToString("0")</span>
+                            <span>sot</span>
                         </div>
                     }
 

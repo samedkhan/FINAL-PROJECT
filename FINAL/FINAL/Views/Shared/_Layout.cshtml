@@ -44,19 +44,19 @@
                                     <li class="main-menu" data-dropdown="true">
                                         <span>Satış</span>
                                         <ul class="submenu">
-                                            <li><a href="#">Köhnə Tikili</a></li>
-                                            <li><a href="#">Yeni Tikili</a></li>
-                                            <li><a href="#">Obyekt</a></li>
-                                            <li><a href="#">Torpaq sahəsi</a></li>
+                                            @foreach (PropertySort item in ViewBag.PropertySorts)
+                                            {
+                                                <li><a asp-controller="add" asp-action="sale" asp-route-id="@item.PropertySortId">@item.PropertySortName</a></li>
+                                            }
                                         </ul>
                                     </li>
                                     <li class="main-menu" data-dropdown="true">
                                         <span>Kirayə</span>
                                         <ul class="submenu">
-                                            <li><a href="#">Köhnə Tikili</a></li>
-                                            <li><a href="#">Yeni Tikili</a></li>
-                                            <li><a href="#">Obyekt</a></li>
-                                            <li><a href="#">Torpaq sahəsi</a></li>
+                                            @foreach (PropertySort item in ViewBag.PropertySorts)
+                                            {
+                                                <li><a asp-controller="add" asp-action="rent" asp-route-id="@item.PropertySortId">@item.PropertySortName</a></li>
+                                            }
                                         </ul>
                                     </li>
                                     <li class="main-menu"><a asp-controller="home" asp-action="about">Haqqımızda</a></li>
@@ -121,9 +121,9 @@
                             </div>
                             <div class="right-side">
                                 <ul class="social-links">
-                                    <li><a href="#"><i class="fi flaticon-facebook-logo"></i></a></li>
-                                    <li><a href="#"><i class="fi flaticon-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fi flaticon-linkedin"></i></a></li>
+                                    <li><a href="@ViewBag.Facebook"><i class="fi flaticon-facebook-logo"></i></a></li>
+                                    <li><a href="@ViewBag.Twitter"><i class="fi flaticon-twitter"></i></a></li>
+                                    <li><a href="@ViewBag.Linkedin"><i class="fi flaticon-linkedin"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -138,9 +138,10 @@
                                         </div>
                                         <div class="contain">
                                             <ul>
-                                                <li><a asp-controller="home" asp-action="about">Haqqımızda</a></li>
                                                 <li><a asp-controller="agency" asp-action="index">Agentliklər</a></li>
-                                                <li><a asp-controller="faq" asp-action="index">İstifadə qaydaları</a></li>
+                                                <li><a asp-controller="home" asp-action="about">Haqqımızda</a></li>
+                                                <li><a asp-controller="home" asp-action="contact">Əlaqə</a></li>
+                                                <li><a asp-controller="Add" asp-action="Create">Elan yerləşdir</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -149,13 +150,14 @@
                                 <div class="col-md-3">
                                     <div class="subjects">
                                         <div class="title mb-10">
-                                            <h2>Elanlar</h2>
+                                            <h2>Satış</h2>
                                         </div>
                                         <div class="contain">
                                             <ul>
-                                                <li><a href="#">Kirayə</a></li>
-                                                <li><a href="#">Satış</a></li>
-                                                <li><a asp-controller="Add" asp-action="Create">Elan yerləşdir</a></li>
+                                                @foreach (PropertySort item in ViewBag.PropertySorts)
+                                                {
+                                                    <li><a asp-controller="add" asp-action="sale" asp-route-id="@item.PropertySortId">@item.PropertySortName</a></li>
+                                                }
                                             </ul>
                                         </div>
                                     </div>
@@ -163,16 +165,14 @@
                                 <div class="col-md-3">
                                     <div class="subjects">
                                         <div class="title mb-10">
-                                            <h2>Daşınmaz əmlak</h2>
+                                            <h2>Kirayə</h2>
                                         </div>
                                         <div class="contain">
                                             <ul>
-                                                <li><a href="#">Yeni tikili</a></li>
-                                                <li><a href="#">Köhnə tikili</a></li>
-                                                <li><a href="#">Həyət evi/Villa</a></li>
-                                                <li><a href="#">Ofis</a></li>
-                                                <li><a href="#">Obyekt</a></li>
-                                                <li><a href="#">Qaraj/Anbar</a></li>
+                                                @foreach (PropertySort item in ViewBag.PropertySorts)
+                                                {
+                                                    <li><a asp-controller="add" asp-action="rent" asp-route-id="@item.PropertySortId">@item.PropertySortName</a></li>
+                                                }
                                             </ul>
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                                         </div>
                                         <div class="contain">
                                             <ul>
-                                                <li><i class="fas fa-map-marker-alt"></i> Qara Qarayev 126/89, Bakı, Azərbaycan</li>
+                                                <li><i class="fas fa-map-marker-alt"></i> Qara Qarayev 126/89</li>
                                                 <li><i class="fas fa-phone-alt"></i> (+99412) 376 92 36</li>
                                                 <li><i class="fas fa-mobile-alt"></i> (+99455) 653 30 31</li>
                                                 <li><i class="far fa-envelope"></i> samadakh@code.edu.az</li>

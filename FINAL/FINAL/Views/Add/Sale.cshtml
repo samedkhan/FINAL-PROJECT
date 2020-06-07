@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Satış";
+}
+
+@*Intro*@
+<partial name="_Breadcumb" model="ViewBag.Partial" />
+
+<section id="prop-search">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9 col-md-offset-3">
+                <div class="title">
+                    <div class="sum-found-property">
+                        <span class="sum">@ViewBag.AddsCount</span>
+                        <span>elan mövcuddur</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @*Filter Panel*@
+                <partial name="_FilterPanel" model="ViewBag.Filters" />
+            </div>
+            <div class="col-md-9">
+                <div class="adds-panel">
+                    <div class="contain-stack grid">
+                        @*Adds Panel*@
+                        <partial name="_AddsPanel" model="ViewBag.Adds" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

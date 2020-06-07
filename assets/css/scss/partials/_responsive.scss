@@ -152,6 +152,21 @@
     }
     
     #footer{
+        .footer-top{
+            display: block !important;
+            .logo-side{
+                text-align: center;
+            }
+            .right-side{
+                .social-links{
+                    text-align: center;
+                    margin-top: 10px;
+                    &::before{
+                        content: "" !important;
+                    }
+                }
+            }
+        }
         .footer-bottom{
             .subjects{
                 text-align: center !important;
@@ -182,14 +197,42 @@
 
     #recent-properties{
         .title{
-            display: flex;
-            justify-content: center;
+           h1{
+               text-align: center;
+           }
             a{
                 display: none;
             }
         }
+        
     }
-
+    //RESPONSIVE FOR ADDVERTISIMENTS
+    .contain-stack{
+        .contain-item{
+            .prop-sort{
+                bottom: 50% !important;
+            }
+            .item-image{
+                height: 140px !important;
+            }
+            .add-prop-item{
+                span{
+                    &:last-child{
+                        display: none;
+                    }
+                }
+            }
+            .property-name{
+                span{
+                    &:last-child{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    //END
+    
     #contact{
         .contain-item{
             .row{
@@ -199,5 +242,22 @@
                 display: none !important;
             }
         }
+    }
+
+    #prop-search{
+        .title{
+           display: flex;
+           justify-content: center;
+        }
+        .rent-sale-buttons{
+            display: none !important;
+        }
+        .filter-panel{
+            .filter-contain{
+                margin-bottom: 20px;
+            }
+        }
+        
+
     }
 }
