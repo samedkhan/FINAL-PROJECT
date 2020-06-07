@@ -45,6 +45,6 @@ namespace FINAL.Data
 
         public DbSet<WebsiteSetting> WebsiteSettings { get; set; }
 
-
+        public DbSet<Message> Messages { get; set; }
     }
 }

@@ -97,6 +97,10 @@ namespace FINAL.Controllers
         {
             HomeIndexViewModel data = new HomeIndexViewModel
             {
+                About = new AboutIndexViewModel
+                {
+                    Setting = _context.WebsiteSettings.FirstOrDefault(),
+                },
                 Breadcumb = new BreadcumbViewModel
                 {
                     Title = "Əlaqə",
@@ -116,7 +120,30 @@ namespace FINAL.Controllers
             data.Breadcumb.Path.Add(home);
             data.Breadcumb.Path.Add(contact);
             ViewBag.Partial = data.Breadcumb;
-            return View();
+            return View(data);
+        }
+
+        [HttpPost]
+        public IActionResult SendMessage(SendMessagePostViewModel SendMessage)
+        {
+            if (ModelState.IsValid)
+            {
+                Message message = new Message
+                {
+                    Namesurname = SendMessage.Namesurname,
+                    Text = SendMessage.Text,
+                    Email = SendMessage.Email,
+                    HasReaded = false
+                };
+                _context.Messages.Add(message);
+                _context.SaveChanges();
+                TempData["Success"] = "Mesajınız göndərildi...";
+                return RedirectToAction("index", "home");
+            }
+            else
+            {
+                return Ok("BAD");
+            }
         }
     }
 }

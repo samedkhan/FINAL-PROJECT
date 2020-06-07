@@ -30,8 +30,9 @@
                                                 </div>
                                                 <div class="right-side">
                                                     <input type="text" id="Logemail" placeholder="E-poçt" asp-for="Login.Email"
-                                                           data-validation="required"
-                                                           data-validation-error-msg-required="E-poçt daxil edin !!!" />
+                                                            data-validation="email, required"
+                                                           data-validation-error-msg-email="E-mail ünvanı daxil edin !!!"
+                                                           data-validation-error-msg-required="E-mail ünvanı daxil edin !!!"/>
                                                     <span class="text-danger" asp-validation-for="Login.Email"> </span>
                                                 </div>
 
@@ -72,9 +73,6 @@
     <script src="~/script/form-validator/jquery.form-validator.min.js"></script>
     <script src="~/script/form-validator/security.js"></script>
     <script src="~/script/form-validator/file.js"></script>
-}
-@section PhoneMask{
-    <script src="~/script/phone-mask/jquery.browser.min.js"></script>
 }
 @section Scripts{
 

@@ -1,4 +1,4 @@
-﻿
+﻿@model HomeIndexViewModel
 @{
     ViewData["Title"] = "Əlaqə";
 }
@@ -18,32 +18,24 @@
                                 <div class="col-md-6">
                                     <div class="contain">
                                         <ul>
-                                            <li><i class="fas fa-map-marker-alt"></i> Qara Qarayev 126/89, Bakı, Azərbaycan</li>
-                                            <li><i class="fas fa-phone-alt"></i> (+99412) 376 92 36</li>
-                                            <li><i class="fas fa-mobile-alt"></i> (+99455) 653 30 31</li>
-                                            <li><i class="far fa-envelope"></i> samadakh@code.edu.az</li>
+                                            <li><i class="fas fa-map-marker-alt"></i>@Model.About.Setting.LocalAddress</li>
+                                            <li><i class="fas fa-phone-alt"></i> @Model.About.Setting.PhoneNumber </li>
+                                            <li><i class="fas fa-mobile-alt"></i> @Model.About.Setting.MobileNumber </li>
+                                            <li><i class="far fa-envelope"></i> @Model.About.Setting.Email </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <form action="post">
+                                    <form method="post" asp-controller="Home" asp-action="SendMessage">
                                         <div class="form-group">
                                             <div class="left-side">
-                                                <label for="name">Ad</label>
+                                                <label for="name">Ad və Soyad</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="name" placeholder="Ad">
-                                                <span class="text-danger"> </span>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="left-side">
-                                                <label for="surname">Soyad</label>
-                                            </div>
-                                            <div class="right-side">
-                                                <input type="text" id="surname" placeholder="Soyad">
-                                                <span class="text-danger"> </span>
+                                                <input type="text" id="name" placeholder="Ad-Soyad" asp-for="SendMessage.Namesurname" name="SendMessage.Namesurname"
+                                                       data-validation="required"
+                                                           data-validation-error-msg-required="Ad və Soyadı daxil edin !!!"/>
+                                                <span class="text-danger" asp-validation-for="SendMessage.Namesurname"> </span>
                                             </div>
 
                                         </div>
@@ -52,8 +44,11 @@
                                                 <label for="email">E-Poçt</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="email" placeholder="E-poçt">
-                                                <span class="text-danger"> </span>
+                                                <input type="text" id="email" placeholder="E-poçt" asp-for="SendMessage.Email" name="SendMessage.Email"
+                                                        data-validation="email, required"
+                                                           data-validation-error-msg-email="E-mail ünvanı daxil edin !!!"
+                                                           data-validation-error-msg-required="E-mail ünvanı daxil edin !!!"/>
+                                                <span class="text-danger" asp-validation-for="SendMessage.Email"> </span>
                                             </div>
 
                                         </div>
@@ -62,8 +57,11 @@
                                                 <label for="message">Mesajınız</label>
                                             </div>
                                             <div class="right-side">
-                                                <textarea type="text" id="message" placeholder="Ad" row="5"></textarea>
-                                                <span class="text-danger"> </span>
+                                                <span id="max-length-element">500</span> xarakter qalmaqdadır
+                                                <textarea id="message" placeholder="Mesajınız" row="7" asp-for="SendMessage.Text" name="SendMessage.Text"
+                                                          data-validation="required"
+                                                          data-validation-error-msg-required="Mesajınızı daxil edin !!!"></textarea>
+                                                <span class="text-danger" asp-validation-for="SendMessage.Text"></span>
                                             </div>
 
                                         </div>
@@ -79,3 +77,24 @@
     </div>
 </section>
 <!-- end of contact-section -->
+@section FormValidator{
+    <script src="~/script/form-validator/jquery.form-validator.min.js"></script>
+    <script src="~/script/form-validator/security.js"></script>
+    <script src="~/script/form-validator/file.js"></script>
+}
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            $.validate({
+                modules: 'file, security',
+                addSuggestions: true,
+                decimalSeparator: ','
+            });
+        });
+        $('#message').restrictLength($('#max-length-element'));
+
+
+    </script>
+}
