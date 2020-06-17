@@ -11,7 +11,15 @@ namespace FINAL.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
+            var token = Request.Cookies["token"];
+
+            if (token == null)
+            {
+                return RedirectToAction("index", "account");
+            }
+
             return View();
         }
+
     }
 }

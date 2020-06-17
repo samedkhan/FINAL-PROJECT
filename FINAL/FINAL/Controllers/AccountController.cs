@@ -424,9 +424,5 @@ namespace FINAL.Controllers
         }
 
 
-        public IActionResult AgencyDetail(int id)
-        {
-            return View();
-        }
     }
 }
