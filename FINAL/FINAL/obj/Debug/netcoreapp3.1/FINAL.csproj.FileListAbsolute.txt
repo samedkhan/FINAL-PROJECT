@@ -453,7 +453,6 @@ C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Search.cshtml.g.cs
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Agency\Detail.cshtml.g.cs
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Agency\Index.cshtml.g.cs
-C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Faq\Index.cshtml.g.cs
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact.cshtml.g.cs
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
@@ -640,3 +639,8 @@ C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.genruntim
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csprojAssemblyReference.cache
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Sale.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Rent.cshtml.g.cs
+C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Rent.cshtml.g.cs
+C:\Users\Samed.Khankishiev\Desktop\FINAL-TEST\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Add\Sale.cshtml.g.cs

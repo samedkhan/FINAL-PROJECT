@@ -1,3 +1,4 @@
+
 @media only screen and (max-width: 991px){
     *{
 
@@ -129,6 +130,39 @@
             display:none !important;
         }
     }
+
+    #footer{
+        .footer-top{
+            display: block !important;
+            .logo-side{
+                text-align: center;
+            }
+            .right-side{
+                .social-links{
+                    text-align: center;
+                    margin-top: 10px;
+                    &::before{
+                        content: "" !important;
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+@media only screen and (min-width: 600px) and (max-width: 770px){
+    #footer{
+        .footer-bottom{
+            .subjects{
+                text-align: center !important;
+                
+            }
+        }
+    }
+} 
+
+@media only screen and (max-width: 600px){
     #intro{       
         .section-contain{
             margin-top: 50px;

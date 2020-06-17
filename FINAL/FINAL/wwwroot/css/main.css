@@ -895,6 +895,19 @@
     #header .registration {
       display: none !important; }
 
+  #footer .footer-top {
+    display: block !important; }
+    #footer .footer-top .logo-side {
+      text-align: center; }
+    #footer .footer-top .right-side .social-links {
+      text-align: center;
+      margin-top: 10px; }
+      #footer .footer-top .right-side .social-links::before {
+        content: "" !important; } }
+@media only screen and (min-width: 600px) and (max-width: 770px) {
+  #footer .footer-bottom .subjects {
+    text-align: center !important; } }
+@media only screen and (max-width: 600px) {
   #intro .section-contain {
     margin-top: 50px; }
   #intro .section-header-left {
