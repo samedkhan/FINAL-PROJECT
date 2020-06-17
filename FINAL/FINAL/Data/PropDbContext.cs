@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using FINAL.Models;
+using FINAL.Areas.Admin.Models;
 
 namespace FINAL.Data
 {
@@ -46,5 +47,7 @@ namespace FINAL.Data
         public DbSet<WebsiteSetting> WebsiteSettings { get; set; }
 
         public DbSet<Message> Messages { get; set; }
+
+        public DbSet<APuser> APusers { get; set; }
     }
 }

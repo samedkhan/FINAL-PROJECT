@@ -40,8 +40,6 @@ namespace FINAL.Injections
 
                 User LoggedUser = _context.Users.FirstOrDefault(c => c.Token == token);
 
-                //LoggedUser.Resumes = _context.UserResumes.Include("educations").Include("works").FirstOrDefault(r => r.UserId == LoggedUser.UserId);
-
 
                 if (LoggedUser == null)
                 {
