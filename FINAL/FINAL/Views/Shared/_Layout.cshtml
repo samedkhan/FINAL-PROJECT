@@ -36,7 +36,7 @@
                     <div class="col-lg-12 col-12">
                         <div class="navigation-bar">
                             <div class="logo">
-                                <a asp-controller="home" asp-action="index"><img src="~/img/logo/logo.png" alt="logo"></a>
+                                <a asp-controller="home" asp-action="index"><img src="~/img/logo/@ViewBag.Setting.MainLogo" alt="logo"></a>
                             </div>
                             <div class="menu">
                                 <ul>
@@ -116,14 +116,14 @@
                         <div class="footer-top">
                             <div class="left-side">
                                 <div class="logo-side">
-                                    <a asp-controller="home" asp-action="index"><img src="~/img/logo/logo.png" alt="logo"></a>
+                                    <a asp-controller="home" asp-action="index"><img src="~/img/logo/@ViewBag.Setting.FooterLogo" alt="logo"></a>
                                 </div>
                             </div>
                             <div class="right-side">
                                 <ul class="social-links">
-                                    <li><a href="@ViewBag.Facebook"><i class="fi flaticon-facebook-logo"></i></a></li>
-                                    <li><a href="@ViewBag.Twitter"><i class="fi flaticon-twitter"></i></a></li>
-                                    <li><a href="@ViewBag.Linkedin"><i class="fi flaticon-linkedin"></i></a></li>
+                                    <li><a href="@ViewBag.Setting.FacebookAddress"><i class="fi flaticon-facebook-logo"></i></a></li>
+                                    <li><a href="@ViewBag.Setting.TwitterAdress"><i class="fi flaticon-twitter"></i></a></li>
+                                    <li><a href="@ViewBag.Setting.LinkedinAddress"><i class="fi flaticon-linkedin"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -184,10 +184,10 @@
                                         </div>
                                         <div class="contain">
                                             <ul>
-                                                <li><i class="fas fa-map-marker-alt"></i> Qara Qarayev 126/89</li>
-                                                <li><i class="fas fa-phone-alt"></i> (+99412) 376 92 36</li>
-                                                <li><i class="fas fa-mobile-alt"></i> (+99455) 653 30 31</li>
-                                                <li><i class="far fa-envelope"></i> samadakh@code.edu.az</li>
+                                                <li><i class="fas fa-map-marker-alt"></i> @ViewBag.Setting.LocalAddress</li>
+                                                <li><i class="fas fa-phone-alt"></i> @ViewBag.Setting.PhoneNumber</li>
+                                                <li><i class="fas fa-mobile-alt"></i> @ViewBag.Setting.MobileNumber</li>
+                                                <li><i class="far fa-envelope"></i> @ViewBag.Setting.Email </li>
                                             </ul>
                                         </div>
                                     </div>

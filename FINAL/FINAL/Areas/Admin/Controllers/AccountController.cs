@@ -67,15 +67,13 @@ namespace FINAL.Areas.Admin.Controllers
 
         public IActionResult Logout()
         {
-            var token = Request.Cookies["APtoken"];
 
-            if (token == null)
+            if (_auth.APuser == null)
             {
-                return RedirectToAction("Login", "Account");
+                return BadRequest();
             }
 
-            APuser user = _context.APusers.Where(u => u.Token == token).FirstOrDefault();
-            user.Token = null;
+            _auth.APuser.Token = null;
             _context.SaveChanges();
 
             Response.Cookies.Append("APtoken", Request.Cookies["APtoken"], new Microsoft.AspNetCore.Http.CookieOptions
@@ -90,16 +88,15 @@ namespace FINAL.Areas.Admin.Controllers
 
         public IActionResult APUsers()
         {
-            var token = Request.Cookies["APtoken"];
 
-            if (token == null || _auth.APuser.Status == UserStatus.Moderator)
+            if (_auth.APuser == null || _auth.APuser.isSuperAdmin == false)
             {
                 return RedirectToAction("Login", "Account");
             }
 
             APAccountIndexViewModel data = new APAccountIndexViewModel
             {
-                APUsers = _context.APusers.OrderBy(apu => apu.Status).ToList()
+                APUsers = _context.APusers.Where(apu=>apu.isSuperAdmin==false).ToList()
             };
 
             return View(data);
@@ -107,15 +104,103 @@ namespace FINAL.Areas.Admin.Controllers
 
         public IActionResult Create()
         {
-            var token = Request.Cookies["APtoken"];
 
-            if (token == null || _auth.APuser.Status == UserStatus.Moderator)
+            if (_auth.APuser == null || _auth.APuser.isAdmin == false)
             {
-                return RedirectToAction("Login", "Account");
+                return BadRequest();
             }
 
             
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(APAccountCreateModel Create)
+        {
+            if (ModelState.IsValid)
+            {
+                if (!_context.APusers.Any(u => u.Email == Create.Email))
+                {
+                    APuser NewUser = new APuser
+                    {
+                        Nickname = Create.Name,
+                        Email = Create.Email,
+                        Password = Crypto.HashPassword(Create.Password),
+                        Token = null,
+                        isAdmin = Create.isAdmin
+                    };
+
+                    _context.APusers.Add(NewUser);
+                    _context.SaveChanges();
+
+                    return RedirectToAction("APUsers", "Account");
+                }
+                else
+                {
+                    ModelState.AddModelError("Create.Email", "E-Poçt ünvanı artıq mövcuddur");
+                }
+            }
+            return View("~/Areas/Admin/Views/Account/Create.cshtml");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            APuser SelectedUser = _context.APusers.Find(id);
+
+            if (_auth.APuser == null || _auth.APuser.isSuperAdmin == false || SelectedUser == null)
+            {
+                return BadRequest();
+            }
+
+            APAccountIndexViewModel data = new APAccountIndexViewModel
+            {
+                SelectedUser = SelectedUser
+            };
+
+            return View(data);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(APAccountEditModel Edit)
+        {
+            APuser SelectedUser = _context.APusers.Where(apu => apu.Email == Edit.Email).FirstOrDefault();
+
+            if (ModelState.IsValid)
+            {
+               
+                SelectedUser.isAdmin = Edit.isAdmin;
+                SelectedUser.Nickname = Edit.Name;
+                SelectedUser.Password = Crypto.HashPassword(Edit.Password);
+                SelectedUser.Token = null;
+
+                _context.Entry(SelectedUser).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+
+                return RedirectToAction("APUsers", "Account");
+            }
+
+            APAccountIndexViewModel data = new APAccountIndexViewModel
+            {
+                SelectedUser = SelectedUser
+            };
+
+            return View("~/Areas/Admin/Views/Account/Edit.cshtml", data);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            APuser SelectedUser = _context.APusers.Find(id);
+
+            if (_auth.APuser == null || _auth.APuser.isSuperAdmin == false || SelectedUser == null)
+            {
+                return BadRequest();
+            }
+
+            _context.APusers.Remove(SelectedUser);
+            _context.SaveChanges();
+
+            return RedirectToAction("APUsers", "Account");
+
         }
     }
 }

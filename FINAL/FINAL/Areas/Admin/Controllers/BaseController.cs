@@ -25,6 +25,7 @@ namespace FINAL.Areas.Admin.Controllers
             {
              
                 ViewBag.User = _context.APusers.FirstOrDefault(u => u.Token == token);
+
             }
 
             ViewBag.UserTypes = _context.UserTypes.ToList();

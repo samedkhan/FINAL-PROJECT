@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace FINAL.Areas.Admin.Models
 {
-    public enum UserStatus
-    {
-        Administrator = 0,
-        Moderator = 1,
-    }
     public class APuser
     {
         [Key]
@@ -29,6 +24,10 @@ namespace FINAL.Areas.Admin.Models
 
         public string Token { get; set; }
 
-        public UserStatus Status  { get; set; }
+        [Required]
+        public bool isAdmin { get; set; }
+
+        
+        public bool isSuperAdmin { get; set; }
     }
 }

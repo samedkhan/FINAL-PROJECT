@@ -31,11 +31,7 @@ namespace FINAL.Controllers
 
             ViewBag.PropertySorts = _context.PropertySorts.OrderBy(ps => ps.PropertySortId).ToList();
             
-            WebsiteSetting setting = _context.WebsiteSettings.FirstOrDefault();
-            
-            ViewBag.Facebook = setting.FacebookAddress;
-            ViewBag.Twitter = setting.TwitterAdress;
-            ViewBag.Linkedin = setting.LinkedinAddress;
+            ViewBag.Setting = _context.WebsiteSettings.FirstOrDefault();
 
             base.OnActionExecuting(context);
         }

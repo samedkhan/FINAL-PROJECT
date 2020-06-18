@@ -13,17 +13,17 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-lg-4 offset-lg-4">
+            <div class="col-lg-6 offset-lg-3">
                 <div class="p-5">
                     <form class="user" asp-controller="Account" asp-action="Create" asp-area="Admin" method="post">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Növü</label>
                             <div class="col-sm-9">
-                                <select class="form-control" placeholder="Növ" asp-for="Create.UserStatusId">
-                                    <option value="0">Administrator</option>
-                                    <option value="1">Moderator</option>
+                                <select class="form-control" placeholder="Növ" asp-for="Create.isAdmin">
+                                    <option value="true">Administrator</option>
+                                    <option value="false">Moderator</option>
                                 </select>
-                                <span class="text-danger" asp-validation-for="Create.UserStatusId"> </span>
+                                <span class="text-danger" asp-validation-for="Create.isAdmin"> </span>
                             </div>
                         </div>
                         <div class="form-group row">

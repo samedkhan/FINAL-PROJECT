@@ -29,17 +29,24 @@
                 <tbody>
                     @foreach (APuser user in Model.APUsers)
                     {
-                        <tr>
-                            <td>@user.Nickname</td>
-                            <td>@user.Email</td>
-                            <td>@user.Password</td>
-                            <td>@user.Status</td>
-                            <td>
-                                <a class="text-warning mr-3" asp-controller="Account" asp-action="Edit" asp-area="Admin" asp-route-id="@user.APUserId"><i class="fas fa-pencil-alt"></i></a>
+                    <tr>
+                        <td>@user.Nickname</td>
+                        <td>@user.Email</td>
+                        <td>@user.Password</td>
+                        @if (user.isAdmin)
+                        {
+                            <td>Administrator</td>
+                        }
+                        else
+                        {
+                            <td>Moderator</td>
+                        }
+                        <td>
+                            <a class="text-warning mr-3" asp-controller="Account" asp-action="Edit" asp-area="Admin" asp-route-id="@user.APUserId"><i class="fas fa-pencil-alt"></i></a>
 
-                                <a class="text-danger" asp-controller="Account" asp-action="Remove" asp-area="Admin" asp-route-id="@user.APUserId"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                            </td>
-                        </tr>
+                            <a class="text-danger" asp-controller="Account" asp-action="Delete" asp-area="Admin" asp-route-id="@user.APUserId"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

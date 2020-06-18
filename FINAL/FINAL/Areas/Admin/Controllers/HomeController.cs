@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using FINAL.Areas.Admin.ViewModels;
 using FINAL.Data;
+using FINAL.Injections;
 using FINAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,10 +17,12 @@ namespace FINAL.Areas.Admin.Controllers
     {
         private readonly PropDbContext _context;
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger, PropDbContext context) : base(context)
+        private readonly IAuth _auth;
+        public HomeController(ILogger<HomeController> logger, PropDbContext context, IAuth auth) : base(context)
         {
             _context = context;
             _logger = logger;
+            _auth = auth;
         }
 
         public IActionResult Privacy()
@@ -34,14 +38,33 @@ namespace FINAL.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var token = Request.Cookies["APtoken"];
-
-            if (token == null)
+           
+            if (_auth.APuser == null)
             {
                 return RedirectToAction("Login", "Account");
             }
 
             return View();
+        }
+
+        public IActionResult Settings()
+        {
+            if (_auth.APuser == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            if(_auth.APuser.isAdmin != true)
+            {
+                return BadRequest();
+            }
+
+            APHomeIndexViewModel data = new APHomeIndexViewModel
+            {
+                setting = _context.WebsiteSettings.FirstOrDefault()
+            };
+
+            return View(data);
         }
 
         public IActionResult Users(int id)

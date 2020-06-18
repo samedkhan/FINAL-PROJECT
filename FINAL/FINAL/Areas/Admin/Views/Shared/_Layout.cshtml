@@ -78,7 +78,7 @@
 
 
 
-            @if (ViewBag.User.Status == FINAL.Areas.Admin.Models.UserStatus.Administrator)
+            @if (ViewBag.User.isAdmin == true)
             {
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
@@ -106,11 +106,16 @@
                 </li>
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item">
-                    <a class="nav-link" asp-action="index" asp-controller="home" asp-route-area="admin">
+                    <a class="nav-link" asp-action="settings" asp-controller="home" asp-route-area="admin">
                         <i class="fa fa-file"></i>
                         <span>Əsas məlumatlar</span>
                     </a>
                 </li>
+
+            }
+
+            @if (ViewBag.User.isSuperAdmin == true)
+            {
                 <!-- Divider -->
                 <hr class="sidebar-divider">
                 <!-- Heading -->
@@ -126,6 +131,7 @@
                     </a>
                 </li>
             }
+
 
 
         </ul>
