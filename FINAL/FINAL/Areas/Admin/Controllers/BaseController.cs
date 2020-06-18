@@ -23,9 +23,8 @@ namespace FINAL.Areas.Admin.Controllers
             var token = Request.Cookies["APtoken"];
             if (token != null)
             {
-                APuser usr = _context.APusers.FirstOrDefault(u => u.Token == token);
-                ViewBag.User = usr;
-                ViewBag.Username = usr.Nickname;
+             
+                ViewBag.User = _context.APusers.FirstOrDefault(u => u.Token == token);
             }
 
             ViewBag.UserTypes = _context.UserTypes.ToList();

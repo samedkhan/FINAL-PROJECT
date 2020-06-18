@@ -16,13 +16,15 @@ namespace FINAL.Areas.Admin.Controllers
     {
         private readonly PropDbContext _context;
         private readonly Microsoft.AspNetCore.Hosting.IWebHostEnvironment _hosting;
+        private readonly IAuth _auth;
 
-        public AccountController(PropDbContext context, Microsoft.AspNetCore.Hosting.IWebHostEnvironment hosting) : base(context)
+        public AccountController(PropDbContext context, Microsoft.AspNetCore.Hosting.IWebHostEnvironment hosting, IAuth auth) : base(context)
         {
             _context = context;
             _hosting = hosting;
+            _auth = auth;
         }
-
+        
         public IActionResult Login()
         {
             return View();
@@ -84,6 +86,36 @@ namespace FINAL.Areas.Admin.Controllers
 
             return RedirectToAction("Login", "Account");
 
+        }
+
+        public IActionResult APUsers()
+        {
+            var token = Request.Cookies["APtoken"];
+
+            if (token == null || _auth.APuser.Status == UserStatus.Moderator)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            APAccountIndexViewModel data = new APAccountIndexViewModel
+            {
+                APUsers = _context.APusers.OrderBy(apu => apu.Status).ToList()
+            };
+
+            return View(data);
+        }
+
+        public IActionResult Create()
+        {
+            var token = Request.Cookies["APtoken"];
+
+            if (token == null || _auth.APuser.Status == UserStatus.Moderator)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            
+            return View();
         }
     }
 }

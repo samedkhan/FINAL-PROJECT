@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using FINAL.Data;
 using FINAL.Models;
+using FINAL.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace FINAL.Injections
     public interface IAuth
     {
         User User { get; }
+
+        APuser APuser { get; }
     }
 
     public class Auth : IAuth
@@ -47,6 +50,32 @@ namespace FINAL.Injections
                 }
 
                 return LoggedUser;
+            }
+        }
+
+        public APuser APuser
+        {
+
+            get
+            {
+                string token = string.Empty;
+
+                bool hasHeader = this._accessor.HttpContext.Request.Cookies.TryGetValue("APtoken", out token);
+
+                if (!hasHeader)
+                {
+                    return null;
+                }
+
+                APuser LoggedAPUser = _context.APusers.FirstOrDefault(c => c.Token == token);
+
+
+                if (LoggedAPUser == null)
+                {
+                    return null;
+                }
+
+                return LoggedAPUser;
             }
         }
 

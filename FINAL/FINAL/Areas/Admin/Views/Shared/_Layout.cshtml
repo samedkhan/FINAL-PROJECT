@@ -69,58 +69,65 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#users" aria-expanded="true" aria-controls="users">
-                    <i class="fa fa-user"></i>
-                    <span>İstifadəçilər</span>
-                </a>
-                <div id="users" class="collapse" aria-labelledby="users" data-parent="#users">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        @foreach (UserType type in ViewBag.UserTypes)
-                        {
-                            <a class="collapse-item" asp-controller="Home" asp-action="Users" asp-route-id="@type.UserTypeId">@type.Name</a>
-                        }
+
+
+
+
+
+
+
+
+
+            @if (ViewBag.User.Status == FINAL.Areas.Admin.Models.UserStatus.Administrator)
+            {
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#users" aria-expanded="true" aria-controls="users">
+                        <i class="fa fa-user"></i>
+                        <span>İstifadəçilər</span>
+                    </a>
+                    <div id="users" class="collapse" aria-labelledby="users" data-parent="#users">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            @foreach (UserType type in ViewBag.UserTypes)
+                            {
+                                <a class="collapse-item" asp-controller="Home" asp-action="Users" asp-route-id="@type.UserTypeId">@type.Name</a>
+                            }
+                        </div>
                     </div>
+                </li>
+
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="index" asp-controller="home" asp-route-area="admin">
+                        <i class="fa fa-file"></i>
+                        <span>Elanlar</span>
+                    </a>
+                </li>
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="index" asp-controller="home" asp-route-area="admin">
+                        <i class="fa fa-file"></i>
+                        <span>Əsas məlumatlar</span>
+                    </a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    ADMINPANEL
                 </div>
-            </li>
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="APUsers" asp-controller="Account" asp-route-area="admin">
+                        <i class="fa fa-user"></i>
+                        <span>İstifadəçilər</span>
+                    </a>
+                </li>
+            }
 
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="home" asp-route-area="admin">
-                    <i class="fa fa-file"></i>
-                    <span>Elanlar</span>
-                </a>
-            </li>
-
-
-
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="home" asp-route-area="admin">
-                    <i class="fa fa-file"></i>
-                    <span>Əlavə məlumatlar</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                ADMINPANEL
-            </div>
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="home" asp-route-area="admin">
-                    <i class="fa fa-user"></i>
-                    <span>İstifadəçilər</span>
-                </a>
-            </li>
-           
         </ul>
 
         
@@ -147,7 +154,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@ViewBag.Username</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@ViewBag.User.Nickname</span>
                                 <i class="fa fa-user"></i>
                             </a>
                             <!-- Dropdown - User Information -->
@@ -188,29 +195,7 @@
 
     </div>
     <!-- End of Page Wrapper -->
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
 
 </body>
