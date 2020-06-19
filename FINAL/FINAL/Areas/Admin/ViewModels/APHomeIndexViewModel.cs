@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using FINAL.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace FINAL.Areas.Admin.ViewModels
 {
@@ -17,12 +18,14 @@ namespace FINAL.Areas.Admin.ViewModels
     public class APSettingEditModel
     {
         [MaxLength(100)]
-        [Required(ErrorMessage = "Başlıq üçün Loqo fotosunu daxil edin")]
         public string MainLogo { get; set; }
 
-        [Required(ErrorMessage = "E-poçt ünvanı daxil edin")]
+        public IFormFile Logo1 { get; set; }
+
         [MaxLength(100)]
         public string FooterLogo { get; set; }
+
+        public IFormFile Logo2 { get; set; }
 
         [Required(ErrorMessage = "Facebook ünvanı daxil edin")]
         [MaxLength(100)]
@@ -57,8 +60,7 @@ namespace FINAL.Areas.Admin.ViewModels
         [EmailAddress(ErrorMessage = "E-poçt ünvanı daxil edin")]
         public string Email { get; set; }
 
-
-        [Required(ErrorMessage = "Haqqında məlumat daxil edin")]
+      
         public string About { get; set; }
     }
 }

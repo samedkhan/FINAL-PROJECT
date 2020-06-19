@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Samed.Khankishiev\\Desktop\\FINAL-TEST\\FINAL\\FINAL\\FINAL.csproj": {}
+    "C:\\Users\\SAMED\\Desktop\\FINAL\\FINAL\\FINAL\\FINAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Samed.Khankishiev\\Desktop\\FINAL-TEST\\FINAL\\FINAL\\FINAL.csproj": {
+    "C:\\Users\\SAMED\\Desktop\\FINAL\\FINAL\\FINAL\\FINAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Samed.Khankishiev\\Desktop\\FINAL-TEST\\FINAL\\FINAL\\FINAL.csproj",
+        "projectUniqueName": "C:\\Users\\SAMED\\Desktop\\FINAL\\FINAL\\FINAL\\FINAL.csproj",
         "projectName": "FINAL",
-        "projectPath": "C:\\Users\\Samed.Khankishiev\\Desktop\\FINAL-TEST\\FINAL\\FINAL\\FINAL.csproj",
-        "packagesPath": "C:\\Users\\Samed.Khankishiev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Samed.Khankishiev\\Desktop\\FINAL-TEST\\FINAL\\FINAL\\obj\\",
+        "projectPath": "C:\\Users\\SAMED\\Desktop\\FINAL\\FINAL\\FINAL\\FINAL.csproj",
+        "packagesPath": "C:\\Users\\SAMED\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SAMED\\Desktop\\FINAL\\FINAL\\FINAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Samed.Khankishiev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SAMED\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -6,13 +6,20 @@
     right: 0px;
     z-index: 100;
     transition: $t-regular;
-    .logo{
-        float: left;
-    }
+  
     .navigation-bar {
         padding: 5px 0px;
         font-family: $primary-font;
-
+        max-height: 50px;
+        .logo{
+            float: left;
+            height: 50px;
+            a{
+                img{
+                    max-height: 50px;
+                }
+            }
+        }
         .trigger{
             display:none;
             cursor: pointer;
