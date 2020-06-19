@@ -16,12 +16,10 @@ namespace FINAL.Areas.Admin.Controllers
     public class HomeController : BaseController
     {
         private readonly PropDbContext _context;
-        private readonly ILogger<HomeController> _logger;
         private readonly IAuth _auth;
-        public HomeController(ILogger<HomeController> logger, PropDbContext context, IAuth auth) : base(context)
+        public HomeController(PropDbContext context, IAuth auth) : base(context, auth)
         {
             _context = context;
-            _logger = logger;
             _auth = auth;
         }
 
@@ -67,6 +65,25 @@ namespace FINAL.Areas.Admin.Controllers
             return View(data);
         }
 
+        public IActionResult Editsettings()
+        {
+            if (_auth.APuser == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            if (_auth.APuser.isAdmin != true)
+            {
+                return BadRequest();
+            }
+
+            APHomeIndexViewModel data = new APHomeIndexViewModel
+            {
+                setting = _context.WebsiteSettings.FirstOrDefault()
+            };
+
+            return View(data);
+        }
         public IActionResult Users(int id)
         {
 

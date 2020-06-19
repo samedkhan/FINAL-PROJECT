@@ -116,7 +116,7 @@
                         <div class="footer-top">
                             <div class="left-side">
                                 <div class="logo-side">
-                                    <a asp-controller="home" asp-action="index"><img src="~/img/logo/@ViewBag.Setting.FooterLogo" alt="logo"></a>
+                                    <a asp-controller="home" asp-action="index"><img src="~/img/logo/@(ViewBag.Setting.FooterLogo != null ? ViewBag.Setting.FooterLogo : ViewBag.Setting.MainLogo)" alt="logo"></a>
                                 </div>
                             </div>
                             <div class="right-side">

@@ -32,7 +32,7 @@
                     <tr>
                         <td>@user.Nickname</td>
                         <td>@user.Email</td>
-                        <td>@user.Password</td>
+                        <td>@user.Password.Substring(0,15)</td>
                         @if (user.isAdmin)
                         {
                             <td>Administrator</td>

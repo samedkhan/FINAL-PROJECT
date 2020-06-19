@@ -18,7 +18,7 @@ namespace FINAL.Areas.Admin.Controllers
         private readonly Microsoft.AspNetCore.Hosting.IWebHostEnvironment _hosting;
         private readonly IAuth _auth;
 
-        public AccountController(PropDbContext context, Microsoft.AspNetCore.Hosting.IWebHostEnvironment hosting, IAuth auth) : base(context)
+        public AccountController(PropDbContext context, Microsoft.AspNetCore.Hosting.IWebHostEnvironment hosting, IAuth auth) : base(context, auth)
         {
             _context = context;
             _hosting = hosting;
@@ -172,6 +172,8 @@ namespace FINAL.Areas.Admin.Controllers
                 SelectedUser.Nickname = Edit.Name;
                 SelectedUser.Password = Crypto.HashPassword(Edit.Password);
                 SelectedUser.Token = null;
+
+                
 
                 _context.Entry(SelectedUser).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();

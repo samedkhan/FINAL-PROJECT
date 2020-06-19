@@ -1,0 +1,124 @@
+﻿@model APHomeIndexViewModel
+@{
+    ViewData["Title"] = "Təzimləmələrdə dəyişiklik edilməsi";
+}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Tənzimləmələrdə dəyişiklik</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="p-5">
+                    <form class="user" asp-controller="Home" asp-action="Editsettings" asp-area="Admin" method="post">
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Ünvan</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Ad" asp-for="settingEdit.LocalAddress" value="@Model.setting.LocalAddress">
+                                <span class="text-danger" asp-validation-for="settingEdit.LocalAddress"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Şəhər Telefon</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Ad" asp-for="settingEdit.PhoneNumber" value="@Model.setting.PhoneNumber">
+                                <span class="text-danger" asp-validation-for="settingEdit.PhoneNumber"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Mobil Telefon</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Ad" asp-for="settingEdit.MobileNumber" value="@Model.setting.MobileNumber">
+                                <span class="text-danger" asp-validation-for="settingEdit.MobileNumber"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">E-Poçt</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Ad" asp-for="settingEdit.Email" value="@Model.setting.Email">
+                                <span class="text-danger" asp-validation-for="settingEdit.Email"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Facebook</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Ad" asp-for="settingEdit.FacebookAddress" value="@Model.setting.FacebookAddress">
+                                <span class="text-danger" asp-validation-for="settingEdit.FacebookAddress"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Linkedin</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Ad" asp-for="settingEdit.LinkedinAddress" value="@Model.setting.LinkedinAddress">
+                                <span class="text-danger" asp-validation-for="settingEdit.LinkedinAddress"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Twitter</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Ad" asp-for="settingEdit.TwitterAdress" value="@Model.setting.TwitterAdress">
+                                <span class="text-danger" asp-validation-for="settingEdit.TwitterAdress"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Əsas Logo</label>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="imagePreview">
+                                            <img id="imgPrv" src="~/img/logo/@Model.setting.MainLogo" alt="Əsas_logo" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type='file' id="imgInp" class="form-control" placeholder="Ad" asp-for="settingEdit.MainLogo" value="@Model.setting.MainLogo">
+                                    </div>
+                                </div>
+                                <span class="text-danger" asp-validation-for="settingEdit.MainLogo"> </span>
+                            </div>
+                        </div>
+
+
+                        @*<div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Haqqında</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" asp-for="settingEdit.About">@Model.setting.About</textarea>
+                                <span class="text-danger" asp-validation-for="settingEdit.About"> </span>
+                            </div>
+                        </div>*@
+
+                        <div class="form-group row">
+                            <div class="col-sm-9 offset-sm-3">
+                                <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sync-alt mr-3"></i>Yenilə</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#imgPrv').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+    </script>
+}
+
+

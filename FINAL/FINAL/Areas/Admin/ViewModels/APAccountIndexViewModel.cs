@@ -22,7 +22,7 @@ namespace FINAL.Areas.Admin.ViewModels
    
     public class APAccountLoginModel
     {
-        [Required(ErrorMessage = "E-poçt daxil edin")]
+        [Required(ErrorMessage = "E-poçt ünvanı daxil edin")]
         [EmailAddress(ErrorMessage = "E-poçt ünvanı daxil edin")]
         public string Email { get; set; }
 
