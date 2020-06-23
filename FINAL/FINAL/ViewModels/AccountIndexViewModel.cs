@@ -85,6 +85,7 @@ namespace FINAL.ViewModels
         [Required]
         public string PhoneNumber { get; set; }
 
+        
         public IFormFile Photo { get; set; }
 
         [MaxLength(150)]
@@ -96,15 +97,15 @@ namespace FINAL.ViewModels
 
         public List<Addvertisiment> AllAdds { get; set; }
 
-        public List<Addvertisiment> ActiveAdds { get; set; }
+        //public List<Addvertisiment> ActiveAdds { get; set; }
 
-        public List<Addvertisiment> DeactiveAdds { get; set; }
+        //public List<Addvertisiment> DeactiveAdds { get; set; }
 
-        public List<Addvertisiment> WaitingAdds { get; set; }
+        //public List<Addvertisiment> WaitingAdds { get; set; }
 
-        public List<Addvertisiment> RentAdds { get; set; }
+        //public List<Addvertisiment> RentAdds { get; set; }
 
-        public List<Addvertisiment> SaleAdds { get; set; }
+        //public List<Addvertisiment> SaleAdds { get; set; }
 
     }
 

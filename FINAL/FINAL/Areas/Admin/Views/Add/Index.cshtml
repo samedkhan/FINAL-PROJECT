@@ -1,0 +1,167 @@
+﻿@model APAddIndexViewModel
+
+@{
+    ViewData["Title"] = "Elanlar";
+
+}
+
+<!-- Begin Page Content -->
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Elanlar</h1>
+
+<div class="row">
+    <!--  Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ümumi</div>
+                        <div class="h3 mb-0 font-weight-bold text-primary">@ViewBag.AllAddsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="far fa-file fa-2x text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Aktiv</div>
+                        <div class="h3 mb-0 font-weight-bold text-success">@ViewBag.ActiveAddsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="far fa-file fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Gözləmədə</div>
+                        <div class="h3 mb-0 font-weight-bold text-warning">@ViewBag.WaitingAddsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="far fa-file fa-2x text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Deaktiv</div>
+                        <div class="h3 mb-0 font-weight-bold text-danger">@ViewBag.DeactiveAddsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="far fa-file fa-2x text-danger"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td>№</td>
+                        <th>Əmlak növü</th>
+                        <th>Elan növü</th>
+                        <th>Qiymət (AZN)</th>
+                        <th>Şəhər</th>
+                        <th>Elanın tarixi</th>
+                        <th>Elanın sahibi</th>
+                        <th>Vəziyyəti</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @{
+                        int number = 0;
+                    }
+                    @foreach (Addvertisiment add in Model.adds)
+                    {
+                        number++;
+                    <tr>
+                        <td>@number</td>
+                        <td>@add.Property.PropertySort.PropertySortName</td>
+                        <td><b>@add.AddType.Name</b></td>
+                        <td>@add.PropPrice.ToString("0")</td>
+                        <td>@add.Property.City.CityName</td>
+                        <td>@add.CreatedAt.ToString("dd.MM.yyy")</td>
+                        <td>@add.User.Name @(add.User.Surname != null ? add.User.Surname : "") @(add.User.UserTypeID == 1 ? "(Agentlik)" : "")</td>
+                        @if (add.AddStatus == AddStatus.Active)
+                        {
+                            <td class="text-center"><b class="text-success">Aktiv</b></td>
+                        }
+                        @if (add.AddStatus == AddStatus.Deactive || add.AddStatus == AddStatus.Hidden)
+                        {
+                            <td class="text-center"><b class="text-danger">Deaktiv</b></td>
+                        }
+                        @if (add.AddStatus == AddStatus.Waiting)
+                        {
+                            <td class="text-center"><b class="text-warning">Gözləmədə</b></td>
+
+                        }
+                        <td class="d-flex justify-content-center">
+
+                            <a class="text-warning mr-2" asp-controller="Add" asp-action="Detail" asp-area="" asp-route-id="@add.AddvertisimentID" title="Bax"><i class="fas fa-eye"></i></a>
+
+                            @if (add.AddStatus == AddStatus.Waiting)
+                            {
+                                <a class="text-success mr-2" asp-controller="Add" asp-action="Approve" asp-area="Admin" asp-route-id="@add.AddvertisimentID" title="Təsdiqlə"><i class="fas fa-check-circle"></i></a>
+                            }
+                            @if (add.AddStatus != AddStatus.Deactive && ViewBag.User.isSuperAdmin == true)
+                            {
+                                <a class="text-danger" asp-controller="Add" asp-action="Deactivate" asp-area="Admin" asp-route-id="@add.AddvertisimentID" title="Deaktiv et"><i class="fas fa-minus-circle"></i></a>
+                            }
+                            @if (add.AddStatus == AddStatus.Deactive && ViewBag.User.isSuperAdmin == true)
+                            {
+                                <a class="text-danger" asp-controller="Add" asp-action="Remove" asp-area="Admin" asp-route-id="@add.AddvertisimentID" title="Sil"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            }
+
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+@section TableCss{
+    <!-- Custom styles for this page -->
+    <link href="~/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}
+
+@section TableScript{
+    <!-- Page level plugins -->
+    <script src="~/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/admin/js/demo/datatables-demo.js"></script>
+}
+
+

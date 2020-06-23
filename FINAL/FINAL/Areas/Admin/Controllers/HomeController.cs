@@ -40,11 +40,21 @@ namespace FINAL.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-           
+            //Checking Date of Creating Add for Deactivate
+            foreach (Addvertisiment add in _context.Addvertisiments.ToList())
+            {
+                if (add.ExpDate < DateTime.Now)
+                {
+                    add.AddStatus = AddStatus.Deactive;
+                    _context.SaveChanges();
+                }
+            }
+
             if (_auth.APuser == null)
             {
                 return RedirectToAction("Login", "Account");
             }
+
 
             return View();
         }
@@ -142,12 +152,69 @@ namespace FINAL.Areas.Admin.Controllers
 
             return View("~/Areas/Admin/Views/Home/Editsettings.cshtml", data);
 
+
+        }
+     
+        public IActionResult Messages()
+        {
+            if (_auth.APuser == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            APHomeIndexViewModel data = new APHomeIndexViewModel
+            {
+                Messages = _context.Messages.OrderByDescending(m => m.CreatedAt).ToList()
+            };
+
+            return View(data);
         }
 
-        public IActionResult Users(int id)
+        public IActionResult MessageDetail(int id)
+        {
+           
+            if (_auth.APuser == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            Message SelectedMessage = _context.Messages.Find(id);
+
+            if(SelectedMessage == null)
+            {
+                return NotFound();
+            }
+            
+            SelectedMessage.HasReaded = true;
+            _context.SaveChanges();
+
+            APHomeIndexViewModel data = new APHomeIndexViewModel
+            {
+                Message = SelectedMessage
+            };
+
+            return View(data);
+        }
+
+        public IActionResult RemoveMessage(int id)
         {
 
-            return View();
+            if (_auth.APuser == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            Message SelectedMessage = _context.Messages.Find(id);
+
+            if (SelectedMessage == null || _auth.APuser.isSuperAdmin != true)
+            {
+                return NotFound();
+            }
+
+            _context.Messages.Remove(SelectedMessage);
+            _context.SaveChanges();
+
+            return RedirectToAction("messages", "home");
         }
     }
 }

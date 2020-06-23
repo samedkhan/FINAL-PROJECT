@@ -290,9 +290,8 @@ namespace FINAL.Controllers
 
         public IActionResult Create()
         {
-            var token = Request.Cookies["token"];
 
-            if (token == null)
+            if (_auth.User == null)
             {
                 return RedirectToAction("index", "account");
             }
@@ -398,18 +397,18 @@ namespace FINAL.Controllers
                     foreach (IFormFile photo in AddCreatePost.Photos)
                     {
                         string UploadsFolder;
-                        
-                        if (AddCreatePost.AddTypeId < 3)
-                        {
-                            UploadsFolder = Path.Combine(_hosting.WebRootPath, "img", "property", "rent");
-                        }
-                        else
-                        {
-                            UploadsFolder = Path.Combine(_hosting.WebRootPath, "img", "property", "sale");
-                        } 
+
+                        UploadsFolder = Path.Combine(_hosting.WebRootPath, "img", "property");
+
                         FileName = Guid.NewGuid() + "_" + photo.FileName;
                         string FilePath = Path.Combine(UploadsFolder, FileName);
-                        photo.CopyTo(new FileStream(FilePath, FileMode.Create));
+
+                        FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate);
+                        
+                        photo.CopyTo(fs);
+
+                        fs.Close();
+
 
                         PropPhoto newPropPhoto = new PropPhoto //CREATE NEW PHOTO OF PROPERTY
                         {
@@ -439,8 +438,10 @@ namespace FINAL.Controllers
                 _context.Entry(newProp).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 
                 _context.SaveChanges();
+
                 TempData["Success"] = "Elanınız qəbul edildi, təsdiq edildikdən sonra yayımlanacaq.";
-                return RedirectToAction("index", "home");
+
+                return RedirectToAction("cabinet", "account");
             }
             else
             {
@@ -540,9 +541,9 @@ namespace FINAL.Controllers
                                                                                             Include("Property.PropDoc").
                                                                                                 Include("Property.PropertySort").
                                                                                                     Include("Property.Project").
-                                                                                                                Where(a => a.AddvertisimentID == id && a.AddStatus == AddStatus.Active).FirstOrDefault();
+                                                                                                                Where(a => a.AddvertisimentID == id).FirstOrDefault();
 
-            if (Add == null)
+            if (Add == null || ((Add.AddStatus==AddStatus.Deactive || Add.AddStatus == AddStatus.Hidden || Add.AddStatus == AddStatus.Waiting) && _auth.APuser == null)) //Dont show Hidden, Waiting, Deactive adds to Users or Quests
             {
                 return NotFound();
             }
@@ -616,9 +617,7 @@ namespace FINAL.Controllers
 
         public IActionResult Deactivate(int id)
         {
-            var token = Request.Cookies["token"];
-
-            if (token == null)
+            if (_auth.User == null)
             {
                 return RedirectToAction("index", "account");
             }
@@ -637,19 +636,19 @@ namespace FINAL.Controllers
 
             //return RedirectToAction("index", "cabinet", new { id = _auth.User.UserId });
 
-            List<Addvertisiment> DeactivatedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Deactive).ToList();
+            List<Addvertisiment> DeactivatedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Deactive && a.UserId == _auth.User.UserId).ToList();
             int DeactivatedAddsCount = DeactivatedAdds.Count();
            
-            List<Addvertisiment> ActivedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active).ToList();
+            List<Addvertisiment> ActivedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active && a.UserId == _auth.User.UserId).ToList();
             int ActiveAddsCount = ActivedAdds.Count();
             
-            List<Addvertisiment> WaitingdAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Waiting).ToList();
+            List<Addvertisiment> WaitingdAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Waiting && a.UserId == _auth.User.UserId).ToList();
             int WaitingAddsCount = WaitingdAdds.Count();
 
-            List<Addvertisiment> RentAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active && a.AddTypeID<3).ToList();
+            List<Addvertisiment> RentAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active && a.AddTypeID<3 && a.UserId == _auth.User.UserId).ToList();
             int RentAddsCount = RentAdds.Count();
 
-            List<Addvertisiment> SaleAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active && a.AddTypeID == 3).ToList();
+            List<Addvertisiment> SaleAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active && a.AddTypeID == 3 && a.UserId == _auth.User.UserId).ToList();
             int SaleAddsCount = SaleAdds.Count();
 
             return Ok(
@@ -665,9 +664,8 @@ namespace FINAL.Controllers
 
         public IActionResult Remove(int id)
         {
-            var token = Request.Cookies["token"];
 
-            if (token == null)
+            if (_auth.User == null)
             {
                 return RedirectToAction("index", "account");
             }
@@ -684,8 +682,8 @@ namespace FINAL.Controllers
             _context.Entry(SelectedAdd).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
 
-            List<Addvertisiment> DeactivatedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Deactive).ToList();
-            List<Addvertisiment> AllAdds = _context.Addvertisiments.Where(a => a.AddStatus != AddStatus.Hidden).ToList();
+            List<Addvertisiment> DeactivatedAdds = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Deactive && a.UserId == _auth.User.UserId).ToList();
+            List<Addvertisiment> AllAdds = _context.Addvertisiments.Where(a => a.AddStatus != AddStatus.Hidden && a.UserId == _auth.User.UserId).ToList();
 
             int DeactivatedAddsCount = DeactivatedAdds.Count();
             int AllAddsCount = AllAdds.Count();

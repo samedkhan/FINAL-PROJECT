@@ -6,7 +6,18 @@
             <div class="contain">
                 <div class="general">
                     <div class="photo">
-                        <img src="~/img/users/@Model.Owner.Logo" alt="@Model.Owner.Name">
+                        @if (Model.Owner.Logo != null)
+                        {
+                            <img src="~/img/users/@Model.Owner.Logo" alt="@Model.Owner.Name">
+                        }
+                        else if (Model.Owner.Logo == null && Model.Owner.UserTypeID == 1)
+                        {
+                            <img src="~/img/logo/user.png" alt="@Model.Owner.Name">
+                        }
+                        else
+                        {
+                            <img src="~/img/logo/agency.png" alt="@Model.Owner.Name">
+                        }
                     </div>
                     <div class="name">
                         @if (Model.Owner.UserTypeID == 1) //Agency

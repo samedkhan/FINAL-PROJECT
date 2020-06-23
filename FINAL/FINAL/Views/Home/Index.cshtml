@@ -18,7 +18,7 @@
                         <div class="tab-panel active" id="tabs_1">
                             <div class="row">
                                 <form asp-controller="Add" asp-action="Search" enctype="multipart/form-data" method="get">
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-4">
                                         <div class="search-select">
                                             <select id="addSort" asp-for="SearchGet.AddTypeId" name="SearchGet.AddTypeId">
                                                 <option value="" selected>Elanın növü</option>
@@ -31,7 +31,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-4">
                                         <div class="search-select">
                                             <select name="SearchGet.CityId" id="city" asp-for="SearchGet.CityId">
                                                 <option value="" selected>Şəhər</option>
@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-4">
                                         <div class="search-select">
                                             <select id="propSort" asp-for="SearchGet.PropertySortId" name="SearchGet.PropertySortId">
                                                 <option value="" id="default">Əmlakın növü</option>
@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-2 col-md-offset-1">
+                                    <div class="col-md-2 col-md-offset-1 col-sm-3">
                                         <div class="search-button">
                                             <button type="submit" class="search">Axtar</button>
                                         </div>

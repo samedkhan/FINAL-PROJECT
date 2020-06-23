@@ -38,6 +38,16 @@ namespace FINAL.Controllers
 
         public IActionResult Index()
         {
+            //Checking Date of Creating Add for Deactivate
+            foreach(Addvertisiment add in _context.Addvertisiments.ToList())
+            {
+                if(add.ExpDate < DateTime.Now)
+                {
+                    add.AddStatus = AddStatus.Deactive;
+                    _context.SaveChanges();
+                }
+            }
+
             HomeIndexViewModel data = new HomeIndexViewModel
             {
                 AddsPanel = new AddsPanelViewModel
@@ -135,7 +145,8 @@ namespace FINAL.Controllers
                     Namesurname = SendMessage.Namesurname,
                     Text = SendMessage.Text,
                     Email = SendMessage.Email,
-                    HasReaded = false
+                    HasReaded = false,
+                    CreatedAt = DateTime.Now
                 };
                 _context.Messages.Add(message);
                 _context.SaveChanges();

@@ -111,8 +111,10 @@
                                                 <label for="address">Ünvan</label>
                                             </div>
                                             <div class="right-side">
-                                                <input type="text" id="address" placeholder="Ünvanı daxil edin" asp-for="AddCreatePost.PropertyFullAddress" name="AddCreatePost.PropertyFullAddress" data-validation="required" data-validation-error-msg-required="Ünvanı qeyd edin!!!">
-                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropertyFullAddress"> </span>
+                                                <button type="button" id="showMap"><i class="fas fa-map-marker-alt"></i>Xəritədə göstər</button>
+
+                                                <input type="hidden" id="latitude" asp-for="@Model.AddCreatePost.Latitude">
+                                                <input type="hidden" id="longitude" asp-for="@Model.AddCreatePost.Longitude">
                                             </div>
                                         </div>
 
@@ -121,10 +123,8 @@
 
                                             </div>
                                             <div class="right-side">
-                                                <button type="button" id="showMap"><i class="fas fa-map-marker-alt"></i>Xəritədə göstər</button>
-
-                                                <input type="hidden" id="latitude" asp-for="@Model.AddCreatePost.Latitude">
-                                                <input type="hidden" id="longitude" asp-for="@Model.AddCreatePost.Longitude">
+                                                <input type="text" id="address" placeholder="Ünvanı daxil edin" asp-for="AddCreatePost.PropertyFullAddress" name="AddCreatePost.PropertyFullAddress" data-validation="required" data-validation-error-msg-required="Ünvan">
+                                                <span class="text-danger" asp-validation-for="AddCreatePost.PropertyFullAddress"> </span>
                                             </div>
                                         </div>
 
@@ -428,6 +428,16 @@
             });
             $('#about').restrictLength($('#max-length-element'));
 
+            //Dont need document of property in Rent
+            $('#addSort').click(function () {
+                var selected = $(this).children("option:selected").val();
+                if (selected < 3) {
+                    $("#propDoc").hide();
+                }
+                else {
+                    $("#propDoc").show();
+                }
+            });
         });
     </script>
 }

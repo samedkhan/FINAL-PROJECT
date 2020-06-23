@@ -2,10 +2,10 @@
 
 @foreach (Addvertisiment item in Model.AddList)
 {
-    <div class="col-md-@(Model.Type==ViewType.small?"4":"3") col-sm-4 col-xs-6 element-item @(@item.AddTypeID < 3 ? "rent" : "sale")">
+    <div class="col-md-@(Model.Type==ViewType.small?"4":"3") col-sm-4 col-xs-6 col-12 element-item @(@item.AddTypeID < 3 ? "rent" : "sale")">
         <div class="contain-item">
             <div class="item-image">
-                <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property"></a>
+                <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@item.Property.MainPhoto" alt="property"></a>
             </div>
             <div class="item-property">
                 <div class="date">
@@ -47,7 +47,7 @@
                         <div class="add-prop-item">
                             <i class="fas fa-home"></i>
                             <span class="num">@item.Property.FloorId/@item.Property.FloorSum</span>
-                            <span>mərtəbə</span>
+                            <span>mrt</span>
                         </div>
 
                     }
@@ -56,7 +56,7 @@
                         <div class="add-prop-item">
                             <i class="fas fa-home"></i>
                             <span class="num">@item.Property.FloorSum</span>
-                            <span>mərtəbə</span>
+                            <span>mrt</span>
                         </div>
                     }
 
@@ -69,7 +69,7 @@
                         </div>
                     }
 
-                    @if (item.Property.PropertySort.PropertySortId > 3 && item.Property.PropertySort.PropertySortId < 6) //Ofis, Qaraj
+                    @if (item.Property.PropertySort.PropertySortId > 3 && item.Property.PropertySort.PropertySortId < 6 || (item.Property.FloorSum > 0 && item.Property.FloorId == null)) //Ofis, Qaraj, Heyet evi
                     {
                         <div class="add-prop-item">
                             <i class="far fa-square"></i>

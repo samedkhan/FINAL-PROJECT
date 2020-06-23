@@ -8,7 +8,7 @@
     <title>Arenda</title>
     <script src="https://kit.fontawesome.com/3da3c9c8f9.js" crossorigin="anonymous" SameSite="None"></script>
     <link rel="stylesheet" href="~/css/reset.css">
-    <link rel="stylesheet" href="~/css/grid.css">
+    <link rel="stylesheet" href="~/css/grid.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
     @RenderSection("owlCss", required: false)
     @RenderSection("ConfirmCss", required: false)
@@ -61,6 +61,25 @@
                                     </li>
                                     <li class="main-menu"><a asp-controller="home" asp-action="about">Haqqımızda</a></li>
                                     <li class="main-menu"><a asp-controller="home" asp-action="contact">Əlaqə</a></li>
+                                    @if (Context.Request.Cookies["token"] != null)
+                                    {
+                                        <li class="mobile-registration" data-dropdown="true">
+
+                                            <span>@ViewBag.UserName</span>
+
+                                            <ul class="submenu">
+                                                <li><a asp-controller="account" asp-action="cabinet">Şəxsi Kabinet</a></li>
+                                                <li><a asp-controller="account" asp-action="settings">Tənzimləmələr</a></li>
+                                                <li><a asp-controller="account" asp-action="logout">Çıxış Et</a></li>
+                                            </ul>
+                                        </li>
+
+
+                                    }
+                                    else
+                                    {
+                                        <li class="mobile-registration"><a asp-controller="account" asp-action="index">Şəxsi kabinet</a></li>
+                                    }
                                     <li class="main-menu" data-button="true" data-checked="true"><a asp-action="create" asp-controller="add"><i class="fas fa-plus"></i>ELAN YERLƏŞDİR</a></li>
                                 </ul>
 
@@ -90,7 +109,6 @@
                                     else
                                     {
                                         <li class="main-menu" data-button="true"><a asp-controller="account" asp-action="index">Şəxsi kabinet</a></li>
-                                        @*<li class="main-menu" data-button="true"><a asp-controller="account" asp-action="register">Qeydiyyat</a></li>*@
                                     }
                                 </ul>
                             </div>

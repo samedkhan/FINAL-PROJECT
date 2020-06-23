@@ -1,0 +1,197 @@
+﻿@model APUserIndexViewModel
+@{
+    ViewData["Title"] = "Istifadəçilər";
+}
+
+<!-- Begin Page Content -->
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">İstifadəçilər</h1>
+
+<div class="row">
+
+    <!--  Card Example -->
+    <div class="col-xl-4 col-md-4 mb-6">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Gözləmədə</div>
+                        <div class="h3 mb-0 font-weight-bold text-warning">@ViewBag.WaitingUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-2 col-md-2 mb-6">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ümumi</div>
+                        <div class="h3 mb-0 font-weight-bold text-primary">@ViewBag.AllUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-2 col-md-2 mb-6">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Agentlik</div>
+                        <div class="h3 mb-0 font-weight-bold text-success">@ViewBag.AgencyUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-2 col-md-2 mb-6">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ev sahibi</div>
+                        <div class="h3 mb-0 font-weight-bold text-success">@ViewBag.OwnerUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-2 col-md-2 mb-6">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Vasitəçi</div>
+                        <div class="h3 mb-0 font-weight-bold text-success">@ViewBag.MediatorUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td>№</td>
+                        <th>Ad</th>
+                        <th>Qeydiyyat növü</th>
+                        <th>Telefon</th>
+                        <th>Aktiv Elan</th>
+                        <th>Qeydiyyat tarixi</th>
+                        <th>Vəziyyəti</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @{
+                        int number = 0;
+
+                    }
+                    @foreach (User user in Model.Users)
+                    {
+                        number++;
+                        int activeAdds = 0;
+
+                        <tr>
+                            <td>@number</td>
+                            <td><b>@user.Name @(user.Surname != null ? user.Surname : "")</b></td>
+                            <td>@user.UserType.Name</td>
+                            <td>@user.PhoneNumber</td>
+
+                            @for (int i = 0; i < user.Adds.Count(); i++)
+                            {
+                                @if (user.Adds[i].AddStatus == AddStatus.Active)
+                                {
+                                    activeAdds++;
+                                }
+                            }
+                            <td class="text-center">@activeAdds</td>
+
+                            <td>@user.CreatedAt.ToString("dd.MM.yyy")</td>
+                            
+                            @if (user.Status == UserStatus.Active)
+                            {
+                                <td class="text-center"><b class="text-success">Aktiv</b></td>
+                            }
+                            @if (user.Status == UserStatus.Deactive)
+                            {
+                                <td class="text-center"><b class="text-danger">Deaktiv</b></td>
+                            }
+                            @if (user.Status == UserStatus.Waiting)
+                            {
+                                <td class="text-center"><b class="text-warning">Gözləmədə</b></td>
+
+                            }
+                        <td class="d-flex justify-content-center">
+
+
+                            <a class="text-warning mr-2" asp-controller="Agency" asp-action="Detail" asp-area="" asp-route-id="@user.UserId" title="Bax"><i class="fas fa-eye"></i></a>
+
+                            @if (user.Status == UserStatus.Waiting)
+                            {
+                                <a class="text-success mr-2" asp-controller="User" asp-action="Approve" asp-area="Admin" asp-route-id="@user.UserId" title="Təsdiqlə"><i class="fas fa-check-circle"></i></a>
+                            }
+                            @if (user.Status != UserStatus.Deactive && ViewBag.User.isSuperAdmin == true)
+                            {
+                                <a class="text-danger" asp-controller="User" asp-action="Deactivate" asp-area="Admin" asp-route-id="@user.UserId" title="Deaktiv et"><i class="fas fa-minus-circle"></i></a>
+                            }
+                            @if (user.Status == UserStatus.Deactive && ViewBag.User.isSuperAdmin == true)
+                            {
+                                <a class="text-danger" asp-controller="User" asp-action="Remove" asp-area="Admin" asp-route-id="@user.UserId" title="Sil"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            }
+
+                        </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+@section TableCss{
+    <!-- Custom styles for this page -->
+    <link href="~/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}
+
+@section TableScript{
+    <!-- Page level plugins -->
+    <script src="~/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/admin/js/demo/datatables-demo.js"></script>
+}
+
+

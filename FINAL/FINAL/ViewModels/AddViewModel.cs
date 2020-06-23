@@ -69,7 +69,7 @@ namespace FINAL.ViewModels
 
         public int? FlatId { get; set; }
 
-        public int PropDocId { get; set; }
+        public int? PropDocId { get; set; }
 
         public decimal? BuildingVolume { get; set; }
 

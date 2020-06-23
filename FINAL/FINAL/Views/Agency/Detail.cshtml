@@ -16,13 +16,17 @@
                         <span class="sum">@ViewBag.AddsCount</span>
                         <span>elan mövcuddur</span>
                     </div>
-                    <div class="rent-sale-buttons">
-                        <ul class="nav-tabs">
-                            <li class="active"><button data-filter="*">Ümumi</button></li>
-                            <li><button data-filter=".sale">Satış</button></li>
-                            <li><button data-filter=".rent">Kirayə</button></li>
-                        </ul>
-                    </div>
+                    @if (ViewBag.AddsCount > 0)
+                    {
+                        <div class="rent-sale-buttons">
+                            <ul class="nav-tabs">
+                                <li class="active"><button data-filter="*">Ümumi</button></li>
+                                <li><button data-filter=".sale">Satış</button></li>
+                                <li><button data-filter=".rent">Kirayə</button></li>
+                            </ul>
+                        </div>
+                    }
+
                 </div>
             </div>
         </div>

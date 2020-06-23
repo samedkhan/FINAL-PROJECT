@@ -32,8 +32,19 @@ namespace FINAL.Areas.Admin.Controllers
                 ViewBag.User = _context.APusers.FirstOrDefault(u => u.Token == token);
 
             }
-           
-            ViewBag.UserTypes = _context.UserTypes.ToList();
+
+            ViewBag.AllUsersCount = _context.Users.ToList().Count();
+            ViewBag.WaitingUsersCount = _context.Users.Where(u => u.Status == UserStatus.Waiting).ToList().Count();
+            ViewBag.AgencyUsersCount = _context.Users.Where(u => u.UserTypeID == 1).ToList().Count();
+            ViewBag.OwnerUsersCount = _context.Users.Where(u => u.UserTypeID == 2).ToList().Count();
+            ViewBag.MediatorUsersCount = _context.Users.Where(u => u.UserTypeID == 3).ToList().Count();            
+
+            ViewBag.AllAddsCount = _context.Addvertisiments.ToList().Count();
+            ViewBag.ActiveAddsCount = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Active && a.User.Status == UserStatus.Active).ToList().Count();
+            ViewBag.WaitingAddsCount = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Waiting && a.User.Status == UserStatus.Active).ToList().Count();
+            ViewBag.DeactiveAddsCount = _context.Addvertisiments.Where(a => a.AddStatus == AddStatus.Deactive && a.User.Status == UserStatus.Active).ToList().Count();
+
+            ViewBag.NewMessagesCount = _context.Messages.Where(m => m.HasReaded == false).ToList().Count();
 
             base.OnActionExecuting(context);
         }

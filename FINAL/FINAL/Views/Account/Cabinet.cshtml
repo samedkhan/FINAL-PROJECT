@@ -23,10 +23,10 @@
                     <div class="col-md-12">
                         <div class="header-panel">
                             <ul class="nav-tabs">
-                                <li class="active"><button data-filter="*"><i class="fas fa-layer-group"></i>Ümumi</button><span class="sum" id="allAdds">@Model.Cabinet.AllAdds.Count</span></li>
-                                <li><button data-filter=".active"><i class="fas fa-check"></i>Aktiv</button><span class="sum" id="activeAdds">@Model.Cabinet.ActiveAdds.Count</span></li>
-                                <li><button data-filter=".deactive"><i class="far fa-clock"></i>Deaktiv</button><span class="sum" id="deactivatedAdds">@Model.Cabinet.DeactiveAdds.Count</span></li>
-                                <li><button data-filter=".waiting:not(.deactive)"><i class="fas fa-stopwatch"></i>Gözləmədə olan</button><span class="sum" id="waitingAdds">@Model.Cabinet.WaitingAdds.Count</span></li>
+                                <li class="active"><button data-filter="*"><i class="fas fa-layer-group"></i>Ümumi</button><span class="sum" id="allAdds">@ViewBag.AllAddsCount</span></li>
+                                <li><button data-filter=".active"><i class="fas fa-check"></i>Aktiv</button><span class="sum" id="activeAdds">@ViewBag.ActiveAddsCount</span></li>
+                                <li><button data-filter=".deactive"><i class="far fa-clock"></i>Deaktiv</button><span class="sum" id="deactivatedAdds">@ViewBag.DeactiveAddsCount</span></li>
+                                <li><button data-filter=".waiting:not(.deactive)"><i class="fas fa-stopwatch"></i>Gözləmədə olan</button><span class="sum" id="waitingAdds">@ViewBag.WaitingAddsCount</span></li>
 
                             </ul>
                         </div>
@@ -36,27 +36,28 @@
                                     <div class="selectPanel">
                                         <ul>
                                             <li class="active"><button data-filter="*:not(.deactive):not(.waiting)">Ümumi</button></li>
-                                            <li><button data-filter=".rent:not(.deactive):not(.waiting)">Kirayə</button><span class="sum" id="rentAdds">@Model.Cabinet.RentAdds.Count</span></li>
-                                            <li><button data-filter=".sale:not(.deactive):not(.waiting)">Satış</button><span class="sum" id="saleAdds">@Model.Cabinet.SaleAdds.Count</span></li>
+                                            <li><button data-filter=".rent:not(.deactive):not(.waiting)">Kirayə</button><span class="sum" id="rentAdds">@ViewBag.RentAddsCount</span></li>
+                                            <li><button data-filter=".sale:not(.deactive):not(.waiting)">Satış</button><span class="sum" id="saleAdds">@ViewBag.SaleAddsCount</span></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="row grid">
 
+
                                     @if (Model.Cabinet.AllAdds.Count != 0)
                                     {
                                         foreach (Addvertisiment item in Model.Cabinet.AllAdds)
                                         {
-                                            <div class="col-md-3 element-item @(@item.AddTypeID < 3 ? "rent" : "sale") @(@item.AddStatus == AddStatus.Active ? "active" : "") @(@item.AddStatus == AddStatus.Deactive ? "deactive" : "") @(@item.AddStatus == AddStatus.Waiting ? "waiting" : "") " data-category='@(@item.AddTypeID < 3 ? "rent" : "sale")'>
+                                            <div class="col-md-3 col-sm-4 col-xs-6 col-12 element-item @(@item.AddTypeID < 3 ? "rent" : "sale") @(@item.AddStatus == AddStatus.Active ? "active" : "") @(@item.AddStatus == AddStatus.Deactive ? "deactive" : "") @(@item.AddStatus == AddStatus.Waiting ? "waiting" : "") " data-category='@(@item.AddTypeID < 3 ? "rent" : "sale")'>
                                                 <div class="contain-item  @(@item.AddStatus == AddStatus.Deactive ? "nonactive" : "")">
                                                     <div class="item-image">
                                                         @if (@item.AddStatus == AddStatus.Active)
                                                         {
-                                                            <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property"></a>
+                                                            <a title="Ətraflı" asp-action="detail" asp-controller="add" asp-route-id="@item.AddvertisimentID"><img src="~/img/property/@item.Property.MainPhoto" alt="property"></a>
                                                         }
                                                         else
                                                         {
-                                                            <img src="~/img/property/@(item.AddTypeID<3?"rent":"sale")/@item.Property.MainPhoto" alt="property">
+                                                            <img src="~/img/property/@item.Property.MainPhoto" alt="property">
                                                         }
                                                     </div>
                                                     <div class="item-property">
@@ -96,7 +97,8 @@
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="fas fa-home"></i>
-                                                                    <span class="num">@item.Property.FloorId/@item.Property.FloorSum mərtəbə</span>
+                                                                    <span class="num">@item.Property.FloorId/@item.Property.FloorSum</span>
+                                                                    <span>mrt</span>
                                                                 </div>
 
                                                             }
@@ -104,7 +106,8 @@
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="fas fa-home"></i>
-                                                                    <span class="num">@item.Property.FloorSum mərtəbə</span>
+                                                                    <span class="num">@item.Property.FloorSum</span>
+                                                                    <span>mrt</span>
                                                                 </div>
                                                             }
 
@@ -112,15 +115,17 @@
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="far fa-square"></i>
-                                                                    <span class="num">@item.Property.FloorId otaq</span>
+                                                                    <span class="num">@item.Property.FloorId</span>
+                                                                    <span>otaq</span>
                                                                 </div>
                                                             }
 
-                                                            @if (item.Property.PropertySort.PropertySortId > 3 && item.Property.PropertySort.PropertySortId < 6) //Ofis, Qaraj
+                                                            @if (item.Property.PropertySort.PropertySortId > 3 && item.Property.PropertySort.PropertySortId < 6 || (item.Property.FloorSum > 0 && item.Property.FloorId == null)) //Ofis, Qaraj, Heyet evi
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="far fa-square"></i>
-                                                                    <span class="num">@item.Property.BuildingVolume.Value.ToString("0") kv/m</span>
+                                                                    <span class="num">@item.Property.BuildingVolume.Value.ToString("0")</span>
+                                                                    <span>kv/m</span>
                                                                 </div>
                                                             }
 
@@ -128,11 +133,25 @@
                                                             {
                                                                 <div class="add-prop-item">
                                                                     <i class="far fa-square"></i>
-                                                                    <span class="num">@item.Property.LandVolume.Value.ToString("0") sot</span>
+                                                                    <span class="num">@item.Property.LandVolume.Value.ToString("0")</span>
+                                                                    <span>sot</span>
                                                                 </div>
                                                             }
-
                                                         </div>
+                                                        @if (item.AddStatus != AddStatus.Deactive)
+                                                        {
+                                                            <div class="add-status" style="background-color: @(item.AddStatus == AddStatus.Waiting ? "yellow !important" : "")">
+                                                                @if (item.AddStatus == AddStatus.Active)
+                                                                {
+                                                                    <h3 class="name">Aktiv</h3>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <h3 class="name" style="color:darkgrey">Gözləmədə</h3>
+                                                                }
+                                                            </div>
+                                                        }
+
                                                         <div class="add-sort">
                                                             @if (item.AddTypeID < 3) //Kirayələr
                                                             {
@@ -189,6 +208,9 @@
     </div>
 </section>
 <!--End of cabinet section -->
+@section NotificationJs{
+    <script src="~/script/toaster/toastr.min.js"></script>
+}
 @section ConfirmCss{
     <link rel="stylesheet" href="~/css/notiflix/notiflix-2.1.3.min.css">
 }
@@ -202,6 +224,10 @@
 
     <script>
         $(document).ready(function () {
+              @if(TempData["Success"] != null)
+                {
+                     @:toastr.success("@TempData["Success"]");
+                };
 
             // init Isotope -- FILTERING showing data
             var $grid = $('.grid').isotope({
@@ -214,8 +240,6 @@
                 var filterValue = $(this).attr('data-filter');
                 $grid.isotope({ filter: filterValue });
             });
-
-
 
         });
     </script>

@@ -13,6 +13,11 @@ namespace FINAL.Areas.Admin.ViewModels
         public WebsiteSetting setting { get; set; }
 
         public APSettingEditModel settingEdit { get; set; }
+
+        public List<Message> Messages { get; set; }
+
+        public Message Message { get; set; }
+
     }
 
     public class APSettingEditModel

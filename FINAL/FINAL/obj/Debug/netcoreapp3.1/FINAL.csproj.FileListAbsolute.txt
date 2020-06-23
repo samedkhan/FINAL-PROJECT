@@ -666,11 +666,14 @@ C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Adm
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Account\Create.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Account\Edit.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Account\Login.cshtml.g.cs
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Add\Index.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Editsettings.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\MessageDetail.cshtml.g.cs
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Messages.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Settings.cshtml.g.cs
-C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Users.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\Index.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\Razor\Views\Account\Cabinet.cshtml.g.cs
@@ -707,4 +710,3 @@ C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\staticwebassets
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.dll
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.pdb
 C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.genruntimeconfig.cache
-C:\Users\SAMED\Desktop\FINAL\FINAL\FINAL\obj\Debug\netcoreapp3.1\FINAL.csprojAssemblyReference.cache

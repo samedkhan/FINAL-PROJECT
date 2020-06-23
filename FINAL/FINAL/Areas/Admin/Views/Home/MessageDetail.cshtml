@@ -1,0 +1,60 @@
+﻿@model APHomeIndexViewModel
+@{
+    ViewData["Title"] = "Məktub haqqında";
+}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Məktubun mətni</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2">
+                <div class="p-5">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Kimdən</label>
+                        <div class="col-sm-9">
+                            <input type="text" disabled class="form-control" value="@Model.Message.Namesurname">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">E-Poçt</label>
+                        <div class="col-sm-9">
+                            <input type="text" disabled class="form-control" value="@Model.Message.Email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Tarix</label>
+                        <div class="col-sm-9">
+                            <input type="text" disabled class="form-control" value="@Model.Message.CreatedAt.ToString("dd.MM.yyy HH:MM")">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Mətn</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="MessageText" rows="10" cols="80" asp-for="settingEdit.About"></textarea>
+                            <div style="display:none" id="DbText">@Html.Raw(Model.Message.Text)</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @*Showing input photo*@
+    <script>
+ 
+    //Filling content of editor from database (MessageText)
+    window.onload = function () {
+        var DbAbout = $("#DbText")[0].innerHTML;
+        $("#MessageText").val("" + DbAbout);
+        };
+    </script>
+}
+
+

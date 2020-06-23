@@ -114,6 +114,7 @@
                             <label class="col-sm-3 col-form-label">Haqqında</label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" id="AboutEditor" rows="10" cols="80" asp-for="settingEdit.About"></textarea>
+                                <div style="display:none" id="DbAbout">@Html.Raw(Model.setting.About)</div>
                                 <span class="text-danger" asp-validation-for="settingEdit.About"> </span>
                             </div>
                         </div>
@@ -126,13 +127,14 @@
                     </form>
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
 
 @section Scripts{
     @*Showing input photo*@
-    <script>
+<script>
         function readURL(input, show) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -151,7 +153,12 @@
         $("#imgInp2").change(function () {
             readURL(this, $('#imgPrv2'));
         });
-    </script>
+    //Filling content of editor from database (About)
+    window.onload = function () {
+        var DbAbout = $("#DbAbout")[0].innerHTML;
+        $("#AboutEditor").val("" + DbAbout);
+        };
+</script>
 }
 
 @section Editor{

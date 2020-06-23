@@ -148,12 +148,11 @@
                                                         <label for="about">Haqqında</label>
                                                     </div>
                                                     <div class="right-side">
-                                                        <span id="max-length-element">500</span> xarakter qalmaqdadır
                                                         <textarea id="about" asp-for="Setting.AboutCompany" rows="5"
-                                                                  data-validation="required, length"
-                                                                  data-validation-length="50-500"
+                                                                  data-validation="required"
                                                                   data-validation-error-msg-required="Şirkətiniz haqqında qısa məlumat daxil edin!"
-                                                                  data-validation-error-msg-length="Minimum 50 xarakter olmalıdır!">@ViewBag.User.AboutCompany</textarea>
+                                                                 ></textarea>
+                                                        <div style="display:none" id="DbAbout">@Html.Raw(ViewBag.User.AboutCompany)</div>
                                                         <span class="text-danger" asp-validation-for="Setting.AboutCompany"></span>
                                                     </div>
                                                 </div>
@@ -219,7 +218,9 @@
                 addSuggestions: true,
                 decimalSeparator: ','
             });
-            $('#about').restrictLength($('#max-length-element'));
+            //Filling content of editor from database (About Company)
+            var DbAbout = $("#DbAbout")[0].innerHTML;
+            $("#about").val("" + DbAbout);
         });
 
     </script>

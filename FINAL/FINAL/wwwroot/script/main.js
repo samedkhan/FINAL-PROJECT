@@ -383,7 +383,7 @@ $(document).ready(function () {
 
         var id = $(this).val();
 
-        $.getJSON('add/getprojects/' + id, function (response) {
+        $.getJSON('../getprojects/' + id, function (response) {
 
             if (response.length > 0) {
 
@@ -405,7 +405,7 @@ $(document).ready(function () {
 
         var id = $(this).val();
 
-        $.getJSON('add/getdistricts/' + id, function (response) {
+        $.getJSON('../getdistricts/' + id, function (response) {
 
             if (response.length > 0) {
 

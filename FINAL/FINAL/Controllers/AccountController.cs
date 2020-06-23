@@ -232,22 +232,9 @@ namespace FINAL.Controllers
 
         public IActionResult Settings()
         {
-            var token = Request.Cookies["token"];
-            
-            if(token == null)
+            if(_auth.User == null)
             {
                 return RedirectToAction("index", "account");
-            }
-
-
-            if (_auth.User == null)
-            {
-                return NotFound();
-            }
-
-            if(_auth.User.Token != token)
-            {
-                return BadRequest();
             }
 
             AccountIndexViewModel data = new AccountIndexViewModel
@@ -308,20 +295,28 @@ namespace FINAL.Controllers
                     LoggedUser.Adress = setting.Adress;
                     LoggedUser.AboutCompany = setting.AboutCompany;
                 }
+                
+                FileStream fs = null;
 
                 if (setting.Photo != null)
                 {
+                    
                     string UploadsFolder = Path.Combine(_hosting.WebRootPath, "img", "users");
                     FileName = Guid.NewGuid() + "_" + setting.Photo.FileName;
                     string FilePath = Path.Combine(UploadsFolder, FileName);
-                    setting.Photo.CopyTo(new FileStream(FilePath, FileMode.Create));
+                    fs = new FileStream(FilePath, FileMode.OpenOrCreate);
+                    setting.Photo.CopyTo(fs);
                     LoggedUser.Logo = FileName;
+
+                    fs.Close();
                 }
-               
+
+                
+                
 
                 _context.Entry(LoggedUser).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
-                TempData["Success"] = "Məlumatlar müvəffəqiyyətlə daxil etdiniz, yoxlandıqdan sonra yayımlanacaq...";
+                TempData["Success"] = "Məlumatlar müvəffəqiyyətlə daxil etdiniz...";
                 return RedirectToAction("index", "home");
             }
           
@@ -355,15 +350,14 @@ namespace FINAL.Controllers
 
         public IActionResult Cabinet()
         {
-            string Token = Request.Cookies["token"];
-
-            if (Token == null)
+     
+            if (_auth.User == null)
             {
                 return RedirectToAction("index", "account");
             }
             else
             {
-                User LoginedUser = _context.Users.Where(u => u.Token == Token && u.UserId == _auth.User.UserId).FirstOrDefault();
+                User LoginedUser = _context.Users.Where(u => u.UserId == _auth.User.UserId).FirstOrDefault();
 
                 if (LoginedUser == null)
                 {
@@ -371,32 +365,26 @@ namespace FINAL.Controllers
                 }
                 else
                 {
+                    ViewBag.AllAddsCount = _context.Addvertisiments.Where(a => a.UserId == _auth.User.UserId && a.AddStatus != AddStatus.Hidden).Count();
 
-                    List<Addvertisiment> allAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus != AddStatus.Hidden).OrderByDescending(a => a.CreatedAt).ToList();
+                    ViewBag.ActiveAddsCount = _context.Addvertisiments.Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Active).ToList().Count();
 
-                    List<Addvertisiment> activeAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+                    ViewBag.DeactiveAddsCount = _context.Addvertisiments.Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Deactive).Count();
 
-                    List<Addvertisiment> deactiveAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Deactive).OrderByDescending(a => a.CreatedAt).ToList();
+                    ViewBag.WaitingAddsCount = _context.Addvertisiments.Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Waiting).Count();
 
-                    List<Addvertisiment> waitingAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus == AddStatus.Waiting).OrderByDescending(a => a.CreatedAt).ToList();
+                    ViewBag.RentAddsCount = _context.Addvertisiments.Where(a => a.UserId == _auth.User.UserId && a.AddTypeID < 3 && a.AddStatus == AddStatus.Active).Count();
 
-                    List<Addvertisiment> rentAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddTypeID < 3 && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
+                    ViewBag.SaleAddsCount = _context.Addvertisiments.Where(a => a.UserId == _auth.User.UserId && a.AddTypeID == 3 && a.AddStatus == AddStatus.Active).Count();
 
-                    List<Addvertisiment> saleAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddTypeID == 3 && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList();
 
                     AccountIndexViewModel data = new AccountIndexViewModel
                     {
                         Cabinet = new AccountCabinetModel
                         {
-                            AllAdds = allAdds,
-                            ActiveAdds = activeAdds,
-                            DeactiveAdds = deactiveAdds,
-                            WaitingAdds = waitingAdds,
-                            RentAdds = rentAdds,
-                            SaleAdds = saleAdds,
+                            AllAdds = _context.Addvertisiments.Include("User").Include("Property").Include("Property.City").Include("Property.District").Include("Property.PropertySort").Where(a => a.UserId == _auth.User.UserId && a.AddStatus != AddStatus.Hidden).OrderByDescending(a => a.CreatedAt).ToList()
+
                         },
-
-
                         Breadcumb = new BreadcumbViewModel
                         {
                             Title = "Şəxsi kabinet",

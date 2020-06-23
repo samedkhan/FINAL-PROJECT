@@ -31,7 +31,7 @@ namespace FINAL.Controllers
             {
                 Agencies = new AgencyIndexViewModel
                 {
-                    Users = _context.Users.Include("Adds").Where(u => u.UserTypeID == 1 && u.Status == UserStatus.Active).ToList(),
+                    Users = _context.Users.Include("Adds").Where(u => u.UserTypeID == 1 && u.Status == UserStatus.Active && u.Adds.Count() > 0).ToList(),
                 },
                 Breadcumb = new BreadcumbViewModel
                 {
@@ -57,9 +57,9 @@ namespace FINAL.Controllers
 
         public IActionResult Detail(int id)
         {
-            User selectedUser = _context.Users.Include("Adds").Where(u => u.UserId == id && u.UserTypeID == 1).FirstOrDefault();
+            User selectedUser = _context.Users.Include("Adds").Where(u => u.UserId == id).FirstOrDefault();
 
-            if (selectedUser == null)
+            if (selectedUser == null || selectedUser.UserTypeID > 1 && _auth.APuser == null) //Dont show Owners and Mediators to Users and Quests
             {
                 return NotFound();
             }

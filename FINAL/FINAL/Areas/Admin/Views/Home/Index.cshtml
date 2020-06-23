@@ -1,8 +1,172 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Ana səhifə";
 }
 
-<h1>ADMIN INDEX</h1>
+<!-- Begin Page Content -->
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Elanlar</h1>
+
+<div class="row">
+    <!--  Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ümumi</div>
+                        <div class="h3 mb-0 font-weight-bold text-primary">@ViewBag.AllAddsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="far fa-file fa-2x text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Aktiv</div>
+                        <div class="h3 mb-0 font-weight-bold text-success">@ViewBag.ActiveAddsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="far fa-file fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Gözləmədə</div>
+                        <div class="h3 mb-0 font-weight-bold text-warning">@ViewBag.WaitingAddsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="far fa-file fa-2x text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Deaktiv</div>
+                        <div class="h3 mb-0 font-weight-bold text-danger">@ViewBag.DeactiveAddsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="far fa-file fa-2x text-danger"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="h3 mb-2 text-gray-800">İstifadəçilər</h1>
+
+<div class="row">
+    <!--  Card Example -->
+    <div class="col-xl-3 col-md-2 mb-6">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ümumi</div>
+                        <div class="h3 mb-0 font-weight-bold text-primary">@ViewBag.AllUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-3 col-md-4 mb-6">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Gözləmədə</div>
+                        <div class="h3 mb-0 font-weight-bold text-warning">@ViewBag.WaitingUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--  Card Example -->
+    <div class="col-xl-2 col-md-2 mb-6">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Agentlik</div>
+                        <div class="h3 mb-0 font-weight-bold text-success">@ViewBag.AgencyUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-2 col-md-2 mb-6">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ev sahibi</div>
+                        <div class="h3 mb-0 font-weight-bold text-success">@ViewBag.OwnerUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Card Example -->
+    <div class="col-xl-2 col-md-2 mb-6">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Vasitəçi</div>
+                        <div class="h3 mb-0 font-weight-bold text-success">@ViewBag.MediatorUsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.container-fluid -->
+
+
 
