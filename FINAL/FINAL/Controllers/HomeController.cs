@@ -61,7 +61,7 @@ namespace FINAL.Controllers
                                                                                             Include("Property.PropDoc").
                                                                                                 Include("Property.PropertySort").
                                                                                                     Include("Property.Project").
-                                                                                                         Where(a => a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).ToList(),
+                                                                                                         Where(a => a.User.Status == UserStatus.Active && a.AddStatus == AddStatus.Active).OrderByDescending(a => a.CreatedAt).Take(8).ToList(),
                 },
                 SearchPanel = new FilterPanelViewModel
                 {
@@ -69,7 +69,7 @@ namespace FINAL.Controllers
                     Cities = _context.Cities.ToList(),
                     PropertySorts = _context.PropertySorts.ToList(),
                 },
-                Agencies = _context.Users.Where(u => u.UserTypeID == 1 && u.Status == UserStatus.Active).ToList(),
+                Agencies = _context.Users.Where(u => u.UserTypeID == 1 && u.Status == UserStatus.Active && u.Adds.Count > 0).ToList(),
             };
             ViewBag.Adds = data.AddsPanel;
             return View(data);
@@ -152,22 +152,22 @@ namespace FINAL.Controllers
                 _context.SaveChanges();
 
                 //SENDING EMAIL BY MailKit
-                var textmessage = new MimeMessage();
-                textmessage.From.Add(new MailboxAddress("From", "samed-khan@hotmail.com"));
-                textmessage.To.Add(new MailboxAddress("To", "samadakh@code.edu.az"));
-                textmessage.Subject = SendMessage.Namesurname + " / " + SendMessage.Email + " / " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                //var textmessage = new MimeMessage();
+                //textmessage.From.Add(new MailboxAddress("From", "samed-khan@hotmail.com"));
+                //textmessage.To.Add(new MailboxAddress("To", "samadakh@code.edu.az"));
+                //textmessage.Subject = SendMessage.Namesurname + " / " + SendMessage.Email + " / " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
-                textmessage.Body = new TextPart()
-                {
-                    Text = SendMessage.Text,
-                };
-                using (var client = new SmtpClient())
-                {
-                    client.Connect("smtp.live.com", 25, false);
-                    client.Authenticate("samed-khan@hotmail.com", "passwordchangedbyme");
-                    client.Send(textmessage);
-                    client.Disconnect(true);
-                }
+                //textmessage.Body = new TextPart()
+                //{
+                //    Text = SendMessage.Text,
+                //};
+                //using (var client = new SmtpClient())
+                //{
+                //    client.Connect("smtp.live.com", 25, false);
+                //    client.Authenticate("samed-khan@hotmail.com", "passwordchangedbyme");
+                //    client.Send(textmessage);
+                //    client.Disconnect(true);
+                //}
                 //END
                 TempData["Success"] = "Mesajınız göndərildi...";
                 return RedirectToAction("index", "home");

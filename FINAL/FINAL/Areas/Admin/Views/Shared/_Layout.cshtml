@@ -40,7 +40,7 @@
                 </a>
             </li>
             <!-- Divider -->
-            <hr class="sidebar-divider">            
+            <hr class="sidebar-divider">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
@@ -65,18 +65,22 @@
                 </a>
             </li>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="add" asp-route-area="admin">
-                    <i class="fas fa-clipboard-check"></i>
-                    <span>Elanlar</span>
-                    @if (ViewBag.WaitingAddsCount > 0)
-                    {
-                        <span class="float-right badge badge-pill badge-warning h1 font-weight-bold">@ViewBag.WaitingAddsCount</span>
-                    }
+            @if (ViewBag.WaitingUsersCount == 0)
+            {
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="index" asp-controller="add" asp-route-area="admin">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Elanlar</span>
+                        @if (ViewBag.WaitingAddsCount > 0)
+                        {
+                            <span class="float-right badge badge-pill badge-warning h1 font-weight-bold">@ViewBag.WaitingAddsCount</span>
+                        }
 
-                </a>
-            </li>
+                    </a>
+                </li>
+            }
+
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">

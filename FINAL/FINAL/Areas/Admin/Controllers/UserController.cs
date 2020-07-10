@@ -94,22 +94,23 @@ namespace FINAL.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
-
-            string FilePath = Path.Combine(_hosting.WebRootPath, "img", "users", SelectedUser.Logo);
-
-            if (System.IO.File.Exists(FilePath))
+            string FilePath;
+            if (SelectedUser.Logo != null)
             {
-                try
+                 FilePath = Path.Combine(_hosting.WebRootPath, "img", "users", SelectedUser.Logo);
+                if (System.IO.File.Exists(FilePath))
                 {
-                    System.IO.File.Delete(FilePath);
-                }
-                catch (Exception)
-                {
-                    return RedirectToAction("index", "user");
+                    try
+                    {
+                        System.IO.File.Delete(FilePath);
+                    }
+                    catch (Exception)
+                    {
+                        return RedirectToAction("index", "user");
+                    }
                 }
             }
-
+           
             List<Addvertisiment> SelectedUserAdds = _context.Addvertisiments.Where(a => a.UserId == SelectedUser.UserId).ToList();
 
             foreach(Addvertisiment add in SelectedUserAdds)
@@ -143,11 +144,15 @@ namespace FINAL.Areas.Admin.Controllers
             _context.Users.Remove(SelectedUser);
             _context.SaveChanges();
 
-            Response.Cookies.Append("token", Request.Cookies["token"], new Microsoft.AspNetCore.Http.CookieOptions
+            if(Request.Cookies["token"] != null)
             {
-                Expires = DateTime.Now.AddDays(-1),
-                HttpOnly = true
-            });
+                Response.Cookies.Append("token", Request.Cookies["token"], new Microsoft.AspNetCore.Http.CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(-1),
+                    HttpOnly = true
+                });
+            }
+            
 
             return RedirectToAction("index", "user");
         }

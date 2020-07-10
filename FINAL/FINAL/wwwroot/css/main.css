@@ -1495,7 +1495,7 @@ Creation date: 24/08/2019 12:54
   #home-partners .contain-stack {
     padding: 20px 25px !important; }
     #home-partners .contain-stack .partners-logo {
-      padding: 10px 5px 5px;
+      padding: 5px 0px;
       border: 1px solid #e0d7d7;
       border-radius: 8px;
       -webkit-box-shadow: 7px 7px 11px -7px #6e6e6e;
@@ -1510,18 +1510,26 @@ Creation date: 24/08/2019 12:54
               justify-content: center; }
       #home-partners .contain-stack .partners-logo .item {
         padding: 0px 25px;
-        height: 100px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -webkit-box-pack: center;
             -ms-flex-pack: center;
-                justify-content: center; }
-        #home-partners .contain-stack .partners-logo .item img {
-          max-height: 100px;
-          max-width: -webkit-min-content;
-          max-width: -moz-min-content;
-          max-width: min-content; }
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        #home-partners .contain-stack .partners-logo .item a {
+          height: 100px;
+          width: 150px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center; }
+          #home-partners .contain-stack .partners-logo .item a img {
+            max-height: 100px; }
       #home-partners .contain-stack .partners-logo .owl-nav span {
         font-size: 35px;
         padding: 0px 20px;
